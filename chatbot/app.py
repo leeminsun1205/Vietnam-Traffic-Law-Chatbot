@@ -45,19 +45,19 @@ def load_reranker_model(model_name):
 def load_gemini_model(model_name):
     logging.info(f"CACHE MISS: Loading/Configuring Gemini model: {model_name}")
     
-    if not google_api_key:
-            try:
-                user_secrets = UserSecretsClient()
-                google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
-                source = "Kaggle secrets"
-            except Exception: # Ngoại lệ chung nếu không ở trong Kaggle
-                google_api_key = None
-                source = "Không tìm thấy"
+    try:
+        user_secrets = UserSecretsClient()
+        google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
+        source = "Kaggle secrets"
+    except Exception: # Ngoại lệ chung nếu không ở trong Kaggle
+        google_api_key = None
+        source = "Không tìm thấy"
 
     if google_api_key:
         logging.info(f"Tìm thấy Google API Key từ: {source}")
         genai.configure(api_key=google_api_key)
-        model = genai.GenerativeModel(model_name)
+        safety_settings=[{"category": c, "threshold": "BLOCK_NONE"} for c in ["HARM_CATEGORY_DANGEROUS_CONTENT", "HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT"]]
+        model = genai.GenerativeModel(model_name, safety_settings=safety_settings)
         logging.info("Gemini model configured successfully.")
         return model
     else:

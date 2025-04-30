@@ -56,8 +56,7 @@ def load_gemini_model(model_name):
     if google_api_key:
         logging.info(f"Tìm thấy Google API Key từ: {source}")
         genai.configure(api_key=google_api_key)
-        safety_settings=[{"category": c, "threshold": "BLOCK_NONE"} for c in ["HARM_CATEGORY_DANGEROUS_CONTENT", "HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT"]]
-        model = genai.GenerativeModel(model_name, safety_settings=safety_settings)
+        model = genai.GenerativeModel(model_name)
         logging.info("Gemini model configured successfully.")
         return model
     else:
@@ -70,6 +69,7 @@ def load_gemini_model(model_name):
 def cached_load_or_create_components(_embedding_model): # Thêm _ để streamlit biết nó phụ thuộc vào embedding model
     """Wrapper cho data_loader để dùng với cache của Streamlit."""
     if _embedding_model is None:
+         st.write('aaaaaaaaaaaaaaaa')
          st.error("Không thể khởi tạo DB/Retriever vì Embedding Model lỗi.")
          return None, None
     # Gọi hàm xử lý chính từ data_loader.py
@@ -96,10 +96,10 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
 
     st.write("Chuẩn bị cơ sở dữ liệu và retriever...")
     g_vector_db, g_hybrid_retriever = None, None
-    if models_loaded: # Chỉ tiếp tục nếu models ok
+    if models_loaded: 
         g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
-
+    
     if models_loaded and retriever_ready:
         status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)
         init_ok = True

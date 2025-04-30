@@ -5,6 +5,7 @@ import config # Import cấu hình
 from vector_db import SimpleVectorDatabase # Import class DB
 from retriever import HybridRetriever # Import class Retriever
 from utils import embed_legal_chunks # Import hàm embed
+import streamlit as st
 
 def load_or_create_rag_components(embedding_model):
     """

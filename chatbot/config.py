@@ -10,15 +10,15 @@ gemini_model_name = 'gemini-2.0-flash' # Sử dụng model mới nhất nếu c�
 # --- Cấu hình Đường dẫn ---
 # Điều chỉnh đường dẫn dựa trên môi trường chạy (Kaggle hoặc local/server)
 KAGGLE_INPUT_PATH = '/kaggle/input/legals'
-LOCAL_DATA_PATH = 'data' # Thư mục chứa file json nếu chạy local
-VNCORENLP_SAVE_DIR = 'vncorenlp' # Thư mục lưu VnCoreNLP
-SAVED_DATA_DIR = 'kaggle/working' # Thư mục lưu index, docs, bm25
+LOCAL_DATA_PATH = './' # Thư mục chứa file json nếu chạy local
+VNCORENLP_SAVE_DIR = 'kaggle/working/' # Thư mục lưu VnCoreNLP
+SAVED_DATA_DIR = 'kaggle/working/' # Thư mục lưu index, docs, bm25
 SAVED_DATA_PREFIX = os.path.join(SAVED_DATA_DIR, 'legal_rag_data') # Prefix đầy đủ
 
 # Xác định đường dẫn dữ liệu JSON
 JSON_DATA_PATH = KAGGLE_INPUT_PATH if os.path.exists(KAGGLE_INPUT_PATH) else LOCAL_DATA_PATH
 JSON_FILE_PATTERN = os.path.join(JSON_DATA_PATH, 'legal_{i}.json')
-NUM_FILES = 30 # Tổng số file dữ liệu dự kiến
+NUM_FILES = 31 # Tổng số file dữ liệu dự kiến
 NUMBERS_TO_SKIP = {29, 30}
 
 # --- Cấu hình Tokenizer & Word Segmentation ---

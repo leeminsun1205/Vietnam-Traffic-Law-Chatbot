@@ -22,7 +22,7 @@ def load_or_create_rag_components(embedding_model):
     if vector_db_instance.load(config.SAVED_DATA_PREFIX):
         logging.info("Đã tải Vector DB từ file.")
         # Nếu tải DB thành công, khởi tạo Retriever (nó sẽ tự tải/tạo BM25)
-        st.write('aaaaaa')
+        # st.write('aaaaaa')
         hybrid_retriever_instance = HybridRetriever(vector_db_instance, bm25_save_path=f"{config.SAVED_DATA_PREFIX}_bm25.pkl")
     else:
         # Nếu không tải được DB -> Tạo mới

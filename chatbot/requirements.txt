@@ -1,0 +1,12 @@
+streamlit
+sentence-transformers
+faiss-cpu # Hoặc faiss-gpu nếu bạn có GPU và cài đặt CUDA đúng cách
+google-generativeai
+rank_bm25
+py-vncorenlp # Thư viện tách từ tiếng Việt
+numpy
+pandas # Có thể cần cho xử lý dữ liệu hoặc đánh giá sau này
+rouge-score # Nếu dùng để đánh giá
+# bert-score # Nếu dùng để đánh giá
+# transformers # Thường được cài kèm sentence-transformers, nhưng thêm vào cho chắc
+# torch # Hoặc tensorflow, tùy thuộc backend của bạn

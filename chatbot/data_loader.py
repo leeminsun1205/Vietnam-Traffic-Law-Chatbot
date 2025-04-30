@@ -21,8 +21,8 @@ def load_or_create_rag_components(embedding_model):
     # Cố gắng tải Vector DB trước
     if vector_db_instance.load(config.SAVED_DATA_PREFIX):
         logging.info("Đã tải Vector DB từ file.")
+        st.write('1')
         # Nếu tải DB thành công, khởi tạo Retriever (nó sẽ tự tải/tạo BM25)
-        st.write('aaaaaa')
         hybrid_retriever_instance = HybridRetriever(vector_db_instance, bm25_save_path=f"{config.SAVED_DATA_PREFIX}_bm25.pkl")
     else:
         # Nếu không tải được DB -> Tạo mới
@@ -33,7 +33,6 @@ def load_or_create_rag_components(embedding_model):
             for i in range(1, config.NUM_FILES + 1)
             if i not in config.NUMBERS_TO_SKIP
         ]
-        st.write('aaaaaa')
         st.write(json_files)
         logging.info(f"Sẽ xử lý {len(json_files)} file JSON để tạo DB.")
         if not json_files:

@@ -69,10 +69,10 @@ def load_gemini_model(model_name):
 def cached_load_or_create_components(_embedding_model): # Thêm _ để streamlit biết nó phụ thuộc vào embedding model
     """Wrapper cho data_loader để dùng với cache của Streamlit."""
     if _embedding_model is None:
-         st.write('aaaaaaaaaaaaaaaa')
          st.error("Không thể khởi tạo DB/Retriever vì Embedding Model lỗi.")
          return None, None
     # Gọi hàm xử lý chính từ data_loader.py
+    st.write('aaaaaaaaaaaaaaaa')
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
     return vector_db, hybrid_retriever
 

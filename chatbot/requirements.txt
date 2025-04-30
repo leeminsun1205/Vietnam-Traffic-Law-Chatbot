@@ -6,3 +6,4 @@ py-vncorenlp
 numpy
 pandas 
 rouge-score 
+google-generativeai

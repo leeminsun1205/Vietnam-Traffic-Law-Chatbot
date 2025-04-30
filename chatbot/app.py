@@ -50,6 +50,7 @@ def load_gemini_model(model_name):
         source = "Streamlit secrets"
         # Nếu không có, thử Kaggle secrets (khi chạy trên Kaggle)
         if not google_api_key:
+             st.write(1)
              try:
                   user_secrets = UserSecretsClient()
                   google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")

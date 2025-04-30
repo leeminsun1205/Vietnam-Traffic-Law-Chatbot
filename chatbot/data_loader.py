@@ -8,6 +8,7 @@ from utils import embed_legal_chunks # Import hàm embed
 import streamlit as st
 
 def load_or_create_rag_components(embedding_model):
+    st.write('aaaaaa')
     """
     Tải VectorDB, Retriever từ file đã lưu nếu có,
     hoặc tạo mới nếu không có (bao gồm embedding).

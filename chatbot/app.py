@@ -44,35 +44,25 @@ def load_reranker_model(model_name):
 @st.cache_resource
 def load_gemini_model(model_name):
     logging.info(f"CACHE MISS: Loading/Configuring Gemini model: {model_name}")
-    try:
-        # Thử lấy key từ Streamlit secrets trước (khi deploy)
-        google_api_key = st.secrets.get("GOOGLE_API_KEY")
-        source = "Streamlit secrets"
-        # Nếu không có, thử Kaggle secrets (khi chạy trên Kaggle)
-        if not google_api_key:
-             st.write(1)
-             try:
-                  user_secrets = UserSecretsClient()
-                  google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
-                  source = "Kaggle secrets"
-             except Exception: # Ngoại lệ chung nếu không ở trong Kaggle
-                  google_api_key = None
-                  source = "Không tìm thấy"
+    
+    if not google_api_key:
+            try:
+                user_secrets = UserSecretsClient()
+                google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
+                source = "Kaggle secrets"
+            except Exception: # Ngoại lệ chung nếu không ở trong Kaggle
+                google_api_key = None
+                source = "Không tìm thấy"
 
-        if google_api_key:
-            logging.info(f"Tìm thấy Google API Key từ: {source}")
-            genai.configure(api_key=google_api_key)
-            safety_settings=[{"category": c, "threshold": "BLOCK_NONE"} for c in ["HARM_CATEGORY_DANGEROUS_CONTENT", "HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT"]]
-            model = genai.GenerativeModel(model_name, safety_settings=safety_settings)
-            logging.info("Gemini model configured successfully.")
-            return model
-        else:
-            st.error("Không tìm thấy GOOGLE_API_KEY trong Streamlit secrets hoặc Kaggle secrets.")
-            logging.error("GOOGLE_API_KEY not found.")
-            return None
-    except Exception as e:
-        st.error(f"Lỗi cấu hình Gemini Model: {e}")
-        logging.error(f"Gemini configuration error: {e}")
+    if google_api_key:
+        logging.info(f"Tìm thấy Google API Key từ: {source}")
+        genai.configure(api_key=google_api_key)
+        model = genai.GenerativeModel(model_name)
+        logging.info("Gemini model configured successfully.")
+        return model
+    else:
+        st.error("Không tìm thấy GOOGLE_API_KEY trong Streamlit secrets hoặc Kaggle secrets.")
+        logging.error("GOOGLE_API_KEY not found.")
         return None
 
 # --- Hàm Cache để Khởi tạo DB và Retriever ---

@@ -46,6 +46,7 @@ def load_or_create_rag_components(embedding_model):
 
             # Khởi tạo Retriever (nó sẽ tự tạo và lưu BM25)
             hybrid_retriever_instance = HybridRetriever(vector_db_instance, bm25_save_path=f"{config.SAVED_DATA_PREFIX}_bm25.pkl")
+            st.write(hybrid_retriever_instance)
             logging.info("Đã tạo và lưu Vector DB & trạng thái BM25.")
         else:
             logging.error("Lỗi: Không embed được dữ liệu. Không thể tạo DB/Retriever.")

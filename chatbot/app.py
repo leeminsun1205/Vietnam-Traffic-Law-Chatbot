@@ -73,6 +73,7 @@ def cached_load_or_create_components(_embedding_model): # Thêm _ để streamli
          return None, None
     # Gọi hàm xử lý chính từ data_loader.py
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
+    st.write(vector_db)
     return vector_db, hybrid_retriever
 
 # --- Giao diện chính của Ứng dụng ---

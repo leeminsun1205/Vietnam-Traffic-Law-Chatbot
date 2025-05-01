@@ -63,44 +63,82 @@ Hãy trả lời THEO ĐÚNG ĐỊNH DẠNG JSON sau... (Giữ nguyên yêu cầ
     return all_queries, summarizing_query
 
 # --- Data Processing ---
-def embed_legal_chunks(file_paths, model):
-    """Đọc các file JSON, trích xuất text và tạo embeddings."""
+def embed_legal_chunks_return_valid(file_paths, model):
+    
     all_chunks_read = []
-    logging.info(f"Bắt đầu xử lý dữ liệu từ {len(file_paths)} file JSON...")
+
+    print(f"Bắt đầu xử lý dữ liệu.")
+    print(f"Đang đọc dữ liệu từ {len(file_paths)} file JSON...")
+
+    # Đọc tất cả các chunk từ các file JSON
     for file_path in file_paths:
-        st.write(file_path)
-        st.write(os.path.exists(file_path))
+        # Kiểm tra xem file có tồn tại không
         if os.path.exists(file_path):
-            logging.info(f"Đang đọc: {os.path.basename(file_path)}")
+            print(f"Đang đọc: {os.path.basename(file_path)}")
             try:
+                # Mở và đọc file JSON
                 with open(file_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    if isinstance(data, list): all_chunks_read.extend(data)
-                    else: logging.warning(f"File '{file_path}' không phải list JSON.")
-            except json.JSONDecodeError: logging.error(f"File '{file_path}' không phải JSON hợp lệ.")
-            except Exception as e: logging.error(f"Lỗi đọc file '{file_path}': {e}")
-        else: logging.warning(f"File không tồn tại: '{file_path}'")
+                    # Kiểm tra xem dữ liệu có phải là một list không
+                    if isinstance(data, list):
+                        all_chunks_read.extend(data)
+                        print(f"  -> Đã đọc {len(data)} chunks. Tổng cộng tạm thời: {len(all_chunks_read)}")
+                    else:
+                        # Cảnh báo nếu file không chứa list JSON
+                        print(f"  -> Cảnh báo: File không chứa danh sách JSON. Bỏ qua.")
+            except json.JSONDecodeError:
+                print(f"  -> Lỗi: File không phải là JSON hợp lệ. Bỏ qua.")
+            except Exception as e:
+                 print(f"  -> Lỗi khi đọc file: {e}. Bỏ qua.")
+        else:
+            print(f"Cảnh báo: File không tồn tại: '{file_path}'. Bỏ qua.")
 
-    if not all_chunks_read: logging.error("Không đọc được chunk nào."); return [], None
-    logging.info(f"Đọc thành công tổng cộng: {len(all_chunks_read)} chunks.")
 
-    texts_to_embed, valid_chunks = [], []
+    # Kiểm tra xem có chunk nào được đọc không
+    if not all_chunks_read:
+        print("Không đọc được chunk nào từ các file đã cung cấp. Trả về danh sách rỗng và None.")
+        return [], None # Trả về list rỗng và None
+
+    print(f"\nTổng số chunks đã đọc từ các file: {len(all_chunks_read)}")
+
+    # Lọc ra các chunk hợp lệ và văn bản tương ứng
+    texts_to_embed = []
+    valid_chunks = []
+
+    # Lặp qua các chunk đã đọc để lấy text hợp lệ
     for chunk in all_chunks_read:
         text = chunk.get('text')
+        # Kiểm tra xem 'text' có tồn tại, là string và không rỗng (sau khi loại bỏ khoảng trắng)
         if text and isinstance(text, str) and text.strip():
-            texts_to_embed.append(text)
-            valid_chunks.append(chunk)
+            texts_to_embed.append(text.strip()) # Thêm text đã được làm sạch
+            valid_chunks.append(chunk) # Thêm chunk hợp lệ vào danh sách
 
-    if not texts_to_embed: logging.error("Không tìm thấy text hợp lệ để embed."); return [], None
-    logging.info(f"Đang tạo embeddings cho {len(texts_to_embed)} chunks...")
+    # Kiểm tra xem có text nào hợp lệ để embed không
+    if not texts_to_embed:
+        print("Không tìm thấy nội dung text hợp lệ trong các chunk để embedding. Trả về danh sách rỗng và None.")
+        return [], None # Trả về list rỗng và None
+
+    print(f"Tìm thấy {len(valid_chunks)} chunks hợp lệ có text.")
+    print(f"Đang tạo embeddings cho {len(texts_to_embed)} đoạn text hợp lệ...")
+
+    # Tạo embeddings sử dụng model được cung cấp
     try:
-        # Tắt progress bar vì có thể không hiển thị tốt ở mọi môi trường
-        embeddings = model.encode(texts_to_embed, show_progress_bar=False, convert_to_numpy=True)
-        logging.info("Tạo embeddings thành công.")
-        return valid_chunks, embeddings.astype('float32')
+        # show_progress_bar=True để hiển thị thanh tiến trình
+        # convert_to_numpy=True để đảm bảo kết quả là mảng NumPy
+        embeddings = model.encode(texts_to_embed, show_progress_bar=True, convert_to_numpy=True)
+        print("Đã tạo embeddings thành công.")
+
+        # Đảm bảo kiểu dữ liệu là float32 như hàm gốc
+        embeddings_float32 = embeddings.astype(np.float32)
+
+        print(f"--- Quá trình xử lý hoàn tất ---")
+        # Trả về danh sách các chunk hợp lệ và mảng embeddings tương ứng
+        return valid_chunks, embeddings_float32
+
     except Exception as e:
-        logging.error(f"Lỗi trong quá trình tạo embeddings: {e}")
-        return [], None
+        print(f"Lỗi trong quá trình tạo embeddings: {e}")
+        # Trả về danh sách chunk hợp lệ đã lọc nhưng không có embedding
+        return valid_chunks, None
 
 # --- Retrieval ---
 def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):

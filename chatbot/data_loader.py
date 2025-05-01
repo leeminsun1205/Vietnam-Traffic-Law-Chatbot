@@ -16,7 +16,7 @@ def load_or_create_rag_components(embedding_model):
     logging.info("--- Đang kiểm tra/khởi tạo Vector DB và Retriever ---")
     vector_db_instance = SimpleVectorDatabase()
     hybrid_retriever_instance = None
-    st.write('START')
+    # st.write('START')
     st.write('ahhahah')
     # Cố gắng tải Vector DB trước
     if vector_db_instance.load(config.SAVED_DATA_PREFIX):

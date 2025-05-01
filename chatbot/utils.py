@@ -10,7 +10,7 @@ import config
 
 
 # --- Model Loading Functions ---
-# @st.cache_resource
+@st.cache_resource
 def load_embedding_model(model_name):
     try:
         model = SentenceTransformer(model_name)
@@ -19,7 +19,7 @@ def load_embedding_model(model_name):
         st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
         return None
 
-# @st.cache_resource
+@st.cache_resource
 def load_reranker_model(model_name):
     try:
         model = CrossEncoder(model_name)
@@ -28,7 +28,7 @@ def load_reranker_model(model_name):
         st.error(f"Lỗi tải Reranker Model ({model_name}): {e}")
         return None
 
-# @st.cache_resource
+@st.cache_resource
 def load_gemini_model(model_name):
     user_secrets = UserSecretsClient()
     google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")

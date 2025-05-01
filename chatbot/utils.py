@@ -277,7 +277,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
     4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Chú ý tính thứ tự quan trọng của nội dung, ví dụ thứ tự ưu tiên, mức độ phạt nặng nhẹ, tránh sai lệch, lộn xộn (Lưu ý nếu có thứ tự thì a là cao nhất rồi tới b, c, d, ...)
+    5.  Chú ý tính thứ tự quan trọng của nội dung, ví dụ thứ tự ưu tiên, mức độ phạt nặng nhẹ, tránh sai lệch, lộn xộn. (Lưu ý nếu có thứ tự thì "điểm a" là thứ tự CAO NHẤT rồi giảm dần theo điểm b, điểm c, điểm d, ...). Thứ tự ưu tiên phải dựa vào ngữ cảnh được cung cấp.
 
     **Trả lời NGẮN GỌN:**
     """

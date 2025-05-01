@@ -253,9 +253,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `[...]`.
         * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
     3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** (`** **`) cho điểm chính/mức phạt/kết luận.
-    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "nồng độ cồn" vs "rượu bia", "đèn đỏ" vs "tín hiệu giao thông", "xe máy" vs "xe mô tô/gắn máy").
+    4.  **Hiểu ngữ nghĩa:** Tìm thông tin THẬT SỰ liên quan đến câu hỏi ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "nồng độ cồn" vs "rượu bia", "đèn đỏ" vs "tín hiệu giao thông", "xe máy" vs "xe mô tô/gắn máy").
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
-    6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa chính câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác.
 
     **Trả lời:**
     """

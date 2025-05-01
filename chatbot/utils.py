@@ -195,6 +195,7 @@ def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader
     
 def extract_and_normalize_document_key(citation_text):
     citation_text = citation_text.strip() 
+    st.write(citation_text)
     match1 = re.search(r'(\d+)\s*[/_]\s*(\d{4})\s*[/_]\s*([A-ZĐ]+(?:-[A-ZĐ]+)*)', citation_text, re.IGNORECASE)
     if match1:
         number = match1.group(1)

@@ -47,6 +47,13 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
 if init_ok:
     with st.form("query_form"):
         user_query = st.text_area("Nhập câu hỏi của bạn:", height=100, placeholder="Ví dụ: Mức phạt khi không đội mũ bảo hiểm?")
+        # --- Thêm lựa chọn chế độ ---
+        answer_mode = st.radio(
+            "Chọn mức độ chi tiết:",
+            ('Ngắn gọn', 'Đầy đủ'),
+            index=1, # Mặc định chọn 'Đầy đủ'
+            horizontal=True,
+        )
         submitted = st.form_submit_button("Tra cứu 🚀")
 
     if submitted and user_query:
@@ -111,16 +118,22 @@ if init_ok:
             # 4. Generate Answer
             final_answer = "..."
             if final_relevant_documents:
-                st.write(f"*{time.time() - start_time:.2f}s: Tổng hợp câu trả lời...*")
+                st.write(f"*{time.time() - start_time:.2f}s: Tổng hợp câu trả lời ({answer_mode})...*") # Hiển thị chế độ đang dùng
                 final_answer = utils.generate_answer_with_gemini(
                     user_query,
                     final_relevant_documents,
-                    g_gemini_model
+                    g_gemini_model,
+                    mode=answer_mode # << Truyền chế độ đã chọn
                 )
             else:
                 st.write(f"*{time.time() - start_time:.2f}s: Không đủ ngữ cảnh, đang tạo câu trả lời chung...*")
-                final_answer = utils.generate_answer_with_gemini(user_query, [], g_gemini_model)
-
+                final_answer = utils.generate_answer_with_gemini(
+                    user_query,
+                    [], # Không có ngữ cảnh
+                    g_gemini_model,
+                    mode=answer_mode # Vẫn truyền mode phòng trường hợp prompt chung cũng cần thay đổi
+                )
+                
             end_time = time.time()
             st.write(f"*{end_time - start_time:.2f}s: Hoàn tất!*")
 

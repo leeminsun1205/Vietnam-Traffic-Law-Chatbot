@@ -198,11 +198,12 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
 
 
 # --- Generation ---
-def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
+def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ'):
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
 
     context_str_parts = []
     unique_urls = set()
+    source_details_for_prompt = []
 
     if not relevant_documents:
         context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
@@ -221,32 +222,59 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
             source_ref = ", ".join(source_parts)
             context_str_parts.append(f"--- Nguồn tham khảo {i+1}: [{source_ref}] ---\n{text}\n---")
             if url: unique_urls.add(url)
-        if not context_str_parts: context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
-    context_text = "\n".join(context_str_parts)
+        if not source_details_for_prompt:
+             context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp."
+        else:
+             context_for_prompt = "\n".join(source_details_for_prompt) 
     urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
-    prompt = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
-    Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp (`{context_text}`).
+    full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
+    Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **CHI TIẾT** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp.
 
     **Ngữ cảnh được cung cấp (Mỗi đoạn có kèm nguồn tham khảo):**
-    {context_text}
+    {context_for_prompt}
 
     **Câu hỏi của người dùng:** {query_text}
 
-    **Yêu cầu trả lời:**
+    **Yêu cầu trả lời CHI TIẾT:**
     1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài.
-    2.  **Tổng hợp và trích dẫn:**
-        * Kết hợp thông tin từ nhiều đoạn nếu cần, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài.
-        * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `[...]`.
-        * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
-    3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** (`** **`) cho điểm chính/mức phạt/kết luận.
-    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "nồng độ cồn" vs "rượu bia", "đèn đỏ" vs "tín hiệu giao thông", "xe máy" vs "xe mô tô/gắn máy").
-    5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
-    6.  **Thông tin liên quan (không trực tiếp):** Nếu không có câu trả lời trực tiếp nhưng tìm thấy thông tin có thể liên quan, hãy nêu rõ điều đó sau khi báo không tìm thấy câu trả lời chính xác (ví dụ: "Tôi không tìm thấy quy định trực tiếp về X, tuy nhiên có thông tin về Y như sau:... (Nguồn:...)").
-    7.  *Tham khảo thêm:** Cuối câu trả lời, nếu có URL trong ngữ cảnh, thêm phần "Nguồn:" và liệt kê URL thuộc về thông tin mà bạn sử dụng.
+    2.  **Tổng hợp và trích dẫn ĐẦY ĐỦ:**
+        * Kết hợp thông tin từ nhiều đoạn nếu cần, diễn đạt lại mạch lạc.
+        * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** đầy đủ trong dấu `[...]`. Ví dụ: `[VB: Tên VB, Ch.X, Đ.Y, K.Z, đ.a]`.
+        * Gom nhóm nguồn hợp lý nếu nhiều điểm thuộc cùng Khoản/Điều.
+    3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** điểm chính/mức phạt/kết luận.
+    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn.
+    5.  **Thiếu thông tin:** Nếu ngữ cảnh không có, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
+    6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan, có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác.
+    7.  **Nguồn URL:** Cuối câu trả lời, nếu có URL trong ngữ cảnh được sử dụng, thêm phần "**Nguồn tham khảo:**" và liệt kê các URL đó.
 
-    **Trả lời:**
+    **Trả lời CHI TIẾT:**
     """
+
+    # Prompt Ngắn Gọn (Mới)
+    brief_prompt_template = f"""Bạn là trợ lý luật giao thông Việt Nam.
+    Nhiệm vụ: Trả lời câu hỏi (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm, **CHỈ DÙNG** ngữ cảnh sau.
+
+    **Ngữ cảnh:**
+    {context_for_prompt}
+
+    **Câu hỏi:** {query_text}
+
+    **Yêu cầu trả lời NGẮN GỌN:**
+    1.  **Chỉ dùng ngữ cảnh.**
+    2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
+    3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
+    4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
+
+    **Trả lời NGẮN GỌN:**
+    """
+    
+    # --- Chọn Prompt dựa trên chế độ ---
+    if mode == 'Ngắn gọn':
+        prompt = brief_prompt_template
+    else: # Mặc định là 'Đầy đủ'
+        prompt = full_prompt_template
+
     # --- Gọi API và xử lý kết quả ---
     final_answer = "Lỗi khi tạo câu trả lời từ Gemini."
     try:

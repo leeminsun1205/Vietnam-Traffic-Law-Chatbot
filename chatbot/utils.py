@@ -170,10 +170,10 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
             if diem: source_parts.append(f"Điểm {diem}")
             source_ref = ", ".join(source_parts)
             context_str_parts.append(f"--- Nguồn tham khảo {i+1}: [{source_ref}] ---\n{text}\n---")
-            context_str_parts.append(f"--- URL {i+1}: \n---")
-            # if url: unique_urls.add(url)
+            if url: unique_urls.add(url)
         if not context_str_parts: context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
     context_text = "\n".join(context_str_parts)
+    urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
     prompt = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
     Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp (`{context_text}`).
@@ -193,7 +193,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "nồng độ cồn" vs "rượu bia", "đèn đỏ" vs "tín hiệu giao thông", "xe máy" vs "xe mô tô/gắn máy").
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  **Thông tin liên quan (không trực tiếp):** Nếu không có câu trả lời trực tiếp nhưng tìm thấy thông tin có thể liên quan, hãy nêu rõ điều đó sau khi báo không tìm thấy câu trả lời chính xác (ví dụ: "Tôi không tìm thấy quy định trực tiếp về X, tuy nhiên có thông tin về Y như sau:... (Nguồn:...)").
-    7.  Cuối câu trả lời thêm phần "Nguồn:" và liệt kê URL thuộc về thông tin mà bạn sử dụng (Mỗi URL thỏa mãn chỉ liệt kê 1 lần).
+    7.  *Tham khảo thêm:** Cuối câu trả lời, nếu có URL trong ngữ cảnh, thêm phần "Nguồn:" và liệt kê URL thuộc về thông tin mà bạn sử dụng.
 
     **Trả lời:**
     """
@@ -211,5 +211,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
 
     except Exception as e:
         final_answer = f"Đã xảy ra lỗi khi kết nối với mô hình ngôn ngữ: {e}"
+
+    if unique_urls and "không tìm thấy nội dung phù hợp" not in final_answer and "bị chặn bởi bộ lọc an toàn" not in final_answer and "Lỗi khi" not in final_answer:
+        final_answer += "\n\n**Nguồn:**\n" + urls_string
 
     return final_answer

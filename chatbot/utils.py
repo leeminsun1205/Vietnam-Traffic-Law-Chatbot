@@ -239,7 +239,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
     full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
-    Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp (`{context_text}`).
+    Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp (`{context_for_prompt}`).
 
     **Ngữ cảnh được cung cấp (Mỗi đoạn có kèm nguồn tham khảo):**
     {context_for_prompt}

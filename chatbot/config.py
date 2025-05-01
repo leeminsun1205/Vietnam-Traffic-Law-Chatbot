@@ -3,7 +3,8 @@ import os
 # --- Cấu hình Mô hình ---
 embedding_model_name = 'truro7/vn-law-embedding' 
 reranking_model_name = 'namdp-ptit/ViRanker' 
-gemini_model_name = 'gemini-2.5-flash-preview-04-17' 
+# gemini_model_name = 'gemini-2.5-flash-preview-04-17' 
+gemini_model_name = 'gemini-2.0-flash'
 
 # --- Cấu hình Đường dẫn ---
 KAGGLE_INPUT_PATH = '/kaggle/working/CS431.P22/datasets'

@@ -28,7 +28,7 @@ def load_reranker_model(model_name):
         st.error(f"Lỗi tải Reranker Model ({model_name}): {e}")
         return None
 
-@st.cache_resource
+# @st.cache_resource
 def load_gemini_model(model_name):
     user_secrets = UserSecretsClient()
     google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
@@ -211,7 +211,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     else:
         for i, item in enumerate(relevant_documents):
             doc = item.get('doc'); 
-            st.write(doc)
+            # st.write(doc)
             text = doc.get('text', '').strip(); 
             metadata = doc.get('metadata', {})
             if not doc or not text: continue

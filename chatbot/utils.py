@@ -68,6 +68,7 @@ def embed_legal_chunks(file_paths, model):
     all_chunks_read = []
     logging.info(f"Bắt đầu xử lý dữ liệu từ {len(file_paths)} file JSON...")
     for file_path in file_paths:
+        print(os.path.exists(file_path))
         if os.path.exists(file_path):
             logging.info(f"Đang đọc: {os.path.basename(file_path)}")
             try:

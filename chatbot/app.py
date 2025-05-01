@@ -2,54 +2,11 @@
 import streamlit as st
 import os
 import time 
-
 import config
 import utils
-import data_loader
-from sentence_transformers import SentenceTransformer, CrossEncoder
-import google.generativeai as genai
-from kaggle_secrets import UserSecretsClient 
 
 # --- Cấu hình Trang Streamlit ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="collapsed")
-
-# --- Hàm Cache để tải Model ---
-@st.cache_resource
-def load_embedding_model(model_name):
-    try:
-        model = SentenceTransformer(model_name)
-        return model
-    except Exception as e:
-        st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
-        return None
-
-@st.cache_resource
-def load_reranker_model(model_name):
-    try:
-        model = CrossEncoder(model_name)
-        return model
-    except Exception as e:
-        st.error(f"Lỗi tải Reranker Model ({model_name}): {e}")
-        return None
-
-@st.cache_resource
-def load_gemini_model(model_name):
-    user_secrets = UserSecretsClient()
-    google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
-
-    if google_api_key:
-        genai.configure(api_key=google_api_key)
-        model = genai.GenerativeModel(model_name)
-        return model
-    else:
-        st.error("Không tìm thấy GOOGLE_API_KEY.")
-        return None
-
-# --- Hàm Cache để Khởi tạo DB và Retriever ---
-@st.cache_resource
-def cached_load_or_create_components(_embedding_model): 
-    vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
-    return vector_db, hybrid_retriever
 
 # --- Giao diện chính của Ứng dụng ---
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
@@ -59,18 +16,18 @@ st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về
 init_ok = False
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     st.write(f"Tải embedding model: {config.embedding_model_name}...")
-    g_embedding_model = load_embedding_model(config.embedding_model_name)
+    g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
 
     st.write(f"Tải reranker model: {config.reranking_model_name}...")
-    g_reranking_model = load_reranker_model(config.reranking_model_name)
+    g_reranking_model = utils.load_reranker_model(config.reranking_model_name)
 
     st.write(f"Cấu hình Gemini model: {config.gemini_model_name}...")
-    g_gemini_model = load_gemini_model(config.gemini_model_name)
+    g_gemini_model = utils.load_gemini_model(config.gemini_model_name)
 
     models_loaded = all([g_embedding_model, g_reranking_model, g_gemini_model])
 
     st.write("Chuẩn bị cơ sở dữ liệu và retriever...")
-    g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
+    g_vector_db, g_hybrid_retriever = utils.cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
     if retriever_ready:
         status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)

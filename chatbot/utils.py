@@ -2,22 +2,53 @@
 import json
 import os
 import re
-import logging
-import numpy as np
 import google.generativeai as genai
 from sentence_transformers import SentenceTransformer, CrossEncoder
-from kaggle_secrets import UserSecretsClient # Cần thiết nếu chạy trên Kaggle
+from kaggle_secrets import UserSecretsClient 
 import streamlit as st
-# Import config (đảm bảo config.py cùng cấp hoặc trong sys.path)
 import config
+import data_loader
 
 # --- Model Loading Functions ---
-# (Giữ lại ở app.py để dùng với cache Streamlit)
-# Các hàm load_..._model() sẽ nằm trong app.py
+@st.cache_resource
+def load_embedding_model(model_name):
+    try:
+        model = SentenceTransformer(model_name)
+        return model
+    except Exception as e:
+        st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
+        return None
+
+@st.cache_resource
+def load_reranker_model(model_name):
+    try:
+        model = CrossEncoder(model_name)
+        return model
+    except Exception as e:
+        st.error(f"Lỗi tải Reranker Model ({model_name}): {e}")
+        return None
+
+@st.cache_resource
+def load_gemini_model(model_name):
+    user_secrets = UserSecretsClient()
+    google_api_key = user_secrets.get_secret("GOOGLE_API_KEY")
+
+    if google_api_key:
+        genai.configure(api_key=google_api_key)
+        model = genai.GenerativeModel(model_name)
+        return model
+    else:
+        st.error("Không tìm thấy GOOGLE_API_KEY.")
+        return None
+
+# --- Hàm Cache để Khởi tạo DB và Retriever ---
+@st.cache_resource
+def cached_load_or_create_components(_embedding_model): 
+    vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
+    return vector_db, hybrid_retriever
 
 # --- Query Augmentation ---
 def generate_query_variations(original_query, gemini_model, num_variations=config.NUM_QUERY_VARIATIONS):
-    print(f"\nGenerating {num_variations} variations AND summary for query: \"{original_query}\"")
 
     prompt = f"""Bạn là một chuyên gia về luật giao thông đường bộ Việt Nam. Nhiệm vụ của bạn là:
     1.  Diễn đạt lại câu hỏi gốc sau đây theo {num_variations} cách khác nhau, giữ nguyên ý nghĩa cốt lõi, đa dạng về từ ngữ và cấu trúc, ưu tiên từ khóa luật giao thông và loại phương tiện liên quan (ô tô, xe máy, xe tải,...), sử dụng từ đồng nghĩa (phạt, xử phạt, mức phạt,...).
@@ -38,27 +69,20 @@ def generate_query_variations(original_query, gemini_model, num_variations=confi
     """
 
     all_queries = [original_query]
-    summarizing_query = original_query # Default fallback
-
-    if gemini_model is None:
-        print("Warning: Gemini model not loaded. Cannot generate query variations.")
-        return all_queries, summarizing_query
+    summarizing_query = original_query 
 
     response = gemini_model.generate_content(prompt)
 
     if hasattr(response, 'text') and response.text:
         generated_text = response.text
-        # Attempt to extract JSON block
         json_match = re.search(r"```json\s*(\{.*?\})\s*```|(\{.*?\})", generated_text, re.DOTALL)
         parsed_data = None
         if json_match:
             json_str = json_match.group(1) or json_match.group(2)
             if json_str:
-                # Basic cleanup before parsing
                 json_str = json_str.strip()
-                # Attempt parsing
                 parsing_successful = False
-                try: # Use try-except block specifically for JSON parsing robustness
+                try: 
                     parsed_data = json.loads(json_str)
                     parsing_successful = True
                 except json.JSONDecodeError as e:
@@ -73,29 +97,13 @@ def generate_query_variations(original_query, gemini_model, num_variations=confi
                     if isinstance(variations, list) and variations:
                         all_queries.extend(variations[:num_variations])
                         all_queries = list(set(all_queries)) # Remove duplicates
-                    else:
-                         print("Warning: 'variations' key not found or empty in parsed JSON.")
 
                     if parsed_summary and isinstance(parsed_summary, str):
                         summarizing_query = parsed_summary
-                    else:
-                        print("Warning: 'summarizing_query' key not found or empty/invalid in parsed JSON. Falling back.")
-                # else if parsing successful but not dict: handle this case if needed
-                # else: handled by parsing_successful check
-
-            else:
-                 print("Warning: Extracted JSON string is empty.")
-        else:
-            print("Warning: Could not find JSON block in LLM response.")
-    else:
-        print(f"Warning: Gemini response did not contain text. Using original query only. Response: {response}")
 
     # Ensure summarizing_query is never empty
     if not summarizing_query:
         summarizing_query = original_query
-
-    print(f"Final list of queries ({len(all_queries)}): {[q[:80] + '...' if len(q) > 80 else q for q in all_queries]}")
-    print(f"Final summarizing query for rerank: \"{summarizing_query}\"")
 
     return all_queries, summarizing_query
 
@@ -103,22 +111,13 @@ def generate_query_variations(original_query, gemini_model, num_variations=confi
 def embed_legal_chunks(file_paths, model):
     """Đọc các file JSON, trích xuất text và tạo embeddings."""
     all_chunks_read = []
-    logging.info(f"Bắt đầu xử lý dữ liệu từ {len(file_paths)} file JSON...")
     for file_path in file_paths:
-
         if os.path.exists(file_path):
-            logging.info(f"Đang đọc: {os.path.basename(file_path)}")
-            try:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    if isinstance(data, list): all_chunks_read.extend(data)
-                    else: logging.warning(f"File '{file_path}' không phải list JSON.")
-            except json.JSONDecodeError: logging.error(f"File '{file_path}' không phải JSON hợp lệ.")
-            except Exception as e: logging.error(f"Lỗi đọc file '{file_path}': {e}")
-        else: logging.warning(f"File không tồn tại: '{file_path}'")
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if isinstance(data, list): all_chunks_read.extend(data)
 
-    if not all_chunks_read: logging.error("Không đọc được chunk nào."); return [], None
-    logging.info(f"Đọc thành công tổng cộng: {len(all_chunks_read)} chunks.")
+    if not all_chunks_read: return [], None
 
     texts_to_embed, valid_chunks = [], []
     for chunk in all_chunks_read:
@@ -127,30 +126,21 @@ def embed_legal_chunks(file_paths, model):
             texts_to_embed.append(text)
             valid_chunks.append(chunk)
 
-    if not texts_to_embed: logging.error("Không tìm thấy text hợp lệ để embed."); return [], None
-    logging.info(f"Đang tạo embeddings cho {len(texts_to_embed)} chunks...")
+    if not texts_to_embed: return [], None
     try:
-        # Tắt progress bar vì có thể không hiển thị tốt ở mọi môi trường
         embeddings = model.encode(texts_to_embed, show_progress_bar=False, convert_to_numpy=True)
-        logging.info("Tạo embeddings thành công.")
         return valid_chunks, embeddings.astype('float32')
     except Exception as e:
-        logging.error(f"Lỗi trong quá trình tạo embeddings: {e}")
         return [], None
 
 # --- Retrieval ---
 def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
     """Embed query và tìm kiếm trong vector_db."""
-    if embedding_model is None: logging.error("Embedding model chưa load."); return [], []
-    if vector_db is None or vector_db.index is None: logging.error("Vector DB chưa sẵn sàng."); return [], []
-    # logging.info(f"Embedding query: \"{query_text[:50]}...\"") # Giảm log
     try:
         query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
         distances, indices = vector_db.search(query_embedding, k=k)
-        # logging.info(f"Vector search trả về {len(indices)} indices.") # Giảm log
         return distances, indices
     except Exception as e:
-        logging.error(f"Lỗi khi embedding hoặc tìm kiếm vector: {e}")
         return [], []
 
 # --- Re-ranking ---
@@ -160,32 +150,26 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
     original_indices = [item['index'] for item in documents_with_indices]
     if not original_docs: return []
     if reranking_model is None:
-        logging.warning("Reranker model chưa load, trả về không xếp hạng.")
         return [{"doc": doc, "score": None, "original_index": idx} for doc, idx in zip(original_docs, original_indices)]
 
-    # logging.info(f"Re-ranking {len(original_docs)} docs cho query: \"{query_text[:50]}...\"") # Giảm log
     sentence_pairs = [[query_text, doc.get('text', '')] for doc in original_docs]
     try:
-        relevance_scores = reranking_model.predict(sentence_pairs, show_progress_bar=False) # Tắt progress bar
+        relevance_scores = reranking_model.predict(sentence_pairs, show_progress_bar=False) 
         scored_documents = [{'doc': doc, 'score': relevance_scores[i], 'original_index': original_indices[i]}
                             for i, doc in enumerate(original_docs)]
         scored_documents.sort(key=lambda x: x['score'], reverse=True)
-        # logging.info("Re-ranking hoàn tất.") # Giảm log
         return scored_documents
     except Exception as e:
-        logging.error(f"Lỗi trong quá trình re-ranking: {e}")
-        # Trả về danh sách gốc nếu lỗi
         return [{"doc": doc, "score": None, "original_index": idx} for doc, idx in zip(original_docs, original_indices)]
 
 
 # --- Generation ---
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
-    if gemini_model is None: return "Lỗi: Mô hình Gemini chưa sẵn sàng."
 
     context_str_parts = []
     unique_urls = set()
-    # ... (Copy logic chuẩn bị context_text và unique_urls như trong code gốc) ...
+
     if not relevant_documents:
         context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
     else:
@@ -207,7 +191,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
     context_text = "\n".join(context_str_parts)
     urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
-    # --- Prompt chi tiết ---
     prompt = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
     Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp (`{context_text}`).
 
@@ -227,7 +210,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  **Thông tin liên quan (không trực tiếp):** Nếu không có câu trả lời trực tiếp nhưng tìm thấy thông tin có thể liên quan, hãy nêu rõ điều đó sau khi báo không tìm thấy câu trả lời chính xác (ví dụ: "Tôi không tìm thấy quy định trực tiếp về X, tuy nhiên có thông tin về Y như sau:... (Nguồn:...)").
     7.  **Ưu tiên yêu cầu người dùng:** Thực hiện các yêu cầu cụ thể của người dùng (liệt kê, tóm tắt, tổng hợp,...) nếu có.
-    8.  **Tham khảo thêm:** Cuối câu trả lời, nếu có URL trong ngữ cảnh, thêm phần "Nguồn:" và liệt kê URL.
 
     **Trả lời:**
     """
@@ -240,18 +222,13 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
              final_answer = response.text
         elif response.prompt_feedback and response.prompt_feedback.block_reason:
              final_answer = f"Không thể tạo câu trả lời do bị chặn bởi bộ lọc an toàn: {response.prompt_feedback.block_reason}"
-             logging.warning(f"Gemini response blocked: {response.prompt_feedback}")
         else:
-             # Trường hợp không có text và không có block reason rõ ràng
-             logging.warning(f"Gemini response không có text và không rõ lý do bị chặn: {response}")
              final_answer = "Không nhận được phản hồi hợp lệ từ mô hình ngôn ngữ."
 
     except Exception as e:
-        logging.error(f"Lỗi khi gọi API Gemini (generate_answer): {e}")
         final_answer = f"Đã xảy ra lỗi khi kết nối với mô hình ngôn ngữ: {e}"
 
-    # Thêm URL nếu phù hợp
     if unique_urls and "không tìm thấy nội dung phù hợp" not in final_answer and "bị chặn bởi bộ lọc an toàn" not in final_answer and "Lỗi khi" not in final_answer:
-        final_answer += "\n\n**Bạn có thể tham khảo thêm tại:**\n" + urls_string
+        final_answer += "\n\n**Nguồn:**\n" + urls_string
 
     return final_answer

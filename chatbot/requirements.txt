@@ -8,3 +8,4 @@ pandas
 rouge-score 
 google-generativeai
 pyngrok
+py_vncorenlp

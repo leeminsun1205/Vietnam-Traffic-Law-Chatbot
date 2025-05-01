@@ -1,25 +1,19 @@
 # retriever.py
 import re
 import os
-import logging
 import numpy as np
 import pickle
 import config
 from rank_bm25 import BM25Okapi
 import streamlit as st
-
-# Cần import các thành phần phụ thuộc
-# from vector_db import SimpleVectorDatabase # Không cần trực tiếp, nhận qua __init__
-from utils import retrieve_relevant_chunks # Cần hàm này
-from config import VIETNAMESE_STOP_WORDS, VNCORENLP_SAVE_DIR # Lấy stop words và đường dẫn từ config
-
+from utils import retrieve_relevant_chunks 
+from config import VIETNAMESE_STOP_WORDS, VNCORENLP_SAVE_DIR 
 # Import py_vncorenlp một cách an toàn
 try:
     import py_vncorenlp
 except ImportError:
     logging.warning("Thư viện py_vncorenlp chưa được cài đặt. BM25 sẽ dùng split().")
     py_vncorenlp = None
-
 class HybridRetriever:
     """Kết hợp Vector Search và BM25 Search."""
     def __init__(self, vector_db, bm25_save_path):
@@ -42,35 +36,24 @@ class HybridRetriever:
     def _initialize_vncorenlp(self, vncorenlp_dir):
         """Khởi tạo VnCoreNLP."""
         if py_vncorenlp:
-            # logging.info("Initializing VnCoreNLP for Retriever...") # Giảm log
             try:
                 if not os.path.exists(vncorenlp_dir): os.makedirs(vncorenlp_dir)
                 # py_vncorenlp.download_model(save_dir=vncorenlp_dir) # Nên chạy riêng
                 self.rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir=vncorenlp_dir)
-                logging.info("Retriever: VnCoreNLP (wseg) initialized.")
             except Exception as e:
-                logging.error(f"Retriever: FAILED to initialize VnCoreNLP: {e}. BM25 will use simple split.")
                 self.rdrsegmenter = None
-        else:
-            logging.warning("Retriever: py_vncorenlp not available. BM25 uses simple split.")
 
     def _initialize_bm25(self):
         """Khởi tạo BM25 index."""
         if not self.documents:
-            logging.error("Retriever: No documents to initialize BM25.")
             return
-        logging.info("Retriever: Initializing BM25 index...")
         try:
             tokenized_corpus = [self._simple_tokenize_vncorenlp(text) for text in self.document_texts]
-            # Kiểm tra xem corpus có rỗng không sau khi tokenize
-            if not any(tokenized_corpus): # Check if all lists inside are empty
-                 logging.warning("Retriever: Corpus is empty after tokenization. BM25 index will be empty.")
-                 self.bm25 = None # Không khởi tạo nếu corpus rỗng
+            if not any(tokenized_corpus):
+                 self.bm25 = None 
             else:
                  self.bm25 = BM25Okapi(tokenized_corpus)
-                 logging.info(f"Retriever: BM25 index initialized successfully with {len(tokenized_corpus)} documents.")
         except Exception as e:
-            logging.error(f"Retriever: Error initializing BM25: {e}")
             self.bm25 = None
 
     def _simple_tokenize_vncorenlp(self, text):
@@ -82,9 +65,9 @@ class HybridRetriever:
             try:
                 segmented_sentences = self.rdrsegmenter.word_segment(text_lower)
                 word_tokens = [word for sentence in segmented_sentences for word in sentence]
+                st.write('TESTTT')
             except Exception as e:
-                 logging.warning(f"Retriever: VnCoreNLP failed for text: '{text_lower[:50]}...'. Fallback. Error: {e}")
-                 word_tokens = text_lower.split()
+                word_tokens = text_lower.split()
         else:
             word_tokens = text_lower.split()
         final_tokens = []
@@ -101,14 +84,12 @@ class HybridRetriever:
             return []
 
         # --- 1. Vector Search ---
-        # logging.info("Performing vector search...") # Giảm log
         vec_distances, vec_indices = retrieve_relevant_chunks(
             query_text, embedding_model, self.vector_db, k=vector_search_k
         )
         # --- 2. BM25 Search ---
         bm25_search_indices = []
-        if self.bm25: # Chỉ chạy nếu BM25 đã khởi tạo thành công
-             # logging.info("Performing BM25 search...") # Giảm log
+        if self.bm25: 
              tokenized_query = self._simple_tokenize_vncorenlp(query_text)
              if tokenized_query:
                  try:

@@ -333,6 +333,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     found_urls = set()
     if url_mapping_dict: 
         # Tìm tất cả các chuỗi trong dấu ngoặc vuông
+        st.write(final_answer_display)
         citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
         for citation in citations_found:
             # Trích xuất và chuẩn hóa khóa

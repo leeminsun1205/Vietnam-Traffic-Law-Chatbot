@@ -39,9 +39,6 @@ def load_or_create_rag_components(embedding_model):
 
         # Embed dữ liệu
         valid_chunks, embeddings_array = embed_legal_chunks(json_files, embedding_model)
-        st.write('check')
-        st.write(valid_chunks, embeddings_array)
-        st.write('check')
         if valid_chunks and embeddings_array is not None:
             logging.info(f"Embed thành công {len(valid_chunks)} chunks.")
             # Thêm vào DB và lưu DB
@@ -50,12 +47,10 @@ def load_or_create_rag_components(embedding_model):
 
             # Khởi tạo Retriever (nó sẽ tự tạo và lưu BM25)
             hybrid_retriever_instance = HybridRetriever(vector_db_instance, bm25_save_path=f"{config.SAVED_DATA_PREFIX}_bm25.pkl")
-            st.write('fasjdfaskdg')
             logging.info("Đã tạo và lưu Vector DB & trạng thái BM25.")
         else:
             logging.error("Lỗi: Không embed được dữ liệu. Không thể tạo DB/Retriever.")
             return None, None # Trả về None nếu lỗi
-    st.write("END")
     # Kiểm tra lại lần cuối trước khi trả về
     if hybrid_retriever_instance and hybrid_retriever_instance.vector_db and hybrid_retriever_instance.vector_db.index:
         logging.info(f"--- Khởi tạo DB & Retriever thành công. Index size: {hybrid_retriever_instance.vector_db.index.ntotal} ---")

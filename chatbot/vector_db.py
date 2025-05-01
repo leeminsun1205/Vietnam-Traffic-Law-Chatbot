@@ -84,7 +84,6 @@ class SimpleVectorDatabase:
         index_path = f"{filepath_prefix}_faiss.index"
         docs_path = f"{filepath_prefix}_docs.json"
         meta_path = f"{filepath_prefix}_meta.json"
-        st.write('LOAD')
         if not all(os.path.exists(p) for p in [index_path, docs_path, meta_path]):
             logging.warning(f"Không tìm thấy đủ file để tải database từ prefix '{filepath_prefix}'.")
             return False

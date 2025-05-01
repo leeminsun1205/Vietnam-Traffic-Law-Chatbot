@@ -331,19 +331,16 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 
     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
     found_urls = set()
-    st.write(url_mapping_dict.get('36_2024_QH15'))
-    st.write('ABABAB')
-    if url_mapping_dict: 
-        # Tìm tất cả các chuỗi trong dấu ngoặc vuông
-        st.write(final_answer_display)
-        citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
-        for citation in citations_found:
-            # Trích xuất và chuẩn hóa khóa
-            doc_key = extract_and_normalize_document_key(citation)
-            if doc_key:
-                url = url_mapping_dict.get(doc_key) 
-                if url:
-                    found_urls.add(url)
+    
+    st.write(final_answer_display)
+    citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
+    for citation in citations_found:
+        # Trích xuất và chuẩn hóa khóa
+        doc_key = extract_and_normalize_document_key(citation)
+        if doc_key:
+            url = url_mapping_dict.get(doc_key) 
+            if url:
+                found_urls.add(url)
 
     # --- Nối chuỗi URL vào câu trả lời (nếu tìm thấy) ---
     st.write(found_urls)

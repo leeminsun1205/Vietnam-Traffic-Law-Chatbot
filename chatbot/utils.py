@@ -259,7 +259,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
-    7.  Nếu câu hỏi mang tính thứ tự, nó phải được xác định bằng thứ tự của chỉ mục do đó cần so sánh chỉ mục của các đoạn văn. Trong đó thứ tự ưu tiên giảm dần theo bản chữ cái và số thứ tự. Ví dụ Điểm a > Điểm b > Điểm c, Khoản 5 > Khoản 6, ...
+    7.  Nếu câu hỏi mang YẾU TỐ THỨ TỰ, PHẢI XÁC ĐỊNH THẬT KĨ DỰA TRÊN PHÁP LUẬT VIỆT NAM:
+        - Xác định thứ tự giữa các context bằng chỉ mục của **Khoản** hoặc **Điểm**.
+        - **Khoản 1: Thứ tự ưu tiên cao nhất và giảm dần về sau.**
+        - **Điểm a: Thứ tự ưu tiên cao nhất và giảm dần về sau.**
+        - Tự xác nhận xem, không được để mâu thuẫn giữa các câu.
     **Trả lời:**
     """
 
@@ -277,7 +281,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
     4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Nếu câu hỏi mang tính thứ tự, nó phải được xác định bằng thứ tự của chỉ mục do đó cần so sánh chỉ mục của các đoạn văn. Trong đó thứ tự ưu tiên giảm dần theo bản chữ cái và số thứ tự. Ví dụ Điểm a > Điểm b > Điểm c, Khoản 5 > Khoản 6, ...
+    5.  Nếu câu hỏi mang YẾU TỐ THỨ TỰ, PHẢI XÁC ĐỊNH THẬT KĨ DỰA TRÊN PHÁP LUẬT VIỆT NAM:
+        - Xác định thứ tự giữa các context bằng chỉ mục của **Khoản** hoặc **Điểm**.
+        - **Khoản 1: Thứ tự ưu tiên cao nhất và giảm dần về sau.**
+        - **Điểm a: Thứ tự ưu tiên cao nhất và giảm dần về sau.**
+        - Tự xác nhận xem, không được để mâu thuẫn giữa các câu.
 
     **Trả lời NGẮN GỌN:**
     """

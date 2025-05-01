@@ -242,7 +242,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và chính xác, **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp (`{context_text}`).
 
     **Ngữ cảnh được cung cấp (Mỗi đoạn có kèm nguồn tham khảo):**
-    {context_text}
+    {context_for_prompt}
 
     **Câu hỏi của người dùng:** {query_text}
 

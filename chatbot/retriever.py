@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 import config
 from rank_bm25 import BM25Okapi
+import streamlit as st
 
 # Cần import các thành phần phụ thuộc
 # from vector_db import SimpleVectorDatabase # Không cần trực tiếp, nhận qua __init__
@@ -104,7 +105,7 @@ class HybridRetriever:
         vec_distances, vec_indices = retrieve_relevant_chunks(
             query_text, embedding_model, self.vector_db, k=vector_search_k
         )
-
+        st.write('HAHAHAH')
         # --- 2. BM25 Search ---
         bm25_search_indices = []
         if self.bm25: # Chỉ chạy nếu BM25 đã khởi tạo thành công

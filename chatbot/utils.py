@@ -332,6 +332,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                 sources_list_str = match.group(1)
                 try:
                     extracted_names = re.findall(r'["\'](.*?["\']', sources_list_str)
+                    st.write(extracted_names)
                     if extracted_names:
                         used_source_names = [name.lower().strip() for name in extracted_names]
 

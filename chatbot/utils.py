@@ -43,63 +43,113 @@ def load_gemini_model(model_name):
 
 # --- Query Augmentation ---
 def generate_query_variations(original_query, gemini_model, num_variations=config.NUM_QUERY_VARIATIONS):
+    """
+    Phân loại mức độ liên quan, tạo câu trả lời trực tiếp nếu không liên quan,
+    hoặc tạo các biến thể nếu liên quan.
 
-    prompt = f"""Bạn là một chuyên gia về luật giao thông đường bộ Việt Nam. Nhiệm vụ của bạn là:
-    1.  Diễn đạt lại câu hỏi gốc sau đây theo {num_variations} cách khác nhau, giữ nguyên ý nghĩa cốt lõi, đa dạng về từ ngữ và cấu trúc, ưu tiên từ khóa luật giao thông và loại phương tiện liên quan (ô tô, xe máy, xe tải,...), sử dụng từ đồng nghĩa (phạt, xử phạt, mức phạt,...).
-    2.  Tạo ra MỘT câu hỏi tổng hợp DUY NHẤT, đại diện cho ý định tìm kiếm chung của câu hỏi gốc và các biến thể, giữ lại từ khóa quan trọng, diễn đạt tự nhiên và bao quát.
-    3.  Ưu tiên 1 biến thể có chứa cụm từ "không tuân thủ" nếu nó là 1 câu hỏi về lỗi vi phạm.
+    Returns:
+        tuple: (relevance_status, direct_answer_if_invalid, all_queries, summarizing_query)
+               relevance_status: 'valid' hoặc 'invalid'
+               direct_answer_if_invalid: Câu trả lời được tạo sẵn nếu invalid, ngược lại là chuỗi rỗng.
+               all_queries: List các câu hỏi nếu valid, [original_query] nếu invalid.
+               summarizing_query: Câu hỏi tổng hợp nếu valid, original_query nếu invalid.
+    """
 
-    Câu hỏi gốc: "{original_query}"
+    # --- Cập nhật Prompt ---
+    prompt = f"""Bạn là một trợ lý AI chuyên về Luật Giao thông Đường bộ Việt Nam. Nhiệm vụ của bạn là xử lý câu hỏi sau: "{original_query}"
 
-    Hãy trả lời THEO ĐÚNG ĐỊNH DẠNG JSON sau, không thêm bất kỳ lời giải thích hay giới thiệu nào khác:
+**Bước 1: Phân loại Mức độ Liên quan**
+Xác định câu hỏi có liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, đăng ký xe,...).
+
+**Bước 2: Tạo Phản hồi JSON**
+Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạng sau:
+
+* **Nếu câu hỏi KHÔNG liên quan:** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
+    ```json
     {{
-    "variations": [
+      "relevance": "invalid",
+      "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan hoặc chuỗi rỗng]",
+      "variations": [],
+      "summarizing_query": ""
+    }}
+    ```
+* **Nếu câu hỏi CÓ liên quan:** Hãy thực hiện các yêu cầu sau:
+    1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
+    2.  Tạo MỘT câu hỏi tổng hợp bao quát.
+    3.  Ưu tiên biến thể chứa "không tuân thủ" nếu hỏi về lỗi.
+    ```json
+    {{
+      "relevance": "valid",
+      "invalid_answer": "",
+      "variations": [
         "[Biến thể 1]",
         "[Biến thể 2]",
         "[Biến thể {num_variations}]"
-    ],
-    "summarizing_query": "[Câu hỏi tổng hợp duy nhất]"
+      ],
+      "summarizing_query": "[Câu hỏi tổng hợp duy nhất]"
     }}
-    """
+    ```
 
+**Lưu ý:** Chỉ trả về DUY NHẤT một khối JSON hợp lệ, không thêm giải thích nào khác.
+"""
+
+    # --- Xử lý kết quả từ Gemini ---
+    relevance_status = 'valid' # Mặc định
+    direct_answer_if_invalid = ""
     all_queries = [original_query]
-    summarizing_query = original_query 
+    summarizing_query = original_query
 
-    response = gemini_model.generate_content(prompt)
+    try:
+        response = gemini_model.generate_content(prompt)
 
-    if hasattr(response, 'text') and response.text:
-        generated_text = response.text
-        json_match = re.search(r"```json\s*(\{.*?\})\s*```|(\{.*?\})", generated_text, re.DOTALL)
-        parsed_data = None
-        if json_match:
-            json_str = json_match.group(1) or json_match.group(2)
-            if json_str:
-                json_str = json_str.strip()
-                parsing_successful = False
-                try: 
-                    parsed_data = json.loads(json_str)
-                    parsing_successful = True
-                except json.JSONDecodeError as e:
-                     print(f"Warning: Could not parse JSON response from LLM: {e}")
-                     print(f"Raw response part for JSON: {json_str}")
+        if hasattr(response, 'text') and response.text:
+            generated_text = response.text
+            json_match = re.search(r"```json\s*(\{.*?\})\s*```|(\{.*?\})", generated_text, re.DOTALL)
+            parsed_data = None
+            if json_match:
+                json_str = json_match.group(1) or json_match.group(2)
+                if json_str:
+                    json_str = json_str.strip()
+                    try:
+                        parsed_data = json.loads(json_str)
+                    except json.JSONDecodeError as e:
+                        print(f"Warning: Could not parse JSON response from LLM: {e}")
+                        print(f"Raw response part for JSON: {json_str}")
 
+            if isinstance(parsed_data, dict):
+                relevance_status = parsed_data.get('relevance', 'valid')
 
-                if parsing_successful and isinstance(parsed_data, dict):
+                if relevance_status == 'invalid':
+                    direct_answer_if_invalid = parsed_data.get('invalid_answer', "") # Lấy câu trả lời trực tiếp
+                    # Giữ nguyên giá trị mặc định cho all_queries, summarizing_query
+                else: # relevance_status == 'valid'
                     variations = parsed_data.get('variations', [])
                     parsed_summary = parsed_data.get('summarizing_query', '')
 
                     if isinstance(variations, list) and variations:
-                        all_queries.extend(variations[:num_variations])
-                        all_queries = list(set(all_queries)) # Remove duplicates
+                        valid_variations = [v for v in variations if isinstance(v, str) and v.strip()]
+                        all_queries.extend(valid_variations[:num_variations])
+                        all_queries = list(set(all_queries))
 
-                    if parsed_summary and isinstance(parsed_summary, str):
-                        summarizing_query = parsed_summary
+                    if parsed_summary and isinstance(parsed_summary, str) and parsed_summary.strip():
+                        summarizing_query = parsed_summary.strip()
+                    else:
+                         summarizing_query = original_query # Fallback
 
-    # Ensure summarizing_query is never empty
-    if not summarizing_query:
+        # Đảm bảo summarizing_query không bao giờ rỗng nếu relevance là 'valid'
+        if relevance_status == 'valid' and not summarizing_query:
+            summarizing_query = original_query
+
+    except Exception as e:
+        print(f"Error during Gemini API call or processing: {e}")
+        # Giữ nguyên giá trị mặc định nếu có lỗi
+
+    # Đảm bảo trả về đúng thứ tự
+    if relevance_status == 'invalid':
+        all_queries = [original_query]
         summarizing_query = original_query
 
-    return all_queries, summarizing_query
+    return relevance_status, direct_answer_if_invalid, all_queries, summarizing_query
 
 # --- Data Processing ---
 def embed_legal_chunks(file_paths, model):

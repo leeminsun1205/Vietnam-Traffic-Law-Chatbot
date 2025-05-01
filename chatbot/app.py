@@ -54,11 +54,24 @@ if init_ok:
         with st.spinner("⏳ Đang xử lý..."):
             start_time = time.time()
 
-            # 1. Query Augmentation
-            st.write(f"*{time.time() - start_time:.2f}s: Mở rộng câu hỏi...*")
-            all_queries, summarizing_q = utils.generate_query_variations(
+            # --- 1. Query Augmentation, Relevance Check & Direct Answer ---
+            st.write(f"*{time.time() - start_time:.2f}s: Phân tích câu hỏi...*")
+            relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                 user_query, g_gemini_model, num_variations=config.NUM_QUERY_VARIATIONS
             )
+
+            # --- Kiểm tra mức độ liên quan ---
+            if relevance_status == 'invalid':
+                st.markdown("---")
+                st.header("📖 Câu trả lời:")
+                if direct_answer and direct_answer.strip():
+                    st.markdown(direct_answer) # Hiển thị câu trả lời trực tiếp từ LLM
+                else:
+                    # Fallback nếu LLM không tạo câu trả lời trực tiếp
+                    st.warning("⚠️ Câu hỏi của bạn có vẻ không liên quan đến Luật Giao thông Đường bộ Việt Nam.")
+                end_time_invalid = time.time()
+                st.write(f"*{end_time_invalid - start_time:.2f}s: Hoàn tất!*")
+                st.stop() # Dừng xử lý tại đây
 
             # 2. Hybrid Search
             st.write(f"*{time.time() - start_time:.2f}s: Tìm kiếm tài liệu liên quan...*")

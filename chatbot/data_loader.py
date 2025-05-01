@@ -54,7 +54,7 @@ def load_or_create_rag_components(embedding_model):
         else:
             logging.error("Lỗi: Không embed được dữ liệu. Không thể tạo DB/Retriever.")
             return None, None # Trả về None nếu lỗi
-
+    st.write("END")
     # Kiểm tra lại lần cuối trước khi trả về
     if hybrid_retriever_instance and hybrid_retriever_instance.vector_db and hybrid_retriever_instance.vector_db.index:
         logging.info(f"--- Khởi tạo DB & Retriever thành công. Index size: {hybrid_retriever_instance.vector_db.index.ntotal} ---")

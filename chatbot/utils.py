@@ -260,11 +260,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
     7.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
-        - a)
-        - b) 
-        - c)
-        - d)
-        - đ)
+        - a) Điểm thứ a trong Điều/Khoản
+        - b) Điểm thứ b trong Điều/Khoản
+        - c) Điểm thứ c trong Điều/Khoản
+        - d) Điểm thứ d trong Điều/Khoản
+        - đ) Điểm thứ đ trong Điều/Khoản
         - ...
     **Trả lời:**
     """
@@ -284,11 +284,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
     4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
     5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
-        - a)
-        - b) 
-        - c)
-        - d)
-        - đ)
+        - a) Điểm thứ a trong Điều/Khoản
+        - b) Điểm thứ b trong Điều/Khoản
+        - c) Điểm thứ c trong Điều/Khoản
+        - d) Điểm thứ d trong Điều/Khoản
+        - đ) Điểm thứ đ trong Điều/Khoản
         - ...
     **Trả lời NGẮN GỌN:**
     """

@@ -4,7 +4,7 @@ import numpy as np
 import json
 import os
 import logging
-
+import streamlit as st
 class SimpleVectorDatabase:
     """Quản lý Faiss index và các document chunks tương ứng."""
     def __init__(self):
@@ -84,6 +84,7 @@ class SimpleVectorDatabase:
         index_path = f"{filepath_prefix}_faiss.index"
         docs_path = f"{filepath_prefix}_docs.json"
         meta_path = f"{filepath_prefix}_meta.json"
+        st.write('LOAD')
         if not all(os.path.exists(p) for p in [index_path, docs_path, meta_path]):
             logging.warning(f"Không tìm thấy đủ file để tải database từ prefix '{filepath_prefix}'.")
             return False

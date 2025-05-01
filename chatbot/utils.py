@@ -194,6 +194,7 @@ def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader
         return mapping 
     
 def extract_and_normalize_document_key(citation_text):
+    st.write(citation_text)
     match = re.search(r'(\d+/\d{4}/[A-ZĐ-]+(?:-[A-Z]+)*)', citation_text, re.IGNORECASE) # VD: 100/2019/NĐ-CP
     if match:
         return match.group(1).lower().strip()
@@ -332,7 +333,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     found_urls = set()
     
     citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
-    st.write(citations_found)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa
         doc_key = extract_and_normalize_document_key(citation)

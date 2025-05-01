@@ -210,8 +210,9 @@ def extract_and_normalize_document_key(citation_text):
         number = match2.group(1)
         year = match2.group(2)
         identifier = match2.group(3)
+        if identifier == 'QH':
+            identifier == 'QH15'
         key = f"{number}_{year}_{identifier}".upper()
-        st.write(key)
         return key
     return None
 

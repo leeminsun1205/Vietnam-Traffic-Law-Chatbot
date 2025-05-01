@@ -7,7 +7,7 @@ import numpy as np
 import google.generativeai as genai
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from kaggle_secrets import UserSecretsClient # Cần thiết nếu chạy trên Kaggle
-
+import streamlit as st
 # Import config (đảm bảo config.py cùng cấp hoặc trong sys.path)
 import config
 
@@ -68,7 +68,7 @@ def embed_legal_chunks(file_paths, model):
     all_chunks_read = []
     logging.info(f"Bắt đầu xử lý dữ liệu từ {len(file_paths)} file JSON...")
     for file_path in file_paths:
-        print(os.path.exists(file_path))
+        st.write(os.path.exists(file_path))
         if os.path.exists(file_path):
             logging.info(f"Đang đọc: {os.path.basename(file_path)}")
             try:

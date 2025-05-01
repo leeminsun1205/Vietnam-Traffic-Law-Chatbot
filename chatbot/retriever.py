@@ -45,17 +45,13 @@ class HybridRetriever:
         """Tokenize dùng pyvi.ViTokenizer, làm sạch, bỏ stop words."""
         if not text or not isinstance(text, str): return []
         text_lower = text.lower()
-        # Sử dụng ViTokenizer.tokenize, nó trả về chuỗi các từ nối bằng '_'
-        # ví dụ: "Trường_đại_học Công_nghệ Thông_tin"
+ 
         tokenized_text = ViTokenizer.tokenize(text_lower)
-        # Tách chuỗi thành các token dựa trên khoảng trắng
         word_tokens = tokenized_text.split()
 
         final_tokens = []
         for token in word_tokens:
-            # Loại bỏ dấu câu và ký tự đặc biệt (giữ lại '_')
             cleaned_token = re.sub(r'[^\w_]', '', token, flags=re.UNICODE)
-            # Chỉ giữ lại token không rỗng và không phải là stop word
             if cleaned_token and cleaned_token not in VIETNAMESE_STOP_WORDS:
                 final_tokens.append(cleaned_token)
         return final_tokens
@@ -78,7 +74,6 @@ class HybridRetriever:
              tokenized_query = self._tokenize_vi(query_text)
              if tokenized_query:
                 bm25_scores = self.bm25.get_scores(tokenized_query)
-                # Lấy các index có score > 0 và sắp xếp
                 bm25_scored_indices = [(score, i) for i, score in enumerate(bm25_scores) if score > 0]
                 bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
                 # Lấy top K index từ BM25

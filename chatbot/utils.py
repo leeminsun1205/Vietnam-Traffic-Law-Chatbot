@@ -211,7 +211,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
     prompt = f"""Bạn là một trợ lý giao thông đường bộ Việt Nam hữu ích. Hãy sử dụng các đoạn văn bản sau để trả lời câu hỏi của người dùng. Nếu các đoạn văn bản không chứa thông tin liên quan đến câu hỏi, chỉ cần nói rằng bạn không tìm thấy thông tin phù hợp dựa trên ngữ cảnh được cung cấp. Đừng cố gắng tạo ra câu trả lời từ kiến thức của riêng bạn. 
     Tuy nhiên bạn cũng phải có khả năng liên tưởng những trường hợp đồng nghĩa ví dụ Rượu, bia, Đèn đỏ thì liên quan tới đèn tín hiệu, xe mô tô thì là xe 2 bánh, ... chứ không phải khớp hoàn toàn thì mới được
 
-    Đoạn văn bản:
+    Đoạn văn bản: (Chỉ rõ Thông tin: Chương, Mục, Điều, Khoản, Điểm cho mỗi thông tin (nếu có))
     ---
     {context_text}
     ---

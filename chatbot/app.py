@@ -98,7 +98,7 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     if models_loaded: 
         g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
-   
+    st.write(models_loaded)
     if models_loaded and retriever_ready:
         status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)
         init_ok = True

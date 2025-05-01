@@ -24,6 +24,9 @@ if "messages" not in st.session_state:
 if "selected_gemini_model" not in st.session_state:
     st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
 
+if "answer_mode" not in st.session_state:
+    st.session_state.answer_mode = 'Ngắn gọn'
+
 # --- Sidebar ---
 with st.sidebar:
     st.title("Tùy chọn")
@@ -37,9 +40,28 @@ with st.sidebar:
     )
     st.markdown("---")
 
+    answer_mode_choice = st.radio(
+        "Chọn chế độ trả lời:",
+        options=['Ngắn gọn', 'Đầy đủ'],
+        key="answer_mode", # Lưu vào session state
+        # index=1 if st.session_state.answer_mode == 'Đầy đủ' else 0, # Bỏ index nếu dùng key
+        horizontal=True,
+        help="Chọn mức độ chi tiết cho câu trả lời của bot."
+    )
+    st.markdown("---")
+
+    st.write("Quản lý hội thoại:")
+    if st.button("⚠️ Xóa Lịch Sử Chat"):
+        st.session_state.messages = [] 
+        st.success("Đã xóa lịch sử chat!") 
+        time.sleep(1) 
+        st.rerun() 
+    st.markdown("---")
+
 # --- Giao diện chính của Ứng dụng ---
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
 st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về Luật giao thông đường bộ Việt Nam.")
+st.caption(f"Model: {st.session_state.selected_gemini_model} | Chế độ: {st.session_state.answer_mode}")
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -152,7 +174,7 @@ if init_ok:
                     message_placeholder.markdown(" ".join(processing_log) + "...")
 
                 # 2c. Generate Answer (Truyền history vào đây)
-                answer_mode = 'Ngắn gọn' # Hoặc lấy từ st.radio nếu bạn muốn giữ lại lựa chọn đó
+                answer_mode = st.session_state.answer_mode
                 processing_log.append(f"\n*{time.time() - start_time:.2f}s: Tổng hợp câu trả lời...")
                 message_placeholder.markdown(" ".join(processing_log))
 
@@ -163,7 +185,7 @@ if init_ok:
                     mode=answer_mode,
                     chat_history=recent_chat_history 
                 )
-                
+
                 # Cập nhật placeholder với câu trả lời cuối cùng
                 processing_log.append(f"\n*{time.time() - start_time:.2f}s: Hoàn tất!*")
                 message_placeholder.markdown(full_response + f"\n\n{' '.join(processing_log)}")

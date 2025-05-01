@@ -97,8 +97,8 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
 
     st.write("Chuẩn bị cơ sở dữ liệu và retriever...")
     g_vector_db, g_hybrid_retriever = None, None
-    print(models_loaded)
     if models_loaded: 
+        st.write(models_loaded)
         g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
    

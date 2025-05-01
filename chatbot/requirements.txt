@@ -8,4 +8,4 @@ pandas
 rouge-score 
 google-generativeai
 pyngrok
-py_vi
+# py_vi

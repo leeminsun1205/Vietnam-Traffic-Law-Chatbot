@@ -105,7 +105,6 @@ class HybridRetriever:
         vec_distances, vec_indices = retrieve_relevant_chunks(
             query_text, embedding_model, self.vector_db, k=vector_search_k
         )
-        st.write('HAHAHAH')
         # --- 2. BM25 Search ---
         bm25_search_indices = []
         if self.bm25: # Chỉ chạy nếu BM25 đã khởi tạo thành công

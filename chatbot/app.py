@@ -128,8 +128,6 @@ if init_ok:
             st.write(f"*{time.time() - start_time:.2f}s: Tìm kiếm tài liệu liên quan...*")
             collected_docs_data = {}
             for q_idx, query_variant in enumerate(all_queries):
-                st.write(q_idx)
-                st.write(query_variant)
                 variant_results = g_hybrid_retriever.hybrid_search(
                     query_variant, g_embedding_model,
                     vector_search_k=config.VECTOR_K_PER_QUERY,

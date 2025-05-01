@@ -65,7 +65,7 @@ def load_gemini_model(model_name):
         return None
 
 # --- Hàm Cache để Khởi tạo DB và Retriever ---
-# @st.cache_resource
+@st.cache_resource
 def cached_load_or_create_components(_embedding_model): # Thêm _ để streamlit biết nó phụ thuộc vào embedding model
     """Wrapper cho data_loader để dùng với cache của Streamlit."""
     if _embedding_model is None:

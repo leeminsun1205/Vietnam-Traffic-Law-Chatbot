@@ -9,7 +9,7 @@ gemini_model_name = 'gemini-2.0-flash' # Sử dụng model mới nhất nếu c�
 
 # --- Cấu hình Đường dẫn ---
 # Điều chỉnh đường dẫn dựa trên môi trường chạy (Kaggle hoặc local/server)
-KAGGLE_INPUT_PATH = '/kaggle/input/legals'
+KAGGLE_INPUT_PATH = '/kaggle/working/CS431.P22/datasets'
 LOCAL_DATA_PATH = './' # Thư mục chứa file json nếu chạy local
 VNCORENLP_SAVE_DIR = 'kaggle/working/' # Thư mục lưu VnCoreNLP
 SAVED_DATA_DIR = 'kaggle/working/' # Thư mục lưu index, docs, bm25

@@ -77,7 +77,7 @@ Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạn
     1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
     2.  Tạo MỘT câu hỏi tổng hợp bao quát.
     3.  Ưu tiên biến thể chứa "không tuân thủ" nếu hỏi về lỗi.
-    4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không tuân thủ đèn tín hiệu".
+    4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
     ```json
     {{
       "relevance": "valid",

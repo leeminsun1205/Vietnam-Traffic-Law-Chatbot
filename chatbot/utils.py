@@ -199,7 +199,7 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
 
 
 # --- Generation ---
-def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ'):
+def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
 
     context_str_parts = []
@@ -240,14 +240,26 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
              context_for_prompt = "\n".join(source_details_for_prompt) 
     urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
-    full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
-    Nhiệm vụ: Trả lời câu hỏi người dùng (`{query_text}`) một cách **NGẮN GỌN** và **CHÍNH XÁC** nhưng phải **ĐẢM BẢO ĐẦY ĐỦ** thông tin cần thiết mà người dùng hỏi, 
-    **CHỈ DÙNG** thông tin hữu ích từ ngữ cảnh pháp lý được cung cấp (`{context_for_prompt}`).
+    # --- Xây dựng chuỗi lịch sử chat gần đây ---
+    history_prefix = ""
+    if chat_history: # chat_history là list các dict {"role": "user/assistant", "content": ...}
+        history_prefix = "**Lịch sử trò chuyện gần đây:**\n"
+        for msg in chat_history:
+            # Đảm bảo role và content tồn tại và là string
+            role = msg.get("role", "unknown").capitalize()
+            content = msg.get("content", "").strip()
+            if role and content:
+                 history_prefix += f"{role}: {content}\n"
+        history_prefix += "---\n" # Ngăn cách lịch sử với phần còn lại của prompt
 
-    **Ngữ cảnh được cung cấp (Mỗi đoạn có kèm nguồn tham khảo):**
+    full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
+    {history_prefix}
+    Nhiệm vụ: Dựa vào Lịch sử trò chuyện gần đây (nếu có) và Ngữ cảnh được cung cấp, trả lời câu hỏi HIỆN TẠI của người dùng (`{query_text}`) một cách **CHI TIẾT** và chính xác. **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp để trả lời các câu hỏi về luật. Đối với các câu hỏi khác, có thể dựa vào lịch sử trò chuyện.
+
+    **Ngữ cảnh được cung cấp (Dùng để trả lời câu hỏi về luật):**
     {context_for_prompt}
 
-    **Câu hỏi của người dùng:** {query_text}
+    **Câu hỏi HIỆN TẠI của người dùng:** {query_text}
 
     **Yêu cầu trả lời:**
     1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài.
@@ -271,12 +283,13 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 
     # Prompt Ngắn Gọn (Mới)
     brief_prompt_template = f"""Bạn là trợ lý luật giao thông Việt Nam.
-    Nhiệm vụ: Trả lời câu hỏi (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm, **CHỈ DÙNG** ngữ cảnh sau. Nhưng vẫn đảm bảo chính xác những ý quan trọng.
+    {history_prefix}
+    Nhiệm vụ: Dựa vào Lịch sử trò chuyện (nếu có) và Ngữ cảnh, trả lời câu hỏi HIỆN TẠI (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm. **CHỈ DÙNG** ngữ cảnh để trả lời về luật.
 
-    **Ngữ cảnh:**
+    **Ngữ cảnh (Dùng để trả lời câu hỏi về luật):**
     {context_for_prompt}
 
-    **Câu hỏi:** {query_text}
+    **Câu hỏi HIỆN TẠI:** {query_text}
 
     **Yêu cầu trả lời NGẮN GỌN:**
     1.  **Chỉ dùng ngữ cảnh.**

@@ -331,7 +331,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 
     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
     found_urls = set()
-    st.write(url_mapping_dict)
+    st.write(url_mapping_dict.get('36_2024_QH15'))
     st.write('ABABAB')
     if url_mapping_dict: 
         # Tìm tất cả các chuỗi trong dấu ngoặc vuông

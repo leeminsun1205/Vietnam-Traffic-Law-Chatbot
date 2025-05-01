@@ -72,7 +72,7 @@ def cached_load_or_create_components(_embedding_model): # Thêm _ để streamli
          st.error("Không thể khởi tạo DB/Retriever vì Embedding Model lỗi.")
          return None, None
     # Gọi hàm xử lý chính từ data_loader.py
-    print('cccc')
+    print(_embedding_model is not None)
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
     print('aaaa')
     return vector_db, hybrid_retriever
@@ -100,7 +100,7 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     if models_loaded: 
         g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
-    st.write(g_vector_db is not None)
+   
     if models_loaded and retriever_ready:
         status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)
         init_ok = True

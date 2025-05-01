@@ -133,16 +133,6 @@ def embed_legal_chunks(file_paths, model):
     except Exception as e:
         return [], None
 
-# --- Retrieval ---
-def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
-    """Embed query và tìm kiếm trong vector_db."""
-    try:
-        query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
-        distances, indices = vector_db.search(query_embedding, k=k)
-        return distances, indices
-    except Exception as e:
-        return [], []
-
 # --- Re-ranking ---
 def rerank_documents(query_text, documents_with_indices, reranking_model):
     """Xếp hạng lại documents dựa trên query bằng CrossEncoder."""

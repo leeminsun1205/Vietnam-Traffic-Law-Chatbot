@@ -6,7 +6,6 @@ import pickle
 import config
 from rank_bm25 import BM25Okapi
 import streamlit as st
-from utils import retrieve_relevant_chunks 
 from config import VIETNAMESE_STOP_WORDS, VNCORENLP_SAVE_DIR 
 # Import py_vncorenlp một cách an toàn
 try:
@@ -14,6 +13,16 @@ try:
 except ImportError:
     logging.warning("Thư viện py_vncorenlp chưa được cài đặt. BM25 sẽ dùng split().")
     py_vncorenlp = None
+
+# --- Retrieval ---
+def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
+    """Embed query và tìm kiếm trong vector_db."""
+    try:
+        query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
+        distances, indices = vector_db.search(query_embedding, k=k)
+        return distances, indices
+    except Exception as e:
+        return [], []
 class HybridRetriever:
     """Kết hợp Vector Search và BM25 Search."""
     def __init__(self, vector_db, bm25_save_path):

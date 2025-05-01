@@ -2,17 +2,15 @@
 import streamlit as st
 import os
 import logging
-import time # Có thể dùng để thêm delay nếu xử lý quá nhanh
+import time 
 
-# Import các thành phần đã tách file
 import config
 import utils
 import data_loader
 from sentence_transformers import SentenceTransformer, CrossEncoder
 import google.generativeai as genai
-from kaggle_secrets import UserSecretsClient # Chỉ dùng nếu chạy trên Kaggle
+from kaggle_secrets import UserSecretsClient #
 
-# Cấu hình logging (ghi ra console khi chạy streamlit)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 # --- Cấu hình Trang Streamlit ---

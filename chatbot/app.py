@@ -71,8 +71,7 @@ def cached_load_or_create_components(_embedding_model): # Thêm _ để streamli
     if _embedding_model is None:
          st.error("Không thể khởi tạo DB/Retriever vì Embedding Model lỗi.")
          return None, None
-    # Gọi hàm xử lý chính từ data_loader.py
-    st.write(_embedding_model is not None)
+    
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
     return vector_db, hybrid_retriever
 

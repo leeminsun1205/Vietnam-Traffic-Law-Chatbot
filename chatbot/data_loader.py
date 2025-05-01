@@ -17,7 +17,7 @@ def load_or_create_rag_components(embedding_model):
     vector_db_instance = SimpleVectorDatabase()
     hybrid_retriever_instance = None
     st.write('START')
-    st.write(vector_db_instance.load(config.SAVED_DATA_PREFIX))
+    st.write('ahhahah')
     # Cố gắng tải Vector DB trước
     if vector_db_instance.load(config.SAVED_DATA_PREFIX):
         logging.info("Đã tải Vector DB từ file.")

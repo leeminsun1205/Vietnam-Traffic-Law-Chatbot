@@ -43,59 +43,48 @@ def load_gemini_model(model_name):
 
 # --- Query Augmentation ---
 def generate_query_variations(original_query, gemini_model, num_variations=config.NUM_QUERY_VARIATIONS):
-    """
-    Phân loại mức độ liên quan, tạo câu trả lời trực tiếp nếu không liên quan,
-    hoặc tạo các biến thể nếu liên quan.
-
-    Returns:
-        tuple: (relevance_status, direct_answer_if_invalid, all_queries, summarizing_query)
-               relevance_status: 'valid' hoặc 'invalid'
-               direct_answer_if_invalid: Câu trả lời được tạo sẵn nếu invalid, ngược lại là chuỗi rỗng.
-               all_queries: List các câu hỏi nếu valid, [original_query] nếu invalid.
-               summarizing_query: Câu hỏi tổng hợp nếu valid, original_query nếu invalid.
-    """
 
     # --- Cập nhật Prompt ---
     prompt = f"""Bạn là một trợ lý AI chuyên về Luật Giao thông Đường bộ Việt Nam. Nhiệm vụ của bạn là xử lý câu hỏi sau: "{original_query}"
 
-**Bước 1: Phân loại Mức độ Liên quan**
-Xác định câu hỏi có liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, đăng ký xe,...).
+    **Bước 1: Phân loại Mức độ Liên quan**
+    Xác định câu hỏi có liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, đăng ký xe,...).
 
-**Bước 2: Tạo Phản hồi JSON**
-Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạng sau:
+    **Bước 2: Tạo Phản hồi JSON**
+    Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạng sau:
 
-* **Nếu câu hỏi KHÔNG liên quan:** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
-    ```json
-    {{
-      "relevance": "invalid",
-      "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan hoặc chuỗi rỗng]",
-      "variations": [],
-      "summarizing_query": ""
-    }}
-    ```
-* **Nếu câu hỏi CÓ liên quan:** Hãy thực hiện các yêu cầu sau:
-    1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
-    2.  Tạo MỘT câu hỏi tổng hợp bao quát.
-    3.  Ưu tiên biến thể chứa "không tuân thủ" nếu hỏi về lỗi.
-    4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
-    ```json
-    {{
-      "relevance": "valid",
-      "invalid_answer": "",
-      "variations": [
-        "[Biến thể 1]",
-        "[Biến thể 2]",
-        "[Biến thể {num_variations}]"
-      ],
-      "summarizing_query": "[Câu hỏi tổng hợp duy nhất]"
-    }}
-    ```
+    * **Nếu câu hỏi KHÔNG liên quan:** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
+        ```json
+        {{
+        "relevance": "invalid",
+        "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan hoặc chuỗi rỗng]",
+        "variations": [],
+        "summarizing_query": ""
+        }}
+        ```
+    * **Nếu câu hỏi CÓ liên quan:** Hãy thực hiện các yêu cầu sau:
+        1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
+        2.  Tạo MỘT câu hỏi tổng hợp bao quát.
+        3.  Ưu tiên biến thể chứa "không tuân thủ" nếu hỏi về lỗi.
+        4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
+        ```json
+        {{
+        "relevance": "valid",
+        "invalid_answer": "",
+        "variations": [
+            "[Biến thể 1]",
+            "[Biến thể 2]",
+            "[Biến thể {num_variations}]"
+        ],
+        "summarizing_query": "[Câu hỏi tổng hợp duy nhất]"
+        }}
+        ```
 
-**Lưu ý:** Chỉ trả về DUY NHẤT một khối JSON hợp lệ, không thêm giải thích nào khác.
-"""
+    **Lưu ý:** Chỉ trả về DUY NHẤT một khối JSON hợp lệ, không thêm giải thích nào khác.
+    """
 
     # --- Xử lý kết quả từ Gemini ---
-    relevance_status = 'valid' # Mặc định
+    relevance_status = 'valid' 
     direct_answer_if_invalid = ""
     all_queries = [original_query]
     summarizing_query = original_query
@@ -202,8 +191,9 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
 
+    source_url_map = {}
+    source_display_name_map = {}
     context_str_parts = []
-    unique_urls = set()
     source_details_for_prompt = []
 
     if not relevant_documents:
@@ -211,34 +201,39 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     else:
         for i, item in enumerate(relevant_documents):
             doc = item.get('doc'); 
-            # st.write(doc)
             text = doc.get('text', '').strip(); 
             metadata = doc.get('metadata', {})
             if not doc or not text: continue
 
-            source = metadata.get('source', 'N/A'); 
+            source_name = metadata.get('source'); 
             url = metadata.get('url'); 
+
+            if source_name:
+                normalized_name = source_name.lower().strip()
+                if url and normalized_name not in source_url_map:
+                    source_url_map[normalized_name] = url
+                    source_display_name_map[normalized_name] = source_name
+
             context_meta = metadata.get('context', {})
-            chuong = context_meta.get('chuong'); 
-            dieu = context_meta.get('dieu'); 
-            khoan = context_meta.get('khoan'); 
-            diem = context_meta.get('diem'); 
+            chuong = context_meta.get('chuong')
             muc = context_meta.get('muc')
-            source_parts = [f"Văn bản: {source}"]
+            dieu = context_meta.get('dieu')
+            khoan = context_meta.get('khoan')
+            diem = context_meta.get('diem')
+            
+            source_parts = [f"Văn bản: {source_name}" or 'N/A']
             if chuong: source_parts.append(f"Chương {chuong}")
             if muc: source_parts.append(f"Mục {muc}")
             if dieu: source_parts.append(f"Điều {dieu}")
             if khoan: source_parts.append(f"Khoản {khoan}")
             if diem: source_parts.append(f"Điểm {diem}")
             source_ref_full = ", ".join(source_parts)
-
             source_details_for_prompt.append(f"Nguồn {i+1}: [{source_ref_full}]\nNội dung: {text}\n---")
-            if url: unique_urls.add(url)
+
         if not source_details_for_prompt:
              context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp."
         else:
              context_for_prompt = "\n".join(source_details_for_prompt) 
-    urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
     # --- Xây dựng chuỗi lịch sử chat gần đây ---
     history_prefix = ""
@@ -252,82 +247,133 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                  history_prefix += f"{role}: {content}\n"
         history_prefix += "---\n" # Ngăn cách lịch sử với phần còn lại của prompt
 
-    full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
-    {history_prefix}
-    Nhiệm vụ: Dựa vào Lịch sử trò chuyện gần đây (nếu có) và Ngữ cảnh được cung cấp, trả lời câu hỏi HIỆN TẠI của người dùng (`{query_text}`) một cách **CHI TIẾT** và chính xác. **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp để trả lời các câu hỏi về luật. Đối với các câu hỏi khác, có thể dựa vào lịch sử trò chuyện.
-
-    **Ngữ cảnh được cung cấp (Dùng để trả lời câu hỏi về luật):**
-    {context_for_prompt}
-
-    **Câu hỏi HIỆN TẠI của người dùng:** {query_text}
-
-    **Yêu cầu trả lời:**
-    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài.
-    2.  * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Văn Bản/Chương/Mục/Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
-        **Tổng hợp và query_text trích dẫn:**
-        * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài.
-        * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `[...]`.
-    3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** (`** **`) cho nội dung chính/mức phạt/kết luận.
-    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
-    5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
-    6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
-    7.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
-        - a) Điểm thứ a trong Điều/Khoản
-        - b) Điểm thứ b trong Điều/Khoản
-        - c) Điểm thứ c trong Điều/Khoản
-        - d) Điểm thứ d trong Điều/Khoản
-        - đ) Điểm thứ đ trong Điều/Khoản
-        - ...
-    **Trả lời:**
+    prompt_instruction_suffix = """
+        **Quan trọng:** Sau khi hoàn thành câu trả lời, hãy thêm một dòng **DUY NHẤT** ở cuối cùng, liệt kê **CHÍNH XÁC TÊN CÁC VĂN BẢN PHÁP LUẬT** (ví dụ: 'Nghị định 100/2019/NĐ-CP', 'Thông tư 31/2019/TT-BGTVT') mà bạn đã **thực sự sử dụng** thông tin từ đó để soạn câu trả lời. Sử dụng định dạng sau (chỉ bao gồm tên văn bản, không thêm chi tiết chương/điều/khoản):
+        SOURCES_USED: ["Tên Văn bản 1", "Tên Văn bản 2", ...]
+        Nếu không sử dụng văn bản nào từ ngữ cảnh, ghi:
+        SOURCES_USED: []
     """
 
-    # Prompt Ngắn Gọn (Mới)
-    brief_prompt_template = f"""Bạn là trợ lý luật giao thông Việt Nam.
-    {history_prefix}
-    Nhiệm vụ: Dựa vào Lịch sử trò chuyện (nếu có) và Ngữ cảnh, trả lời câu hỏi HIỆN TẠI (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm. **CHỈ DÙNG** ngữ cảnh để trả lời về luật.
+    full_prompt_template = f"""
+        Bạn là trợ lý chuyên về luật giao thông Việt Nam.
+        {history_prefix}
+        Nhiệm vụ: Dựa vào Lịch sử trò chuyện gần đây (nếu có) và Ngữ cảnh được cung cấp, trả lời câu hỏi HIỆN TẠI của người dùng (`{query_text}`) một cách **CHI TIẾT** và chính xác. **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp để trả lời các câu hỏi về luật. Đối với các câu hỏi khác, có thể dựa vào lịch sử trò chuyện.
 
-    **Ngữ cảnh (Dùng để trả lời câu hỏi về luật):**
-    {context_for_prompt}
+        **Ngữ cảnh được cung cấp (Dùng để trả lời câu hỏi về luật):**
+        {context_for_prompt}
 
-    **Câu hỏi HIỆN TẠI:** {query_text}
+        **Câu hỏi HIỆN TẠI của người dùng:** {query_text}
 
-    **Yêu cầu trả lời NGẮN GỌN:**
-    1.  **Chỉ dùng ngữ cảnh.**
-    2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
-    3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
-    4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là, gán thứ tự ưu tiên vào câu trả lời:
-        - a) Điểm thứ a trong Điều/Khoản
-        - b) Điểm thứ b trong Điều/Khoản
-        - c) Điểm thứ c trong Điều/Khoản
-        - d) Điểm thứ d trong Điều/Khoản
-        - đ) Điểm thứ đ trong Điều/Khoản
-        - ...
-    **Trả lời NGẮN GỌN:**
-    """
+        **Yêu cầu trả lời:**
+        1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài.
+        2.  * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Văn Bản/Chương/Mục/Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
+            **Tổng hợp và query_text trích dẫn:**
+            * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài.
+            * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `[...]`.
+        3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** (`** **`) cho nội dung chính/mức phạt/kết luận.
+        4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
+        5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
+        6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
+        7.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
+            - a) Điểm thứ a trong Điều/Khoản
+            - b) Điểm thứ b trong Điều/Khoản
+            - c) Điểm thứ c trong Điều/Khoản
+            - d) Điểm thứ d trong Điều/Khoản
+            - đ) Điểm thứ đ trong Điều/Khoản
+            - ...
+        **Trả lời:**
+    """ + prompt_instruction_suffix
+
+    brief_prompt_template = f"""
+        Bạn là trợ lý luật giao thông Việt Nam.
+        {history_prefix}
+        Nhiệm vụ: Dựa vào Lịch sử trò chuyện (nếu có) và Ngữ cảnh, trả lời câu hỏi HIỆN TẠI (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm. **CHỈ DÙNG** ngữ cảnh để trả lời về luật.
+
+        **Ngữ cảnh (Dùng để trả lời câu hỏi về luật):**
+        {context_for_prompt}
+
+        **Câu hỏi HIỆN TẠI:** {query_text}
+
+        **Yêu cầu trả lời NGẮN GỌN:**
+        1.  **Chỉ dùng ngữ cảnh.**
+        2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
+        3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
+        4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
+        5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là, gán thứ tự ưu tiên vào câu trả lời:
+            - a) Điểm thứ a trong Điều/Khoản
+            - b) Điểm thứ b trong Điều/Khoản
+            - c) Điểm thứ c trong Điều/Khoản
+            - d) Điểm thứ d trong Điều/Khoản
+            - đ) Điểm thứ đ trong Điều/Khoản
+            - ...
+        **Trả lời NGẮN GỌN:**
+    """ + prompt_instruction_suffix
 
     # --- Chọn Prompt dựa trên chế độ ---
     if mode == 'Ngắn gọn':
         prompt = brief_prompt_template
-    else: # Mặc định là 'Đầy đủ'
+    else: 
         prompt = full_prompt_template
 
     # --- Gọi API và xử lý kết quả ---
-    final_answer = "Lỗi khi tạo câu trả lời từ Gemini."
+    llm_response_text = "Lỗi khi tạo câu trả lời từ Gemini."
+    used_source_names = []
+    final_answer_display = llm_response_text 
+
     try:
         response = gemini_model.generate_content(prompt)
-        # Kiểm tra xem có bị block không
+
         if response.parts:
-             final_answer = response.text
+            llm_response_text = response.text
+            final_answer_display = llm_response_text 
+
+            match = re.search(r"SOURCES_USED:\s*(\[.*?\])", llm_response_text, re.IGNORECASE | re.DOTALL)
+            if match:
+                sources_list_str = match.group(1)
+                try:
+                    extracted_names = re.findall(r'["\'](.*?["\']', sources_list_str)
+                    if extracted_names:
+                        used_source_names = [name.lower().strip() for name in extracted_names]
+
+                    # Loại bỏ dòng SOURCES_USED khỏi nội dung hiển thị
+                    final_answer_display = llm_response_text[:match.start()].strip()
+
+                except Exception as parse_error:
+                    final_answer_display = llm_response_text
+            else:
+                 final_answer_display = llm_response_text
+
         elif response.prompt_feedback and response.prompt_feedback.block_reason:
-             final_answer = f"Không thể tạo câu trả lời do bị chặn bởi bộ lọc an toàn: {response.prompt_feedback.block_reason}"
+             final_answer_display = f"Không thể tạo câu trả lời do bị chặn: {response.prompt_feedback.block_reason}"
         else:
-             final_answer = "Không nhận được phản hồi hợp lệ từ mô hình ngôn ngữ."
+             final_answer_display = "Không nhận được phản hồi hợp lệ từ mô hình ngôn ngữ."
 
     except Exception as e:
-        final_answer = f"Đã xảy ra lỗi khi kết nối với mô hình ngôn ngữ: {e}"
+        final_answer_display = f"Đã xảy ra lỗi khi kết nối với mô hình ngôn ngữ: {e}"
 
-    if unique_urls and "không tìm thấy nội dung phù hợp" not in final_answer and "bị chặn bởi bộ lọc an toàn" not in final_answer and "Lỗi khi" not in final_answer:
-        final_answer += "\n\n**Nguồn:**\n" + urls_string
+    # --- Bước 4: Tra cứu URL và xây dựng chuỗi nguồn cuối cùng ---
+    final_urls_to_display = set()
+    final_source_names_display = []
+    if used_source_names:
+        for normalized_name in used_source_names:
+            # Tra cứu URL trong map đã tạo
+            url = source_url_map.get(normalized_name)
+            if url:
+                final_urls_to_display.add(url)
+                # Lấy tên gốc để hiển thị nếu có
+                display_name = source_display_name_map.get(normalized_name, normalized_name)
+                final_source_names_display.append(display_name)
 
-    return final_answer
+
+    # --- Nối chuỗi nguồn vào câu trả lời (nếu có URL) ---
+    if final_urls_to_display:
+        urls_string = "\n".join(f"- {url}" for url in sorted(list(final_urls_to_display)))
+        # Lấy tên hiển thị duy nhất và sắp xếp
+        unique_display_names = sorted(list(set(final_source_names_display)))
+        source_names_string = ", ".join(unique_display_names)
+
+        # Thêm vào cuối câu trả lời hiển thị
+        final_answer_display += f"\n\n**Nguồn tham khảo (dựa trên {source_names_string}):**\n{urls_string}"
+
+
+    return final_answer_display

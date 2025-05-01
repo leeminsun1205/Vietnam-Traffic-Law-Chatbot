@@ -49,7 +49,7 @@ class HybridRetriever:
             try:
                 if not os.path.exists(vncorenlp_dir): os.makedirs(vncorenlp_dir)
                 st.write('VAL')
-                # py_vncorenlp.download_model(save_dir=vncorenlp_dir) # Nên chạy riêng
+                py_vncorenlp.download_model(save_dir=vncorenlp_dir) # Nên chạy riêng
                 self.rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir=vncorenlp_dir)
                 st.write('TRAIN')
             except Exception as e:

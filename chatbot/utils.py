@@ -20,22 +20,22 @@ def generate_query_variations(original_query, gemini_model, num_variations=confi
     print(f"\nGenerating {num_variations} variations AND summary for query: \"{original_query}\"")
 
     prompt = f"""Bạn là một chuyên gia về luật giao thông đường bộ Việt Nam. Nhiệm vụ của bạn là:
-1.  Diễn đạt lại câu hỏi gốc sau đây theo {num_variations} cách khác nhau, giữ nguyên ý nghĩa cốt lõi, đa dạng về từ ngữ và cấu trúc, ưu tiên từ khóa luật giao thông và loại phương tiện liên quan (ô tô, xe máy, xe tải,...), sử dụng từ đồng nghĩa (phạt, xử phạt, mức phạt,...).
-2.  Tạo ra MỘT câu hỏi tổng hợp DUY NHẤT, đại diện cho ý định tìm kiếm chung của câu hỏi gốc và các biến thể, giữ lại từ khóa quan trọng, diễn đạt tự nhiên và bao quát.
-3.  Ưu tiên 1 biến thể có chứa cụm từ "không tuân thủ" nếu nó là 1 câu hỏi về lỗi vi phạm.
+    1.  Diễn đạt lại câu hỏi gốc sau đây theo {num_variations} cách khác nhau, giữ nguyên ý nghĩa cốt lõi, đa dạng về từ ngữ và cấu trúc, ưu tiên từ khóa luật giao thông và loại phương tiện liên quan (ô tô, xe máy, xe tải,...), sử dụng từ đồng nghĩa (phạt, xử phạt, mức phạt,...).
+    2.  Tạo ra MỘT câu hỏi tổng hợp DUY NHẤT, đại diện cho ý định tìm kiếm chung của câu hỏi gốc và các biến thể, giữ lại từ khóa quan trọng, diễn đạt tự nhiên và bao quát.
+    3.  Ưu tiên 1 biến thể có chứa cụm từ "không tuân thủ" nếu nó là 1 câu hỏi về lỗi vi phạm.
 
-Câu hỏi gốc: "{original_query}"
+    Câu hỏi gốc: "{original_query}"
 
-Hãy trả lời THEO ĐÚNG ĐỊNH DẠNG JSON sau, không thêm bất kỳ lời giải thích hay giới thiệu nào khác:
-{{
-  "variations": [
-    "[Biến thể 1]",
-    "[Biến thể 2]",
-    "[Biến thể {num_variations}]"
-  ],
-  "summarizing_query": "[Câu hỏi tổng hợp duy nhất]"
-}}
-"""
+    Hãy trả lời THEO ĐÚNG ĐỊNH DẠNG JSON sau, không thêm bất kỳ lời giải thích hay giới thiệu nào khác:
+    {{
+    "variations": [
+        "[Biến thể 1]",
+        "[Biến thể 2]",
+        "[Biến thể {num_variations}]"
+    ],
+    "summarizing_query": "[Câu hỏi tổng hợp duy nhất]"
+    }}
+    """
 
     all_queries = [original_query]
     summarizing_query = original_query # Default fallback
@@ -208,17 +208,32 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model):
     urls_string = "\n".join(f"- {url}" for url in unique_urls)
 
     # --- Prompt chi tiết ---
-    prompt = f"""Bạn là một trợ lý giao thông đường bộ Việt Nam hữu ích. Hãy sử dụng các đoạn văn bản sau để trả lời câu hỏi của người dùng. Nếu các đoạn văn bản không chứa thông tin liên quan đến câu hỏi, chỉ cần nói rằng bạn không tìm thấy thông tin phù hợp dựa trên ngữ cảnh được cung cấp. Đừng cố gắng tạo ra câu trả lời từ kiến thức của riêng bạn. 
-    Tuy nhiên bạn cũng phải có khả năng liên tưởng những trường hợp đồng nghĩa ví dụ Rượu, bia, Đèn đỏ thì liên quan tới đèn tín hiệu, xe mô tô thì là xe 2 bánh, ... chứ không phải khớp hoàn toàn thì mới được
+    prompt = f"""Bạn là một trợ lý chuyên gia về luật giao thông đường bộ Việt Nam. Nhiệm vụ của bạn là trả lời câu hỏi của người dùng một cách chính xác, đầy đủ và **NGẮN GỌN**, **CHỈ DỰA TRÊN** các đoạn trích từ văn bản luật được cung cấp dưới đây.
 
-    Đoạn văn bản: (Chỉ rõ Thông tin: Chương, Mục, Điều, Khoản, Điểm cho mỗi thông tin (nếu có))
-    ---
+    **Ngữ cảnh được cung cấp (Mỗi đoạn có kèm nguồn tham khảo):**
     {context_text}
-    ---
 
-    Câu hỏi: {query_text}
+    **Câu hỏi của người dùng:** {query_text}
 
-    Trả lời:
+    **Yêu cầu trả lời:**
+    1.  **Bám sát ngữ cảnh:** Tuyệt đối chỉ sử dụng thông tin từ các đoạn văn bản trong "Ngữ cảnh được cung cấp". Không suy diễn hoặc thêm kiến thức ngoài.
+    2.  **Tổng hợp và trích dẫn thông minh:**
+        * **Tổng hợp ý:** Kết hợp thông tin từ nhiều đoạn ngữ cảnh nếu chúng cùng trả lời cho một phần của câu hỏi. Diễn đạt lại một cách mạch lạc, tự nhiên, tránh lặp lại nguyên văn các đoạn trích quá dài.
+        * **Trích dẫn nguồn gốc:** Sau khi trình bày một ý hoặc một nhóm ý liên quan, hãy **nêu rõ nguồn gốc** thông tin đó. Cố gắng **gom nhóm nguồn** một cách hợp lý:
+            * Nếu nhiều ý khác nhau trong câu trả lời cùng đến từ **cùng một Điều, Khoản (hoặc Điểm)** của **cùng một Văn bản**, chỉ cần trích dẫn nguồn đầy đủ (Văn bản, Chương, Điều, Khoản, Điểm...) **một lần** cho nhóm ý đó.
+            * Nếu các ý đến từ các Khoản/Điểm **khác nhau** nhưng **cùng một Điều** của cùng Văn bản, có thể trích dẫn Văn bản và Điều một lần, sau đó nêu rõ Khoản/Điểm cho từng ý nếu cần thiết để rõ ràng, hoặc nếu các ý có thể gộp chung thì trích nguồn chung (ví dụ: "Theo Điều X, Khoản 1 và Khoản 3 của Văn bản Y...").
+            * Nếu toàn bộ câu trả lời chỉ dựa vào **một nguồn duy nhất** (ví dụ: một Khoản cụ thể), hãy trích dẫn nguồn đó một lần.
+            * Sử dụng thông tin trong dấu `[...]` ở phần "Nguồn tham khảo" của mỗi đoạn ngữ cảnh để trích dẫn. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
+        * **Ưu tiên sự ngắn gọn:** Trích dẫn nguồn một cách súc tích nhất có thể mà vẫn đảm bảo tính chính xác.
+    3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, và **in đậm** (dùng `** **`) cho các điểm chính, mức phạt, hoặc kết luận.
+    4.  **Đối chiếu ngữ cảnh:** Tìm kiếm các từ/cụm từ liên quan về mặt pháp lý trong ngữ cảnh, ngay cả khi chúng không hoàn toàn trùng khớp với từ trong câu hỏi (ví dụ: "nồng độ cồn" vs "rượu bia", "đèn đỏ" vs "tín hiệu giao thông", "xe máy" vs "xe mô tô/gắn máy", "vượt tốc độ" vs "tốc độ tối đa").
+    5.  **Xử lý thiếu thông tin:** Nếu ngữ cảnh không chứa thông tin liên quan, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
+    6.  **Ngôn ngữ:** Trả lời bằng tiếng Việt.
+    7.  **Tham khảo thêm:** Cuối câu trả lời, nếu có các URL liên quan từ ngữ cảnh, hãy thêm phần "Bạn có thể tham khảo thêm tại:" và liệt kê các URL đó.
+    8.  **Loại bỏ các đoạn trích có ý nghĩa trùng lặp nhau.**
+    9.  **Nếu tìm thấy 1 từ khóa chính liên quan đến câu hỏi nhưng không chắc thì hãy nói là không tìm thấy nhưng tôi có thấy 1 thông tin như sau:**
+    10. **Nếu có các yêu cầu đặc biệt như liệt kê, tóm tắt, khái quát, tổng hợp, ... hoặc những yêu cầu kèm theo của người dùng bạn phải ưu tiên làm theo.**
+    **Trả lời:**
     """
     # --- Gọi API và xử lý kết quả ---
     final_answer = "Lỗi khi tạo câu trả lời từ Gemini."

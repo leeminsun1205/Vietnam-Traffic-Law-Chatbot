@@ -332,7 +332,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
     found_urls = set()
     
-    st.write(final_answer_display)
+    st.write([final_answer_display])
     citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa

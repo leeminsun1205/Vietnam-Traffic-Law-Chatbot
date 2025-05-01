@@ -208,8 +208,9 @@ def extract_and_normalize_document_key(citation_text):
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
 
-    source_url_map = {}
-    source_display_name_map = {}
+    url_mapping_dict = load_document_url_mapping()
+    context_for_prompt = "..."
+    history_prefix = "..."
     context_str_parts = []
     source_details_for_prompt = []
 
@@ -222,15 +223,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             metadata = doc.get('metadata', {})
             if not doc or not text: continue
 
-            source_name = metadata.get('source'); 
+            source_name = metadata.get('source', 'N/A'); 
             url = metadata.get('url'); 
-
-            if source_name:
-                normalized_name = source_name.lower().strip()
-                if url and normalized_name not in source_url_map:
-                    source_url_map[normalized_name] = url
-                    source_display_name_map[normalized_name] = source_name
-
             context_meta = metadata.get('context', {})
             chuong = context_meta.get('chuong')
             muc = context_meta.get('muc')
@@ -238,7 +232,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             khoan = context_meta.get('khoan')
             diem = context_meta.get('diem')
             
-            source_parts = [f"Văn bản: {source_name}" or 'N/A']
+            source_parts = [f"Văn bản: {source_name}"]
             if chuong: source_parts.append(f"Chương {chuong}")
             if muc: source_parts.append(f"Mục {muc}")
             if dieu: source_parts.append(f"Điều {dieu}")
@@ -253,7 +247,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
              context_for_prompt = "\n".join(source_details_for_prompt) 
 
     # --- Xây dựng chuỗi lịch sử chat gần đây ---
-    history_prefix = ""
     if chat_history: # chat_history là list các dict {"role": "user/assistant", "content": ...}
         history_prefix = "**Lịch sử trò chuyện gần đây:**\n"
         for msg in chat_history:
@@ -262,7 +255,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             content = msg.get("content", "").strip()
             if role and content:
                  history_prefix += f"{role}: {content}\n"
-        history_prefix += "---\n" # Ngăn cách lịch sử với phần còn lại của prompt
+        history_prefix += "---\n"
 
     full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
     {history_prefix}
@@ -321,25 +314,38 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     # --- Chọn Prompt dựa trên chế độ ---
     if mode == 'Ngắn gọn':
         prompt = brief_prompt_template
-    else: # Mặc định là 'Đầy đủ'
+    else: 
         prompt = full_prompt_template
 
     # --- Gọi API và xử lý kết quả ---
-    final_answer = "Lỗi khi tạo câu trả lời từ Gemini."
+    final_answer_display = "Lỗi khi tạo câu trả lời từ Gemini."
     try:
+        if not gemini_model: raise ValueError("...")
         response = gemini_model.generate_content(prompt)
-        # Kiểm tra xem có bị block không
         if response.parts:
-             final_answer = response.text
-        elif response.prompt_feedback and response.prompt_feedback.block_reason:
-             final_answer = f"Không thể tạo câu trả lời do bị chặn bởi bộ lọc an toàn: {response.prompt_feedback.block_reason}"
-        else:
-             final_answer = "Không nhận được phản hồi hợp lệ từ mô hình ngôn ngữ."
-
+            final_answer_display = response.text
+        else: final_answer_display = "..."
     except Exception as e:
-        final_answer = f"Đã xảy ra lỗi khi kết nối với mô hình ngôn ngữ: {e}"
+        final_answer_display = f"Lỗi: {e}"
 
-    if unique_urls and "không tìm thấy nội dung phù hợp" not in final_answer and "bị chặn bởi bộ lọc an toàn" not in final_answer and "Lỗi khi" not in final_answer:
-        final_answer += "\n\n**Nguồn:**\n" + urls_string
 
-    return final_answer
+    # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
+    found_urls = set()
+    if url_mapping_dict: 
+        # Tìm tất cả các chuỗi trong dấu ngoặc vuông
+        citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
+        for citation in citations_found:
+            # Trích xuất và chuẩn hóa khóa
+            doc_key = extract_and_normalize_document_key(citation)
+            if doc_key:
+                url = url_mapping_dict.get(doc_key) 
+                if url:
+                    found_urls.add(url)
+
+    # --- Nối chuỗi URL vào câu trả lời (nếu tìm thấy) ---
+    if found_urls:
+        sorted_urls = sorted(list(found_urls))
+        urls_string = "\n".join(f"- {url}" for url in sorted_urls)
+        final_answer_display += f"\n\n**Nguồn:**\n{urls_string}"
+
+    return final_answer_display

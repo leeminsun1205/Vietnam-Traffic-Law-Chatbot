@@ -4,6 +4,7 @@ import os
 import logging
 import numpy as np
 import pickle
+import config
 from rank_bm25 import BM25Okapi
 
 # Cần import các thành phần phụ thuộc

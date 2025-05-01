@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 from kaggle_secrets import UserSecretsClient 
 import streamlit as st
 import config
-import data_loader
+
 
 # --- Model Loading Functions ---
 # @st.cache_resource
@@ -40,12 +40,6 @@ def load_gemini_model(model_name):
     else:
         st.error("Không tìm thấy GOOGLE_API_KEY.")
         return None
-
-# --- Hàm Cache để Khởi tạo DB và Retriever ---
-# @st.cache_resource
-def cached_load_or_create_components(_embedding_model): 
-    vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
-    return vector_db, hybrid_retriever
 
 # --- Query Augmentation ---
 def generate_query_variations(original_query, gemini_model, num_variations=config.NUM_QUERY_VARIATIONS):

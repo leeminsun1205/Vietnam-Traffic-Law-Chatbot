@@ -4,6 +4,13 @@ import os
 import time 
 import config
 import utils
+import data_loader
+
+# --- Hàm Cache để Khởi tạo DB và Retriever ---
+# @st.cache_resource
+def cached_load_or_create_components(_embedding_model): 
+    vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
+    return vector_db, hybrid_retriever
 
 # --- Cấu hình Trang Streamlit ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="collapsed")
@@ -27,7 +34,7 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     models_loaded = all([g_embedding_model, g_reranking_model, g_gemini_model])
 
     st.write("Chuẩn bị cơ sở dữ liệu và retriever...")
-    g_vector_db, g_hybrid_retriever = utils.cached_load_or_create_components(g_embedding_model)
+    g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
     if retriever_ready:
         status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)

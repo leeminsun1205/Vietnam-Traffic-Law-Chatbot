@@ -209,7 +209,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
 
     url_mapping_dict = load_document_url_mapping()
-    st.write(url_mapping_dict)
     context_for_prompt = "..."
     history_prefix = "..."
     context_str_parts = []
@@ -332,6 +331,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 
     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
     found_urls = set()
+    st.write(url_mapping_dict)
+    st.write('ABABAB')
     if url_mapping_dict: 
         # Tìm tất cả các chuỗi trong dấu ngoặc vuông
         st.write(final_answer_display)

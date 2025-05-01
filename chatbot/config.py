@@ -12,7 +12,7 @@ gemini_model_name = 'gemini-2.0-flash' # Sử dụng model mới nhất nếu c�
 KAGGLE_INPUT_PATH = '/kaggle/working/CS431.P22/datasets'
 LOCAL_DATA_PATH = './' # Thư mục chứa file json nếu chạy local
 VNCORENLP_SAVE_DIR = 'kaggle/working/' # Thư mục lưu VnCoreNLP
-SAVED_DATA_DIR = 'kaggle/working/' # Thư mục lưu index, docs, bm25
+SAVED_DATA_DIR = 'loader' # Thư mục lưu index, docs, bm25
 SAVED_DATA_PREFIX = os.path.join(SAVED_DATA_DIR, 'legal_rag_data') # Prefix đầy đủ
 
 # Xác định đường dẫn dữ liệu JSON

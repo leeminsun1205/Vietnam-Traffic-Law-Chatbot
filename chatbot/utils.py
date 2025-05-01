@@ -195,14 +195,12 @@ def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader
     
 def extract_and_normalize_document_key(citation_text):
     citation_text = citation_text.strip() 
-    st.write(citation_text)
     match1 = re.search(r'(\d+)\s*[/_]\s*(\d{4})\s*[/_]\s*([A-ZĐ]+(?:-[A-ZĐ]+)*)', citation_text, re.IGNORECASE)
     if match1:
         number = match1.group(1)
         year = match1.group(2)
         identifier = match1.group(3)
         key = f"{number}_{year}_{identifier}".upper()
-        st.write(key)
         return key
 
     match2 = re.search(r'(\d+)\s*[/_]\s*(\d{4})\s*[/_]\s*([A-Z]+\d+)', citation_text, re.IGNORECASE)
@@ -344,7 +342,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     found_urls = set()
     
     citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
-    st.write(citations_found)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa
         doc_key = extract_and_normalize_document_key(citation)

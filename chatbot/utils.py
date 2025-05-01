@@ -266,6 +266,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - Điểm d
         - Điểm đ
         - ...
+        Ví dụ Điểm b phải được ưu tiên hơn Điểm c
     **Trả lời:**
     """
 

@@ -328,12 +328,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     except Exception as e:
         final_answer_display = f"Lỗi: {e}"
 
-
     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
     found_urls = set()
     
-    st.write([final_answer_display])
     citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
+    st.write(citations_found)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa
         doc_key = extract_and_normalize_document_key(citation)
@@ -343,7 +342,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                 found_urls.add(url)
 
     # --- Nối chuỗi URL vào câu trả lời (nếu tìm thấy) ---
-    st.write(found_urls)
     if found_urls:
         sorted_urls = sorted(list(found_urls))
         urls_string = "\n".join(f"- {url}" for url in sorted_urls)

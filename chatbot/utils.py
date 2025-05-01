@@ -209,8 +209,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
     else:
         for i, item in enumerate(relevant_documents):
-            doc = item.get(doc); 
-            st.write('doc')
+            doc = item.get('doc'); 
+            st.write(doc)
             text = doc.get('text', '').strip(); 
             metadata = doc.get('metadata', {})
             if not doc or not text: continue

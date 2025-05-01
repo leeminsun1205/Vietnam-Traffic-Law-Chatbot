@@ -209,18 +209,28 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
     else:
         for i, item in enumerate(relevant_documents):
-            doc = item.get('doc'); text = doc.get('text', '').strip(); metadata = doc.get('metadata', {})
+            doc = item.get('doc'); 
+            text = doc.get('text', '').strip(); 
+            metadata = doc.get('metadata', {})
             if not doc or not text: continue
-            source = metadata.get('source', 'N/A'); url = metadata.get('url'); context_meta = metadata.get('context', {})
-            chuong = context_meta.get('chuong'); dieu = context_meta.get('dieu'); khoan = context_meta.get('khoan'); diem = context_meta.get('diem'); muc = context_meta.get('muc')
+
+            source = metadata.get('source', 'N/A'); 
+            url = metadata.get('url'); 
+            context_meta = metadata.get('context', {})
+            chuong = context_meta.get('chuong'); 
+            dieu = context_meta.get('dieu'); 
+            khoan = context_meta.get('khoan'); 
+            diem = context_meta.get('diem'); 
+            muc = context_meta.get('muc')
             source_parts = [f"Văn bản: {source}"]
             if chuong: source_parts.append(f"Chương {chuong}")
             if muc: source_parts.append(f"Mục {muc}")
             if dieu: source_parts.append(f"Điều {dieu}")
             if khoan: source_parts.append(f"Khoản {khoan}")
             if diem: source_parts.append(f"Điểm {diem}")
-            source_ref = ", ".join(source_parts)
-            context_str_parts.append(f"--- Nguồn tham khảo {i+1}: [{source_ref}] ---\n{text}\n---")
+            source_ref_full = ", ".join(source_parts)
+
+            source_details_for_prompt.append(f"Nguồn {i+1}: [{source_ref_full}]\nNội dung: {text}\n---")
             if url: unique_urls.add(url)
         if not source_details_for_prompt:
              context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp."
@@ -268,7 +278,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 
     **Trả lời NGẮN GỌN:**
     """
-    
+
     # --- Chọn Prompt dựa trên chế độ ---
     if mode == 'Ngắn gọn':
         prompt = brief_prompt_template

@@ -53,6 +53,7 @@ class HybridRetriever:
                 self.rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir=vncorenlp_dir)
                 st.write('TRAIN')
             except Exception as e:
+                st.write('LỖI RỒI')
                 self.rdrsegmenter = None
 
     def _initialize_bm25(self):

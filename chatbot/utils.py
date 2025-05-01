@@ -342,6 +342,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     found_urls = set()
     
     citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
+    st.write(citations_found)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa
         doc_key = extract_and_normalize_document_key(citation)

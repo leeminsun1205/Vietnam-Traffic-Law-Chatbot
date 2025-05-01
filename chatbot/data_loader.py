@@ -31,7 +31,7 @@ def load_or_create_rag_components(embedding_model):
             for i in range(1, config.NUM_FILES + 1)
             if i not in config.NUMBERS_TO_SKIP
         ]
-        st.write('aaaaaa')
+        st.write(json_files)
         logging.info(f"Sẽ xử lý {len(json_files)} file JSON để tạo DB.")
         if not json_files:
              logging.error("Không có file JSON nào được chỉ định để xử lý.")

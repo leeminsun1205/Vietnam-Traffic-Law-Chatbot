@@ -201,6 +201,7 @@ def extract_and_normalize_document_key(citation_text):
         year = match1.group(2)
         identifier = match1.group(3)
         key = f"{number}_{year}_{identifier}".lower()
+        st.write(key)
         return key
 
     match2 = re.search(r'(\d+)\s*[/_]\s*(\d{4})\s*[/_]\s*([A-Z]+\d+)', citation_text, re.IGNORECASE)
@@ -209,6 +210,7 @@ def extract_and_normalize_document_key(citation_text):
         year = match2.group(2)
         identifier = match2.group(3)
         key = f"{number}_{year}_{identifier}".lower()
+        st.write(key)
         return key
     return None
 

@@ -259,7 +259,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
-    7.  Chú ý tính thứ tự quan trọng của nội dung, ví dụ thứ tự ưu tiên, mức độ phạt nặng nhẹ, tránh sai lệch, lộn xộn. (Lưu ý nếu có thứ tự thì "điểm a" là thứ tự CAO NHẤT rồi giảm dần theo điểm b, điểm c, điểm d, ...)
+    7.  Chú ý tính thứ tự quan trọng của nội dung, ví dụ thứ tự ưu tiên, mức độ phạt nặng nhẹ, tránh sai lệch, lộn xộn. (Lưu ý nếu có thứ tự thì "điểm a" là thứ tự CAO NHẤT rồi giảm dần theo điểm b, điểm c, điểm d, ...). Thứ tự ưu tiên phải dựa vào ngữ cảnh được cung cấp.
     **Trả lời:**
     """
 

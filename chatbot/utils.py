@@ -343,6 +343,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                     found_urls.add(url)
 
     # --- Nối chuỗi URL vào câu trả lời (nếu tìm thấy) ---
+    st.write('HAHAHA')
     if found_urls:
         sorted_urls = sorted(list(found_urls))
         urls_string = "\n".join(f"- {url}" for url in sorted_urls)

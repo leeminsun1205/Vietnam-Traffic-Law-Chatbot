@@ -283,7 +283,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
     4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
+    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là, gán thứ tự ưu tiên vào câu trả lời:
         - a) Điểm thứ a trong Điều/Khoản
         - b) Điểm thứ b trong Điều/Khoản
         - c) Điểm thứ c trong Điều/Khoản

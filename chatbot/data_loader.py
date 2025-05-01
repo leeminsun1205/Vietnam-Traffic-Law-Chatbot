@@ -39,7 +39,7 @@ def load_or_create_rag_components(embedding_model):
         # Embed dữ liệu
         valid_chunks, embeddings_array = embed_legal_chunks(json_files, embedding_model)
         st.write('check')
-        st.write(valid_chunks, embeddings_array)
+        # st.write(valid_chunks, embeddings_array)
         st.write('check')
         if valid_chunks and embeddings_array is not None:
             logging.info(f"Embed thành công {len(valid_chunks)} chunks.")

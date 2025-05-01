@@ -19,7 +19,7 @@ SAVED_DATA_PREFIX = os.path.join(SAVED_DATA_DIR, 'legal_rag_data') # Prefix đ�
 st.write('aaaaaaa')
 st.write(os.path.exists(KAGGLE_INPUT_PATH))
 st.write('aaaaaaa')
-JSON_DATA_PATH = KAGGLE_INPUT_PATH if os.path.exists(KAGGLE_INPUT_PATH) else LOCAL_DATA_PATH
+JSON_DATA_PATH = KAGGLE_INPUT_PATH 
 JSON_FILE_PATTERN = os.path.join(JSON_DATA_PATH, 'legal_{i}.json')
 NUM_FILES = 31 # Tổng số file dữ liệu dự kiến
 NUMBERS_TO_SKIP = {29, 30}

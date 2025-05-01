@@ -68,6 +68,7 @@ def embed_legal_chunks(file_paths, model):
     logging.info(f"Bắt đầu xử lý dữ liệu từ {len(file_paths)} file JSON...")
 
     for file_path in file_paths:
+        os.listdir(file_paths)
         logging.info(f"Đang thử đọc: {file_path}")
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -98,7 +99,6 @@ def embed_legal_chunks(file_paths, model):
         if text and isinstance(text, str) and text.strip():
             texts_to_embed.append(text)
             valid_chunks.append(chunk)
-
     if not texts_to_embed:
         logging.error("Không tìm thấy text hợp lệ nào trong các chunk để tạo embedding.")
         return [], None

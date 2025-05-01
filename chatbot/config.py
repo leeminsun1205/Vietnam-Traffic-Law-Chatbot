@@ -1,6 +1,5 @@
 # config.py
 import os
-import streamlit as st
 # --- Cấu hình Mô hình ---
 embedding_model_name = 'truro7/vn-law-embedding' 
 reranking_model_name = 'namdp-ptit/ViRanker' 

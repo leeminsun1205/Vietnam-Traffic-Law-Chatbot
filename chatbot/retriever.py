@@ -44,6 +44,7 @@ class HybridRetriever:
 
     def _initialize_vncorenlp(self, vncorenlp_dir):
         """Khởi tạo VnCoreNLP."""
+        st.write('TEST')
         if py_vncorenlp:
             try:
                 if not os.path.exists(vncorenlp_dir): os.makedirs(vncorenlp_dir)

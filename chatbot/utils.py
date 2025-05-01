@@ -188,7 +188,7 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
 
 # --- Hàm tải tệp mapping URL ---
 # @st.cache_data 
-def load_document_url_mapping(filepath="./loader/vanban_url_map.json"):
+def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader/vanban_url_map.json"):
     with open(filepath, 'r', encoding='utf-8') as f:
         mapping = json.load(f)
         return mapping 
@@ -209,6 +209,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
 
     url_mapping_dict = load_document_url_mapping()
+    st.write(url_mapping_dict)
     context_for_prompt = "..."
     history_prefix = "..."
     context_str_parts = []

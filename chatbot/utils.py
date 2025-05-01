@@ -194,16 +194,23 @@ def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader
         return mapping 
     
 def extract_and_normalize_document_key(citation_text):
-    st.write(citation_text)
-    match = re.search(r'(\d+/\d{4}/[A-ZĐ-]+(?:-[A-Z]+)*)', citation_text, re.IGNORECASE) # VD: 100/2019/NĐ-CP
-    if match:
-        return match.group(1).lower().strip()
+    citation_text = citation_text.strip() 
+    match1 = re.search(r'(\d+)\s*[/_]\s*(\d{4})\s*[/_]\s*([A-ZĐ]+(?:-[A-ZĐ]+)*)', citation_text, re.IGNORECASE)
+    if match1:
+        number = match1.group(1)
+        year = match1.group(2)
+        identifier = match1.group(3)
+        key = f"{number}_{year}_{identifier}".lower()
+        return key
 
-    match = re.search(r'(\d+/\d{4}/[A-Z]+)', citation_text, re.IGNORECASE) # VD: 36/2024/QH15
-    if match:
-         return match.group(1).lower().strip()
-
-    return None 
+    match2 = re.search(r'(\d+)\s*[/_]\s*(\d{4})\s*[/_]\s*([A-Z]+\d+)', citation_text, re.IGNORECASE)
+    if match2:
+        number = match2.group(1)
+        year = match2.group(2)
+        identifier = match2.group(3)
+        key = f"{number}_{year}_{identifier}".lower()
+        return key
+    return None
 
 # --- Generation ---
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):

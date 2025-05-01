@@ -80,7 +80,6 @@ class HybridRetriever:
     def hybrid_search(self, query_text, embedding_model, vector_search_k=20, final_k=10):
         """Thực hiện tìm kiếm kết hợp."""
         if self.vector_db is None or self.vector_db.index is None or self.vector_db.index.ntotal == 0:
-            logging.warning("Retriever: Vector DB not ready. Cannot hybrid search.")
             return []
 
         # --- 1. Vector Search ---
@@ -92,17 +91,10 @@ class HybridRetriever:
         if self.bm25: 
              tokenized_query = self._simple_tokenize_vncorenlp(query_text)
              if tokenized_query:
-                 try:
-                     bm25_scores = self.bm25.get_scores(tokenized_query)
-                     bm25_scored_indices = [(score, i) for i, score in enumerate(bm25_scores) if score > 0]
-                     bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
-                     bm25_search_indices = [index for score, index in bm25_scored_indices[:vector_search_k]]
-                     # logging.info(f"BM25 found {len(bm25_search_indices)} results > 0.") # Giảm log
-                 except Exception as bm25_err:
-                      logging.error(f"Retriever: BM25 scoring error: {bm25_err}")
-             # else: logging.warning("Retriever: Query empty after tokenization for BM25.") # Giảm log
-        else:
-             logging.warning("Retriever: BM25 not available, skipping sparse search.")
+                bm25_scores = self.bm25.get_scores(tokenized_query)
+                bm25_scored_indices = [(score, i) for i, score in enumerate(bm25_scores) if score > 0]
+                bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
+                bm25_search_indices = [index for score, index in bm25_scored_indices[:vector_search_k]]
 
         # --- 3. Rank Fusion ---
         rank_lists_to_fuse = []
@@ -113,12 +105,9 @@ class HybridRetriever:
 
         fused_indices, fused_scores_dict = [], {}
         if rank_lists_to_fuse:
-            fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Lấy K từ config
-            # logging.info(f"Rank Fusion: {len(fused_indices)} unique docs.") # Giảm log
+            fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) 
         elif isinstance(vec_indices, (list, np.ndarray)) and len(vec_indices) > 0:
-             logging.warning("Retriever: Only vector results available, no fusion.")
              fused_indices = vec_indices.tolist() if isinstance(vec_indices, np.ndarray) else vec_indices
-        # else: logging.warning("Retriever: No results from vector or BM25.") # Giảm log
 
         # --- 4. Get Top K ---
         hybrid_results = []
@@ -126,14 +115,11 @@ class HybridRetriever:
             if isinstance(idx, (int, np.integer)) and 0 <= idx < len(self.documents):
                 score = fused_scores_dict.get(idx, 1 / (rank + 1))
                 hybrid_results.append({'doc': self.documents[idx], 'hybrid_score': score, 'index': idx})
-            else: logging.warning(f"Retriever: Invalid fused index {idx}, skipping.")
 
-        # logging.info(f"Hybrid search returning {len(hybrid_results)} results.") # Giảm log
         return hybrid_results
 
     def _rank_fusion_indices(self, rank_lists, k=60):
         """Thực hiện RRF."""
-        # ... (Copy implementation) ...
         fused_scores = {}
         for rank_list in rank_lists:
             if isinstance(rank_list, np.ndarray): rank_list = rank_list.tolist()
@@ -145,30 +131,20 @@ class HybridRetriever:
         sorted_indices = sorted(fused_scores, key=fused_scores.get, reverse=True)
         return sorted_indices, fused_scores
 
-
     def save_bm25(self, filepath):
         """Lưu trạng thái BM25."""
-        # ... (Copy implementation) ...
-        if self.bm25:
-             # logging.info(f"Saving BM25 state to '{filepath}'...") # Giảm log
-             try:
-                 with open(filepath, 'wb') as f: pickle.dump(self.bm25, f)
-                 # logging.info("BM25 state saved.") # Giảm log
-             except Exception as e: logging.error(f"Error saving BM25 state: {e}")
-        # else: logging.warning("BM25 not initialized. Cannot save.") # Giảm log
+        if self.bm25: 
+            with open(filepath, 'wb') as f: 
+                pickle.dump(self.bm25, f)
 
     def load_bm25(self, filepath):
         """Tải trạng thái BM25."""
-        # ... (Copy implementation) ...
         if os.path.exists(filepath):
-            # logging.info(f"Loading BM25 state from '{filepath}'...") # Giảm log
             try:
                  with open(filepath, 'rb') as f: self.bm25 = pickle.load(f)
-                 # logging.info("BM25 state loaded successfully.") # Giảm log
                  if not hasattr(self.bm25, 'get_scores'): raise ValueError("Invalid BM25 object")
                  return True
             except Exception as e:
-                 logging.error(f"Error loading BM25 state from {filepath}: {e}. Will re-initialize.")
                  self.bm25 = None; return False
         else:
             # logging.info(f"BM25 state file '{filepath}' not found. Will initialize.") # Giảm log

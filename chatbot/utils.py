@@ -214,7 +214,8 @@ def extract_and_normalize_document_key(citation_text):
         number = match1.group(1)
         year = match1.group(2)
         identifier = match1.group(3)
-        st.write(identifier, 'a')
+        if identifier == 'qh':
+            identifier == 'QH15'
         key = f"{number}_{year}_{identifier}".upper()
         return key
 
@@ -223,8 +224,7 @@ def extract_and_normalize_document_key(citation_text):
         number = match2.group(1)
         year = match2.group(2)
         identifier = match2.group(3)
-        st.write(identifier, 'b')
-        if identifier == 'qh' :
+        if identifier == 'qh':
             identifier == 'QH15'
         key = f"{number}_{year}_{identifier}".upper()
         return key
@@ -358,11 +358,9 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     found_urls = set()
     
     citations_found = re.findall(r'\((.*?)\)', final_answer_display)
-    st.write(citations_found)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa
         doc_key = extract_and_normalize_document_key(citation)
-        st.write(doc_key)
         if doc_key:
             url = url_mapping_dict.get(doc_key) 
             if url:

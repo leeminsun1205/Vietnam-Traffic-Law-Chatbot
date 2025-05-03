@@ -293,7 +293,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     **Câu hỏi HIỆN TẠI của người dùng:** {query_text}
 
     **Yêu cầu trả lời:**
-    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài. ** Với các câu hỏi về phạt, vi phạm hay mắc lỗi, ... Có thể xem xét dựa trên ngữ cảnh nếu hợp lí có thể kết luận **Không bị phạt, vi phạm, ...**.
+    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài. 
     2.  * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Văn Bản/Chương/Mục/Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Phải nêu đầy đủ theo cấu trúc sau: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
         **Tổng hợp và query_text trích dẫn:**
         * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài.
@@ -323,7 +323,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     **Câu hỏi HIỆN TẠI:** {query_text}
 
     **Yêu cầu trả lời NGẮN GỌN:**
-    1.  **Chỉ dùng ngữ cảnh.** Với các câu hỏi về phạt, vi phạm hay mắc lỗi, ... Có thể xem xét dựa trên ngữ cảnh nếu hợp lí có thể kết luận **Không bị phạt, vi phạm, ...**.
+    1.  **Chỉ dùng ngữ cảnh.** 
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần. Phải nêu đầy đủ theo cấu trúc sau `(Theo Đ.5, K.2, Điểm a, Văn bản: 36/2024/QH15)`.
     4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"

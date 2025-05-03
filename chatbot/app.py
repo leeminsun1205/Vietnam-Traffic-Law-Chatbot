@@ -104,7 +104,7 @@ if init_ok:
                 # --- Tải model Gemini đã chọn ---
                 selected_model_name = st.session_state.selected_gemini_model
                 selected_gemini_llm = utils.load_gemini_model(selected_model_name)
-                processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.*")
+                processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
 
                 # --- Bước A: Phân loại relevancy ---
@@ -130,7 +130,7 @@ if init_ok:
                     recent_chat_history = st.session_state.messages[-(MAX_HISTORY_TURNS * 2):-1] # Bỏ qua tin nhắn cuối cùng của user (đã có trong query_text)
 
                     # 2a. Hybrid Search (Dùng summarizing_q)
-                    processing_log.append(f"\n*{time.time() - start_time:.2f}s: Tìm kiếm tài liệu...*")
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm kiếm tài liệu...")
                     message_placeholder.markdown(" ".join(processing_log) + "...")
                     variant_results = g_hybrid_retriever.hybrid_search(
                             summarizing_q, g_embedding_model, 
@@ -143,7 +143,7 @@ if init_ok:
                         if doc_index not in collected_docs_data:
                             collected_docs_data[doc_index] = {'doc': item['doc']}
                     num_unique_docs = len(collected_docs_data)
-                    processing_log.append(f"\n*{time.time() - start_time:.2f}s: Tìm thấy {num_unique_docs} tài liệu ứng viên.*")
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {num_unique_docs} tài liệu ứng viên.")
                     message_placeholder.markdown(" ".join(processing_log) + "...")
 
                     unique_docs_for_reranking_input = []
@@ -157,7 +157,7 @@ if init_ok:
                     # 2b. Re-ranking (Dùng summarizing_q)
                     final_relevant_documents = []
                     if unique_docs_for_reranking_input:
-                        processing_log.append(f"\n*{time.time() - start_time:.2f}s: Xếp hạng lại {len(unique_docs_for_reranking_input)} tài liệu...*")
+                        processing_log.append(f"\[{time.time() - start_time:.2f}s]: Xếp hạng lại {len(unique_docs_for_reranking_input)} tài liệu...")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
                         reranked_results = utils.rerank_documents(
                             summarizing_q, 
@@ -165,12 +165,12 @@ if init_ok:
                             g_reranking_model
                         )
                         final_relevant_documents = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
-                        processing_log.append(f"\n*{time.time() - start_time:.2f}s: Chọn top {len(final_relevant_documents)} tài liệu.*")
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Chọn top {len(final_relevant_documents)} tài liệu.")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
 
                     # 2c. Generate Answer (Truyền history vào đây)
                     answer_mode = st.session_state.answer_mode
-                    processing_log.append(f"\n*{time.time() - start_time:.2f}s: Tổng hợp câu trả lời...")
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời...")
                     message_placeholder.markdown(" ".join(processing_log))
 
                     full_response = utils.generate_answer_with_gemini(
@@ -182,12 +182,11 @@ if init_ok:
                     )
 
                     # Cập nhật placeholder với câu trả lời cuối cùng
-                    processing_log.append(f"\n*{time.time() - start_time:.2f}s: Hoàn tất!*")
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Hoàn tất!")
 
                 with st.expander("Xem chi tiết quá trình xử lý", expanded=False):
                     log_content = "\n".join(processing_log)
                     st.markdown(f"```text\n{log_content}\n```") 
-                # Hiển thị câu trả lời chính
                 message_placeholder.markdown(full_response)
 
                     # --- Hiển thị Ảnh (nếu có) ---

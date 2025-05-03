@@ -42,10 +42,24 @@ def load_gemini_model(model_name):
         return None
 
 # --- Query Augmentation ---
-def generate_query_variations(original_query, gemini_model, num_variations=config.NUM_QUERY_VARIATIONS):
-
+def generate_query_variations(original_query, gemini_model, , chat_history=None, num_variations=config.NUM_QUERY_VARIATIONS):
+    
+    history_prefix = ""
+    if chat_history:
+        history_prefix = "**Lịch sử trò chuyện gần đây (để tham khảo ngữ cảnh):**\n"
+        limited_history = chat_history[-(config.MAX_HISTORY_TURNS * 2):] 
+        for msg in limited_history:
+            role = msg.get("role", "unknown").capitalize()
+            content = msg.get("content", "").strip()
+            # Giới hạn độ dài content mỗi tin nhắn nếu cần
+            # content = content[:150] + '...' if len(content) > 150 else content
+            if role and content:
+                history_prefix += f"{role}: {content}\n"
+        history_prefix += "---\n" 
     # --- Cập nhật Prompt ---
-    prompt = f"""Bạn là một trợ lý AI chuyên về Luật Giao thông Đường bộ Việt Nam. Nhiệm vụ của bạn là xử lý câu hỏi sau: "{original_query}"
+    prompt = f"""Bạn là một trợ lý AI chuyên về Luật Giao thông Đường bộ Việt Nam. Nhiệm vụ của bạn là xử lý câu hỏi sau: "{history_prefix}".
+    Có xem xét lịch sử trò chuyện (nếu được cung cấp ở trên) để hiểu ngữ cảnh. 
+    **Câu hỏi HIỆN TẠI:** "{original_query}"
 
     **Bước 1: Phân loại Mức độ Liên quan**
     Xác định câu hỏi có liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, đăng ký xe,...).

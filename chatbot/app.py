@@ -6,8 +6,6 @@ import config
 import utils
 import data_loader
 
-MAX_HISTORY_TURNS = 5
-
 # --- Hàm Cache để Khởi tạo DB và Retriever ---
 @st.cache_resource
 def cached_load_or_create_components(_embedding_model): 
@@ -26,6 +24,9 @@ if "selected_gemini_model" not in st.session_state:
 
 if "answer_mode" not in st.session_state:
     st.session_state.answer_mode = 'Ngắn gọn'
+
+if "use_history_for_llm1" not in st.session_state:
+    st.session_state.use_history_for_llm1 = False
 
 # --- Sidebar ---
 with st.sidebar:
@@ -50,6 +51,14 @@ with st.sidebar:
     )
     st.markdown("---")
 
+    use_hist_llm1 = st.toggle(
+        "Sử dụng lịch sử cho LLM đầu tiên (Phân tích câu hỏi)",
+        key="use_history_for_llm1", 
+        value=st.session_state.use_history_for_llm1, 
+        help="Bật tính năng này để LLM đầu tiên xem xét ngữ cảnh hội thoại khi phân tích câu hỏi (có thể hiểu câu hỏi nối tiếp tốt hơn nhưng tăng độ trễ và có thể ảnh hưởng độ chính xác phân loại)."
+    )
+    st.markdown("---")
+
     st.write("Quản lý hội thoại:")
     if st.button("⚠️ Xóa Lịch Sử Chat"):
         st.session_state.messages = [] 
@@ -61,7 +70,8 @@ with st.sidebar:
 # --- Giao diện chính của Ứng dụng ---
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
 st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về Luật giao thông đường bộ Việt Nam.")
-st.caption(f"Model: {st.session_state.selected_gemini_model} | Chế độ: {st.session_state.answer_mode}")
+hist_llm1_status = "Bật" if st.session_state.use_history_for_llm1 else "Tắt"
+st.caption(f"Model: {st.session_state.selected_gemini_model} | Chế độ: {st.session_state.answer_mode} | History LLM1: {hist_llm1_status}")
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -73,7 +83,6 @@ init_ok = False
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
     g_reranking_model = utils.load_reranker_model(config.reranking_model_name)
-    # g_gemini_model = utils.load_gemini_model(config.gemini_model_name)
     models_loaded = all([g_embedding_model, g_reranking_model])
     g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
@@ -107,12 +116,22 @@ if init_ok:
                 processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
 
+                history_for_llm1 = None
+                if st.session_state.use_history_for_llm1:
+                    # Lấy history tương tự như cho LLM2
+                    history_for_llm1 = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1]
+                    processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi (có dùng lịch sử)...")
+                else:
+                    processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi (không dùng lịch sử)...")
+                message_placeholder.markdown(" ".join(processing_log) + "...")
+
                 # --- Bước A: Phân loại relevancy ---
                 processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi...")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
                 relevance_status, direct_answer, _, summarizing_q = utils.generate_query_variations(
-                    user_query, 
-                    selected_gemini_llm, 
+                    original_query=user_query,
+                    gemini_model=selected_gemini_llm,
+                    chat_history=history_for_llm1, 
                     num_variations=config.NUM_QUERY_VARIATIONS
                 )
 
@@ -127,7 +146,7 @@ if init_ok:
                 # --- Nếu câu hỏi hợp lệ, tiếp tục xử lý RAG ---
                 else:
                     # --- Lấy lịch sử gần đây cho LLM thứ 2 ---
-                    recent_chat_history = st.session_state.messages[-(MAX_HISTORY_TURNS * 2):-1] # Bỏ qua tin nhắn cuối cùng của user (đã có trong query_text)
+                    recent_chat_history = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1] # Bỏ qua tin nhắn cuối cùng của user (đã có trong query_text)
 
                     # 2a. Hybrid Search (Dùng summarizing_q)
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm kiếm tài liệu...")

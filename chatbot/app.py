@@ -26,7 +26,7 @@ if "answer_mode" not in st.session_state:
     st.session_state.answer_mode = 'Ngắn gọn'
 
 if "use_history_for_llm1" not in st.session_state:
-    st.session_state.use_history_for_llm1 = False
+    st.session_state.use_history_for_llm1 = True
 
 # --- Sidebar ---
 with st.sidebar:
@@ -176,7 +176,7 @@ if init_ok:
                     # 2b. Re-ranking (Dùng summarizing_q)
                     final_relevant_documents = []
                     if unique_docs_for_reranking_input:
-                        processing_log.append(f"\[{time.time() - start_time:.2f}s]: Xếp hạng lại {len(unique_docs_for_reranking_input)} tài liệu...")
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {len(unique_docs_for_reranking_input)} tài liệu...")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
                         reranked_results = utils.rerank_documents(
                             summarizing_q, 

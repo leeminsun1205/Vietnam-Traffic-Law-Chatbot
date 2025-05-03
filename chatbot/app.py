@@ -85,7 +85,6 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
 
 # --- Input và Xử lý ---
 if init_ok:
-    # Sử dụng st.chat_input thay cho form để có giao diện chat quen thuộc hơn
     if user_query := st.chat_input("Nhập câu hỏi của bạn về Luật GTĐB..."):
         # 1. Thêm và hiển thị tin nhắn của người dùng
         st.session_state.messages.append({"role": "user", "content": user_query})
@@ -99,18 +98,17 @@ if init_ok:
             processing_log = []
             try:
                 start_time = time.time()
-                processing_log.append(f"*{time.time() - start_time:.2f}s: Bắt đầu xử lý...*")
+                processing_log.append(f"[{time.time() - start_time:.2f}s] Bắt đầu xử lý...")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
-                # --- Query Augmentation, Relevance Check & Direct Answer ---
+
+                # --- Tải model Gemini đã chọn ---
                 selected_model_name = st.session_state.selected_gemini_model
-                processing_log.append(f"\n*{time.time() - start_time:.2f}s: Đang chuẩn bị model '{selected_model_name}'...*")
-                message_placeholder.markdown(" ".join(processing_log) + "...")
-
                 selected_gemini_llm = utils.load_gemini_model(selected_model_name)
-                processing_log.append(f"\n*{time.time() - start_time:.2f}s: Model '{selected_model_name}' đã sẵn sàng.*")
+                processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.*")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
 
-                processing_log.append(f"\n*{time.time() - start_time:.2f}s: Phân tích câu hỏi...*")
+                # --- Bước A: Phân loại relevancy ---
+                processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi...")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
                 relevance_status, direct_answer, _, summarizing_q = utils.generate_query_variations(
                     user_query, 
@@ -124,8 +122,7 @@ if init_ok:
                         full_response = direct_answer
                     else:
                         full_response = "⚠️ Câu hỏi của bạn có vẻ không liên quan đến Luật Giao thông Đường bộ Việt Nam."
-                    processing_log.append(f"\n*{time.time() - start_time:.2f}s: Hoàn tất (câu hỏi không liên quan).*")
-                    message_placeholder.markdown(full_response + f"\n\n{' '.join(processing_log)}")
+                    processing_log.append(f"[{time.time() - start_time:.2f}s] Hoàn tất (Câu hỏi không liên quan).")
 
                 # --- Nếu câu hỏi hợp lệ, tiếp tục xử lý RAG ---
                 else:
@@ -135,14 +132,13 @@ if init_ok:
                     # 2a. Hybrid Search (Dùng summarizing_q)
                     processing_log.append(f"\n*{time.time() - start_time:.2f}s: Tìm kiếm tài liệu...*")
                     message_placeholder.markdown(" ".join(processing_log) + "...")
-                    # ... (code hybrid_search dùng summarizing_q) ...
                     variant_results = g_hybrid_retriever.hybrid_search(
-                            summarizing_q, g_embedding_model, # Tìm kiếm bằng câu hỏi tóm tắt
+                            summarizing_q, g_embedding_model, 
                             vector_search_k=config.VECTOR_K_PER_QUERY,
                             final_k=config.HYBRID_K_PER_QUERY
                     )
                     collected_docs_data = {}
-                    for item in variant_results: # Thu thập kết quả
+                    for item in variant_results: 
                         doc_index = item['index']
                         if doc_index not in collected_docs_data:
                             collected_docs_data[doc_index] = {'doc': item['doc']}
@@ -188,11 +184,11 @@ if init_ok:
                     # Cập nhật placeholder với câu trả lời cuối cùng
                     processing_log.append(f"\n*{time.time() - start_time:.2f}s: Hoàn tất!*")
 
-                    with st.expander("Xem chi tiết quá trình xử lý", expanded=False):
-                        log_content = "\n".join(processing_log)
-                        st.markdown(f"```text\n{log_content}\n```") 
-                    # Hiển thị câu trả lời chính
-                    message_placeholder.markdown(full_response)
+                with st.expander("Xem chi tiết quá trình xử lý", expanded=False):
+                    log_content = "\n".join(processing_log)
+                    st.markdown(f"```text\n{log_content}\n```") 
+                # Hiển thị câu trả lời chính
+                message_placeholder.markdown(full_response)
 
                     # --- Hiển thị Ảnh (nếu có) ---
                     # if final_relevant_documents:
@@ -230,5 +226,6 @@ if init_ok:
                 else:
                     st.markdown(full_response) 
             st.session_state.messages.append({"role": "assistant", "content": full_response})
+
 elif not init_ok:
-    st.error("⚠️ Hệ thống chưa thể khởi động do lỗi. Vui lòng kiểm tra lại cấu hình và đảm bảo có kết nối mạng để tải model lần đầu.")
+    st.error("⚠️ Hệ thống chưa thể khởi động do lỗi.")

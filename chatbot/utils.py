@@ -216,7 +216,7 @@ def extract_and_normalize_document_key(citation_text):
         identifier = match1.group(3)
         st.write(identifier)
         if identifier == 'qh' or identifier == 'QH':
-            identifier == 'QH15'
+            identifier = 'QH15'
         key = f"{number}_{year}_{identifier}".upper()
         return key
 
@@ -226,7 +226,7 @@ def extract_and_normalize_document_key(citation_text):
         year = match2.group(2)
         identifier = match2.group(3)
         if identifier == 'qh':
-            identifier == 'QH15'
+            identifier = 'QH15'
         key = f"{number}_{year}_{identifier}".upper()
         return key
     return None

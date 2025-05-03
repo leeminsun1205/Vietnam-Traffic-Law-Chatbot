@@ -323,9 +323,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     **Yêu cầu trả lời NGẮN GỌN:**
     1.  **Chỉ dùng ngữ cảnh.**
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
-    3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
-    4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
+    3.  * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Văn Bản/Chương/Mục/Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
+        **Tổng hợp và query_text trích dẫn:**
+    4.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn thật sự sử dụng. Với cấu trúc chuẩn. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
+    5.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
+    6.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
         - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
         - Điểm thứ b trong Điều/Khoản
         - Điểm thứ c trong Điều/Khoản

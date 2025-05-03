@@ -295,18 +295,18 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     2.  * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Văn Bản/Chương/Mục/Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
         **Tổng hợp và query_text trích dẫn:**
         * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài.
-        * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `[...]`.
+        * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `(...)`.
     3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** (`** **`) cho nội dung chính/mức phạt/kết luận.
     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
     7.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
-        - a) Điểm thứ a trong Điều/Khoản
-        - b) Điểm thứ b trong Điều/Khoản
-        - c) Điểm thứ c trong Điều/Khoản
-        - d) Điểm thứ d trong Điều/Khoản
-        - đ) Điểm thứ đ trong Điều/Khoản
-        - ...
+        - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
+        - Điểm thứ b trong Điều/Khoản
+        - Điểm thứ c trong Điều/Khoản
+        - Điểm thứ d trong Điều/Khoản
+        - Điểm thứ đ trong Điều/Khoản
+        - ... 
     **Trả lời:**
     """
 
@@ -323,14 +323,14 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     **Yêu cầu trả lời NGẮN GỌN:**
     1.  **Chỉ dùng ngữ cảnh.**
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
-    3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần, ví dụ: `[Đ.5, K.2, VB: 36/2024]`.
+    3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần. . Ví dụ: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
     4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là, gán thứ tự ưu tiên vào câu trả lời:
-        - a) Điểm thứ a trong Điều/Khoản
-        - b) Điểm thứ b trong Điều/Khoản
-        - c) Điểm thứ c trong Điều/Khoản
-        - d) Điểm thứ d trong Điều/Khoản
-        - đ) Điểm thứ đ trong Điều/Khoản
+    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
+        - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
+        - Điểm thứ b trong Điều/Khoản
+        - Điểm thứ c trong Điều/Khoản
+        - Điểm thứ d trong Điều/Khoản
+        - Điểm thứ đ trong Điều/Khoản
         - ...
     **Trả lời NGẮN GỌN:**
     """
@@ -355,7 +355,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
     found_urls = set()
     
-    citations_found = re.findall(r'\[(.*?)\]', final_answer_display)
+    citations_found = re.findall(r'\((.*?)\)', final_answer_display)
     for citation in citations_found:
         # Trích xuất và chuẩn hóa khóa
         doc_key = extract_and_normalize_document_key(citation)

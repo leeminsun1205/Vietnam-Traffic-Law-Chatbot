@@ -187,7 +187,6 @@ if init_ok:
 
                     # Cập nhật placeholder với câu trả lời cuối cùng
                     processing_log.append(f"\n*{time.time() - start_time:.2f}s: Hoàn tất!*")
-                    message_placeholder.markdown(full_response + f"\n\n{' '.join(processing_log)}")
 
                     with st.expander("Xem chi tiết quá trình xử lý", expanded=False):
                         log_content = "\n".join(processing_log)

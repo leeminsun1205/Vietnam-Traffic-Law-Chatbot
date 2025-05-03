@@ -42,7 +42,7 @@ def load_gemini_model(model_name):
         return None
 
 # --- Query Augmentation ---
-def generate_query_variations(original_query, gemini_model, , chat_history=None, num_variations=config.NUM_QUERY_VARIATIONS):
+def generate_query_variations(original_query, gemini_model, chat_history=None, num_variations=config.NUM_QUERY_VARIATIONS):
     
     history_prefix = ""
     if chat_history:

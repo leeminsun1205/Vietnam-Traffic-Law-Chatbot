@@ -1,0 +1,831 @@
+[
+  {
+    "query_id": "eval_001",
+    "query": "Mức phạt không đội mũ bảo hiểm xe máy năm 2025?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_161",
+      "168_2024_NĐ-CP_chunk_162",
+      "168_2024_NĐ-CP_chunk_290",
+      "168_2024_NĐ-CP_chunk_291",
+      "168_2024_NĐ-CP_chunk_321"
+    ]
+  },
+  {
+    "query_id": "eval_002",
+    "query": "Chạy quá tốc độ 10 km/h ô tô bị phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_103"
+    ]
+  },
+  {
+    "query_id": "eval_003",
+    "query": "Vượt đèn đỏ xe máy phạt bao nhiêu tiền?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_189"
+    ]
+  },
+  {
+    "query_id": "eval_004",
+    "query": "Nồng độ cồn cho phép khi lái xe ô tô là bao nhiêu?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_61"
+    ]
+  },
+  {
+    "query_id": "eval_005",
+    "query": "Nồng độ cồn cho phép khi lái xe máy là bao nhiêu?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_61"
+    ]
+  },
+  {
+    "query_id": "eval_006",
+    "query": "Không có bằng lái xe A1 phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_423",
+      "168_2024_NĐ-CP_chunk_430",
+      "168_2024_NĐ-CP_chunk_435"
+    ]
+  },
+  {
+    "query_id": "eval_007",
+    "query": "Không mang giấy phép lái xe ô tô bị phạt thế nào?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_424",
+      "168_2024_NĐ-CP_chunk_442"
+    ]
+  },
+  {
+    "query_id": "eval_008",
+    "query": "Đi sai làn đường ô tô phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_88",
+      "168_2024_NĐ-CP_chunk_100"
+    ]
+  },
+  {
+    "query_id": "eval_009",
+    "query": "Đi ngược chiều bị phạt bao nhiêu tiền?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_187",
+      "168_2024_NĐ-CP_chunk_204",
+      "168_2024_NĐ-CP_chunk_126",
+      "168_2024_NĐ-CP_chunk_128",
+      "168_2024_NĐ-CP_chunk_132"
+    ]
+  },
+  {
+    "query_id": "eval_010",
+    "query": "Xe máy không có gương chiếu hậu bên trái phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_374"
+    ]
+  },
+  {
+    "query_id": "eval_011",
+    "query": "Sử dụng điện thoại khi lái ô tô phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_106"
+    ]
+  },
+  {
+    "query_id": "eval_012",
+    "query": "Không bật xi nhan khi chuyển hướng phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_75",
+      "168_2024_NĐ-CP_chunk_127",
+      "168_2024_NĐ-CP_chunk_143",
+      "168_2024_NĐ-CP_chunk_164",
+      "168_2024_NĐ-CP_chunk_204",
+      "168_2024_NĐ-CP_chunk_215"
+    ]
+  },
+  {
+    "query_id": "eval_013",
+    "query": "Dừng xe nơi có biển cấm dừng phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_78"
+    ]
+  },
+  {
+    "query_id": "eval_014",
+    "query": "Đỗ xe nơi có biển cấm đỗ phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_78"
+    ]
+  },
+  {
+    "query_id": "eval_015",
+    "query": "Chở quá số người quy định trên xe máy phạt thế nào?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_160",
+      "168_2024_NĐ-CP_chunk_205",
+      "168_2024_NĐ-CP_chunk_215",
+      "168_2024_NĐ-CP_chunk_165",
+      "168_2024_NĐ-CP_chunk_212"
+    ]
+  },
+  {
+    "query_id": "eval_016",
+    "query": "Chở quá số người quy định trên ô tô 7 chỗ phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_449",
+      "168_2024_NĐ-CP_chunk_460"
+    ]
+  },
+  {
+    "query_id": "eval_017",
+    "query": "Xe hết hạn đăng kiểm phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_352",
+      "168_2024_NĐ-CP_chunk_357"
+    ]
+  },
+  {
+    "query_id": "eval_018",
+    "query": "Không có bảo hiểm xe máy bắt buộc phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_421"
+    ]
+  },
+  {
+    "query_id": "eval_019",
+    "query": "Đi vào đường cấm xe máy phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_184"
+    ]
+  },
+  {
+    "query_id": "eval_020",
+    "query": "Lỗi không thắt dây an toàn trên ô tô phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_82",
+      "168_2024_NĐ-CP_chunk_319"
+    ]
+  },
+  {
+    "query_id": "eval_021",
+    "query": "Tốc độ tối đa cho xe máy trong khu dân cư?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_20"
+    ]
+  },
+  {
+    "query_id": "eval_022",
+    "query": "Tốc độ tối đa cho ô tô trong khu dân cư?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_20"
+    ]
+  },
+  {
+    "query_id": "eval_023",
+    "query": "Tốc độ tối đa cho ô tô ngoài khu dân cư (đường đôi)?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_21"
+    ]
+  },
+  {
+    "query_id": "eval_024",
+    "query": "Tốc độ tối đa trên đường cao tốc là bao nhiêu?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_26"
+    ]
+  },
+  {
+    "query_id": "eval_025",
+    "query": "Khi nào được phép đi vào làn dừng khẩn cấp?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_213",
+      "36_2024_QH15_chunk_215"
+    ]
+  },
+  {
+    "query_id": "eval_026",
+    "query": "Quy tắc nhường đường tại nơi giao nhau không có biển báo?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_195",
+      "36_2024_QH15_chunk_196"
+    ]
+  },
+  {
+    "query_id": "eval_027",
+    "query": "Xe nào được ưu tiên đi trước tại vòng xuyến?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_195",
+      "36_2024_QH15_chunk_196",
+      "36_2024_QH15_chunk_197"
+    ]
+  },
+  {
+    "query_id": "eval_028",
+    "query": "Đèn tín hiệu màu vàng phải dừng lại hay đi tiếp?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_101",
+      "36_2024_QH15_chunk_102",
+      "36_2024_QH15_chunk_103"
+    ]
+  },
+  {
+    "query_id": "eval_029",
+    "query": "Xe máy có được đi vào đường cao tốc không?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_216"
+    ]
+  },
+  {
+    "query_id": "eval_030",
+    "query": "Khoảng cách an toàn tối thiểu giữa hai xe ô tô là bao nhiêu?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_39",
+      "38_2024_TT-BGTVT_chunk_40",
+      "38_2024_TT-BGTVT_chunk_41"
+    ]
+  },
+  {
+    "query_id": "eval_031",
+    "query": "Khi nào phải bật đèn chiếu sáng xe máy?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_186",
+      "36_2024_QH15_chunk_187",
+      "36_2024_QH15_chunk_188",
+      "36_2024_QH15_chunk_189",
+      "36_2024_QH15_chunk_190"
+    ]
+  },
+  {
+    "query_id": "eval_032",
+    "query": "Sử dụng đèn chiếu xa trong đô thị bị phạt không?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_188"
+    ]
+  },
+  {
+    "query_id": "eval_033",
+    "query": "Quy tắc vượt xe bên phải như thế nào?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_138",
+      "36_2024_QH15_chunk_139"
+    ]
+  },
+  {
+    "query_id": "eval_034",
+    "query": "Xe máy có được phép chở 3 người không?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_259",
+      "36_2024_QH15_chunk_260",
+      "36_2024_QH15_chunk_261",
+      "36_2024_QH15_chunk_262"
+    ]
+  },
+  {
+    "query_id": "eval_035",
+    "query": "Trẻ em bao nhiêu tuổi phải đội mũ bảo hiểm khi đi xe máy?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_291"
+    ]
+  },
+  {
+    "query_id": "eval_036",
+    "query": "Xe máy cần mang theo giấy tờ gì khi tham gia giao thông?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_486",
+      "36_2024_QH15_chunk_487",
+      "36_2024_QH15_chunk_488",
+      "36_2024_QH15_chunk_489",
+      "36_2024_QH15_chunk_496"
+    ]
+  },
+  {
+    "query_id": "eval_037",
+    "query": "Ô tô cần giấy tờ gì khi lưu thông?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_486",
+      "36_2024_QH15_chunk_487",
+      "36_2024_QH15_chunk_488",
+      "36_2024_QH15_chunk_489",
+      "36_2024_QH15_chunk_497"
+    ]
+  },
+  {
+    "query_id": "eval_038",
+    "query": "Lắp thêm đèn trợ sáng cho xe máy có bị phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_376",
+      "168_2024_NĐ-CP_chunk_642"
+    ]
+  },
+  {
+    "query_id": "eval_039",
+    "query": "Thay đổi màu sơn xe ô tô có cần đăng ký lại không?",
+    "relevant_chunk_ids": [
+      "79_2024_TT-BCA_chunk_115"
+    ]
+  },
+  {
+    "query_id": "eval_040",
+    "query": "Xe bán tải có niên hạn sử dụng không?",
+    "relevant_chunk_ids": [
+      "166_2024_NĐ-CP_chunk_131",
+      "166_2024_NĐ-CP_chunk_132",
+      "166_2024_NĐ-CP_chunk_133"
+    ]
+  },
+  {
+    "query_id": "eval_041",
+    "query": "Xe máy có phải kiểm tra khí thải định kỳ không?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_377",
+      "36_2024_QH15_chunk_378"
+    ]
+  },
+  {
+    "query_id": "eval_042",
+    "query": "Bằng lái xe hạng A1 lái được xe gì?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_498"
+    ]
+  },
+  {
+    "query_id": "eval_043",
+    "query": "Bằng lái xe hạng B2 lái được xe tải bao nhiêu tấn?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_770"
+    ]
+  },
+  {
+    "query_id": "eval_044",
+    "query": "Giấy phép lái xe máy hết hạn phải làm sao?",
+    "relevant_chunk_ids": [
+      "35_2024_TT-BGTVT_chunk_272",
+      "35_2024_TT-BGTVT_chunk_273"
+    ]
+  },
+  {
+    "query_id": "eval_045",
+    "query": "Giấy phép lái xe ô tô hết hạn bao lâu thì phải thi lại?",
+    "relevant_chunk_ids": [
+      "35_2024_TT-BGTVT_chunk_272",
+      "35_2024_TT-BGTVT_chunk_273"
+    ]
+  },
+  {
+    "query_id": "eval_046",
+    "query": "Mất giấy phép lái xe máy phải làm lại ở đâu? Thủ tục?",
+    "relevant_chunk_ids": [
+      "35_2024_TT-BGTVT_chunk_278",
+      "35_2024_TT-BGTVT_chunk_286",
+      "35_2024_TT-BGTVT_chunk_287",
+      "35_2024_TT-BGTVT_chunk_288",
+      "35_2024_TT-BGTVT_chunk_289",
+      "35_2024_TT-BGTVT_chunk_290",
+      "35_2024_TT-BGTVT_chunk_291",
+      "35_2024_TT-BGTVT_chunk_292",
+      "35_2024_TT-BGTVT_chunk_293",
+      "35_2024_TT-BGTVT_chunk_294",
+      "35_2024_TT-BGTVT_chunk_295"
+    ]
+  },
+  {
+    "query_id": "eval_047",
+    "query": "Sử dụng giấy phép lái xe quốc tế tại Việt Nam như thế nào?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_526",
+      "36_2024_QH15_chunk_527",
+      "36_2024_QH15_chunk_528"
+    ]
+  },
+  {
+    "query_id": "eval_048",
+    "query": "Xe tập lái cần tuân thủ những quy định gì?",
+    "relevant_chunk_ids": [
+      "160_2024_NĐ-CP_chunk_35",
+      "160_2024_NĐ-CP_chunk_36",
+      "160_2024_NĐ-CP_chunk_37",
+      "160_2024_NĐ-CP_chunk_38",
+      "160_2024_NĐ-CP_chunk_39"
+    ]
+  },
+  {
+    "query_id": "eval_049",
+    "query": "Chạy xe lạng lách đánh võng có vi phạm giao thông không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_134",
+      "168_2024_NĐ-CP_chunk_135",
+      "168_2024_NĐ-CP_chunk_136",
+      "168_2024_NĐ-CP_chunk_194",
+      "168_2024_NĐ-CP_chunk_208",
+      "168_2024_NĐ-CP_chunk_283",
+      "168_2024_NĐ-CP_chunk_737"
+    ]
+  },
+  {
+    "query_id": "eval_050",
+    "query": "Đi bộ qua đường không đúng nơi quy định có bị phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_293"
+    ]
+  },
+  {
+    "query_id": "eval_051",
+    "query": "Chạy xe máy trên vỉa hè có bị phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_187",
+      "168_2024_NĐ-CP_chunk_212"
+    ]
+  },
+  {
+    "query_id": "eval_052",
+    "query": "Âm lượng còi xe được quy định như thế nào?",
+    "relevant_chunk_ids": [
+      "41_2024_BGTVT_chunk_485"
+    ]
+  },
+  {
+    "query_id": "eval_053",
+    "query": "Gắn biển số xe sai quy định phạt bao nhiêu?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_361",
+      "168_2024_NĐ-CP_chunk_385",
+      "168_2024_NĐ-CP_chunk_401"
+    ]
+  },
+  {
+    "query_id": "eval_054",
+    "query": "Thời hạn cấp lại giấy chứng nhận đăng ký xe bị mất?",
+    "relevant_chunk_ids": [
+      "79_2024_TT-BCA_chunk_47"
+    ]
+  },
+  {
+    "query_id": "eval_055",
+    "query": "Các hạng giấy phép lái xe gắn máy ở Việt Nam?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_498",
+      "36_2024_QH15_chunk_499",
+      "36_2024_QH15_chunk_500"
+    ]
+  },
+  {
+    "query_id": "eval_056",
+    "query": "Xe ưu tiên gồm những loại xe nào? Quyền của xe ưu tiên?",
+    "relevant_chunk_ids": [
+      "41_2024_BGTVT_chunk_77",
+      "41_2024_BGTVT_chunk_78",
+      "41_2024_BGTVT_chunk_79",
+      "41_2024_BGTVT_chunk_80",
+      "41_2024_BGTVT_chunk_81",
+      "41_2024_BGTVT_chunk_85",
+      "41_2024_BGTVT_chunk_86"
+    ]
+  },
+  {
+    "query_id": "eval_057",
+    "query": "Khi gặp xe cứu thương đang làm nhiệm vụ phải nhường đường thế nào?",
+    "relevant_chunk_ids": [
+      "41_2024_BGTVT_chunk_86"
+    ]
+  },
+  {
+    "query_id": "eval_058",
+    "query": "Điều khiển xe máy buông cả hai tay có bị phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_206",
+      "168_2024_NĐ-CP_chunk_278"
+    ]
+  },
+  {
+    "query_id": "eval_059",
+    "query": "Xe đạp điện có phải đội mũ bảo hiểm không?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_253",
+      "36_2024_QH15_chunk_286"
+    ]
+  },
+  {
+    "query_id": "eval_060",
+    "query": "Quy định về tốc độ đối với xe buýt?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_21"
+    ]
+  },
+  {
+    "query_id": "eval_061",
+    "query": "Phải làm gì ngay sau khi xảy ra va chạm giao thông?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_688",
+      "36_2024_QH15_chunk_689",
+      "36_2024_QH15_chunk_690",
+      "36_2024_QH15_chunk_691",
+      "36_2024_QH15_chunk_692",
+      "36_2024_QH15_chunk_693",
+      "36_2024_QH15_chunk_694",
+      "36_2024_QH15_chunk_695",
+      "36_2024_QH15_chunk_696",
+      "36_2024_QH15_chunk_697"
+    ]
+  },
+  {
+    "query_id": "eval_062",
+    "query": "Trách nhiệm bồi thường thiệt hại khi gây tai nạn?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_710",
+      "72_2024_TT-BCA_chunk_145"
+    ]
+  },
+  {
+    "query_id": "eval_063",
+    "query": "Thế nào được coi là lỗi \"vượt đèn đỏ\"?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_103",
+      "41_2024_BGTVT_chunk_61"
+    ]
+  },
+  {
+    "query_id": "eval_064",
+    "query": "Nồng độ cồn bao nhiêu thì bị vi phạm?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_117",
+      "168_2024_NĐ-CP_chunk_242",
+      "168_2024_NĐ-CP_chunk_183",
+      "168_2024_NĐ-CP_chunk_277"
+    ]
+  },
+  {
+    "query_id": "eval_065",
+    "query": "Luật Giao thông đường bộ 2008 còn áp dụng không?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_761"
+    ]
+  },
+  {
+    "query_id": "eval_066",
+    "query": "Thông tư 31/2019/TT-BGTVT quy định về tốc độ và khoảng cách đúng không?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_42"
+    ]
+  },
+  {
+    "query_id": "eval_067",
+    "query": "\"Phần đường xe chạy\" là gì?",
+    "relevant_chunk_ids": [
+      "41_2024_BGTVT_chunk_15",
+      "36_2024_QH15_chunk_7"
+    ]
+  },
+  {
+    "query_id": "eval_068",
+    "query": "Tiêu chuẩn sức khỏe của người lái xe được chia thành mấy nhóm và áp dụng cho các hạng giấy phép lái xe (GPLX) nào?",
+    "relevant_chunk_ids": [
+      "36_2024_TT-BYT_chunk_5",
+      "36_2024_TT-BYT_chunk_6",
+      "36_2024_TT-BYT_chunk_7"
+    ]
+  },
+  {
+    "query_id": "eval_069",
+    "query": "Nội dung khám sức khỏe định kỳ đối với người hành nghề lái xe ô tô bao gồm những gì?",
+    "relevant_chunk_ids": [
+      "36_2024_TT-BYT_chunk_12",
+      "36_2024_TT-BYT_chunk_13",
+      "36_2024_TT-BYT_chunk_14"
+    ]
+  },
+  {
+    "query_id": "eval_070",
+    "query": "Xe cứu thương có được lắp đèn và còi ưu tiên không? Tín hiệu ưu tiên của xe cứu thương được quy định như thế nào?",
+    "relevant_chunk_ids": [
+      "151_2024_NĐ-CP_chunk_156",
+      "151_2024_NĐ-CP_chunk_166",
+      "151_2024_NĐ-CP_chunk_170"
+    ]
+  },
+  {
+    "query_id": "eval_071",
+    "query": "Những loại xe ô tô nào bắt buộc phải lắp thiết bị giám sát hành trình và thiết bị ghi hình người lái xe?",
+    "relevant_chunk_ids": [
+      "151_2024_NĐ-CP_chunk_207",
+      "151_2024_NĐ-CP_chunk_209"
+    ]
+  },
+  {
+    "query_id": "eval_072",
+    "query": "Tôi muốn tham gia đấu giá biển số xe ô tô thì cần chuẩn bị bao nhiêu tiền đặt trước và tiền mua hồ sơ?",
+    "relevant_chunk_ids": [
+      "156_2024_NĐ-CP_chunk_18",
+      "156_2024_NĐ-CP_chunk_21",
+      "156_2024_NĐ-CP_chunk_23"
+    ]
+  },
+  {
+    "query_id": "eval_073",
+    "query": "Việc đấu giá biển số xe được tổ chức như thế nào, có phải đến trực tiếp không? Tôi có thể chọn đấu giá biển số của tỉnh/thành phố khác nơi tôi ở không?",
+    "relevant_chunk_ids": [
+      "156_2024_NĐ-CP_chunk_14",
+      "156_2024_NĐ-CP_chunk_47",
+      "156_2024_NĐ-CP_chunk_49"
+    ]
+  },
+  {
+    "query_id": "eval_074",
+    "query": "Lái xe hoặc người áp tải khi vận chuyển hàng hóa nguy hiểm có bắt buộc phải được tập huấn về an toàn không? Ai là người phải tổ chức việc tập huấn này và bao lâu phải tập huấn lại?",
+    "relevant_chunk_ids": [
+      "161_2024_NĐ-CP_chunk_40",
+      "161_2024_NĐ-CP_chunk_37",
+      "161_2024_NĐ-CP_chunk_39",
+      "161_2024_NĐ-CP_chunk_151",
+      "161_2024_NĐ-CP_chunk_161"
+    ]
+  },
+  {
+    "query_id": "eval_075",
+    "query": "Xe tải khi chở hàng hóa nguy hiểm thì cần phải dán các biểu trưng, biển báo nguy hiểm như thế nào trên xe?",
+    "relevant_chunk_ids": [
+      "161_2024_NĐ-CP_chunk_52",
+      "161_2024_NĐ-CP_chunk_35",
+      "161_2024_NĐ-CP_chunk_156"
+    ]
+  },
+  {
+    "query_id": "eval_076",
+    "query": "Học lý thuyết để thi bằng lái xe máy hạng A1 có bắt buộc phải học tập trung tại cơ sở đào tạo không?",
+    "relevant_chunk_ids": [
+      "160_2024_NĐ-CP_chunk_16",
+      "160_2024_NĐ-CP_chunk_17"
+    ]
+  },
+  {
+    "query_id": "eval_077",
+    "query": "Xe ô tô dùng để dạy lái (xe tập lái) cần phải được trang bị những gì để đủ điều kiện hoạt động?",
+    "relevant_chunk_ids": [
+      "160_2024_NĐ-CP_chunk_37"
+    ]
+  },
+  {
+    "query_id": "eval_078",
+    "query": "Niên hạn sử dụng của xe ô tô tải và xe ô tô chở người trên 9 chỗ là bao nhiêu năm?",
+    "relevant_chunk_ids": [
+      "166_2024_NĐ-CP_chunk_131",
+      "166_2024_NĐ-CP_chunk_132"
+    ]
+  },
+  {
+    "query_id": "eval_079",
+    "query": "Hệ thống camera giám sát giao thông được ưu tiên lắp đặt ở những loại đường nào?",
+    "relevant_chunk_ids": [
+      "83_2024_TT-BCA_chunk_10"
+    ]
+  },
+  {
+    "query_id": "eval_080",
+    "query": "Ai là người quản lý và vận hành hệ thống camera giám sát giao thông trên đường cao tốc và đường trong tỉnh?",
+    "relevant_chunk_ids": [
+      "83_2024_TT-BCA_chunk_16",
+      "83_2024_TT-BCA_chunk_17"
+    ]
+  },
+  {
+    "query_id": "eval_081",
+    "query": "Khi Cảnh sát giao thông (CSGT) dừng xe, tôi cần xuất trình những giấy tờ gì? Tôi có thể sử dụng ứng dụng VNeID để thay thế giấy tờ gốc không?",
+    "relevant_chunk_ids": [
+      "73_2024_TT-BCA_chunk_39",
+      "73_2024_TT-BCA_chunk_40",
+      "73_2024_TT-BCA_chunk_78",
+      "73_2024_TT-BCA_chunk_79"
+    ]
+  },
+  {
+    "query_id": "eval_082",
+    "query": "Quy trình xử lý vi phạm giao thông qua hình ảnh (phạt nguội) khi không dừng được xe ngay tại chỗ diễn ra như thế nào? Nếu tôi không đến giải quyết theo thông báo thì sao?",
+    "relevant_chunk_ids": [
+      "73_2024_TT-BCA_chunk_136",
+      "73_2024_TT-BCA_chunk_137",
+      "73_2024_TT-BCA_chunk_138",
+      "73_2024_TT-BCA_chunk_139",
+      "73_2024_TT-BCA_chunk_142",
+      "73_2024_TT-BCA_chunk_143"
+    ]
+  },
+  {
+    "query_id": "eval_083",
+    "query": "CSGT có được phép mặc thường phục (hóa trang) khi làm nhiệm vụ tuần tra, kiểm soát không? Trong những trường hợp nào?",
+    "relevant_chunk_ids": [
+      "73_2024_TT-BCA_chunk_34",
+      "73_2024_TT-BCA_chunk_35",
+      "73_2024_TT-BCA_chunk_36",
+      "73_2024_TT-BCA_chunk_37",
+      "73_2024_TT-BCA_chunk_38"
+    ]
+  },
+  {
+    "query_id": "eval_084",
+    "query": "Xe chạy thử nghiệm trên đường có bắt buộc phải lắp camera hành trình và thiết bị giám sát hành trình không?",
+    "relevant_chunk_ids": [
+      "52_2024_TT-BGTVT_chunk_28"
+    ]
+  },
+  {
+    "query_id": "eval_085",
+    "query": "Xe tải của tôi có tổng cộng 3 trục thì được phép chở tối đa bao nhiêu tấn (tổng khối lượng cả xe và hàng)?",
+    "relevant_chunk_ids": [
+      "39_2024_TT-BGTVT_chunk_74"
+    ]
+  },
+  {
+    "query_id": "eval_086",
+    "query": "Khi chở hàng trên xe tải thùng hở không có mui, chiều cao tối đa được phép xếp hàng là bao nhiêu mét tính từ mặt đường?",
+    "relevant_chunk_ids": [
+      "39_2024_TT-BGTVT_chunk_89",
+      "39_2024_TT-BGTVT_chunk_90",
+      "39_2024_TT-BGTVT_chunk_91"
+    ]
+  },
+  {
+    "query_id": "eval_087",
+    "query": "Giấy chứng nhận chất lượng xe nhập khẩu có giá trị trong bao lâu và được lập thành mấy bản?",
+    "relevant_chunk_ids": [
+      "82_2024_TT-BCA_chunk_63"
+    ]
+  },
+  {
+    "query_id": "eval_088",
+    "query": "Khi làm nhiệm vụ điều khiển giao thông, Cảnh sát giao thông được trang bị những công cụ, phương tiện gì?",
+    "relevant_chunk_ids": [
+      "69_2024_TT-BCA_chunk_30",
+      "69_2024_TT-BCA_chunk_31",
+      "69_2024_TT-BCA_chunk_32",
+      "69_2024_TT-BCA_chunk_33",
+      "69_2024_TT-BCA_chunk_34"
+    ]
+  },
+  {
+    "query_id": "eval_089",
+    "query": "Hiệu lệnh yêu cầu phương tiện dừng lại phía bên phải của Cảnh sát giao thông được thực hiện như thế nào?",
+    "relevant_chunk_ids": [
+      "69_2024_TT-BCA_chunk_95"
+    ]
+  },
+  {
+    "query_id": "eval_090",
+    "query": "Cảnh sát giao thông sẽ xử lý như thế nào nếu người vi phạm không chấp hành yêu cầu dừng xe hoặc kiểm tra?",
+    "relevant_chunk_ids": [
+      "69_2024_TT-BCA_chunk_110",
+      "69_2024_TT-BCA_chunk_111",
+      "69_2024_TT-BCA_chunk_120",
+      "69_2024_TT-BCA_chunk_121"
+    ]
+  },
+  {
+    "query_id": "eval_091",
+    "query": "Tôi bị trừ hết điểm bằng lái xe thì cần làm gì để được phục hồi điểm?",
+    "relevant_chunk_ids": [
+      "65_2024_TT-BCA_chunk_2",
+      "65_2024_TT-BCA_chunk_7"
+    ]
+  },
+  {
+    "query_id": "eval_092",
+    "query": "Bài kiểm tra lý thuyết và mô phỏng để phục hồi điểm bằng lái xe bao gồm những gì và thi như thế nào?",
+    "relevant_chunk_ids": [
+      "65_2024_TT-BCA_chunk_14",
+      "65_2024_TT-BCA_chunk_15",
+      "65_2024_TT-BCA_chunk_16",
+      "65_2024_TT-BCA_chunk_17"
+    ]
+  },
+  {
+    "query_id": "eval_093",
+    "query": "Thi phục hồi điểm bằng lái cần đạt bao nhiêu điểm là đậu? Nếu thi rớt lý thuyết hoặc mô phỏng thì có được thi lại không?",
+    "relevant_chunk_ids": [
+      "65_2024_TT-BCA_chunk_18",
+      "65_2024_TT-BCA_chunk_24"
+    ]
+  },
+  {
+    "query_id": "eval_094",
+    "query": "Xe ô tô con được chạy tốc độ tối đa bao nhiêu trong khu dân cư?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_20",
+      "38_2024_TT-BGTVT_chunk_4"
+    ]
+  },
+  {
+    "query_id": "eval_095",
+    "query": "Khi chạy xe với tốc độ 60 km/h trên đường khô ráo, khoảng cách an toàn tối thiểu với xe phía trước là bao nhiêu mét?",
+    "relevant_chunk_ids": [
+      "38_2024_TT-BGTVT_chunk_40",
+      "38_2024_TT-BGTVT_chunk_41"
+    ]
+  },
+  {
+    "query_id": "eval_096",
+    "query": "Quy định về số hiệu của các loại đường bộ như đường cao tốc, quốc lộ, đường tỉnh, đường huyện, đường đô thị như thế nào?",
+    "relevant_chunk_ids": [
+      "165_2024_NĐ-CP_chunk_43",
+      "165_2024_NĐ-CP_chunk_44",
+      "165_2024_NĐ-CP_chunk_45",
+      "165_2024_NĐ-CP_chunk_46",
+      "165_2024_NĐ-CP_chunk_47",
+      "165_2024_NĐ-CP_chunk_48"
+    ]
+  }
+]

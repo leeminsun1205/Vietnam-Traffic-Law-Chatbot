@@ -326,8 +326,9 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     1.  **Chỉ dùng ngữ cảnh.** 
     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần. Phải nêu đầy đủ theo cấu trúc sau `(Theo Đ.5, K.2, Điểm a, Văn bản: 36/2024/QH15)`.
-    4.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-    5.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
+    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
+    5.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
+    6.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
         - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
         - Điểm thứ b trong Điều/Khoản
         - Điểm thứ c trong Điều/Khoản

@@ -8,12 +8,7 @@ import math
 import os
 import logging
 from datetime import datetime
-
-# Import các thành phần cần thiết từ các module khác
-# Giả sử các file gốc nằm ở thư mục cha hoặc PYTHONPATH được cấu hình đúng
 import sys
-# Thêm thư mục gốc vào sys.path để import các module utils, config,...
-# Điều chỉnh đường dẫn tương đối này nếu cần
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import config
@@ -69,20 +64,7 @@ def run_retrieval_evaluation(
     gemini_model,    # Model đã load (có thể None)
     eval_config: dict # Chứa các tùy chọn như retrieval_mode, use_history,...
     ):
-    """
-    Chạy quy trình retrieval cho bộ dữ liệu đánh giá và tính toán metrics.
-
-    Args:
-        eval_data: List các dict chứa query và relevant_chunk_ids.
-        hybrid_retriever: Instance của HybridRetriever đã được khởi tạo.
-        embedding_model: Model embedding đã load.
-        reranking_model: Model reranker đã load.
-        gemini_model: Model Gemini đã load (hoặc None).
-        eval_config: Dict chứa các cấu hình như 'retrieval_mode', 'use_history_for_llm1'.
-
-    Returns:
-        pandas.DataFrame: DataFrame chứa kết quả chi tiết cho từng query.
-    """
+    
     results_list = []
     k_values = [3, 5, 10] # K values for evaluation metrics
 

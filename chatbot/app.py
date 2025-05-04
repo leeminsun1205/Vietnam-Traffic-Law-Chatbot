@@ -127,10 +127,10 @@ if init_ok:
                 # --- Bước A: Phân loại relevancy ---
                 processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi...")
                 message_placeholder.markdown(" ".join(processing_log) + "...")
-                relevance_status, direct_answer, _, summarizing_q = utils.generate_query_variations(
+                relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                     original_query=user_query,
                     gemini_model=selected_gemini_llm,
-                    chat_history=history_for_llm1, 
+                    chat_history=history_for_llm1,
                     num_variations=config.NUM_QUERY_VARIATIONS
                 )
 
@@ -150,17 +150,26 @@ if init_ok:
                     # 2a. Hybrid Search (Dùng summarizing_q)
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm kiếm tài liệu...")
                     message_placeholder.markdown(" ".join(processing_log) + "...")
-                    variant_results = g_hybrid_retriever.hybrid_search(
-                            summarizing_q, g_embedding_model, 
-                            vector_search_k=config.VECTOR_K_PER_QUERY,
-                            final_k=config.HYBRID_K_PER_QUERY
-                    )
                     collected_docs_data = {}
-                    st.write(len(variant_results))
-                    for item in variant_results: 
-                        doc_index = item['index']
-                        if doc_index not in collected_docs_data:
-                            collected_docs_data[doc_index] = {'doc': item['doc']}
+                    for q_idx, query_variant in enumerate(all_queries):
+                        # Log tiến trình cho từng biến thể (tùy chọn)
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm kiếm cho biến thể {q_idx+1}/{len(all_queries)}...")
+                        message_placeholder.markdown(" ".join(processing_log) + "...")
+
+                        # Gọi hybrid_search cho TỪNG query_variant
+                        variant_results = g_hybrid_retriever.hybrid_search(
+                                query_variant, # <<< Sử dụng biến thể hiện tại
+                                g_embedding_model,
+                                vector_search_k=config.VECTOR_K_PER_QUERY, # =30
+                                final_k=config.HYBRID_K_PER_QUERY         # =20
+                        )
+
+                        # Thu thập các chunk duy nhất từ kết quả của biến thể này
+                        for item in variant_results:
+                            doc_index = item['index']
+                            # Nếu chưa có chunk này thì thêm vào
+                            if doc_index not in collected_docs_data:
+                                collected_docs_data[doc_index] = {'doc': item['doc']}
                     num_unique_docs = len(collected_docs_data)
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {num_unique_docs} tài liệu ứng viên.")
                     message_placeholder.markdown(" ".join(processing_log) + "...")

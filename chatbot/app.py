@@ -156,7 +156,7 @@ if init_ok:
                             final_k=config.HYBRID_K_PER_QUERY
                     )
                     collected_docs_data = {}
-                    st.write(variant_results)
+                    st.write(len(variant_results))
                     for item in variant_results: 
                         doc_index = item['index']
                         if doc_index not in collected_docs_data:

@@ -79,8 +79,9 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
     * **Nếu câu hỏi CÓ liên quan:** Hãy thực hiện các yêu cầu sau:
         1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
         2.  Tạo MỘT câu hỏi tổng hợp bao quát.
-        3.  Ưu tiên biến thể chứa "không tuân thủ" nếu hỏi về lỗi.
+        3.  Ưu tiên biến thể chứa "không tuân thủ, không chấp hành" nếu hỏi về lỗi, vi phạm.
         4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
+        5.  Nếu câu hỏi có **liên quan đến phương tiện** mà hỏi 1 cách tổng quát (không chỉ rõ loại xe nào) phải ưu tiên 1 câu có "xe mô tô, xe gắn máy, các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy" và 1 câu có "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
         ```json
         {{
         "relevance": "valid",

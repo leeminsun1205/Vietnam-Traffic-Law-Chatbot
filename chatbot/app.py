@@ -27,6 +27,9 @@ if "answer_mode" not in st.session_state:
 if "use_history_for_llm1" not in st.session_state:
     st.session_state.use_history_for_llm1 = True
 
+if "retrieval_mode" not in st.session_state:
+    st.session_state.retrieval_mode = 'Sâu'
+
 # --- Sidebar ---
 with st.sidebar:
     st.title("Tùy chọn")
@@ -47,6 +50,15 @@ with st.sidebar:
         # index=1 if st.session_state.answer_mode == 'Đầy đủ' else 0, # Bỏ index nếu dùng key
         horizontal=True,
         help="Chọn mức độ chi tiết cho câu trả lời của bot."
+    )
+    st.markdown("---")
+
+    retrieval_mode_choice = st.radio(
+        "Chọn chế độ truy vấn:",
+        options=['Đơn giản', 'Sâu'],
+        key="retrieval_mode", # Lưu vào session state
+        horizontal=True,
+        help="**Đơn giản:** Nhanh hơn, chỉ tìm kiếm dựa trên câu hỏi tóm tắt. **Sâu:** Chậm hơn, tìm kiếm cho cả câu hỏi gốc và các biến thể, có thể đầy đủ hơn."
     )
     st.markdown("---")
 
@@ -125,8 +137,6 @@ if init_ok:
                 message_placeholder.markdown(" ".join(processing_log) + "...")
 
                 # --- Bước A: Phân loại relevancy ---
-                processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi...")
-                message_placeholder.markdown(" ".join(processing_log) + "...")
                 relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                     original_query=user_query,
                     gemini_model=selected_gemini_llm,
@@ -148,28 +158,43 @@ if init_ok:
                     recent_chat_history = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1] # Bỏ qua tin nhắn cuối cùng của user (đã có trong query_text)
 
                     # 2a. Hybrid Search (Dùng summarizing_q)
-                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm kiếm tài liệu...")
-                    message_placeholder.markdown(" ".join(processing_log) + "...")
-                    collected_docs_data = {}
-                    for q_idx, query_variant in enumerate(all_queries):
-                        # Log tiến trình cho từng biến thể (tùy chọn)
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm kiếm cho biến thể {q_idx+1}/{len(all_queries)}...")
+                    collected_docs_data = {} # Khởi tạo dict chứa kết quả
+                    retrieval_mode = st.session_state.retrieval_mode # Lấy chế độ đã chọn
+
+                    if retrieval_mode == 'Đơn giản':
+                        # --- Chế độ Truy vấn Đơn giản ---
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn đơn giản...")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
-
-                        # Gọi hybrid_search cho TỪNG query_variant
                         variant_results = g_hybrid_retriever.hybrid_search(
-                                query_variant, # <<< Sử dụng biến thể hiện tại
-                                g_embedding_model,
-                                vector_search_k=config.VECTOR_K_PER_QUERY, # =30
-                                final_k=config.HYBRID_K_PER_QUERY         # =20
+                            summarizing_q, g_embedding_model, # Chỉ dùng câu hỏi tóm tắt
+                            vector_search_k=config.VECTOR_K_PER_QUERY,
+                            final_k=config.HYBRID_K_PER_QUERY # Lấy top K kết quả
                         )
-
-                        # Thu thập các chunk duy nhất từ kết quả của biến thể này
+                        # Thu thập kết quả từ lần search duy nhất này
                         for item in variant_results:
                             doc_index = item['index']
-                            # Nếu chưa có chunk này thì thêm vào
                             if doc_index not in collected_docs_data:
                                 collected_docs_data[doc_index] = {'doc': item['doc']}
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu (truy vấn đơn giản).")
+
+                    else: # Chế độ 'Sâu' (hoặc mặc định)
+                        # --- Chế độ Truy vấn Sâu ---
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn sâu ({len(all_queries)} phiên bản)...")
+                        message_placeholder.markdown(" ".join(processing_log) + "...")
+                        # Thực hiện vòng lặp qua all_queries như code đã sửa lỗi
+                        for q_idx, query_variant in enumerate(all_queries):
+                            # (Optional: log tiến trình từng biến thể)
+                            variant_results = g_hybrid_retriever.hybrid_search(
+                                query_variant, g_embedding_model, # Dùng từng biến thể
+                                vector_search_k=config.VECTOR_K_PER_QUERY,
+                                final_k=config.HYBRID_K_PER_QUERY
+                            )
+                            for item in variant_results:
+                                doc_index = item['index']
+                                if doc_index not in collected_docs_data:
+                                    collected_docs_data[doc_index] = {'doc': item['doc']}
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu duy nhất (truy vấn sâu).")
+
                     num_unique_docs = len(collected_docs_data)
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {num_unique_docs} tài liệu ứng viên.")
                     message_placeholder.markdown(" ".join(processing_log) + "...")

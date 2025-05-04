@@ -28,7 +28,7 @@ if "use_history_for_llm1" not in st.session_state:
     st.session_state.use_history_for_llm1 = True
 
 if "retrieval_mode" not in st.session_state:
-    st.session_state.retrieval_mode = 'Sâu'
+    st.session_state.retrieval_mode = 'Đơn giản'
 
 # --- Sidebar ---
 with st.sidebar:
@@ -58,7 +58,7 @@ with st.sidebar:
         options=['Đơn giản', 'Sâu'],
         key="retrieval_mode", # Lưu vào session state
         horizontal=True,
-        help="**Đơn giản:** Nhanh hơn, chỉ tìm kiếm dựa trên câu hỏi tóm tắt. **Sâu:** Chậm hơn, tìm kiếm cho cả câu hỏi gốc và các biến thể, có thể đầy đủ hơn."
+        help="**Đơn giản:** Nhanh hơn, chỉ tìm kiếm dựa trên câu hỏi tóm tắt. \n **Sâu:** Chậm hơn, tìm kiếm cho cả câu hỏi gốc và các biến thể, có thể đầy đủ hơn."
     )
     st.markdown("---")
 

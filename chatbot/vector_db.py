@@ -39,11 +39,15 @@ class SimpleVectorDatabase:
         query_embedding_array = np.array([query_embedding]).astype('float32')
         if query_embedding_array.shape[1] != self.embedding_dimension:
             return [], []
+        st.write('aaaa')
         st.write(query_embedding_array)
+        st.write('aaaa')
         
         actual_k = min(k, self.index.ntotal)
         if actual_k == 0: return [], []
+        st.write('aaaa')
         st.write(actual_k)
+        st.write('aaaa')
         distances, indices = self.index.search(query_embedding_array, actual_k)
         return distances[0], indices[0]
 

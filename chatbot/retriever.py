@@ -220,6 +220,8 @@ class HybridRetriever:
             fused_scores_dict = {}
             if rank_lists_to_fuse:
                 fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Dùng RRF_K từ config
+                st.write(fused_indices, fused_scores_dict)
+                st.write('BÁ CHÚ')
                 logging.debug(f"Hybrid search fused {len(fused_indices)} indices.")
             elif vec_indices_list: # Fallback: Nếu chỉ có kết quả dense
                  fused_indices = vec_indices_list

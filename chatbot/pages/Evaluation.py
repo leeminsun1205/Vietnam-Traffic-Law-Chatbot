@@ -1,5 +1,4 @@
 # pages/2_Evaluation.py
-import google.api_core.exceptions
 import time # Đảm bảo time cũng được import
 import streamlit as st
 import pandas as pd
@@ -21,7 +20,8 @@ from retriever import HybridRetriever     # Cần lớp này để kiểm tra ki
 # --- Cấu hình Logging ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Các hàm tính Metrics (Giống trong notebook) ---
+# --- Các hàm tính Metrics ---
+# (Các hàm precision_at_k, recall_at_k, f1_at_k, mrr_at_k, ndcg_at_k giữ nguyên như code bạn cung cấp)
 def precision_at_k(retrieved_ids, relevant_ids, k):
     if k <= 0: return 0.0
     retrieved_at_k = retrieved_ids[:k]; relevant_set = set(relevant_ids)
@@ -65,7 +65,7 @@ def run_retrieval_evaluation(
     gemini_model,    # Model đã load (có thể None)
     eval_config: dict # Chứa các tùy chọn như retrieval_mode, use_history,...
     ):
-    
+
     results_list = []
     k_values = [3, 5, 10] # K values for evaluation metrics
 
@@ -79,7 +79,23 @@ def run_retrieval_evaluation(
     status_text = st.empty()
 
     total_items = len(eval_data)
+    queries_per_batch = 15 # <<< THAY ĐỔI >>>: Số lượng query xử lý trước khi dừng
+    wait_time_seconds = 60   # <<< THAY ĐỔI >>>: Thời gian dừng (60 giây = 1 phút)
+
     for i, item in enumerate(eval_data):
+
+        # <<< THAY ĐỔI >>>: Kiểm tra nếu đã xử lý đủ batch và cần dừng
+        # Kiểm tra nếu (i) là bội số của queries_per_batch (sau khi xử lý xong item thứ i)
+        # và không phải là lần lặp đầu tiên (i=0)
+        # Lưu ý: i bắt đầu từ 0, nên sau khi xử lý item thứ 14 (i=14), chúng ta sẽ dừng
+        if i > 0 and i % queries_per_batch == 0:
+            pause_msg = f"Đã xử lý {i}/{total_items} queries. Tạm dừng {wait_time_seconds} giây..."
+            logging.info(pause_msg)
+            status_text.text(pause_msg)
+            time.sleep(wait_time_seconds)
+            status_text.text(f"Tiếp tục xử lý query {i+1}/{total_items}...") # Thông báo khi tiếp tục
+
+        # --- Phần còn lại của vòng lặp giữ nguyên ---
         query_id = item.get("query_id"); original_query = item.get("query")
         relevant_chunk_ids = set(item.get("relevant_chunk_ids", []))
         if not query_id or not original_query: continue # Bỏ qua item không hợp lệ
@@ -102,6 +118,8 @@ def run_retrieval_evaluation(
         try:
             # 1. Generate Variations / Check Relevance
             variation_start = time.time()
+            # << Bỏ đi phần retry cũ nếu bạn không cần nữa >>
+            # << Hoặc giữ lại nếu bạn muốn kết hợp cả hai: chờ sau batch VÀ retry khi lỗi >>
             relevance_status, _, all_queries, summarizing_query = utils.generate_query_variations(
                 original_query=original_query,
                 gemini_model=gemini_model,
@@ -110,9 +128,9 @@ def run_retrieval_evaluation(
             query_metrics["variation_time"] = time.time() - variation_start
             query_metrics["summarizing_query"] = summarizing_query
             query_metrics["num_variations_generated"] = len(all_queries)
-            st.write(relevance_status)
-            st.write(all_queries)
-            st.write(summarizing_query)
+            # st.write(relevance_status) # (Bỏ các st.write không cần thiết)
+            # st.write(all_queries)
+            # st.write(summarizing_query)
             if relevance_status == 'invalid':
                 query_metrics["status"] = "skipped_irrelevant"
                 query_metrics["processing_time"] = time.time() - start_time
@@ -123,19 +141,19 @@ def run_retrieval_evaluation(
             # 2. Retrieval based on mode
             collected_docs_data = {}
             search_start = time.time()
-            st.write('1')
+            # st.write('1') # (Bỏ các st.write không cần thiết)
             if retrieval_mode == 'Đơn giản':
-                st.write('2')
+                # st.write('2')
                 variant_results = hybrid_retriever.hybrid_search(
                     summarizing_query, embedding_model,
                     vector_search_k=config.VECTOR_K_PER_QUERY, final_k=config.HYBRID_K_PER_QUERY
                 )
-                st.write('3')
+                # st.write('3')
                 for res_item in variant_results:
-                    st.write('4')
+                    # st.write('4')
                     idx = res_item.get('index');
                     if isinstance(idx, int) and idx >= 0: collected_docs_data[idx] = res_item
-                st.write('5')
+                # st.write('5')
             elif retrieval_mode == 'Sâu':
                 for q_variant in all_queries:
                     variant_results = hybrid_retriever.hybrid_search(

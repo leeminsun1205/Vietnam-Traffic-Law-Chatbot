@@ -16,32 +16,20 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
     if not query_text or embedding_model is None or vector_db is None or vector_db.index is None or vector_db.index.ntotal == 0:
         logging.warning("Vector search skipped due to missing query, model, or empty DB.")
         return np.array([]), np.array([]) # Trả về mảng rỗng
-    st.write(embedding_model)
     try:
-        st.write(query_text)
         query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
-        st.write('dddđ')
-        st.write(query_embedding)
-        st.write('cccccc')
         # Đảm bảo query_embedding là 2D array
         if query_embedding.ndim == 1:
-            st.write('hahaha')
             query_embedding = np.expand_dims(query_embedding, axis=0)
 
         # Kiểm tra dimension khớp với index
         if query_embedding.shape[1] != vector_db.embedding_dimension:
-            st.write('kkakakak')
             logging.error(f"Query embedding dimension ({query_embedding.shape[1]}) mismatch with index dimension ({vector_db.embedding_dimension}).")
             return np.array([]), np.array([])
-        st.write('hahaha')
         actual_k = min(k, vector_db.index.ntotal)
         if actual_k <= 0:
             return np.array([]), np.array([])
-        st.write('query')
-        st.write(query_embedding)
-        st.write('query')
         distances, indices = vector_db.search(query_embedding, k=actual_k)
-        # st.write(distances, indices)
         # search trả về 2D arrays, lấy phần tử đầu tiên
         return distances, indices
     except Exception as e:
@@ -135,12 +123,7 @@ class HybridRetriever:
         if method == 'dense':
             logging.debug(f"Performing DENSE search for: '{query_text[:50]}...' with k={k}")
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
-            st.write(distances, indices)
-            # st.write(indices.type)
-            st.write(len(indices))
-            st.write('xin chào nè')
             if indices is not None and len(indices) > 0:
-                st.write('xin chào')
                 for i, idx in enumerate(indices):
                      # Đảm bảo idx hợp lệ
                     if isinstance(idx, (int, np.integer)) and 0 <= idx < len(self.documents) and idx not in indices_set:
@@ -152,7 +135,6 @@ class HybridRetriever:
                         indices_set.add(idx)
                 # Sắp xếp theo distance tăng dần (score nhỏ hơn là tốt hơn)
                 results.sort(key=lambda x: x['score'])
-            st.write('khóc luôn rồi')
             logging.debug(f"Dense search found {len(results)} results.")
 
 
@@ -191,7 +173,6 @@ class HybridRetriever:
             vec_distances, vec_indices = retrieve_relevant_chunks(
                 query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY # Lấy nhiều hơn cho fusion
             )
-            st.write(vec_indices)
             vec_indices_list = []
             if vec_indices is not None and len(vec_indices) > 0:
                 # Chuyển numpy array thành list các số nguyên
@@ -220,8 +201,6 @@ class HybridRetriever:
             fused_scores_dict = {}
             if rank_lists_to_fuse:
                 fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Dùng RRF_K từ config
-                st.write(fused_indices, fused_scores_dict)
-                st.write('BÁ CHÚ')
                 logging.debug(f"Hybrid search fused {len(fused_indices)} indices.")
             elif vec_indices_list: # Fallback: Nếu chỉ có kết quả dense
                  fused_indices = vec_indices_list

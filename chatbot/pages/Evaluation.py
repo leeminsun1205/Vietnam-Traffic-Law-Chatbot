@@ -148,11 +148,12 @@ def run_retrieval_evaluation(
             queries_to_search = []
             if retrieval_query_mode == 'Đơn giản': queries_to_search = [original_query]
             elif retrieval_query_mode == 'Tổng quát': queries_to_search = [summarizing_query]
-            elif retrieval_query_mode == 'Sâu': queries_to_search = all_queries
+            elif retrieval_query_mode == 'Sâu': queries_to_search = all_queries + original_query
 
             # --- Bước 3: Thực hiện Retrieval ---
             collected_docs_data = {}
             search_start = time.time()
+            st.write(queries_to_search)
             for q_variant in queries_to_search:
                 if not q_variant: continue # Bỏ qua nếu query rỗng
                 # Gọi hàm search mới của retriever

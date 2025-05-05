@@ -28,7 +28,7 @@ if "use_history_for_llm1" not in st.session_state:
     st.session_state.use_history_for_llm1 = True
 
 if "retrieval_mode" not in st.session_state:
-    st.session_state.retrieval_mode = 'Đơn giản'
+    st.session_state.retrieval_mode = 'Tổng quát'
 
 # --- Sidebar ---
 with st.sidebar:
@@ -55,10 +55,14 @@ with st.sidebar:
 
     retrieval_mode_choice = st.radio(
         "Chọn chế độ truy vấn:",
-        options=['Đơn giản', 'Sâu'],
+        options=['Đơn giản', 'Tổng quát', 'Sâu'], # Thêm 'Tổng quát'
         key="retrieval_mode", # Lưu vào session state
         horizontal=True,
-        help="**Đơn giản:** Nhanh hơn, chỉ tìm kiếm dựa trên câu hỏi tóm tắt. \n **Sâu:** Chậm hơn, tìm kiếm cho cả câu hỏi gốc và các biến thể, có thể đầy đủ hơn."
+        help=(
+            "**Đơn giản:** Nhanh nhất, chỉ tìm kiếm dựa trên câu hỏi gốc của bạn.\n"
+            "**Tổng quát:** Cân bằng, chỉ tìm kiếm dựa trên câu hỏi tóm tắt do AI tạo ra.\n"
+            "**Sâu:** Chậm hơn, tìm kiếm cho cả câu hỏi gốc và các biến thể do AI tạo ra, có thể đầy đủ hơn."
+        )
     )
     st.markdown("---")
 
@@ -160,32 +164,50 @@ if init_ok:
                     # 2a. Hybrid Search (Dùng summarizing_q)
                     collected_docs_data = {} # Khởi tạo dict chứa kết quả
                     retrieval_mode = st.session_state.retrieval_mode # Lấy chế độ đã chọn
+                    query_for_reranking = user_query
 
                     if retrieval_mode == 'Đơn giản':
                         # --- Chế độ Truy vấn Đơn giản ---
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn đơn giản...")
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn đơn giản (dùng câu hỏi gốc)...")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
                         variant_results = g_hybrid_retriever.hybrid_search(
-                            summarizing_q, g_embedding_model, # Chỉ dùng câu hỏi tóm tắt
+                            user_query, g_embedding_model, # <<< THAY ĐỔI: Dùng user_query (câu gốc)
                             vector_search_k=config.VECTOR_K_PER_QUERY,
-                            final_k=config.HYBRID_K_PER_QUERY # Lấy top K kết quả
+                            final_k=config.HYBRID_K_PER_QUERY
                         )
-                        # Thu thập kết quả từ lần search duy nhất này
+                        # Thu thập kết quả
                         for item in variant_results:
                             doc_index = item['index']
                             if doc_index not in collected_docs_data:
                                 collected_docs_data[doc_index] = {'doc': item['doc']}
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu (truy vấn đơn giản).")
+                        query_for_reranking = user_query # Rerank cũng dùng câu gốc
 
-                    else: # Chế độ 'Sâu' (hoặc mặc định)
-                        # --- Chế độ Truy vấn Sâu ---
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn sâu ({len(all_queries)} phiên bản)...")
+                    elif retrieval_mode == 'Tổng quát':
+                        # --- Chế độ Truy vấn Tổng quát ---
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn tổng quát (dùng câu hỏi tóm tắt)...")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
-                        # Thực hiện vòng lặp qua all_queries như code đã sửa lỗi
+                        variant_results = g_hybrid_retriever.hybrid_search(
+                            summarizing_q, g_embedding_model, # <<< THAY ĐỔI: Dùng summarizing_q
+                            vector_search_k=config.VECTOR_K_PER_QUERY,
+                            final_k=config.HYBRID_K_PER_QUERY
+                        )
+                        # Thu thập kết quả
+                        for item in variant_results:
+                            doc_index = item['index']
+                            if doc_index not in collected_docs_data:
+                                collected_docs_data[doc_index] = {'doc': item['doc']}
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu (truy vấn tổng quát).")
+                        query_for_reranking = summarizing_q # Rerank dùng câu tóm tắt
+
+                    elif retrieval_mode == 'Sâu':
+                        # --- Chế độ Truy vấn Sâu ---
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn sâu (dùng câu hỏi gốc và biến thể)...")
+                        message_placeholder.markdown(" ".join(processing_log) + "...")
+                        # Thực hiện vòng lặp qua all_queries (bao gồm cả câu gốc và các biến thể)
                         for q_idx, query_variant in enumerate(all_queries):
-                            # (Optional: log tiến trình từng biến thể)
                             variant_results = g_hybrid_retriever.hybrid_search(
-                                query_variant, g_embedding_model, # Dùng từng biến thể
+                                query_variant, g_embedding_model,
                                 vector_search_k=config.VECTOR_K_PER_QUERY,
                                 final_k=config.HYBRID_K_PER_QUERY
                             )
@@ -194,6 +216,7 @@ if init_ok:
                                 if doc_index not in collected_docs_data:
                                     collected_docs_data[doc_index] = {'doc': item['doc']}
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu duy nhất (truy vấn sâu).")
+                        query_for_reranking = summarizing_q
 
                     num_unique_docs = len(collected_docs_data)
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {num_unique_docs} tài liệu ứng viên.")
@@ -203,8 +226,9 @@ if init_ok:
                     if num_unique_docs > 0:
                         unique_docs_for_reranking_input = [{'doc': data['doc'], 'index': idx}
                                                     for idx, data in collected_docs_data.items()]
-                        if len(unique_docs_for_reranking_input) > config.MAX_DOCS_FOR_RERANK:
-                            unique_docs_for_reranking_input = unique_docs_for_reranking_input[:config.MAX_DOCS_FOR_RERANK]
+                        if 'hybrid_score' in unique_docs_for_reranking_input[0]:
+                            unique_docs_for_reranking_input.sort(key=lambda x: x.get('hybrid_score', 0), reverse=True)
+                        unique_docs_for_reranking_input = unique_docs_for_reranking_input[:config.MAX_DOCS_FOR_RERANK]
 
 
                     # 2b. Re-ranking (Dùng summarizing_q)
@@ -213,7 +237,7 @@ if init_ok:
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {len(unique_docs_for_reranking_input)} tài liệu...")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
                         reranked_results = utils.rerank_documents(
-                            summarizing_q, 
+                            query_for_reranking, 
                             unique_docs_for_reranking_input,
                             g_reranking_model
                         )

@@ -123,14 +123,19 @@ def run_retrieval_evaluation(
             # 2. Retrieval based on mode
             collected_docs_data = {}
             search_start = time.time()
+            st.write('1')
             if retrieval_mode == 'Đơn giản':
+                st.write('2')
                 variant_results = hybrid_retriever.hybrid_search(
                     summarizing_query, embedding_model,
                     vector_search_k=config.VECTOR_K_PER_QUERY, final_k=config.HYBRID_K_PER_QUERY
                 )
+                st.write('3')
                 for res_item in variant_results:
+                    st.write('4')
                     idx = res_item.get('index');
                     if isinstance(idx, int) and idx >= 0: collected_docs_data[idx] = res_item
+                st.write('5')
             elif retrieval_mode == 'Sâu':
                 for q_variant in all_queries:
                     variant_results = hybrid_retriever.hybrid_search(
@@ -141,7 +146,6 @@ def run_retrieval_evaluation(
                         idx = res_item.get('index')
                         if isinstance(idx, int) and idx >= 0 and idx not in collected_docs_data:
                              collected_docs_data[idx] = res_item
-            st.write('HHAHAHHA')
             query_metrics["search_time"] = time.time() - search_start
             query_metrics["num_unique_docs_found"] = len(collected_docs_data)
 

@@ -40,6 +40,7 @@ class SimpleVectorDatabase:
         st.write('END')
         query_embedding_array = np.array([query_embedding]).astype('float32')
         if query_embedding_array.shape[1] != self.embedding_dimension:
+            st.write('CHECK')
             return [], []
         st.write('END2')
         st.write('aaaa')

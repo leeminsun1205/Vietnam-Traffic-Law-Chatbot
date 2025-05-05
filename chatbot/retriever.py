@@ -128,6 +128,7 @@ class HybridRetriever:
         if method == 'dense':
             logging.debug(f"Performing DENSE search for: '{query_text[:50]}...' with k={k}")
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
+            st.write(distances, indices)
             if indices is not None and len(indices) > 0:
                 for i, idx in enumerate(indices):
                      # Đảm bảo idx hợp lệ
@@ -178,6 +179,7 @@ class HybridRetriever:
             vec_distances, vec_indices = retrieve_relevant_chunks(
                 query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY # Lấy nhiều hơn cho fusion
             )
+            st.write(vec_indices)
             vec_indices_list = []
             if vec_indices is not None and len(vec_indices) > 0:
                 # Chuyển numpy array thành list các số nguyên

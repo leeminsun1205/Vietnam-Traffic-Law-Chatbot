@@ -162,7 +162,7 @@ def run_retrieval_evaluation(
             query_metrics["rerank_time"] = time.time() - rerank_start
 
             final_retrieved_docs = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
-            st.write(final_retrieved_docs)
+            # st.write(final_retrieved_docs)
             retrieved_ids = []
             for res in final_retrieved_docs:
                 doc_data = res.get('doc', {}); chunk_id = None
@@ -170,7 +170,7 @@ def run_retrieval_evaluation(
                     chunk_id = doc_data.get('id') or doc_data.get('metadata', {}).get('id') or doc_data.get('metadata', {}).get('chunk_id')
                 if chunk_id: retrieved_ids.append(str(chunk_id))
             query_metrics["retrieved_ids"] = retrieved_ids
-
+            st.write(retrieved_ids)
             query_metrics["status"] = "evaluated"
             for k in k_values:
                 query_metrics[f'precision@{k}'] = precision_at_k(retrieved_ids, relevant_chunk_ids, k)

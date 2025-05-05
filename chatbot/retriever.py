@@ -27,9 +27,10 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
 
         # Kiểm tra dimension khớp với index
         if query_embedding.shape[1] != vector_db.embedding_dimension:
+            st.write('kkakakak')
             logging.error(f"Query embedding dimension ({query_embedding.shape[1]}) mismatch with index dimension ({vector_db.embedding_dimension}).")
             return np.array([]), np.array([])
-
+        st.write('hahaha')
         actual_k = min(k, vector_db.index.ntotal)
         if actual_k <= 0:
             return np.array([]), np.array([])

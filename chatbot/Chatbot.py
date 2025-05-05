@@ -240,6 +240,7 @@ if init_ok:
                                 collected_docs_data[doc_index] = item # Lưu cả score từ retrieval
                             # Optional: Nếu muốn cập nhật score (ví dụ: lấy score cao nhất nếu trùng) - phức tạp hơn
                     retrieval_time = time.time() - retrieval_start_time
+                    st.write(search_results)
                     st.write('kkkkkk')
                     num_unique_docs = len(collected_docs_data)
                     st.write('kkkkkk')

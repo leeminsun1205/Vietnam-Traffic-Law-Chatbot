@@ -43,7 +43,7 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
         distances, indices = vector_db.search(query_embedding, k=actual_k)
         # st.write(distances, indices)
         # search trả về 2D arrays, lấy phần tử đầu tiên
-        return distances[0], indices[0]
+        return distances, indices
     except Exception as e:
         logging.exception(f"Error during vector search for query '{query_text[:50]}...': {e}")
         return np.array([]), np.array([]) # Trả về mảng rỗng khi có lỗi

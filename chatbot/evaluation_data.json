@@ -1,7 +1,7 @@
 [
   {
     "query_id": "eval_001",
-    "query": "Mức phạt không đội mũ bảo hiểm xe máy năm 2025?",
+    "query": "Mức phạt không đội mũ bảo hiểm xe gắn máy năm 2025?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_161",
       "168_2024_NĐ-CP_chunk_162",
@@ -19,7 +19,7 @@
   },
   {
     "query_id": "eval_003",
-    "query": "Vượt đèn đỏ xe máy phạt bao nhiêu tiền?",
+    "query": "Vượt đèn đỏ xe gắn máy bị phạt bao nhiêu tiền?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_189"
     ]
@@ -33,7 +33,7 @@
   },
   {
     "query_id": "eval_005",
-    "query": "Nồng độ cồn cho phép khi lái xe máy là bao nhiêu?",
+    "query": "Nồng độ cồn cho phép khi lái xe gắn máy là bao nhiêu?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_61"
     ]

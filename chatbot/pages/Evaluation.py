@@ -162,6 +162,7 @@ def run_retrieval_evaluation(
             query_metrics["rerank_time"] = time.time() - rerank_start
 
             final_retrieved_docs = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
+            st.write(final_retrieved_docs)
             retrieved_ids = []
             for res in final_retrieved_docs:
                 doc_data = res.get('doc', {}); chunk_id = None

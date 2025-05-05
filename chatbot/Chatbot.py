@@ -224,6 +224,7 @@ if init_ok:
                     # --- Thực hiện Retrieval ---
                     collected_docs_data = {} # Dict lưu kết quả {index: {'doc': ..., 'score': ...}}
                     retrieval_start_time = time.time()
+                    st.write('HAHHAHAHA')
                     for q_idx, current_query in enumerate(queries_to_search):
                         # Gọi phương thức search mới của retriever
                         search_results = g_hybrid_retriever.search(

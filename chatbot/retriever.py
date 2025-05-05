@@ -136,6 +136,7 @@ class HybridRetriever:
             logging.debug(f"Performing DENSE search for: '{query_text[:50]}...' with k={k}")
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             st.write(distances, indices)
+            st.write(indices.type)
             if indices is not None and len(indices) > 0:
                 for i, idx in enumerate(indices):
                      # Đảm bảo idx hợp lệ

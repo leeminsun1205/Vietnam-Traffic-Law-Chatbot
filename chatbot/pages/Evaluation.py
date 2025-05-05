@@ -373,7 +373,7 @@ if init_ok:
     # Cung cấp giá trị mặc định nếu key không tồn tại
     current_gemini_model = st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)
     current_retrieval_mode = st.session_state.get('retrieval_mode', 'Tổng quát') # Mặc định 'Tổng quát'
-    current_use_history = st.session_state.get('use_history_for_llm1', True) # Mặc định True
+    current_use_history = st.session_state.get('use_history_for_llm1', False) # Mặc định True
 
     # Hiển thị cấu hình sẽ sử dụng
     col1, col2, col3 = st.columns(3)

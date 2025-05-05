@@ -58,6 +58,7 @@ class SimpleVectorDatabase:
         st.write(actual_k)
         st.write('aaaa')
         distances, indices = self.index.search(query_embedding_array, actual_k)
+        st.write(distances, indices)
         return distances[0], indices[0]
 
     def save(self, filepath_prefix):

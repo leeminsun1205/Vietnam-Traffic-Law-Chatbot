@@ -33,7 +33,7 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
         actual_k = min(k, vector_db.index.ntotal)
         if actual_k <= 0:
             return np.array([]), np.array([])
-        
+        st.write(query_embedding)
         distances, indices = vector_db.search(query_embedding, k=actual_k)
         st.write(distances, indices)
         # search trả về 2D arrays, lấy phần tử đầu tiên

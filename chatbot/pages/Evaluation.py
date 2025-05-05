@@ -145,6 +145,7 @@ def run_retrieval_evaluation(
                 continue
 
             # --- Bước 2: Xác định query(s) để tìm kiếm ---
+            st.write('HAHHA')
             st.write(all_queries)
             queries_to_search = []
             # st.write(queries_to_search)

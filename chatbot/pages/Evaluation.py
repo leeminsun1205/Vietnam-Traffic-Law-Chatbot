@@ -148,7 +148,7 @@ def run_retrieval_evaluation(
             queries_to_search = []
             if retrieval_query_mode == 'Đơn giản': queries_to_search = [original_query]
             elif retrieval_query_mode == 'Tổng quát': queries_to_search = [summarizing_query]
-            elif retrieval_query_mode == 'Sâu': queries_to_search = all_queries + original_query
+            elif retrieval_query_mode == 'Sâu': queries_to_search = all_queries
 
             # --- Bước 3: Thực hiện Retrieval ---
             collected_docs_data = {}
@@ -420,6 +420,7 @@ if init_ok:
                         gemini_model=g_gemini_model,
                         eval_config=eval_config_dict # Truyền dict config
                     )
+                    st.write('HHAHAH')
                     total_eval_time = time.time() - start_eval_time
                     st.success(f"Hoàn thành đánh giá sau {total_eval_time:.2f} giây.")
                     logging.info(f"Evaluation completed in {total_eval_time:.2f} seconds.")

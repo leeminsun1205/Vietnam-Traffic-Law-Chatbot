@@ -1,5 +1,6 @@
 # pages/2_Evaluation.py
-
+import google.api_core.exceptions
+import time # Đảm bảo time cũng được import
 import streamlit as st
 import pandas as pd
 import json
@@ -101,14 +102,74 @@ def run_retrieval_evaluation(
         try:
             # 1. Generate Variations / Check Relevance
             variation_start = time.time()
-            relevance_status, _, all_queries, summarizing_query = utils.generate_query_variations(
-                original_query=original_query,
-                gemini_model=gemini_model,
-                chat_history=dummy_history
-            )
+            max_retries = 3 # Số lần thử lại tối đa (có thể điều chỉnh)
+            retries = 0
+            # Giá trị mặc định nếu không gọi được Gemini thành công
+            relevance_status = 'error_gemini'
+            all_queries = [original_query]
+            summarizing_query = original_query
+
+            while retries < max_retries:
+                try:
+                    # Đảm bảo model Gemini đã được tải trước khi gọi
+                    if not gemini_model:
+                        raise ValueError("Model Gemini chưa được tải để tạo variations.")
+
+                    logging.info(f"Eval - QID: {query_id} - Attempting Gemini call (Attempt {retries + 1}/{max_retries})")
+                    # Gọi hàm tạo variations
+                    temp_relevance_status, _, temp_all_queries, temp_summarizing_query = utils.generate_query_variations(
+                        original_query=original_query,
+                        gemini_model=gemini_model,
+                        chat_history=dummy_history
+                        # Nếu hàm generate_query_variations cần num_variations, hãy thêm vào đây, ví dụ:
+                        # num_variations=config.NUM_QUERY_VARIATIONS
+                    )
+
+                    # Gán kết quả nếu thành công
+                    relevance_status = temp_relevance_status
+                    all_queries = temp_all_queries
+                    summarizing_query = temp_summarizing_query
+                    logging.info(f"Eval - QID: {query_id} - Gemini variation call successful on attempt {retries + 1}.")
+                    break # Thoát khỏi vòng lặp nếu thành công
+
+                except google.api_core.exceptions.ResourceExhausted as e:
+                    retries += 1
+                    logging.warning(f"Eval - QID: {query_id} - Gemini rate limit hit (attempt {retries}/{max_retries}). Waiting 60s. Error: {e}")
+                    if retries < max_retries:
+                        # Cập nhật trạng thái trên giao diện
+                        status_text.text(f"Query {i+1}/{total_items}: Gemini rate limit, đang chờ 60s (Thử lại {retries}/{max_retries})...")
+                        time.sleep(60) # Chờ 60 giây
+                    else:
+                        logging.error(f"Eval - QID: {query_id} - Đã đạt số lần thử lại tối đa ({max_retries}) cho Gemini call sau lỗi rate limit.")
+                        # Ghi nhận lỗi vào metrics
+                        query_metrics["status"] = "error_gemini_rate_limit"
+                        query_metrics["error_message"] = f"Max retries ({max_retries}) reached after rate limit errors."
+                        # Có thể quyết định dừng xử lý query này hoặc để nó tiếp tục và được bắt bởi khối except bên ngoài
+                        # raise e # Nếu muốn dừng hẳn query này và ghi nhận lỗi ở ngoài
+
+                except Exception as e: # Bắt các lỗi khác có thể xảy ra khi gọi Gemini
+                    retries += 1
+                    logging.error(f"Eval - QID: {query_id} - Lỗi khác trong khi gọi Gemini (attempt {retries}/{max_retries}): {e}")
+                    if retries < max_retries:
+                        # Có thể chờ ít hơn cho các lỗi khác
+                        status_text.text(f"Query {i+1}/{total_items}: Lỗi gọi Gemini, đang chờ 10s (Thử lại {retries}/{max_retries})...")
+                        time.sleep(10) # Chờ 10 giây
+                    else:
+                        logging.error(f"Eval - QID: {query_id} - Đã đạt số lần thử lại tối đa ({max_retries}) cho Gemini call do lỗi khác.")
+                        query_metrics["status"] = "error_gemini_other"
+                        query_metrics["error_message"] = f"Max retries ({max_retries}) reached after other errors: {e}"
+                        # raise e # Tương tự, có thể dừng hẳn query này
+
+            # Ghi nhận thời gian xử lý variation (bao gồm cả thời gian chờ nếu có)
             query_metrics["variation_time"] = time.time() - variation_start
             query_metrics["summarizing_query"] = summarizing_query
             query_metrics["num_variations_generated"] = len(all_queries)
+
+            # --- Kiểm tra xem có thành công lấy variation không ---
+            if relevance_status == 'error_gemini':
+                logging.error(f"Eval - QID: {query_id} - Không thể lấy variations từ Gemini sau {max_retries} lần thử.")
+                # Xử lý trường hợp lỗi (ví dụ: ghi status lỗi và bỏ qua phần còn lại của query này)
+                query_metrics["status"] = "error_gemini_max_retries"
 
             if relevance_status == 'invalid':
                 query_metrics["status"] = "skipped_irrelevant"

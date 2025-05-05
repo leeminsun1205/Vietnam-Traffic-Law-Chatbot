@@ -39,6 +39,7 @@ class SimpleVectorDatabase:
             return [], []
         st.write('END')
         st.write('ffff')
+        st.write(query_embedding)
         query_embedding_array = np.array([query_embedding]).astype('float32')
         st.write(query_embedding_array)
         st.write('bbbbb')

@@ -22,9 +22,9 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
         query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
         st.write(query_embedding)
         # Đảm bảo query_embedding là 2D array
-        if query_embedding.ndim == 1:
-            st.write('hahaha')
-            query_embedding = np.expand_dims(query_embedding, axis=0)
+        # if query_embedding.ndim == 1:
+        #     st.write('hahaha')
+        #     query_embedding = np.expand_dims(query_embedding, axis=0)
 
         # Kiểm tra dimension khớp với index
         if query_embedding.shape[1] != vector_db.embedding_dimension:

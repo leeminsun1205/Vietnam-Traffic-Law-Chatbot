@@ -141,6 +141,7 @@ def run_retrieval_evaluation(
                         idx = res_item.get('index')
                         if isinstance(idx, int) and idx >= 0 and idx not in collected_docs_data:
                              collected_docs_data[idx] = res_item
+            st.write('HHAHAHHA')
             query_metrics["search_time"] = time.time() - search_start
             query_metrics["num_unique_docs_found"] = len(collected_docs_data)
 

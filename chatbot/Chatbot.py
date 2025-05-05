@@ -240,7 +240,9 @@ if init_ok:
                                 collected_docs_data[doc_index] = item # Lưu cả score từ retrieval
                             # Optional: Nếu muốn cập nhật score (ví dụ: lấy score cao nhất nếu trùng) - phức tạp hơn
                     retrieval_time = time.time() - retrieval_start_time
+                    st.write('kkkkkk')
                     num_unique_docs = len(collected_docs_data)
+                    st.write('kkkkkk')
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Retrieval ({retrieval_time:.2f}s) tìm thấy {num_unique_docs} tài liệu ứng viên.")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
@@ -282,11 +284,7 @@ if init_ok:
 
                     elif num_unique_docs > 0: # Không dùng reranker nhưng có kết quả retrieval
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Bỏ qua Rerank, lấy trực tiếp top {config.FINAL_NUM_RESULTS_AFTER_RERANK} kết quả Retrieval.")
-                        # Lấy trực tiếp từ danh sách đã sắp xếp ở bước retrieval
                         final_relevant_documents = retrieved_docs_list[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
-                        # Cần đảm bảo định dạng của final_relevant_documents nhất quán
-                        # Hàm generate_answer_with_gemini nhận list [{'doc':...}, ...]
-                        # final_relevant_documents từ retrieval đã có key 'doc'
                         message_placeholder.markdown(" ".join(processing_log) + "⏳")
                     else: # Không có kết quả retrieval
                          processing_log.append(f"[{time.time() - start_time:.2f}s]: Không tìm thấy tài liệu liên quan.")

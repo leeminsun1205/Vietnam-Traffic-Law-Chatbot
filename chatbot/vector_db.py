@@ -3,7 +3,7 @@ import faiss
 import numpy as np
 import json
 import os
-
+import streamlit as st
 class SimpleVectorDatabase:
     """Quản lý Faiss index và các document chunks tương ứng."""
     def __init__(self):
@@ -39,9 +39,11 @@ class SimpleVectorDatabase:
         query_embedding_array = np.array([query_embedding]).astype('float32')
         if query_embedding_array.shape[1] != self.embedding_dimension:
             return [], []
-
+        st.write(query_embedding_array)
+        
         actual_k = min(k, self.index.ntotal)
         if actual_k == 0: return [], []
+        st.write(actual_k)
         distances, indices = self.index.search(query_embedding_array, actual_k)
         return distances[0], indices[0]
 

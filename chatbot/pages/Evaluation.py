@@ -222,13 +222,6 @@ init_ok = False
 models_ready = False
 retriever_instance = None
 
-# Cố gắng lấy các thành phần đã cache từ app chính (có thể cần điều chỉnh cách truy cập)
-# Streamlit không dễ dàng chia sẻ @st.cache_resource giữa các trang một cách trực tiếp.
-# Cách tiếp cận đơn giản là tải lại trên trang này nếu cần.
-# Hoặc lưu trữ instance vào st.session_state trong app.py nếu có thể.
-
-# Tạm thời, chúng ta sẽ tải lại model và retriever trên trang này khi cần đánh giá.
-# Điều này đảm bảo trang đánh giá hoạt động độc lập hơn nhưng không tận dụng cache từ trang chính.
 
 with st.spinner("Kiểm tra và khởi tạo tài nguyên..."):
     # Tải models (sẽ dùng cache nội bộ của hàm nếu chưa force reload)
@@ -237,11 +230,7 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên..."):
 
     # Tải vector DB và retriever
     try:
-        # Sử dụng hàm gốc từ data_loader để đảm bảo nhất quán
-        # Hàm này cũng có cache riêng (@st.cache_resource trong app.py)
-        # nhưng gọi lại ở đây sẽ tạo instance mới nếu không có cache session
-        # TODO: Tìm cách chia sẻ instance từ app.py hiệu quả hơn nếu cần tối ưu
-        # Hiện tại, tải lại để đảm bảo trang độc lập
+    
         vector_db, retriever_instance = data_loader.load_or_create_rag_components(g_embedding_model)
         if vector_db and retriever_instance and g_embedding_model and g_reranking_model:
             init_ok = True
@@ -296,12 +285,6 @@ if init_ok:
                 # Tải model Gemini được chọn
                 with st.spinner(f"Đang tải model Gemini: {current_gemini_model}..."):
                     g_gemini_model = utils.load_gemini_model(current_gemini_model) # Dùng hàm gốc để tải
-
-                if not g_gemini_model and config.GOOGLE_API_KEY: # Chỉ báo lỗi nếu có key mà tải thất bại
-                     st.error(f"Lỗi tải model Gemini '{current_gemini_model}'. Vui lòng kiểm tra API Key và cấu hình.")
-                elif not config.GOOGLE_API_KEY:
-                     st.warning("Không tìm thấy Google API Key. Bước tạo biến thể/kiểm tra liên quan sẽ bị bỏ qua.")
-                     # Đánh giá vẫn có thể chạy nếu không cần bước này
 
                 # Chạy đánh giá
                 with st.spinner("⏳ Đang chạy đánh giá... Quá trình này có thể mất vài phút."):

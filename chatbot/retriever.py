@@ -137,6 +137,7 @@ class HybridRetriever:
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             st.write(distances, indices)
             # st.write(indices.type)
+            st.write('xin chào nè')
             if indices is not None and len(indices) > 0:
                 st.write('xin chào')
                 for i, idx in enumerate(indices):

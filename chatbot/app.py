@@ -220,7 +220,7 @@ if init_ok:
                         final_relevant_documents = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Chọn top {len(final_relevant_documents)} tài liệu.")
                         message_placeholder.markdown(" ".join(processing_log) + "...")
-
+                    st.write(final_relevant_documents)
                     # 2c. Generate Answer (Truyền history vào đây)
                     answer_mode = st.session_state.answer_mode
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời...")

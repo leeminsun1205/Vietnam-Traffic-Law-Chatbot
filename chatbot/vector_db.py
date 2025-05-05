@@ -41,7 +41,7 @@ class SimpleVectorDatabase:
         st.write('ffff')
         st.write(query_embedding)
         # query_embedding_array = np.array([query_embedding]).astype('float32')
-        query_embedding_array = query_embedding
+        query_embedding_array = query_embedding.astype('float32')
         st.write(query_embedding_array)
         st.write('bbbbb')
         if query_embedding_array.shape[1] != self.embedding_dimension:

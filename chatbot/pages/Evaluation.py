@@ -129,7 +129,7 @@ def run_retrieval_evaluation(
             query_metrics["summarizing_query"] = summarizing_query
             query_metrics["num_variations_generated"] = len(all_queries)
             # st.write(relevance_status) # (Bỏ các st.write không cần thiết)
-            # st.write(all_queries)
+            st.write(all_queries)
             # st.write(summarizing_query)
             if relevance_status == 'invalid':
                 query_metrics["status"] = "skipped_irrelevant"

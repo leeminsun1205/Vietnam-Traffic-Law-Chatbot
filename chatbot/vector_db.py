@@ -31,11 +31,13 @@ class SimpleVectorDatabase:
 
     def search(self, query_embedding, k=5):
         """Tìm kiếm k documents gần nhất với query_embedding."""
+        st.write('START')
         if self.index is None or self.index.ntotal == 0:
             return [], []
+        st.write('MIDDLE')
         if query_embedding is None:
             return [], []
-
+        st.write('END')
         query_embedding_array = np.array([query_embedding]).astype('float32')
         if query_embedding_array.shape[1] != self.embedding_dimension:
             return [], []

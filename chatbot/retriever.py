@@ -20,6 +20,7 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
     try:
         st.write(query_text)
         query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
+        st.write('dddđ')
         st.write(query_embedding)
         st.write('cccccc')
         # Đảm bảo query_embedding là 2D array

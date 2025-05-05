@@ -12,7 +12,7 @@ def cached_load_or_create_components(_embedding_model):
     return vector_db, hybrid_retriever
 
 # --- Cấu hình Trang Streamlit ---
-st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
 
 # --- Khởi tạo Session State cho Lịch sử Chat ---
 if "messages" not in st.session_state:

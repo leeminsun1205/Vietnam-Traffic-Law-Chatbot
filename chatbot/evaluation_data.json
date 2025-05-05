@@ -143,7 +143,7 @@
   },
   {
     "query_id": "eval_018",
-    "query": "Không có bảo hiểm xe máy bắt buộc phạt bao nhiêu?",
+    "query": "Không có bảo hiểm xe gắn máy bắt buộc phạt bao nhiêu?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_421"
     ]

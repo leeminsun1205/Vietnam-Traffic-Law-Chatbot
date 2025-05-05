@@ -1,92 +1,125 @@
 # app.py
 import streamlit as st
-import time 
+import time
 import config
 import utils
 import data_loader
+import os # Thêm os để xử lý đường dẫn ảnh
+import logging # Thêm logging
 
 # --- Hàm Cache để Khởi tạo DB và Retriever ---
 @st.cache_resource
-def cached_load_or_create_components(_embedding_model): 
+def cached_load_or_create_components(_embedding_model):
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
     return vector_db, hybrid_retriever
 
 # --- Cấu hình Trang Streamlit ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
 
-# --- Khởi tạo Session State cho Lịch sử Chat ---
+# --- Khởi tạo Session State cho Lịch sử Chat và Cấu hình ---
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# Cấu hình mô hình và trả lời
 if "selected_gemini_model" not in st.session_state:
     st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
-
 if "answer_mode" not in st.session_state:
     st.session_state.answer_mode = 'Ngắn gọn'
 
+# Cấu hình truy vấn (query variation)
+if "retrieval_query_mode" not in st.session_state:
+    st.session_state.retrieval_query_mode = 'Tổng quát' # Đổi tên key để rõ ràng hơn
 if "use_history_for_llm1" not in st.session_state:
     st.session_state.use_history_for_llm1 = True
 
-if "retrieval_mode" not in st.session_state:
-    st.session_state.retrieval_mode = 'Tổng quát'
+# --- Cấu hình MỚI: Phương thức Retrieval và Reranker ---
+if "retrieval_method" not in st.session_state:
+    st.session_state.retrieval_method = 'hybrid' # Mặc định là hybrid
+if "use_reranker" not in st.session_state:
+    st.session_state.use_reranker = True # Mặc định sử dụng reranker
 
 # --- Sidebar ---
 with st.sidebar:
     st.title("Tùy chọn")
-    # Widget để chọn mô hình Gemini
+
+    st.header("Mô hình & Trả lời")
+    # Chọn mô hình Gemini
     selected_model = st.selectbox(
         "Chọn mô hình Gemini:",
         options=config.AVAILABLE_GEMINI_MODELS,
-        index=config.AVAILABLE_GEMINI_MODELS.index(st.session_state.selected_gemini_model), # Đặt giá trị hiện tại
-        key="selected_gemini_model", # Lưu lựa chọn vào session state
-        help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu. Các mô hình khác nhau có thể cho tốc độ và chất lượng trả lời khác nhau."
+        index=config.AVAILABLE_GEMINI_MODELS.index(st.session_state.selected_gemini_model),
+        key="selected_gemini_model",
+        help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
-    st.markdown("---")
-
+    # Chọn chế độ trả lời
     answer_mode_choice = st.radio(
         "Chọn chế độ trả lời:",
         options=['Ngắn gọn', 'Đầy đủ'],
-        key="answer_mode", # Lưu vào session state
-        # index=1 if st.session_state.answer_mode == 'Đầy đủ' else 0, # Bỏ index nếu dùng key
+        key="answer_mode",
         horizontal=True,
-        help="Chọn mức độ chi tiết cho câu trả lời của bot."
+        help="Mức độ chi tiết của câu trả lời."
     )
-    st.markdown("---")
 
-    retrieval_mode_choice = st.radio(
-        "Chọn chế độ truy vấn:",
-        options=['Đơn giản', 'Tổng quát', 'Sâu'], # Thêm 'Tổng quát'
-        key="retrieval_mode", # Lưu vào session state
+    st.header("Truy vấn & Lịch sử")
+    # Chọn chế độ truy vấn (câu hỏi gốc/tóm tắt/biến thể)
+    retrieval_query_mode_choice = st.radio(
+        "Nguồn câu hỏi cho Retrieval:",
+        options=['Đơn giản', 'Tổng quát', 'Sâu'],
+        key="retrieval_query_mode", # Đổi key
         horizontal=True,
         help=(
-            "**Đơn giản:** Nhanh nhất, chỉ tìm kiếm dựa trên câu hỏi gốc của bạn.\n"
-            "**Tổng quát:** Cân bằng, chỉ tìm kiếm dựa trên câu hỏi tóm tắt do AI tạo ra.\n"
-            "**Sâu:** Chậm hơn, tìm kiếm cho cả câu hỏi gốc và các biến thể do AI tạo ra, có thể đầy đủ hơn."
+            "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
+            "**Tổng quát:** Chỉ dùng câu hỏi tóm tắt (do AI tạo).\n"
+            "**Sâu:** Dùng cả câu hỏi gốc và các biến thể (do AI tạo)."
         )
     )
-    st.markdown("---")
-
+    # Sử dụng lịch sử cho LLM1
     use_hist_llm1 = st.toggle(
-        "Sử dụng lịch sử cho LLM đầu tiên (Phân tích câu hỏi)",
-        key="use_history_for_llm1", 
-        value=st.session_state.use_history_for_llm1, 
-        help="Bật tính năng này để LLM đầu tiên xem xét ngữ cảnh hội thoại khi phân tích câu hỏi (có thể hiểu câu hỏi nối tiếp tốt hơn nhưng tăng độ trễ và có thể ảnh hưởng độ chính xác phân loại)."
+        "Dùng lịch sử cho phân tích câu hỏi",
+        key="use_history_for_llm1",
+        value=st.session_state.use_history_for_llm1,
+        help="Cho phép LLM xem xét ngữ cảnh hội thoại khi phân tích câu hỏi đầu vào."
     )
-    st.markdown("---")
 
-    st.write("Quản lý hội thoại:")
+    st.header("Retrieval & Rerank") # --- Mục MỚI ---
+    # Chọn phương thức Retrieval
+    retrieval_method_choice = st.selectbox(
+        "Phương thức Retrieval:",
+        options=['dense', 'sparse', 'hybrid'],
+        index=['dense', 'sparse', 'hybrid'].index(st.session_state.retrieval_method), # Đặt giá trị mặc định
+        key="retrieval_method",
+        help=(
+            "**dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
+            "**sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
+            "**hybrid:** Kết hợp cả dense và sparse (cân bằng, có thể tốt nhất)."
+        )
+    )
+    # Bật/tắt Reranker
+    use_rerank_toggle = st.toggle(
+        "Sử dụng Reranker",
+        key="use_reranker",
+        value=st.session_state.use_reranker,
+        help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm (tăng độ chính xác nhưng chậm hơn)."
+    )
+
+    st.markdown("---") # Phân cách
+
+    st.header("Quản lý Hội thoại")
     if st.button("⚠️ Xóa Lịch Sử Chat"):
-        st.session_state.messages = [] 
-        st.success("Đã xóa lịch sử chat!") 
-        time.sleep(1) 
-        st.rerun() 
+        st.session_state.messages = []
+        st.success("Đã xóa lịch sử chat!")
+        time.sleep(1)
+        st.rerun()
     st.markdown("---")
 
 # --- Giao diện chính của Ứng dụng ---
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
 st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về Luật giao thông đường bộ Việt Nam.")
+
+# --- Cập nhật Caption hiển thị cấu hình ---
 hist_llm1_status = "Bật" if st.session_state.use_history_for_llm1 else "Tắt"
-st.caption(f"Model: {st.session_state.selected_gemini_model} | Chế độ: {st.session_state.answer_mode} | History LLM1: {hist_llm1_status}")
+reranker_status = "Bật" if st.session_state.use_reranker else "Tắt"
+st.caption(f"Model: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status}` | History LLM1: `{hist_llm1_status}`")
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -99,13 +132,18 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
     g_reranking_model = utils.load_reranker_model(config.reranking_model_name)
     models_loaded = all([g_embedding_model, g_reranking_model])
+    # Tải retriever (cần embedding model)
     g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
     retriever_ready = g_hybrid_retriever is not None
-    if not retriever_ready:
-        raise ValueError("Không thể chuẩn bị cơ sở dữ liệu vector hoặc retriever.")
 
-    status.update(label="✅ Hệ thống cơ bản đã sẵn sàng!", state="complete", expanded=False)
-    init_ok = True
+    if not models_loaded:
+         status.update(label="⚠️ Lỗi tải Embedding hoặc Reranker model!", state="error", expanded=True)
+    elif not retriever_ready:
+        status.update(label="⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!", state="error", expanded=True)
+        # raise ValueError("Không thể chuẩn bị cơ sở dữ liệu vector hoặc retriever.") # Có thể không cần raise ở đây
+    else:
+        status.update(label="✅ Hệ thống cơ bản đã sẵn sàng!", state="complete", expanded=False)
+        init_ok = True
 
 # --- Input và Xử lý ---
 if init_ok:
@@ -117,30 +155,31 @@ if init_ok:
 
         # 2. Xử lý và tạo phản hồi từ bot
         with st.chat_message("assistant"):
-            message_placeholder = st.empty() 
+            message_placeholder = st.empty()
             full_response = ""
             processing_log = []
             try:
                 start_time = time.time()
                 processing_log.append(f"[{time.time() - start_time:.2f}s] Bắt đầu xử lý...")
-                message_placeholder.markdown(" ".join(processing_log) + "...")
+                message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                 # --- Tải model Gemini đã chọn ---
                 selected_model_name = st.session_state.selected_gemini_model
                 selected_gemini_llm = utils.load_gemini_model(selected_model_name)
+                if not selected_gemini_llm:
+                     raise ValueError(f"Không thể tải model Gemini: {selected_model_name}")
                 processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.")
-                message_placeholder.markdown(" ".join(processing_log) + "...")
+                message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                 history_for_llm1 = None
+                log_hist_llm1 = "(không dùng lịch sử)"
                 if st.session_state.use_history_for_llm1:
-                    # Lấy history tương tự như cho LLM2
                     history_for_llm1 = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1]
-                    processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi (có dùng lịch sử)...")
-                else:
-                    processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi (không dùng lịch sử)...")
-                message_placeholder.markdown(" ".join(processing_log) + "...")
+                    log_hist_llm1 = "(có dùng lịch sử)"
+                processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi {log_hist_llm1}...")
+                message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
-                # --- Bước A: Phân loại relevancy ---
+                # --- Bước A: Phân loại relevancy và tạo biến thể/tóm tắt ---
                 relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                     original_query=user_query,
                     gemini_model=selected_gemini_llm,
@@ -158,150 +197,135 @@ if init_ok:
 
                 # --- Nếu câu hỏi hợp lệ, tiếp tục xử lý RAG ---
                 else:
-                    # --- Lấy lịch sử gần đây cho LLM thứ 2 ---
-                    recent_chat_history = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1] # Bỏ qua tin nhắn cuối cùng của user (đã có trong query_text)
+                    # --- Lấy lịch sử gần đây cho LLM thứ 2 (tạo câu trả lời) ---
+                    recent_chat_history = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1]
 
-                    # 2a. Hybrid Search (Dùng summarizing_q)
-                    collected_docs_data = {} # Khởi tạo dict chứa kết quả
-                    retrieval_mode = st.session_state.retrieval_mode # Lấy chế độ đã chọn
-                    query_for_reranking = user_query
+                    # --- Xác định query(s) để tìm kiếm dựa trên retrieval_query_mode ---
+                    queries_to_search = []
+                    query_source_log = ""
+                    retrieval_query_mode = st.session_state.retrieval_query_mode
+                    if retrieval_query_mode == 'Đơn giản':
+                        queries_to_search = [user_query]
+                        query_source_log = "câu hỏi gốc"
+                    elif retrieval_query_mode == 'Tổng quát':
+                        queries_to_search = [summarizing_q]
+                        query_source_log = "câu hỏi tóm tắt"
+                    elif retrieval_query_mode == 'Sâu':
+                        queries_to_search = all_queries # all_queries đã bao gồm user_query
+                        query_source_log = f"câu hỏi gốc và {len(all_queries)-1} biến thể"
 
-                    if retrieval_mode == 'Đơn giản':
-                        # --- Chế độ Truy vấn Đơn giản ---
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn đơn giản (dùng câu hỏi gốc)...")
-                        message_placeholder.markdown(" ".join(processing_log) + "...")
-                        variant_results = g_hybrid_retriever.hybrid_search(
-                            user_query, g_embedding_model, # <<< THAY ĐỔI: Dùng user_query (câu gốc)
-                            vector_search_k=config.VECTOR_K_PER_QUERY,
-                            final_k=config.HYBRID_K_PER_QUERY
+                    # --- Lấy cấu hình retrieval và rerank ---
+                    retrieval_method = st.session_state.retrieval_method
+                    use_reranker = st.session_state.use_reranker
+
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu Retrieval (Nguồn: {query_source_log}, Phương thức: {retrieval_method})...")
+                    message_placeholder.markdown(" ".join(processing_log) + "⏳")
+
+                    # --- Thực hiện Retrieval ---
+                    collected_docs_data = {} # Dict lưu kết quả {index: {'doc': ..., 'score': ...}}
+                    retrieval_start_time = time.time()
+                    for q_idx, current_query in enumerate(queries_to_search):
+                        # Gọi phương thức search mới của retriever
+                        search_results = g_hybrid_retriever.search(
+                            current_query,
+                            g_embedding_model,
+                            method=retrieval_method,
+                            k=config.VECTOR_K_PER_QUERY # Lấy nhiều hơn để có đủ cho rerank/fusion
                         )
-                        # Thu thập kết quả
-                        for item in variant_results:
+                        # Tổng hợp kết quả, tránh trùng lặp index
+                        for item in search_results:
                             doc_index = item['index']
                             if doc_index not in collected_docs_data:
-                                collected_docs_data[doc_index] = {'doc': item['doc']}
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu (truy vấn đơn giản).")
-                        query_for_reranking = user_query # Rerank cũng dùng câu gốc
-
-                    elif retrieval_mode == 'Tổng quát':
-                        # --- Chế độ Truy vấn Tổng quát ---
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn tổng quát (dùng câu hỏi tóm tắt)...")
-                        message_placeholder.markdown(" ".join(processing_log) + "...")
-                        variant_results = g_hybrid_retriever.hybrid_search(
-                            summarizing_q, g_embedding_model, # <<< THAY ĐỔI: Dùng summarizing_q
-                            vector_search_k=config.VECTOR_K_PER_QUERY,
-                            final_k=config.HYBRID_K_PER_QUERY
-                        )
-                        # Thu thập kết quả
-                        for item in variant_results:
-                            doc_index = item['index']
-                            if doc_index not in collected_docs_data:
-                                collected_docs_data[doc_index] = {'doc': item['doc']}
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu (truy vấn tổng quát).")
-                        query_for_reranking = summarizing_q # Rerank dùng câu tóm tắt
-
-                    elif retrieval_mode == 'Sâu':
-                        # --- Chế độ Truy vấn Sâu ---
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu truy vấn sâu (dùng câu hỏi gốc và biến thể)...")
-                        message_placeholder.markdown(" ".join(processing_log) + "...")
-                        # Thực hiện vòng lặp qua all_queries (bao gồm cả câu gốc và các biến thể)
-                        for q_idx, query_variant in enumerate(all_queries):
-                            variant_results = g_hybrid_retriever.hybrid_search(
-                                query_variant, g_embedding_model,
-                                vector_search_k=config.VECTOR_K_PER_QUERY,
-                                final_k=config.HYBRID_K_PER_QUERY
-                            )
-                            for item in variant_results:
-                                doc_index = item['index']
-                                if doc_index not in collected_docs_data:
-                                    collected_docs_data[doc_index] = {'doc': item['doc']}
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {len(collected_docs_data)} tài liệu duy nhất (truy vấn sâu).")
-                        query_for_reranking = summarizing_q
-
+                                collected_docs_data[doc_index] = item # Lưu cả score từ retrieval
+                            # Optional: Nếu muốn cập nhật score (ví dụ: lấy score cao nhất nếu trùng) - phức tạp hơn
+                    retrieval_time = time.time() - retrieval_start_time
                     num_unique_docs = len(collected_docs_data)
-                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tìm thấy {num_unique_docs} tài liệu ứng viên.")
-                    message_placeholder.markdown(" ".join(processing_log) + "...")
-
-                    unique_docs_for_reranking_input = []
-                    if num_unique_docs > 0:
-                        unique_docs_for_reranking_input = [{'doc': data['doc'], 'index': idx}
-                                                    for idx, data in collected_docs_data.items()]
-                        if 'hybrid_score' in unique_docs_for_reranking_input[0]:
-                            unique_docs_for_reranking_input.sort(key=lambda x: x.get('hybrid_score', 0), reverse=True)
-                        unique_docs_for_reranking_input = unique_docs_for_reranking_input[:config.MAX_DOCS_FOR_RERANK]
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Retrieval ({retrieval_time:.2f}s) tìm thấy {num_unique_docs} tài liệu ứng viên.")
+                    message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
 
-                    # 2b. Re-ranking (Dùng summarizing_q)
-                    final_relevant_documents = []
-                    if unique_docs_for_reranking_input:
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {len(unique_docs_for_reranking_input)} tài liệu...")
-                        message_placeholder.markdown(" ".join(processing_log) + "...")
+                    # --- Chuẩn bị dữ liệu cho bước tiếp theo (Rerank hoặc lấy trực tiếp) ---
+                    # Chuyển dict thành list và sắp xếp theo score (cao xuống thấp cho sparse/hybrid, thấp lên cao cho dense)
+                    retrieved_docs_list = list(collected_docs_data.values())
+                    sort_reverse = (retrieval_method != 'dense') # Dense sắp xếp ngược lại
+                    retrieved_docs_list.sort(key=lambda x: x.get('score', 0 if sort_reverse else float('inf')), reverse=sort_reverse)
+
+                    # --- Bước Rerank (Nếu được bật) ---
+                    final_relevant_documents = [] # List các dict {'doc': ..., 'score': ..., 'original_index': ...}
+                    rerank_time = 0.0
+                    rerank_start_time = time.time()
+
+                    if use_reranker and num_unique_docs > 0:
+                        # Lấy query phù hợp để rerank (thường là câu tóm tắt hoặc câu gốc)
+                        query_for_reranking = summarizing_q if summarizing_q else user_query
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {min(num_unique_docs, config.MAX_DOCS_FOR_RERANK)} tài liệu...")
+                        message_placeholder.markdown(" ".join(processing_log) + "⏳")
+
+                        # Chọn top N docs để rerank
+                        docs_to_rerank = retrieved_docs_list[:config.MAX_DOCS_FOR_RERANK]
+                        # Chuyển đổi định dạng đầu vào cho rerank_documents nếu cần
+                        # Hàm rerank_documents hiện tại nhận list [{'doc': ..., 'index': ...}]
+                        # Nếu retrieved_docs_list đã đúng định dạng thì không cần chuyển
+                        rerank_input = [{'doc': item['doc'], 'index': item['index']} for item in docs_to_rerank]
+
                         reranked_results = utils.rerank_documents(
-                            query_for_reranking, 
-                            unique_docs_for_reranking_input,
+                            query_for_reranking,
+                            rerank_input, # Đảm bảo đúng định dạng đầu vào
                             g_reranking_model
                         )
+                        # Lấy top K kết quả cuối cùng sau rerank
                         final_relevant_documents = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Chọn top {len(final_relevant_documents)} tài liệu.")
-                        message_placeholder.markdown(" ".join(processing_log) + "...")
-                    # st.write(final_relevant_documents)
-                    # 2c. Generate Answer (Truyền history vào đây)
+                        rerank_time = time.time() - rerank_start_time
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Rerank ({rerank_time:.2f}s) hoàn tất, chọn top {len(final_relevant_documents)}.")
+                        message_placeholder.markdown(" ".join(processing_log) + "⏳")
+
+                    elif num_unique_docs > 0: # Không dùng reranker nhưng có kết quả retrieval
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Bỏ qua Rerank, lấy trực tiếp top {config.FINAL_NUM_RESULTS_AFTER_RERANK} kết quả Retrieval.")
+                        # Lấy trực tiếp từ danh sách đã sắp xếp ở bước retrieval
+                        final_relevant_documents = retrieved_docs_list[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
+                        # Cần đảm bảo định dạng của final_relevant_documents nhất quán
+                        # Hàm generate_answer_with_gemini nhận list [{'doc':...}, ...]
+                        # final_relevant_documents từ retrieval đã có key 'doc'
+                        message_placeholder.markdown(" ".join(processing_log) + "⏳")
+                    else: # Không có kết quả retrieval
+                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Không tìm thấy tài liệu liên quan.")
+                         message_placeholder.markdown(" ".join(processing_log) + "⏳")
+
+
+                    # --- Bước Generate Answer ---
                     answer_mode = st.session_state.answer_mode
-                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời...")
+                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời (chế độ: {answer_mode})...")
                     message_placeholder.markdown(" ".join(processing_log))
 
                     full_response = utils.generate_answer_with_gemini(
-                        query_text=user_query,
-                        relevant_documents=final_relevant_documents,
-                        gemini_model=selected_gemini_llm, 
+                        query_text=user_query, # Vẫn dùng câu hỏi gốc của user để LLM trả lời
+                        relevant_documents=final_relevant_documents, # List các dict {'doc': ...}
+                        gemini_model=selected_gemini_llm,
                         mode=answer_mode,
-                        chat_history=recent_chat_history 
+                        chat_history=recent_chat_history
                     )
 
-                    # Cập nhật placeholder với câu trả lời cuối cùng
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Hoàn tất!")
 
+                # Hiển thị log xử lý
                 with st.expander("Xem chi tiết quá trình xử lý", expanded=False):
                     log_content = "\n".join(processing_log)
-                    st.markdown(f"```text\n{log_content}\n```") 
+                    st.markdown(f"```text\n{log_content}\n```")
+                # Hiển thị câu trả lời cuối cùng
                 message_placeholder.markdown(full_response)
 
-                    # --- Hiển thị Ảnh (nếu có) ---
-                    # if final_relevant_documents:
-                    #     st.markdown("---")
-                    #     with st.expander("Xem Hình Ảnh Biển Báo Liên Quan (Nếu có)"):
-                    #         displayed_images = set()
-                    #         image_found_in_context = False
-                    #         cols = st.columns(5) # Hiển thị tối đa 5 ảnh/hàng
-                    #         col_idx = 0
-                    #         for item in final_relevant_documents:
-                    #             doc = item.get('doc')
-                    #             if doc:
-                    #                 metadata = doc.get('metadata', {})
-                    #                 image_path = metadata.get('sign_image_path') 
-                    #                 sign_code = metadata.get('sign_code')
-
-                    #                 if image_path and image_path not in displayed_images:
-                                        
-                    #                     full_image_path = image_path 
-                    #                     # Hoặc full_image_path = os.path.join("images", os.path.basename(image_path))
-
-                    #                     if os.path.exists(full_image_path):
-                    #                         with cols[col_idx % 5]:
-                    #                             st.image(full_image_path, caption=f"{sign_code}" if sign_code else None, use_column_width=True)
-                    #                         displayed_images.add(image_path)
-                    #                         image_found_in_context = True
-                    #                         col_idx += 1
-
-                    #         if not image_found_in_context:
-                    #             st.write("_Không tìm thấy hình ảnh biển báo trong các tài liệu tham khảo._")
             except Exception as e:
-                full_response = f"🐞 Xin lỗi, đã có lỗi xảy ra trong quá trình xử lý: {e}"
-                if message_placeholder: 
+                st.error(f"🐞 Đã xảy ra lỗi: {e}") # Hiển thị lỗi rõ ràng hơn
+                logging.exception("Error during chat processing:") # Log traceback
+                full_response = f"🐞 Xin lỗi, đã có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại hoặc thay đổi cấu hình."
+                if message_placeholder:
                     message_placeholder.markdown(full_response)
                 else:
-                    st.markdown(full_response) 
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
+                    st.markdown(full_response) # Fallback nếu placeholder lỗi
+            finally:
+                # Đảm bảo tin nhắn của assistant luôn được thêm vào history
+                if full_response: # Chỉ thêm nếu có nội dung
+                    st.session_state.messages.append({"role": "assistant", "content": full_response})
 
 elif not init_ok:
-    st.error("⚠️ Hệ thống chưa thể khởi động do lỗi.")
+    st.error("⚠️ Hệ thống chưa thể khởi động do lỗi tải mô hình hoặc dữ liệu. Vui lòng kiểm tra lại.")

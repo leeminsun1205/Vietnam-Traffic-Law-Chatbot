@@ -262,7 +262,7 @@ if init_ok:
 
     current_gemini_model = st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)
     current_retrieval_mode = st.session_state.get('retrieval_mode', 'Đơn giản')
-    current_use_history = st.session_state.get('use_history_for_llm1', True)
+    current_use_history = st.session_state.get('use_history_for_llm1', False)
 
     col1, col2, col3 = st.columns(3)
     with col1: st.info(f"**Chế độ Retrieval:** `{current_retrieval_mode}`")

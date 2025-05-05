@@ -151,6 +151,7 @@ class HybridRetriever:
                         indices_set.add(idx)
                 # Sắp xếp theo distance tăng dần (score nhỏ hơn là tốt hơn)
                 results.sort(key=lambda x: x['score'])
+            st.write('khóc luôn rồi')
             logging.debug(f"Dense search found {len(results)} results.")
 
 

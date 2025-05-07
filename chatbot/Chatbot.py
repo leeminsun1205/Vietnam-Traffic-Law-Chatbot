@@ -92,6 +92,7 @@ with st.sidebar:
         help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm (tăng độ chính xác nhưng chậm hơn)."
     )
 
+    st.header("Ngữ cảnh")
     use_hist_llm1 = st.toggle(
         "Dùng lịch sử cho phân tích câu hỏi",
         key="use_history_for_llm1",

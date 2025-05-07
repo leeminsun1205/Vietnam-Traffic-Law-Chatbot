@@ -84,8 +84,9 @@ with st.sidebar:
     retrieval_method_choice = st.radio(
         "Phương thức Retrieval:",
         options=['dense', 'sparse', 'hybrid'],
-        index=['dense', 'sparse', 'hybrid'].index(st.session_state.retrieval_method), # Đặt giá trị mặc định
+        index=['dense', 'sparse', 'hybrid'].index(st.session_state.retrieval_method), 
         key="retrieval_method",
+        horizontal=True,
         help=(
             "**dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
             "**sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"

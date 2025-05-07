@@ -4,8 +4,6 @@ import time
 import config
 import utils
 import data_loader
-import os # Thêm os để xử lý đường dẫn ảnh
-import logging # Thêm logging
 
 # --- Hàm Cache để Khởi tạo DB và Retriever ---
 @st.cache_resource
@@ -28,22 +26,22 @@ if "answer_mode" not in st.session_state:
 
 # Cấu hình truy vấn (query variation)
 if "retrieval_query_mode" not in st.session_state:
-    st.session_state.retrieval_query_mode = 'Tổng quát' # Đổi tên key để rõ ràng hơn
+    st.session_state.retrieval_query_mode = 'Tổng quát' 
 if "use_history_for_llm1" not in st.session_state:
     st.session_state.use_history_for_llm1 = True
 
-# --- Cấu hình MỚI: Phương thức Retrieval và Reranker ---
+# --- Cấu hình phương thức Retrieval và Reranker ---
 if "retrieval_method" not in st.session_state:
-    st.session_state.retrieval_method = 'hybrid' # Mặc định là hybrid
+    st.session_state.retrieval_method = 'hybrid' 
 if "use_reranker" not in st.session_state:
-    st.session_state.use_reranker = True # Mặc định sử dụng reranker
+    st.session_state.use_reranker = True 
 
 # --- Sidebar ---
 with st.sidebar:
     st.title("Tùy chọn")
 
     st.header("Mô hình & Trả lời")
-    # Chọn mô hình Gemini
+
     selected_model = st.selectbox(
         "Chọn mô hình Gemini:",
         options=config.AVAILABLE_GEMINI_MODELS,
@@ -51,7 +49,7 @@ with st.sidebar:
         key="selected_gemini_model",
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
-    # Chọn chế độ trả lời
+
     answer_mode_choice = st.radio(
         "Chọn chế độ trả lời:",
         options=['Ngắn gọn', 'Đầy đủ'],
@@ -61,11 +59,11 @@ with st.sidebar:
     )
 
     st.header("Truy vấn & Lịch sử")
-    # Chọn chế độ truy vấn (câu hỏi gốc/tóm tắt/biến thể)
+
     retrieval_query_mode_choice = st.radio(
         "Nguồn câu hỏi cho Retrieval:",
         options=['Đơn giản', 'Tổng quát', 'Sâu'],
-        key="retrieval_query_mode", # Đổi key
+        key="retrieval_query_mode", 
         horizontal=True,
         help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
@@ -73,7 +71,7 @@ with st.sidebar:
             "**Sâu:** Dùng cả câu hỏi gốc và các biến thể (do AI tạo)."
         )
     )
-    # Sử dụng lịch sử cho LLM1
+
     use_hist_llm1 = st.toggle(
         "Dùng lịch sử cho phân tích câu hỏi",
         key="use_history_for_llm1",
@@ -81,9 +79,9 @@ with st.sidebar:
         help="Cho phép LLM xem xét ngữ cảnh hội thoại khi phân tích câu hỏi đầu vào."
     )
 
-    st.header("Retrieval & Rerank") # --- Mục MỚI ---
+    st.header("Retrieval & Rerank") 
     # Chọn phương thức Retrieval
-    retrieval_method_choice = st.selectbox(
+    retrieval_method_choice = st.radio(
         "Phương thức Retrieval:",
         options=['dense', 'sparse', 'hybrid'],
         index=['dense', 'sparse', 'hybrid'].index(st.session_state.retrieval_method), # Đặt giá trị mặc định
@@ -102,7 +100,7 @@ with st.sidebar:
         help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm (tăng độ chính xác nhưng chậm hơn)."
     )
 
-    st.markdown("---") # Phân cách
+    st.markdown("---") 
 
     st.header("Quản lý Hội thoại")
     if st.button("⚠️ Xóa Lịch Sử Chat"):
@@ -140,7 +138,6 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
          status.update(label="⚠️ Lỗi tải Embedding hoặc Reranker model!", state="error", expanded=True)
     elif not retriever_ready:
         status.update(label="⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!", state="error", expanded=True)
-        # raise ValueError("Không thể chuẩn bị cơ sở dữ liệu vector hoặc retriever.") # Có thể không cần raise ở đây
     else:
         status.update(label="✅ Hệ thống cơ bản đã sẵn sàng!", state="complete", expanded=False)
         init_ok = True
@@ -316,7 +313,6 @@ if init_ok:
 
             except Exception as e:
                 st.error(f"🐞 Đã xảy ra lỗi: {e}") # Hiển thị lỗi rõ ràng hơn
-                logging.exception("Error during chat processing:") # Log traceback
                 full_response = f"🐞 Xin lỗi, đã có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại hoặc thay đổi cấu hình."
                 if message_placeholder:
                     message_placeholder.markdown(full_response)

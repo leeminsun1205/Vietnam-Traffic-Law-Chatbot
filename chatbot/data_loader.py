@@ -9,7 +9,6 @@ def load_or_create_rag_components(embedding_model):
     vector_db_instance = SimpleVectorDatabase()
     hybrid_retriever_instance = None
 
-    # Cố gắng tải Vector DB trước
     if vector_db_instance.load(config.SAVED_DATA_PREFIX):
         hybrid_retriever_instance = HybridRetriever(vector_db_instance, bm25_save_path=f"{config.SAVED_DATA_PREFIX}_bm25.pkl")
     else:

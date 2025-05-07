@@ -126,9 +126,8 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
                 relevance_status = parsed_data.get('relevance', 'valid')
 
                 if relevance_status == 'invalid':
-                    direct_answer_if_invalid = parsed_data.get('invalid_answer', "") # Lấy câu trả lời trực tiếp
-                    # Giữ nguyên giá trị mặc định cho all_queries, summarizing_query
-                else: # relevance_status == 'valid'
+                    direct_answer_if_invalid = parsed_data.get('invalid_answer', "")
+                else: 
                     variations = parsed_data.get('variations', [])
                     parsed_summary = parsed_data.get('summarizing_query', '')
 
@@ -166,7 +165,7 @@ def embed_legal_chunks(file_paths, model):
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 if isinstance(data, list): all_chunks_read.extend(data)
-
+    
     if not all_chunks_read: return [], None
 
     texts_to_embed, valid_chunks = [], []

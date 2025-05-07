@@ -22,7 +22,11 @@ class SimpleVectorDatabase:
 
         if self.index is None:
             self.embedding_dimension = embeddings_array.shape[1]
-            self.index = faiss.IndexFlatL2(self.embedding_dimension)
+            self.index = faiss.IndexFlatL2(self.embedding_dimension)        # Tìm kiếm chính xác, không tăng tốc (duyệt toàn bộ)
+            # self.index = faiss.IndexIVFFlat(quantizer, self.embedding_dimension, nlist)  # Dùng phân cụm IVF để lọc trước, nhanh hơn nhưng không tuyệt đối
+            # self.index = faiss.IndexIVFPQ(quantizer, self.embedding_dimension, nlist, m, nbits)  # Dùng phân cụm + lượng hóa PQ, rất nhanh nhưng mất độ chính xác
+            # self.index = faiss.IndexHNSWFlat(self.embedding_dimension, M)  # Dùng đồ thị HNSW cho tìm kiếm gần đúng, nhanh và hiệu quả trên tập lớn
+
         if embeddings_array.shape[1] != self.embedding_dimension:
             return
 

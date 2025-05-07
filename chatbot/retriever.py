@@ -41,9 +41,7 @@ class HybridRetriever:
     """Kết hợp Vector Search (Dense), BM25 Search (Sparse), hoặc cả hai (Hybrid)."""
     def __init__(self, vector_db, bm25_save_path):
         self.vector_db = vector_db
-        # Lấy documents từ vector_db nếu có, nếu không khởi tạo list rỗng
         self.documents = getattr(vector_db, 'documents', [])
-        # Lấy text từ documents, xử lý trường hợp document không phải dict hoặc thiếu key 'text'
         self.document_texts = [doc.get('text', '') if isinstance(doc, dict) else '' for doc in self.documents]
         self.bm25_index_path = bm25_save_path
         self.bm25 = None
@@ -99,26 +97,12 @@ class HybridRetriever:
 
 
     def search(self, query_text, embedding_model, method='hybrid', k=20):
-        """
-        Thực hiện tìm kiếm theo phương thức được chỉ định.
-
-        Args:
-            query_text (str): Câu truy vấn.
-            embedding_model: Mô hình embedding đã tải.
-            method (str): Phương thức tìm kiếm ('dense', 'sparse', 'hybrid'). Mặc định là 'hybrid'.
-            k (int): Số lượng kết quả mong muốn cuối cùng.
-
-        Returns:
-            list: Danh sách các dict {'doc': document, 'score': score, 'index': index}.
-                  Score có thể là distance (dense), BM25 score (sparse), hoặc RRF score (hybrid).
-                  Danh sách được sắp xếp theo score giảm dần (hybrid, sparse) hoặc distance tăng dần (dense).
-        """
         if not query_text:
             logging.warning("Search skipped: Empty query text.")
             return []
 
         results = []
-        indices_set = set() # Dùng để tránh trùng lặp index khi lấy document
+        indices_set = set() 
 
         if method == 'dense':
             logging.debug(f"Performing DENSE search for: '{query_text[:50]}...' with k={k}")
@@ -227,13 +211,12 @@ class HybridRetriever:
             logging.error(f"Invalid search method specified: {method}")
             return []
 
-        return results # Trả về danh sách kết quả đã được sắp xếp (hoặc không cần sắp xếp nếu rerank)
+        return results 
 
     def _rank_fusion_indices(self, rank_lists, k=60):
         """Thực hiện RRF để kết hợp các danh sách rank."""
         fused_scores = {}
         for rank_list in rank_lists:
-            if not isinstance(rank_list, list): continue
             for rank, doc_index in enumerate(rank_list):
                  if isinstance(doc_index, (int, np.integer)):
                      rank_ = rank + 1

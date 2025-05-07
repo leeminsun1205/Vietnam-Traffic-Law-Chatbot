@@ -24,17 +24,17 @@ if "selected_gemini_model" not in st.session_state:
 if "answer_mode" not in st.session_state:
     st.session_state.answer_mode = 'Ngắn gọn'
 
-# Cấu hình truy vấn (query variation)
+# Cấu hình truy vấn 
 if "retrieval_query_mode" not in st.session_state:
     st.session_state.retrieval_query_mode = 'Tổng quát' 
-if "use_history_for_llm1" not in st.session_state:
-    st.session_state.use_history_for_llm1 = True
-
-# --- Cấu hình phương thức Retrieval và Reranker ---
 if "retrieval_method" not in st.session_state:
     st.session_state.retrieval_method = 'hybrid' 
 if "use_reranker" not in st.session_state:
     st.session_state.use_reranker = True 
+
+# Nhớ ngữ cảnh
+if "use_history_for_llm1" not in st.session_state:
+    st.session_state.use_history_for_llm1 = True
 
 # --- Sidebar ---
 with st.sidebar:
@@ -71,7 +71,7 @@ with st.sidebar:
             "**Sâu:** Dùng cả câu hỏi gốc và các biến thể (do AI tạo)."
         )
     )
-    # Chọn phương thức Retrieval
+
     retrieval_method_choice = st.radio(
         "Phương thức Retrieval:",
         options=['dense', 'sparse', 'hybrid'],
@@ -84,7 +84,7 @@ with st.sidebar:
             "**hybrid:** Kết hợp cả dense và sparse (cân bằng, có thể tốt nhất)."
         )
     )
-    # Bật/tắt Reranker
+
     use_rerank_toggle = st.toggle(
         "Sử dụng Reranker",
         key="use_reranker",
@@ -128,19 +128,18 @@ for message in st.session_state.messages:
 # --- Khởi tạo hệ thống ---
 init_ok = False
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
-    g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
-    g_reranking_model = utils.load_reranker_model(config.reranking_model_name)
-    models_loaded = all([g_embedding_model, g_reranking_model])
-    # Tải retriever (cần embedding model)
-    g_vector_db, g_hybrid_retriever = cached_load_or_create_components(g_embedding_model)
-    retriever_ready = g_hybrid_retriever is not None
+    embedding_model = utils.load_embedding_model(config.embedding_model_name)
+    reranking_model = utils.load_reranker_model(config.reranking_model_name)
+    models_loaded = all([embedding_model, reranking_model])
+    vector_db, hybrid_retriever = cached_load_or_create_components(embedding_model)
+    retriever_ready = hybrid_retriever is not None
 
     if not models_loaded:
          status.update(label="⚠️ Lỗi tải Embedding hoặc Reranker model!", state="error", expanded=True)
     elif not retriever_ready:
         status.update(label="⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!", state="error", expanded=True)
     else:
-        status.update(label="✅ Hệ thống cơ bản đã sẵn sàng!", state="complete", expanded=False)
+        status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)
         init_ok = True
 
 # --- Input và Xử lý ---
@@ -222,12 +221,12 @@ if init_ok:
                     # --- Thực hiện Retrieval ---
                     collected_docs_data = {} # Dict lưu kết quả {index: {'doc': ..., 'score': ...}}
                     retrieval_start_time = time.time()
-                    st.write('HAHHAHAHA')
+        
                     for q_idx, current_query in enumerate(queries_to_search):
                         # Gọi phương thức search mới của retriever
-                        search_results = g_hybrid_retriever.search(
+                        search_results = hybrid_retriever.search(
                             current_query,
-                            g_embedding_model,
+                            embedding_model,
                             method=retrieval_method,
                             k=config.VECTOR_K_PER_QUERY # Lấy nhiều hơn để có đủ cho rerank/fusion
                         )
@@ -238,10 +237,7 @@ if init_ok:
                                 collected_docs_data[doc_index] = item # Lưu cả score từ retrieval
                             # Optional: Nếu muốn cập nhật score (ví dụ: lấy score cao nhất nếu trùng) - phức tạp hơn
                     retrieval_time = time.time() - retrieval_start_time
-                    st.write(search_results)
-                    st.write('kkkkkk')
                     num_unique_docs = len(collected_docs_data)
-                    st.write('kkkkkk')
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Retrieval ({retrieval_time:.2f}s) tìm thấy {num_unique_docs} tài liệu ứng viên.")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
@@ -273,7 +269,7 @@ if init_ok:
                         reranked_results = utils.rerank_documents(
                             query_for_reranking,
                             rerank_input, # Đảm bảo đúng định dạng đầu vào
-                            g_reranking_model
+                            reranking_model
                         )
                         # Lấy top K kết quả cuối cùng sau rerank
                         final_relevant_documents = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]

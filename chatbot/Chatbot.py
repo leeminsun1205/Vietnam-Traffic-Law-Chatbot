@@ -58,7 +58,7 @@ with st.sidebar:
         help="Mức độ chi tiết của câu trả lời."
     )
 
-    st.header("Truy vấn & Lịch sử")
+    st.header("Cấu hình truy vấn")
 
     retrieval_query_mode_choice = st.radio(
         "Nguồn câu hỏi cho Retrieval:",
@@ -71,15 +71,6 @@ with st.sidebar:
             "**Sâu:** Dùng cả câu hỏi gốc và các biến thể (do AI tạo)."
         )
     )
-
-    use_hist_llm1 = st.toggle(
-        "Dùng lịch sử cho phân tích câu hỏi",
-        key="use_history_for_llm1",
-        value=st.session_state.use_history_for_llm1,
-        help="Cho phép LLM xem xét ngữ cảnh hội thoại khi phân tích câu hỏi đầu vào."
-    )
-
-    st.header("Retrieval & Rerank") 
     # Chọn phương thức Retrieval
     retrieval_method_choice = st.radio(
         "Phương thức Retrieval:",
@@ -101,6 +92,13 @@ with st.sidebar:
         help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm (tăng độ chính xác nhưng chậm hơn)."
     )
 
+    use_hist_llm1 = st.toggle(
+        "Dùng lịch sử cho phân tích câu hỏi",
+        key="use_history_for_llm1",
+        value=st.session_state.use_history_for_llm1,
+        help="Cho phép LLM xem xét ngữ cảnh hội thoại khi phân tích câu hỏi đầu vào."
+    )
+
     st.markdown("---") 
 
     st.header("Quản lý Hội thoại")
@@ -110,6 +108,7 @@ with st.sidebar:
         time.sleep(1)
         st.rerun()
     st.markdown("---")
+
 
 # --- Giao diện chính của Ứng dụng ---
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")

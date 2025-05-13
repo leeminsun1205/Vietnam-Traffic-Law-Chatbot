@@ -13,7 +13,7 @@ import config
 @st.cache_resource
 def load_embedding_model(model_name):
     try:
-        model = SentenceTransformer(model_name)
+        model = SentenceTransformer(model_name, trust_remote_code=True)
         return model
     except Exception as e:
         st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")

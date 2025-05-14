@@ -326,11 +326,11 @@ if init_ok:
 elif not init_ok:
     st.error("⚠️ Hệ thống chưa thể khởi động do lỗi tải mô hình hoặc dữ liệu. Vui lòng kiểm tra lại.")
 
-# Debug: Hiển thị trạng thái cấu hình hiện tại trong session state trên trang Chatbot
-st.sidebar.subheader("Debug State (Chatbot)")
-st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
-st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
-st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
-st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
-st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
-st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")
+# # Debug: Hiển thị trạng thái cấu hình hiện tại trong session state trên trang Chatbot
+# st.sidebar.subheader("Debug State (Chatbot)")
+# st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
+# st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
+# st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
+# st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
+# st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
+# st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")

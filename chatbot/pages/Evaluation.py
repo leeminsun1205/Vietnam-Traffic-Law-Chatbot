@@ -353,7 +353,13 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
 if init_ok:
     st.subheader("Cấu hình Đánh giá")
     st.markdown("Đánh giá sẽ sử dụng cấu hình **hiện tại** từ **Sidebar của trang Chatbot**.")
-
+    st.sidebar.subheader("Debug State (Chatbot)")
+    st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
+    st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
+    st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
+    st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
+    st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
+    st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")
     # --- Lấy cấu hình hiện tại từ session state của trang Chatbot ---
     current_gemini_model = st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)
     current_retrieval_query_mode = st.session_state.get('retrieval_query_mode', 'Tổng quát')

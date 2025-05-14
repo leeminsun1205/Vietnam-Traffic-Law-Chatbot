@@ -296,7 +296,7 @@ if init_ok:
 
                     full_response = utils.generate_answer_with_gemini(
                         query_text=user_query, # Vẫn dùng câu hỏi gốc của user để LLM trả lời
-                        relevant_documents=final_relevant_documents, # List các dict {'doc': ...}
+                        relevant_documents=final_relevant_documents, 
                         gemini_model=selected_gemini_llm,
                         mode=answer_mode,
                         chat_history=recent_chat_history

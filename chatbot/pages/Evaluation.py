@@ -262,7 +262,7 @@ if 'eval_run_completed' not in st.session_state:
     st.session_state.eval_run_completed = False
     
 if 'eval_uploaded_filename' not in st.session_state: 
-    st.session_state.eval_uploaded_filename = ""
+    st.session_state.eval_uploaded_filename = None
 
 st.subheader("Trạng thái Hệ thống Cơ bản")
 init_ok = False

@@ -264,8 +264,8 @@ if 'eval_run_completed' not in st.session_state:
 if 'eval_uploaded_filename' not in st.session_state: 
     st.session_state.eval_uploaded_filename = None
 
-if 'is_deleted' not in st.session_state: 
-    st.session_state.is_deleted = False
+if "upload_counter" not in st.session_state:
+    st.session_state.upload_counter = 0
 
 st.subheader("Trạng thái Hệ thống Cơ bản")
 init_ok = False
@@ -313,19 +313,11 @@ if init_ok:
     # Kiểm tra cuối cùng cho reranker model để truyền vào hàm run_retrieval_evaluation
     reranker_model_for_run = g_reranking_model_loaded if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else None
 
-
+    uploader_key = f"eval_file_uploader_{st.session_state.upload_counter}"
     st.subheader("Tải Lên File Đánh giá")
-    st.write(st.session_state.is_deleted)
-    if st.session_state.is_deleted == False:
-        uploaded_file = st.file_uploader(
-            "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
-        )
-    else:
-        uploaded_file = st.file_uploader(
-            "Chọn file JSON dữ liệu đánh giá...", type=["json"]
-        )
-        uploaded_file = None
-        st.session_state.is_deleted = False
+    uploaded_file = st.file_uploader(
+        "Chọn file JSON dữ liệu đánh giá...", type=["json"], key=uploader_key
+    )
 
     if uploaded_file is not None:
         if uploaded_file.name != st.session_state.eval_uploaded_filename:
@@ -488,7 +480,7 @@ if init_ok:
     st.write(st.session_state.get('eval_uploaded_filename'))
     if st.button("Xóa File Đã Tải và Kết Quả", key="clear_eval_state"):
         st.session_state.eval_data = None
-        st.session_state.is_deleted = True
+        st.session_state.upload_counter += 1
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}

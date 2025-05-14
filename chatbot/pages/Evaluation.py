@@ -318,6 +318,7 @@ if init_ok:
     uploaded_file = st.file_uploader(
         "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
     )
+    st.write(st.session_state.is_deleted)
     if st.session_state.is_deleted:
         uploaded_file = None
         st.session_state.is_deleted = False

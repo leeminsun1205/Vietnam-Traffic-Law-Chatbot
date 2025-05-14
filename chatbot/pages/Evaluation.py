@@ -312,6 +312,7 @@ if init_ok:
 
 
     st.subheader("Tải Lên File Đánh giá")
+    st.write(st.session_state.eval_uploaded_filename)
     uploaded_file = st.file_uploader(
         "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
     )

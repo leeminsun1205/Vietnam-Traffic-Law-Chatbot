@@ -34,8 +34,11 @@ def run_retrieval_evaluation(
     retrieval_method = eval_config.get('retrieval_method', 'hybrid')
     use_reranker = eval_config.get('use_reranker', True)
 
-    progress_bar = st.progress(0)
-    status_text = st.empty()
+    # Sử dụng một placeholder cho thanh tiến trình và trạng thái để có thể cập nhật nó sau này
+    progress_bar_placeholder = st.empty()
+    status_text_placeholder = st.empty()
+    progress_bar = progress_bar_placeholder.progress(0)
+
 
     total_items = len(eval_data)
     queries_per_batch = 15 # Giới hạn số lượng query trước khi tạm dừng
@@ -47,26 +50,26 @@ def run_retrieval_evaluation(
     for i, item in enumerate(eval_data):
         # --- KIỂM TRA YÊU CẦU HỦY BỎ ---
         if st.session_state.cancel_eval_requested:
-            status_text.warning(f"Đã hủy bỏ quá trình đánh giá tại query {i}/{total_items}.")
+            status_text_placeholder.warning(f"Đã hủy bỏ quá trình đánh giá tại query {i}/{total_items}.")
             break # Thoát khỏi vòng lặp chính
 
         # Tạm dừng sau mỗi batch
         if i > 0 and i % queries_per_batch == 0:
             pause_msg = f"Đã xử lý {i}/{total_items} queries. Tạm dừng {wait_time_seconds} giây..."
-            status_text.text(pause_msg)
+            status_text_placeholder.text(pause_msg)
             time.sleep(wait_time_seconds)
             # Kiểm tra lại yêu cầu hủy bỏ sau khi tạm dừng
             if st.session_state.cancel_eval_requested:
-                status_text.warning(f"Đã hủy bỏ quá trình đánh giá tại query {i}/{total_items}.")
+                status_text_placeholder.warning(f"Đã hủy bỏ quá trình đánh giá tại query {i}/{total_items}.")
                 break # Thoát khỏi vòng lặp chính
 
-            status_text.text(f"Tiếp tục xử lý query {i+1}/{total_items}...")
+            status_text_placeholder.text(f"Tiếp tục xử lý query {i+1}/{total_items}...")
 
 
         query_id = item.get("query_id"); original_query = item.get("query")
         relevant_chunk_ids = set(item.get("relevant_chunk_ids", []))
 
-        status_text.text(f"Đang xử lý query {i+1}/{total_items}: {query_id} (QueryMode: {retrieval_query_mode}, Method: {retrieval_method}, Rerank: {use_reranker})")
+        status_text_placeholder.text(f"Đang xử lý query {i+1}/{total_items}: {query_id} (QueryMode: {retrieval_query_mode}, Method: {retrieval_method}, Rerank: {use_reranker})")
 
         start_time = time.time()
         # --- Khởi tạo query_metrics với các trường cấu hình ---
@@ -230,7 +233,7 @@ def run_retrieval_evaluation(
          progress_bar.progress((i + 1) / total_items) # Hiển thị tiến độ tại thời điểm hủy
          # Trạng thái hủy bỏ đã được hiển thị bên trong vòng lặp
     else:
-        status_text.text(f"Hoàn thành đánh giá {total_items} queries!")
+        status_text_placeholder.text(f"Hoàn thành đánh giá {total_items} queries!")
 
 
     return pd.DataFrame(results_list)
@@ -249,28 +252,36 @@ Sử dụng cấu hình **hiện tại được chọn trên sidebar của trang
 with st.sidebar:
     st.title("Tùy chọn Đánh giá")
 
-    DEFAULT_EVAL_CONFIG_STATE = {
-        "selected_gemini_model": st.session_state.get("selected_gemini_model", config.DEFAULT_GEMINI_MODEL),
-        "retrieval_query_mode": st.session_state.get("retrieval_query_mode", 'Tổng quát'),
-        "retrieval_method": st.session_state.get("retrieval_method", 'hybrid'),
-        "use_reranker": st.session_state.get("use_reranker", True),
-        "eval_uploaded_filename": "", # Đảm bảo có trong state
-        "eval_run_completed": False, # Đảm bảo có trong state
-        "eval_data": None, # Đảm bảo có trong state
-        "eval_results_df": None, # Đảm bảo có trong state
-        "last_eval_config": {}, # Đảm bảo có trong state
-        "cancel_eval_requested": False, # Thêm biến trạng thái hủy
-    }
+    # Khởi tạo tất cả các biến session state cần thiết ở đây
+    if "selected_gemini_model" not in st.session_state:
+        st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
+    if "retrieval_query_mode" not in st.session_state:
+        st.session_state.retrieval_query_mode = 'Tổng quát'
+    if "retrieval_method" not in st.session_state:
+        st.session_state.retrieval_method = 'hybrid'
+    if "use_reranker" not in st.session_state:
+        st.session_state.use_reranker = True
+    if 'eval_data' not in st.session_state:
+        st.session_state.eval_data = None
+    if 'eval_results_df' not in st.session_state:
+        st.session_state.eval_results_df = None
+    if 'eval_run_completed' not in st.session_state:
+        st.session_state.eval_run_completed = False
+    if 'eval_uploaded_filename' not in st.session_state:
+        st.session_state.eval_uploaded_filename = ""
+    if 'last_eval_config' not in st.session_state:
+        st.session_state.last_eval_config = {}
+    if 'cancel_eval_requested' not in st.session_state:
+        st.session_state.cancel_eval_requested = False
+    if 'status_message' not in st.session_state: # Biến để lưu trạng thái hiển thị
+         st.session_state.status_message = "Chưa sẵn sàng."
 
-    for key, default_value in DEFAULT_EVAL_CONFIG_STATE.items():
-        if key not in st.session_state:
-            st.session_state[key] = default_value
 
     st.header("Mô hình")
     st.selectbox(
         "Chọn mô hình Gemini (để tạo query variations):",
         options=config.AVAILABLE_GEMINI_MODELS,
-        index=config.AVAILABLE_GEMINI_MODELS.index(st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)), # Đọc từ state
+        index=config.AVAILABLE_GEMINI_MODELS.index(st.session_state.selected_gemini_model), # Đọc từ state
         key="selected_gemini_model", # Ghi vào state khi thay đổi
         help="Chọn mô hình ngôn ngữ lớn để phân tích và tạo biến thể câu hỏi cho Retrieval."
     )
@@ -280,7 +291,7 @@ with st.sidebar:
     st.radio(
         "Nguồn câu hỏi cho Retrieval:",
         options=['Đơn giản', 'Tổng quát', 'Sâu'],
-        index=['Đơn giản', 'Tổng quát', 'Sâu'].index(st.session_state.get('retrieval_query_mode', 'Tổng quát')), # Đọc từ state
+        index=['Đơn giản', 'Tổng quát', 'Sâu'].index(st.session_state.retrieval_query_mode), # Đọc từ state
         key="retrieval_query_mode", # Ghi vào state khi thay đổi
         horizontal=True,
         help=(
@@ -293,7 +304,7 @@ with st.sidebar:
     st.radio(
         "Phương thức Retrieval:",
         options=['dense', 'sparse', 'hybrid'],
-        index=['dense', 'sparse', 'hybrid'].index(st.session_state.get('retrieval_method', 'hybrid')), # Đọc từ state
+        index=['dense', 'sparse', 'hybrid'].index(st.session_state.retrieval_method), # Đọc từ state
         key="retrieval_method", # Ghi vào state khi thay đổi
         horizontal=True,
         help=(
@@ -306,54 +317,73 @@ with st.sidebar:
     # Widget đọc và ghi vào st.session_state['use_reranker']
     st.toggle(
         "Sử dụng Reranker",
-        value=st.session_state.get('use_reranker', True), # Đọc từ state
+        value=st.session_state.use_reranker, # Đọc từ state
         key="use_reranker", # Ghi vào state khi thay đổi
         help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm."
     )
 
-    # Đã bỏ cài đặt cho History LLM1 ở sidebar
-
-# --- Khởi tạo hoặc kiểm tra Session State (Tiếp tục) ---
-# Phần khởi tạo state riêng của Evaluation (giữ nguyên)
-# if 'eval_data' not in st.session_state: st.session_state.eval_data = None
-# if 'eval_results_df' not in st.session_state: st.session_state.eval_results_df = None
-# if 'eval_run_completed' not in st.session_state: st.session_state.eval_run_completed = False
-# if 'eval_uploaded_filename' not in st.session_state: st.session_state.eval_uploaded_filename = ""
-# # last_eval_config không cần khởi tạo ở đây vì nó chỉ được set khi bắt đầu đánh giá
-# if 'cancel_eval_requested' not in st.session_state: # Thêm khởi tạo cho biến hủy
-#     st.session_state.cancel_eval_requested = False
-
 
 st.subheader("Trạng thái Hệ thống Cơ bản")
-init_ok = False
-retriever_instance = None
-g_embedding_model = None
-g_reranking_model_loaded = None
+# Hiển thị trạng thái loading ban đầu hoặc thông báo lỗi
+if "initialization_status" not in st.session_state:
+    st.session_state.initialization_status = "Đang kiểm tra và khởi tạo tài nguyên cốt lõi..."
+    st.session_state.init_ok = False
+    st.session_state.retriever_instance = None
+    st.session_state.g_embedding_model = None
+    st.session_state.g_reranking_model_loaded = None
 
-with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
-    try:
-        # Chỉ tải reranker model nếu cấu hình sidebar bật
-        use_reranker_current = st.session_state.get('use_reranker', True)
+# Sử dụng st.status để hiển thị trạng thái khởi tạo
+with st.status(st.session_state.initialization_status, expanded=True) as status:
+    # Chỉ chạy khởi tạo nếu chưa init_ok và không có lỗi nghiêm trọng
+    if not st.session_state.init_ok and "Lỗi nghiêm trọng" not in st.session_state.initialization_status:
+        try:
+            # Chỉ tải reranker model nếu cấu hình sidebar bật
+            use_reranker_current = st.session_state.get('use_reranker', True)
 
-        g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
-        if use_reranker_current: # Chỉ tải nếu bật trong cấu hình sidebar
-            g_reranking_model_loaded = utils.load_reranker_model(config.reranking_model_name)
-        else:
-             g_reranking_model_loaded = None # Đảm bảo None nếu tắt
+            st.session_state.g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
 
-        _, retriever_instance = data_loader.load_or_create_rag_components(g_embedding_model)
+            if use_reranker_current: # Chỉ tải nếu bật trong cấu hình sidebar
+                 st.session_state.g_reranking_model_loaded = utils.load_reranker_model(config.reranking_model_name)
+            else:
+                 st.session_state.g_reranking_model_loaded = None # Đảm bảo None nếu tắt
 
-        if retriever_instance and g_embedding_model:
-            init_ok = True
+            # Tải hoặc tạo RAG components
+            st.session_state.vector_db_instance, st.session_state.retriever_instance = data_loader.load_or_create_rag_components(st.session_state.g_embedding_model)
 
-        else:
-            missing = [comp for comp, loaded in [("Retriever/VectorDB", retriever_instance), ("Embedding Model", g_embedding_model)] if not loaded]
-            st.error(f"⚠️ Lỗi khởi tạo: {', '.join(missing)}.")
 
-    except Exception as e:
-        st.error(f"⚠️ Lỗi nghiêm trọng khi khởi tạo hệ thống: {e}")
+            if st.session_state.retriever_instance and st.session_state.g_embedding_model:
+                st.session_state.init_ok = True
+                st.session_state.initialization_status = "✅ Hệ thống đã sẵn sàng!"
+                status.update(label=st.session_state.initialization_status, state="complete", expanded=False)
 
-if init_ok:
+                # Thông báo về reranker model nếu không tải được hoặc bị tắt
+                if use_reranker_current and not st.session_state.g_reranking_model_loaded: # Kiểm tra lại trạng thái tải
+                     st.warning("⚠️ Không tải được Reranker Model. Chức năng rerank sẽ không hoạt động.")
+                elif not use_reranker_current: # Dùng biến mới đọc từ state
+                     st.info("Chức năng Rerank đang **Tắt** trong cấu hình sidebar.")
+
+            else:
+                missing = [comp for comp, loaded in [("Retriever/VectorDB", st.session_state.retriever_instance), ("Embedding Model", st.session_state.g_embedding_model)] if not loaded]
+                st.session_state.initialization_status = f"⚠️ Lỗi khởi tạo: {', '.join(missing)}."
+                st.session_state.init_ok = False # Ensure it's False
+                status.update(label=st.session_state.initialization_status, state="error", expanded=True)
+
+        except Exception as e:
+            st.session_state.initialization_status = f"⚠️ Lỗi nghiêm trọng khi khởi tạo hệ thống: {e}"
+            st.session_state.init_ok = False # Ensure it's False
+            status.update(label=st.session_state.initialization_status, state="error", expanded=True)
+    elif st.session_state.init_ok:
+         status.update(label=st.session_state.initialization_status, state="complete", expanded=False)
+         # Thông báo về reranker model nếu không tải được hoặc bị tắt (hiển thị lại sau rerun nếu cần)
+         use_reranker_current = st.session_state.get('use_reranker', True)
+         if use_reranker_current and not st.session_state.g_reranking_model_loaded:
+              st.warning("⚠️ Không tải được Reranker Model. Chức năng rerank sẽ không hoạt động.")
+         elif not use_reranker_current:
+              st.info("Chức năng Rerank đang **Tắt** trong cấu hình sidebar.")
+
+
+# Chỉ cho phép các hành động tiếp theo nếu khởi tạo thành công
+if st.session_state.init_ok:
     # --- Hiển thị Cấu hình Đánh giá sẽ sử dụng (đọc từ session state, giờ do sidebar quản lý) ---
     st.caption(f"Mô hình: `{st.session_state.get('selected_gemini_model', 'N/A')}` | Nguồn Query: `{st.session_state.get('retrieval_query_mode', 'N/A')}` | Retrieval: `{st.session_state.get('retrieval_method', 'N/A')}` | Reranker: `{'Bật' if st.session_state.get('use_reranker', False) else 'Tắt'}`")
 
@@ -366,10 +396,10 @@ if init_ok:
         'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
         'embedding_model_name': config.embedding_model_name,
         # Cập nhật tên reranker model dựa trên trạng thái tải và cấu hình
-        'reranker_model_name': config.reranking_model_name if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.get('use_reranker', True) else "DISABLED_BY_CONFIG"),
+        'reranker_model_name': config.reranking_model_name if st.session_state.get('use_reranker', True) and st.session_state.g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.get('use_reranker', True) else "DISABLED_BY_CONFIG"),
     }
     # Kiểm tra cuối cùng cho reranker model để truyền vào hàm run_retrieval_evaluation
-    reranker_model_for_run = g_reranking_model_loaded if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else None
+    reranker_model_for_run = st.session_state.g_reranking_model_loaded if st.session_state.get('use_reranker', True) and st.session_state.g_reranking_model_loaded else None
 
 
     st.subheader("Tải Lên File Đánh giá")
@@ -377,12 +407,13 @@ if init_ok:
         "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader" # Thêm key để dễ reset
     )
 
+    # Logic xử lý file tải lên
+    # Kiểm tra nếu file mới được tải lên HOẶC nếu trạng thái dữ liệu không khớp với tên file (do xóa trạng thái)
     if uploaded_file is not None:
-        # Kiểm tra nếu file mới được tải lên HOẶC nếu uploader key đã bị reset trước đó (để tránh xử lý lại file cũ)
         if uploaded_file.name != st.session_state.eval_uploaded_filename or st.session_state.eval_data is None:
              try:
-                # Reset trạng thái trước khi tải file mới
-                st.session_state.eval_data = None
+                # Reset trạng thái liên quan đến kết quả cũ
+                st.session_state.eval_data = None # Clear data first
                 st.session_state.eval_uploaded_filename = uploaded_file.name # Cập nhật tên file ngay
                 st.session_state.eval_run_completed = False
                 st.session_state.eval_results_df = None
@@ -393,8 +424,10 @@ if init_ok:
                 st.session_state.eval_data = eval_data_list
 
                 st.success(f"Đã tải file '{uploaded_file.name}' ({len(eval_data_list)} câu hỏi).")
+                # st.rerun() # Rerun sau khi tải file thành công để cập nhật giao diện
              except Exception as e:
                 st.error(f"Lỗi xử lý file JSON: {e}")
+                # Reset trạng thái nếu lỗi
                 st.session_state.eval_data = None; st.session_state.eval_uploaded_filename = ""
                 st.session_state.eval_run_completed = False
                 st.session_state.eval_results_df = None
@@ -411,41 +444,47 @@ if init_ok:
         # Nút bắt đầu và hủy đánh giá
         col_eval_btn, col_cancel_btn = st.columns(2)
 
+        is_running = False # Mặc định không chạy
+        if st.session_state.eval_data is not None and not st.session_state.eval_run_completed and not st.session_state.cancel_eval_requested:
+             is_running = True # Đang trong quá trình chạy nếu có data, chưa complete và chưa request hủy
+
         with col_eval_btn:
-            # Disable nút Bắt đầu nếu đang chạy
-            is_running = 'Đang chạy đánh giá...' in st.session_state.get('status_message', '') # Giả định có biến status_message
-            if st.button("🚀 Bắt đầu Đánh giá", key="start_eval_button", disabled=is_running):
+            # Disable nút Bắt đầu nếu đang chạy hoặc chưa có dữ liệu
+            if st.button("🚀 Bắt đầu Đánh giá", key="start_eval_button", disabled=is_running or st.session_state.eval_data is None):
                  # Lưu cấu hình hiện tại từ st.session_state vào last_eval_config trước khi chạy
                  # Đây là cấu hình mà người dùng đã chọn trên sidebar của trang Evaluation
                  current_config_for_save = {
-                    'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
-                    'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
-                    'use_reranker': st.session_state.get('use_reranker', True),
-                    'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
+                    'retrieval_query_mode': st.session_state.retrieval_query_mode,
+                    'retrieval_method': st.session_state.retrieval_method,
+                    'use_reranker': st.session_state.use_reranker,
+                    'gemini_model_name': st.session_state.selected_gemini_model,
                     'embedding_model_name': config.embedding_model_name,
-                    'reranker_model_name': config.reranking_model_name if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.get('use_reranker', True) else "DISABLED_BY_CONFIG"),
+                    'reranker_model_name': config.reranking_model_name if st.session_state.use_reranker and st.session_state.g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.use_reranker else "DISABLED_BY_CONFIG"),
                  }
                  st.session_state.last_eval_config = current_config_for_save.copy() # Lưu bản sao
                  st.session_state.eval_run_completed = False # Đặt lại cờ hoàn thành
+                 st.session_state.eval_results_df = None # Xóa kết quả cũ khi chạy mới
+
 
                  # Reset cờ hủy khi bắt đầu chạy mới
                  st.session_state.cancel_eval_requested = False
 
 
-                 with st.spinner(f"Đang tải model Gemini: {st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)}..."):
+                 with st.spinner(f"Đang tải model Gemini: {st.session_state.selected_gemini_model}..."):
                      # Tải Gemini model dựa trên lựa chọn mới nhất từ sidebar (đã có trong session state)
-                     g_gemini_model_eval = utils.load_gemini_model(st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL))
+                     g_gemini_model_eval = utils.load_gemini_model(st.session_state.selected_gemini_model)
 
 
                  if g_gemini_model_eval:
-                    st.info(f"Model Gemini '{st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)}' đã sẵn sàng.")
+                    st.info(f"Model Gemini '{st.session_state.selected_gemini_model}' đã sẵn sàng.")
                     st.session_state.status_message = "Đang chạy đánh giá..." # Cập nhật status
+                    # Sử dụng st.spinner để hiển thị trạng thái chạy
                     with st.spinner(st.session_state.status_message):
                         start_eval_time = time.time()
                         results_df = run_retrieval_evaluation(
                             eval_data=st.session_state.eval_data,
-                            hybrid_retriever=retriever_instance,
-                            embedding_model=g_embedding_model,
+                            hybrid_retriever=st.session_state.retriever_instance, # Truyền instance từ state
+                            embedding_model=st.session_state.g_embedding_model, # Truyền model từ state
                             reranking_model=reranker_model_for_run, # Truyền model (hoặc None)
                             gemini_model=g_gemini_model_eval, # Truyền Gemini model đã tải
                             eval_config=st.session_state.last_eval_config # Truyền dict config đã lưu (đảm bảo nhất)
@@ -466,16 +505,15 @@ if init_ok:
                             st.session_state.eval_run_completed = True
 
                         st.session_state.cancel_eval_requested = False # Reset cờ hủy sau khi kết thúc chạy
-                        st.rerun() # Rerun để hiển thị kết quả
+                        # st.rerun() # Rerun để hiển thị kết quả (đã được xử lý tự động sau callback nút)
 
         with col_cancel_btn:
-            # Chỉ hiển thị nút Hủy nếu quá trình đánh giá đang chạy (có eval_data và chưa hoàn thành)
-            if st.session_state.eval_data is not None and not st.session_state.eval_run_completed and not st.session_state.cancel_eval_requested:
+            # Chỉ hiển thị nút Hủy nếu quá trình đánh giá đang chạy (is_running là True)
+            if is_running:
                  if st.button("❌ Hủy Đánh giá", key="cancel_eval_button"):
                     st.session_state.cancel_eval_requested = True # Đặt cờ yêu cầu hủy
                     st.info("Đang yêu cầu hủy bỏ quá trình đánh giá...")
-                    time.sleep(0.1) # Đợi một chút để state được cập nhật
-                    st.rerun() # Kích hoạt rerun để vòng lặp kiểm tra cờ
+                    # st.rerun() # Kích hoạt rerun để vòng lặp kiểm tra cờ (đã được xử lý tự động sau callback nút)
 
 
     # --- Hiển thị Kết quả ---
@@ -557,6 +595,7 @@ if init_ok:
 
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             # Sử dụng config đã chạy để tạo tên file
+            last_config = st.session_state.get('last_eval_config', {}) # Đảm bảo lấy từ state
             qmode_suffix = last_config.get('retrieval_query_mode', 'na').lower()[:3]
             method_suffix = last_config.get('retrieval_method', 'na').lower()
             rerank_suffix = "rr" if last_config.get('use_reranker', False) else "norr"
@@ -585,14 +624,18 @@ if init_ok:
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
         st.session_state.cancel_eval_requested = False # Reset cờ hủy
+        st.session_state.status_message = "Chưa sẵn sàng." # Reset trạng thái hiển thị
 
-        # Reset trạng thái của st.file_uploader bằng cách cập nhật key
-        # Streamlit sẽ tạo lại widget với trạng thái rỗng
-        st.session_state["eval_file_uploader"] = None 
-
+        # KHÔNG Cần gán None vào st.session_state["eval_file_uploader"]
+        # Chỉ cần xóa các biến trạng thái dữ liệu và rerun
         st.success("Đã xóa trạng thái đánh giá.")
-        # time.sleep(1) # Có thể không cần thiết với rerun
-        st.rerun()
+        st.rerun() # Kích hoạt rerun để giao diện cập nhật
+
+# Hiển thị trạng thái initialization nếu có lỗi nghiêm trọng
+elif "Lỗi nghiêm trọng" in st.session_state.initialization_status:
+     st.error(st.session_state.initialization_status)
 
 else:
-    st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")
+    # Trường hợp đang khởi tạo nhưng chưa có lỗi nghiêm trọng
+    # st.info(st.session_state.initialization_status) # Đã hiển thị bằng st.status
+    pass

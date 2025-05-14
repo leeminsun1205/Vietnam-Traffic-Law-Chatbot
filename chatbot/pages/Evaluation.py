@@ -437,7 +437,7 @@ if init_ok:
             display_columns = [
                 'query_id', 'query', 'status',
                 'retrieval_query_mode','retrieval_method', 'use_reranker', 
-                'precision@3', 'recall@3', 'f1@3', 'mrr@3', 'ndcg@3', # Chỉ giữ K=3, 5, 10
+                'precision@3', 'recall@3', 'f1@3', 'mrr@3', 'ndcg@3',
                 'precision@5', 'recall@5', 'f1@5', 'mrr@5', 'ndcg@5',
                 'precision@10', 'recall@10', 'f1@10', 'mrr@10', 'ndcg@10',
                 'processing_time', 'variation_time', 'search_time', 'rerank_time',
@@ -477,7 +477,6 @@ if init_ok:
     # --- Quản lý Trạng thái Đánh giá ---
     st.markdown("---")
     st.subheader("Quản lý Trạng thái Đánh giá")
-    st.write(st.session_state.get('eval_uploaded_filename'))
     if st.button("Xóa File Đã Tải và Kết Quả", key="clear_eval_state"):
         st.session_state.eval_data = None
         st.session_state.upload_counter += 1
@@ -485,10 +484,8 @@ if init_ok:
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
         st.session_state.eval_uploaded_filename = None
-        st.write(st.session_state.get('eval_uploaded_filename'))
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1)
         st.rerun()
-    st.write(st.session_state.get('eval_uploaded_filename'))
 else:
     st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")

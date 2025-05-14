@@ -20,15 +20,19 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # --- Các hàm tính toán metrics (giữ nguyên) ---
 def precision_at_k(retrieved_ids, relevant_ids, k):
-    if k <= 0: return 0.0
-    retrieved_at_k = retrieved_ids[:k]; relevant_set = set(relevant_ids)
-    if not relevant_set: return 0.0 # Nếu không có relevant thì precision là 0
+    if k <= 0: 
+        return 0.0
+    retrieved_at_k = retrieved_ids[:k]
+    relevant_set = set(relevant_ids)
+    if not relevant_set: 
+        return 0.0 
     intersect = set(retrieved_at_k) & relevant_set
     return len(intersect) / k
 
 def recall_at_k(retrieved_ids, relevant_ids, k):
     relevant_set = set(relevant_ids)
-    if not relevant_set: return 1.0 # Nếu không có relevant thì coi như đã tìm thấy tất cả (recall = 1)
+    if not relevant_set: 
+        return 1.0 
     retrieved_at_k = retrieved_ids[:k]
     intersect = set(retrieved_at_k) & relevant_set
     return len(intersect) / len(relevant_set)
@@ -38,27 +42,31 @@ def f1_at_k(retrieved_ids, relevant_ids, k):
     return 2 * (prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
 
 def mrr_at_k(retrieved_ids, relevant_ids, k):
-    relevant_set = set(relevant_ids);
-    if not relevant_set: return 0.0 # Nếu không có relevant thì MRR là 0
-    retrieved_at_k = retrieved_ids[:k] # Chỉ xét top K
+    relevant_set = set(relevant_ids)
+    if not relevant_set: 
+        return 0.0 
+    retrieved_at_k = retrieved_ids[:k]
+
     for rank, doc_id in enumerate(retrieved_at_k, 1):
         if doc_id in relevant_set: return 1.0 / rank
     return 0.0
 
 def ndcg_at_k(retrieved_ids, relevant_ids, k):
-    relevant_set = set(relevant_ids);
-    if not relevant_set: return 1.0 # Nếu không có relevant thì coi như list trả về là hoàn hảo (NDCG=1)
-    retrieved_at_k = retrieved_ids[:k]; dcg = 0.0; idcg = 0.0
-    # Calculate DCG@k
+    relevant_set = set(relevant_ids)
+    if not relevant_set: 
+        return 1.0 
+    retrieved_at_k = retrieved_ids[:k]
+    dcg = 0.0
+    idcg = 0.0
+
     for i, doc_id in enumerate(retrieved_at_k):
-        # Giả sử relevancy là 1 nếu doc_id nằm trong relevant_set, ngược lại là 0
         relevance = 1.0 if doc_id in relevant_set else 0.0
-        dcg += relevance / math.log2(i + 2) # i+2 vì rank bắt đầu từ 1 (log2(1+1))
-    # Calculate IDCG@k
+        dcg += relevance / math.log2(i + 2) 
     num_relevant_in_total = len(relevant_set)
-    # IDCG được tính bằng cách giả sử các tài liệu relevant nhất nằm ở đầu danh sách
+
     for i in range(min(k, num_relevant_in_total)):
         idcg += 1.0 / math.log2(i + 2)
+
     return dcg / idcg if idcg > 0 else 0.0
 
 
@@ -299,11 +307,20 @@ Sử dụng cấu hình hiện tại từ trang Chatbot chính.
 """)
 
 # --- Khởi tạo hoặc kiểm tra Session State ---
-if 'eval_data' not in st.session_state: st.session_state.eval_data = None
-if 'eval_results_df' not in st.session_state: st.session_state.eval_results_df = None
-if 'eval_run_completed' not in st.session_state: st.session_state.eval_run_completed = False
-if 'eval_uploaded_filename' not in st.session_state: st.session_state.eval_uploaded_filename = ""
-if 'last_eval_config' not in st.session_state: st.session_state.last_eval_config = {}
+if 'eval_data' not in st.session_state: 
+    st.session_state.eval_data = None
+
+if 'eval_results_df' not in st.session_state: 
+    st.session_state.eval_results_df = None
+
+if 'eval_run_completed' not in st.session_state: 
+    st.session_state.eval_run_completed = False
+
+if 'eval_uploaded_filename' not in st.session_state: 
+    st.session_state.eval_uploaded_filename = ""
+
+if 'last_eval_config' not in st.session_state: 
+    st.session_state.last_eval_config = {}
 
 st.subheader("Trạng thái Hệ thống Cơ bản")
 init_ok = False
@@ -317,11 +334,10 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
         g_reranking_model = utils.load_reranker_model(config.reranking_model_name)
         _, retriever_instance = data_loader.load_or_create_rag_components(g_embedding_model)
 
-        if retriever_instance and g_embedding_model: # Reranker có thể không cần nếu use_reranker=False
+        if retriever_instance and g_embedding_model: 
             init_ok = True
             st.success("✅ VectorDB, Retriever, Embedding Model, Reranker Model đã sẵn sàng.")
             logging.info("Core components initialized successfully for evaluation.")
-            # Ghi chú về reranker model nếu không tải được nhưng init vẫn ok
             if not g_reranking_model:
                  st.warning("⚠️ Không tải được Reranker Model. Chức năng rerank sẽ không hoạt động.")
                  logging.warning("Reranker model failed to load, reranking will be disabled if attempted.")

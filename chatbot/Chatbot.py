@@ -18,6 +18,9 @@ st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sid
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# if "messages" not in st.session_state:
+#     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
+
 # Cấu hình mô hình và trả lời
 if "selected_gemini_model" not in st.session_state:
     st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
@@ -118,7 +121,7 @@ st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về
 # --- Cập nhật Caption hiển thị cấu hình ---
 hist_llm1_status = "Bật" if st.session_state.use_history_for_llm1 else "Tắt"
 reranker_status = "Bật" if st.session_state.use_reranker else "Tắt"
-st.caption(f"Model: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status}` | History LLM1: `{hist_llm1_status}`")
+st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status}` | History LLM1: `{hist_llm1_status}`")
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -322,3 +325,12 @@ if init_ok:
 
 elif not init_ok:
     st.error("⚠️ Hệ thống chưa thể khởi động do lỗi tải mô hình hoặc dữ liệu. Vui lòng kiểm tra lại.")
+
+# Debug: Hiển thị trạng thái cấu hình hiện tại trong session state trên trang Chatbot
+st.sidebar.subheader("Debug State (Chatbot)")
+st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
+st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
+st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
+st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
+st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
+st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")

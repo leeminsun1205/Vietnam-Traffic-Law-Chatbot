@@ -488,3 +488,4 @@ if init_ok:
 
 else:
     st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")
+st.write(st.session_state.get('eval_uploaded_filename'))

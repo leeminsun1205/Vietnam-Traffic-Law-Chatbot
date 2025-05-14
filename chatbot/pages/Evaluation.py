@@ -484,7 +484,7 @@ if init_ok:
     st.write(st.session_state.get('eval_uploaded_filename'))
     if st.button("Xóa File Đã Tải và Kết Quả", key="clear_eval_state"):
         st.session_state.eval_data = None
-        st.session_state.is_delected = True
+        st.session_state.is_deleted = True
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}

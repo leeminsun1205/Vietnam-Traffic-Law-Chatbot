@@ -8,6 +8,7 @@ from kaggle_secrets import UserSecretsClient
 import streamlit as st
 import config
 import math
+import pandas as pd
 
 # --- Model Loading Functions ---
 @st.cache_resource

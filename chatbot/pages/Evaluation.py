@@ -190,14 +190,7 @@ Trang này cho phép bạn chạy đánh giá hiệu suất của hệ thống r
 dựa trên một tập dữ liệu câu hỏi và các chunk tài liệu liên quan (ground truth).
 Sử dụng cấu hình **hiện tại được chọn trên sidebar của trang này**.
 """)
-# # Debug: Hiển thị trạng thái cấu hình hiện tại trong session state trên trang Chatbot
-# st.sidebar.subheader("Debug State (Chatbot)")
-# st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
-# st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
-# st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
-# st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
-# st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
-# st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")
+
 # --- sidebar ---
 with st.sidebar:
     st.title("Tùy chọn Đánh giá")
@@ -489,11 +482,11 @@ if init_ok:
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
-        # Reset các cài đặt sidebar về mặc định khi xóa trạng thái
-        st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
-        st.session_state.retrieval_query_mode = 'Tổng quát'
-        st.session_state.retrieval_method = 'hybrid'
-        st.session_state.use_reranker = True
+        # # Reset các cài đặt sidebar về mặc định khi xóa trạng thái
+        # st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
+        # st.session_state.retrieval_query_mode = 'Tổng quát'
+        # st.session_state.retrieval_method = 'hybrid'
+        # st.session_state.use_reranker = True
 
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1); st.rerun()

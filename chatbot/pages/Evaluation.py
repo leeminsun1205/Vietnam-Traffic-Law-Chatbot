@@ -401,7 +401,6 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
 
         if retriever_instance and g_embedding_model:
             init_ok = True
-            st.success("✅ VectorDB, Retriever, Embedding Model đã sẵn sàng.")
             logging.info("Core components initialized successfully for evaluation.")
             # Thông báo về reranker model nếu không tải được hoặc bị tắt
             if not g_reranking_model_loaded:

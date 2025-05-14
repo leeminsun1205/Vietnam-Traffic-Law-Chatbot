@@ -482,6 +482,7 @@ if init_ok:
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
         st.session_state.eval_uploaded_filename = None
+        uploaded_file = None
         st.write(st.session_state.get('eval_uploaded_filename'))
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1)

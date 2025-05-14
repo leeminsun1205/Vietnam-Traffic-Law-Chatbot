@@ -298,13 +298,6 @@ def calculate_average_metrics(df_results: pd.DataFrame):
 # --- Giao diện Streamlit ---
 st.set_page_config(page_title="Đánh giá Retrieval", layout="wide")
 st.title("📊 Đánh giá Hệ thống Retrieval")
-st.sidebar.subheader("Debug State (Chatbot)")
-st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
-st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
-st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
-st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
-st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
-st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")
 st.markdown("""
 Trang này cho phép bạn chạy đánh giá hiệu suất của hệ thống retrieval và reranking
 dựa trên một tập dữ liệu câu hỏi và các chunk tài liệu liên quan (ground truth).

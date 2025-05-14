@@ -312,10 +312,12 @@ if init_ok:
 
 
     st.subheader("Tải Lên File Đánh giá")
-    st.write(st.session_state.eval_uploaded_filename)
-    uploaded_file = st.file_uploader(
-        "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
-    )
+    if st.session_state.eval_uploaded_filename is None:
+        uploaded_file = None
+    else:
+        uploaded_file = st.file_uploader(
+            "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
+        )
 
     if uploaded_file is not None:
         if uploaded_file.name != st.session_state.eval_uploaded_filename:

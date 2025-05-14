@@ -421,17 +421,7 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
 
 if init_ok:
     # --- Hiển thị Cấu hình Đánh giá sẽ sử dụng (đọc từ session state, giờ do sidebar quản lý) ---
-    st.subheader("Cấu hình Đánh giá sẽ sử dụng")
-    cfg_col1, cfg_col2, cfg_col3 = st.columns(3)
-    with cfg_col1:
-        st.info(f"**Nguồn Query:** `{st.session_state.get('retrieval_query_mode', 'N/A')}`")
-        st.info(f"**Ret. Method:** `{st.session_state.get('retrieval_method', 'N/A')}`")
-    with cfg_col2:
-        st.info(f"**Reranker:** `{'Bật' if st.session_state.get('use_reranker', False) else 'Tắt'}`")
-        # Đã bỏ hiển thị trạng thái History LLM1
-    with cfg_col3:
-        st.info(f"**Gemini Model (Query Var):** `{st.session_state.get('selected_gemini_model', 'N/A')}`")
-
+    st.caption(f"Mô hình: `{st.session_state.get('selected_gemini_model', 'N/A')}` | Nguồn Query: `{st.session_state.get('retrieval_query_mode', 'N/A')}` | Retrieval: `{st.session_state.get('retrieval_method', 'N/A')}` | Reranker: `{'Bật' if st.session_state.get('use_reranker', False) else 'Tắt'}`")
 
     # Tạo dict cấu hình cho hàm đánh giá - Đọc trực tiếp từ st.session_state
     # Các giá trị này giờ được đảm bảo tồn tại do sidebar hoặc khởi tạo sớm

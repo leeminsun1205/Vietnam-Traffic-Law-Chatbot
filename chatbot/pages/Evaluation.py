@@ -29,7 +29,6 @@ def run_retrieval_evaluation(
     retrieval_query_mode = eval_config.get('retrieval_query_mode', 'Tổng quát')
     retrieval_method = eval_config.get('retrieval_method', 'hybrid')
     use_reranker = eval_config.get('use_reranker', True)
-    dummy_history = None 
 
     progress_bar = st.progress(0)
     status_text = st.empty()
@@ -74,7 +73,7 @@ def run_retrieval_evaluation(
             variation_start = time.time()
             relevance_status, _, all_queries, summarizing_query = utils.generate_query_variations(
                 original_query=original_query, gemini_model=gemini_model,
-                chat_history=dummy_history, 
+                chat_history=None, 
                 num_variations=config.NUM_QUERY_VARIATIONS
             )
             query_metrics["variation_time"] = time.time() - variation_start
@@ -214,10 +213,6 @@ with st.sidebar:
         if key not in st.session_state:
             st.session_state[key] = default_value
 
-    if 'use_history_for_llm1' not in st.session_state:
-        st.session_state.use_history_for_llm1 = False
-
-
     st.header("Mô hình")
     st.selectbox(
         "Chọn mô hình Gemini (để tạo query variations):",
@@ -278,7 +273,7 @@ st.subheader("Trạng thái Hệ thống Cơ bản")
 init_ok = False
 retriever_instance = None
 g_embedding_model = None
-g_reranking_model_loaded = None # Đổi tên biến để tránh nhầm lẫn
+g_reranking_model_loaded = None 
 
 with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
     try:
@@ -316,7 +311,6 @@ if init_ok:
         'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
         'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
         'use_reranker': st.session_state.get('use_reranker', True),
-        'use_history_llm1': False, # Giá trị này luôn là False cho evaluation
         'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
         'embedding_model_name': config.embedding_model_name,
         # Cập nhật tên reranker model dựa trên trạng thái tải và cấu hình
@@ -360,7 +354,6 @@ if init_ok:
                 'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
                 'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
                 'use_reranker': st.session_state.get('use_reranker', True),
-                'use_history_llm1': False, # Giá trị này luôn là False cho evaluation
                 'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
                 'embedding_model_name': config.embedding_model_name,
                 'reranker_model_name': config.reranking_model_name if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.get('use_reranker', True) else "DISABLED_BY_CONFIG"),
@@ -404,7 +397,6 @@ if init_ok:
         cfg_col1.metric("Nguồn Query", last_config.get('retrieval_query_mode', 'N/A'))
         cfg_col2.metric("Ret. Method", last_config.get('retrieval_method', 'N/A'))
         cfg_col3.metric("Reranker", "Bật" if last_config.get('use_reranker', False) else "Tắt")
-        cfg_col4.metric("History LLM1", "Tắt") # Luôn hiển thị Tắt vì không dùng history
         st.caption(f"Gemini: `{last_config.get('gemini_model_name', 'N/A')}`, Embedding: `{last_config.get('embedding_model_name', 'N/A')}`, Reranker: `{last_config.get('reranker_model_name', 'N/A')}`")
 
 
@@ -450,7 +442,7 @@ if init_ok:
         with st.expander("Xem Kết quả Chi tiết cho từng Query"):
             display_columns = [
                 'query_id', 'query', 'status',
-                'retrieval_query_mode','retrieval_method', 'use_reranker', # Đã bỏ use_history_llm1 khỏi cột hiển thị
+                'retrieval_query_mode','retrieval_method', 'use_reranker', 
                 'precision@3', 'recall@3', 'f1@3', 'mrr@3', 'ndcg@3', # Chỉ giữ K=3, 5, 10
                 'precision@5', 'recall@5', 'f1@5', 'mrr@5', 'ndcg@5',
                 'precision@10', 'recall@10', 'f1@10', 'mrr@10', 'ndcg@10',
@@ -474,10 +466,8 @@ if init_ok:
             qmode_suffix = last_config.get('retrieval_query_mode', 'na').lower()[:3]
             method_suffix = last_config.get('retrieval_method', 'na').lower()
             rerank_suffix = "rr" if last_config.get('use_reranker', False) else "norr"
-            # Đã bỏ hist_suffix khỏi tên file
             model_suffix = last_config.get('gemini_model_name', 'gemini').split('/')[-1].replace('.','-')[:15]
 
-            # Tên file không còn chứa thông tin history
             base_filename = f"eval_{qmode_suffix}_{method_suffix}_{rerank_suffix}_{model_suffix}_{timestamp}"
             fname_json = f"{base_filename}.json"
             fname_csv = f"{base_filename}.csv"
@@ -504,7 +494,6 @@ if init_ok:
         st.session_state.retrieval_query_mode = 'Tổng quát'
         st.session_state.retrieval_method = 'hybrid'
         st.session_state.use_reranker = True
-        st.session_state.use_history_llm1 = False # Luôn reset use_history_llm1 về False cho Evaluation
 
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1); st.rerun()

@@ -476,13 +476,14 @@ if init_ok:
     st.subheader("Quản lý Trạng thái Đánh giá")
     if st.button("Xóa File Đã Tải và Kết Quả", key="clear_eval_state"):
         st.session_state.eval_data = None
-        st.session_state.eval_uploaded_filename = ""
+        # st.session_state.eval_uploaded_filename = ""
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
         st.session_state.eval_uploaded_filename = None
+        st.write(st.session_state.get('eval_uploaded_filename'))
         st.success("Đã xóa trạng thái đánh giá.")
-        # time.sleep(1)
+        time.sleep(1)
         st.rerun()
 
 else:

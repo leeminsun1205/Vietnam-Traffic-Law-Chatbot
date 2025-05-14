@@ -489,7 +489,8 @@ if init_ok:
         # st.session_state.use_reranker = True
 
         st.success("Đã xóa trạng thái đánh giá.")
-        time.sleep(1); st.rerun()
+        # time.sleep(1)
+        st.rerun()
 
 else:
     st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")

@@ -264,6 +264,9 @@ if 'eval_run_completed' not in st.session_state:
 if 'eval_uploaded_filename' not in st.session_state: 
     st.session_state.eval_uploaded_filename = None
 
+if 'is_deleted' not in st.session_state: 
+    st.session_state.is_deleted = False
+
 st.subheader("Trạng thái Hệ thống Cơ bản")
 init_ok = False
 retriever_instance = None
@@ -312,12 +315,12 @@ if init_ok:
 
 
     st.subheader("Tải Lên File Đánh giá")
-    if st.session_state.eval_uploaded_filename is None:
+    uploaded_file = st.file_uploader(
+        "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
+    )
+    if st.session_state.is_delected:
         uploaded_file = None
-    else:
-        uploaded_file = st.file_uploader(
-            "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
-        )
+        st.session_state.is_delected = False
 
     if uploaded_file is not None:
         if uploaded_file.name != st.session_state.eval_uploaded_filename:
@@ -480,12 +483,11 @@ if init_ok:
     st.write(st.session_state.get('eval_uploaded_filename'))
     if st.button("Xóa File Đã Tải và Kết Quả", key="clear_eval_state"):
         st.session_state.eval_data = None
-        # st.session_state.eval_uploaded_filename = ""
+        st.session_state.is_delected = True
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
         st.session_state.eval_uploaded_filename = None
-        uploaded_file = None
         st.write(st.session_state.get('eval_uploaded_filename'))
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1)

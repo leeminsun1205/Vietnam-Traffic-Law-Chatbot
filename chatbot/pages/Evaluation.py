@@ -17,7 +17,13 @@ import data_loader
 from retriever import HybridRetriever
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
+st.sidebar.subheader("Debug State (Chatbot)")
+st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
+st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
+st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
+st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
+st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
+st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")
 # --- Các hàm tính toán metrics (giữ nguyên) ---
 def precision_at_k(retrieved_ids, relevant_ids, k):
     if k <= 0: 

@@ -444,3 +444,4 @@ def calculate_average_metrics(df_results: pd.DataFrame):
             avg_metrics[f'avg_{key}'] = 0.0
 
     return avg_metrics, num_evaluated, num_skipped_error
+

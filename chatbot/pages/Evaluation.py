@@ -485,7 +485,7 @@ if init_ok:
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1)
         st.rerun()
-
+    st.write(st.session_state.get('eval_uploaded_filename'))
 else:
     st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")
 st.write(st.session_state.get('eval_uploaded_filename'))

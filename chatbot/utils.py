@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 from kaggle_secrets import UserSecretsClient 
 import streamlit as st
 import config
-
+import math
 
 # --- Model Loading Functions ---
 @st.cache_resource
@@ -313,7 +313,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     **Trả lời:**
     """
 
-    # Prompt Ngắn Gọn (Mới)
+    # Prompt Ngắn Gọn 
     brief_prompt_template = f"""Bạn là trợ lý luật giao thông Việt Nam.
     {history_prefix}
     Nhiệm vụ: Dựa vào Lịch sử trò chuyện (nếu có) và Ngữ cảnh, trả lời câu hỏi HIỆN TẠI (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm. **CHỈ DÙNG** ngữ cảnh để trả lời về luật.
@@ -375,3 +375,43 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         final_answer_display += f"\n\n**Nguồn:**\n{urls_string}"
 
     return final_answer_display
+
+# --- Các hàm tính toán metrics ---
+
+def precision_at_k(retrieved_ids, relevant_ids, k):
+    if k <= 0: return 0.0
+    retrieved_at_k = retrieved_ids[:k]; relevant_set = set(relevant_ids)
+    if not relevant_set: return 0.0
+    intersect = set(retrieved_at_k) & relevant_set
+    return len(intersect) / k
+
+def recall_at_k(retrieved_ids, relevant_ids, k):
+    relevant_set = set(relevant_ids)
+    if not relevant_set: return 1.0
+    retrieved_at_k = retrieved_ids[:k]
+    intersect = set(retrieved_at_k) & relevant_set
+    return len(intersect) / len(relevant_set)
+
+def f1_at_k(retrieved_ids, relevant_ids, k):
+    prec = precision_at_k(retrieved_ids, relevant_ids, k); rec = recall_at_k(retrieved_ids, relevant_ids, k)
+    return 2 * (prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
+
+def mrr_at_k(retrieved_ids, relevant_ids, k):
+    relevant_set = set(relevant_ids)
+    if not relevant_set: return 0.0
+    retrieved_at_k = retrieved_ids[:k]
+    for rank, doc_id in enumerate(retrieved_at_k, 1):
+        if doc_id in relevant_set: return 1.0 / rank
+    return 0.0
+
+def ndcg_at_k(retrieved_ids, relevant_ids, k):
+    relevant_set = set(relevant_ids)
+    if not relevant_set: return 1.0
+    retrieved_at_k = retrieved_ids[:k]; dcg = 0.0; idcg = 0.0
+    for i, doc_id in enumerate(retrieved_at_k):
+        relevance = 1.0 if doc_id in relevant_set else 0.0
+        dcg += relevance / math.log2(i + 2)
+    num_relevant_in_total = len(relevant_set)
+    for i in range(min(k, num_relevant_in_total)):
+        idcg += 1.0 / math.log2(i + 2)
+    return dcg / idcg if idcg > 0 else 0.0

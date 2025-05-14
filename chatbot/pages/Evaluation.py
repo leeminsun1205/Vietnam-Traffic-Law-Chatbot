@@ -1,93 +1,35 @@
 # pages/2_Evaluation.py
 import time
 import streamlit as st
-
-# --- Debug: Kiểm tra trạng thái ngay khi script tải (giữ lại hoặc xóa tùy ý) ---
-import logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.info("Evaluation Page Script Started (Removing K=1 metrics).")
-logging.info(f"State on load - Gemini Model: {st.session_state.get('selected_gemini_model', 'NOT_FOUND')}")
-logging.info(f"State on load - Query Mode: {st.session_state.get('retrieval_query_mode', 'NOT_FOUND')}")
-logging.info(f"State on load - Retrieval Method: {st.session_state.get('retrieval_method', 'NOT_FOUND')}")
-logging.info(f"State on load - Use Reranker: {st.session_state.get('use_reranker', 'NOT_FOUND')}")
-# Đã bỏ log History LLM1 ở đây
-logging.info("--------------------------------------")
-# --- Kết thúc Debug ---
-
-
-# ... Tiếp tục các lệnh import khác
 import pandas as pd
 import json
-import math
 import os
 from datetime import datetime
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-# Import config, utils, data_loader, retriever sau khi điều chỉnh path
 import config
 import utils
 import data_loader
 from retriever import HybridRetriever
-
-# --- Các hàm tính toán metrics (giữ nguyên) ---
-def precision_at_k(retrieved_ids, relevant_ids, k):
-    if k <= 0: return 0.0
-    retrieved_at_k = retrieved_ids[:k]; relevant_set = set(relevant_ids)
-    if not relevant_set: return 0.0
-    intersect = set(retrieved_at_k) & relevant_set
-    return len(intersect) / k
-
-def recall_at_k(retrieved_ids, relevant_ids, k):
-    relevant_set = set(relevant_ids)
-    if not relevant_set: return 1.0
-    retrieved_at_k = retrieved_ids[:k]
-    intersect = set(retrieved_at_k) & relevant_set
-    return len(intersect) / len(relevant_set)
-
-def f1_at_k(retrieved_ids, relevant_ids, k):
-    prec = precision_at_k(retrieved_ids, relevant_ids, k); rec = recall_at_k(retrieved_ids, relevant_ids, k)
-    return 2 * (prec * rec) / (prec + rec) if (prec + rec) > 0 else 0.0
-
-def mrr_at_k(retrieved_ids, relevant_ids, k):
-    relevant_set = set(relevant_ids);
-    if not relevant_set: return 0.0
-    retrieved_at_k = retrieved_ids[:k]
-    for rank, doc_id in enumerate(retrieved_at_k, 1):
-        if doc_id in relevant_set: return 1.0 / rank
-    return 0.0
-
-def ndcg_at_k(retrieved_ids, relevant_ids, k):
-    relevant_set = set(relevant_ids);
-    if not relevant_set: return 1.0
-    retrieved_at_k = retrieved_ids[:k]; dcg = 0.0; idcg = 0.0
-    for i, doc_id in enumerate(retrieved_at_k):
-        relevance = 1.0 if doc_id in relevant_set else 0.0
-        dcg += relevance / math.log2(i + 2)
-    num_relevant_in_total = len(relevant_set)
-    for i in range(min(k, num_relevant_in_total)):
-        idcg += 1.0 / math.log2(i + 2)
-    return dcg / idcg if idcg > 0 else 0.0
-
+from utils import precision_at_k, recall_at_k, f1_at_k, mrr_at_k, ndcg_at_k
 
 def run_retrieval_evaluation(
     eval_data: list,
     hybrid_retriever: HybridRetriever,
     embedding_model,
-    reranking_model, # Có thể là None nếu không dùng rerank
+    reranking_model, 
     gemini_model,
-    eval_config: dict # Chứa retrieval_query_mode, retrieval_method, use_reranker
+    eval_config: dict 
     ):
 
     results_list = []
-    # Đã bỏ K=1
-    k_values = [3, 5, 10] # Các giá trị K để tính metrics
+    k_values = [3, 5, 10] 
 
     # --- Lấy cấu hình từ eval_config ---
     retrieval_query_mode = eval_config.get('retrieval_query_mode', 'Tổng quát')
     retrieval_method = eval_config.get('retrieval_method', 'hybrid')
     use_reranker = eval_config.get('use_reranker', True)
-    dummy_history = None # Luôn là None vì không dùng history trong evaluation
+    dummy_history = None 
 
     progress_bar = st.progress(0)
     status_text = st.empty()
@@ -100,19 +42,14 @@ def run_retrieval_evaluation(
         # Tạm dừng sau mỗi batch
         if i > 0 and i % queries_per_batch == 0:
             pause_msg = f"Đã xử lý {i}/{total_items} queries. Tạm dừng {wait_time_seconds} giây..."
-            logging.info(pause_msg)
             status_text.text(pause_msg)
             time.sleep(wait_time_seconds)
             status_text.text(f"Tiếp tục xử lý query {i+1}/{total_items}...")
 
         query_id = item.get("query_id"); original_query = item.get("query")
         relevant_chunk_ids = set(item.get("relevant_chunk_ids", []))
-        if not query_id or not original_query:
-            logging.warning(f"Bỏ qua mục {i} do thiếu query_id hoặc query.")
-            continue
 
         status_text.text(f"Đang xử lý query {i+1}/{total_items}: {query_id} (QueryMode: {retrieval_query_mode}, Method: {retrieval_method}, Rerank: {use_reranker})")
-        logging.info(f"Eval - Processing QID: {query_id} (QueryMode: {retrieval_query_mode}, Method: {retrieval_method}, Rerank: {use_reranker})")
 
         start_time = time.time()
         # --- Khởi tạo query_metrics với các trường cấu hình ---
@@ -134,11 +71,10 @@ def run_retrieval_evaluation(
 
         try:
             # Bước 1: Tạo variations/summarizing query (luôn chạy)
-            # dummy_history giờ luôn là None
             variation_start = time.time()
             relevance_status, _, all_queries, summarizing_query = utils.generate_query_variations(
                 original_query=original_query, gemini_model=gemini_model,
-                chat_history=dummy_history, # Sử dụng biến này (luôn None)
+                chat_history=dummy_history, 
                 num_variations=config.NUM_QUERY_VARIATIONS
             )
             query_metrics["variation_time"] = time.time() - variation_start
@@ -150,7 +86,6 @@ def run_retrieval_evaluation(
                 query_metrics["processing_time"] = time.time() - start_time
                 results_list.append(query_metrics)
                 progress_bar.progress((i + 1) / total_items)
-                logging.info(f"QID {query_id} skipped as irrelevant.")
                 continue
 
             # --- Bước 2: Xác định query(s) để tìm kiếm ---
@@ -175,7 +110,6 @@ def run_retrieval_evaluation(
                         collected_docs_data[doc_index] = item
             query_metrics["search_time"] = time.time() - search_start
             query_metrics["num_unique_docs_found"] = len(collected_docs_data)
-            logging.debug(f"QID {query_id}: Retrieval found {len(collected_docs_data)} unique docs.")
 
             # --- Chuẩn bị danh sách kết quả retrieval ---
             retrieved_docs_list = list(collected_docs_data.values())
@@ -192,7 +126,6 @@ def run_retrieval_evaluation(
                 query_for_reranking = summarizing_query if summarizing_query else original_query
                 docs_to_rerank = retrieved_docs_list[:config.MAX_DOCS_FOR_RERANK]
                 query_metrics["num_docs_reranked"] = len(docs_to_rerank)
-                logging.debug(f"QID {query_id}: Reranking {len(docs_to_rerank)} docs with query: '{query_for_reranking[:50]}...'")
 
                 rerank_input = [{'doc': item['doc'], 'index': item['index']} for item in docs_to_rerank]
 
@@ -201,17 +134,14 @@ def run_retrieval_evaluation(
                 )
                 final_docs_for_metrics = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
                 query_metrics["rerank_time"] = time.time() - rerank_start
-                logging.debug(f"QID {query_id}: Reranking finished, selected {len(final_docs_for_metrics)} docs.")
 
             elif retrieved_docs_list:
                 final_docs_for_metrics = retrieved_docs_list[:config.FINAL_NUM_RESULTS_AFTER_RERANK]
                 query_metrics["rerank_time"] = 0.0
                 query_metrics["num_docs_reranked"] = 0
-                logging.debug(f"QID {query_id}: Skipped reranking, taking top {len(final_docs_for_metrics)} retrieval results.")
             else:
                  query_metrics["rerank_time"] = 0.0
                  query_metrics["num_docs_reranked"] = 0
-                 logging.debug(f"QID {query_id}: No docs to rerank or select.")
 
             query_metrics["num_retrieved_after_rerank"] = len(final_docs_for_metrics)
 
@@ -230,7 +160,6 @@ def run_retrieval_evaluation(
                     retrieved_ids.append(str(chunk_id))
 
             query_metrics["retrieved_ids"] = retrieved_ids
-            logging.debug(f"QID {query_id}: Final retrieved IDs for metrics (top {len(retrieved_ids)}): {retrieved_ids}")
 
             query_metrics["status"] = "evaluated"
             # Vòng lặp tính metrics, tự động dùng k_values mới
@@ -243,7 +172,6 @@ def run_retrieval_evaluation(
 
 
         except Exception as e:
-            logging.exception(f"Error evaluating QID {query_id}: {e}")
             query_metrics["status"] = "error_runtime"
             query_metrics["error_message"] = str(e)
         finally:
@@ -252,7 +180,6 @@ def run_retrieval_evaluation(
             progress_bar.progress((i + 1) / total_items)
 
     status_text.text(f"Hoàn thành đánh giá {total_items} queries!")
-    logging.info(f"Finished evaluation for {total_items} queries.")
     return pd.DataFrame(results_list)
 
 
@@ -262,7 +189,6 @@ def calculate_average_metrics(df_results: pd.DataFrame):
     num_skipped_error = len(df_results) - num_evaluated
 
     if num_evaluated == 0:
-        logging.warning("No queries were successfully evaluated. Cannot calculate average metrics.")
         return None, num_evaluated, num_skipped_error
 
     avg_metrics = {}
@@ -281,10 +207,8 @@ def calculate_average_metrics(df_results: pd.DataFrame):
             valid_count = evaluated_df[key].notna().sum()
             avg_metrics[f'avg_{key}'] = total / valid_count if valid_count > 0 else 0.0
         else:
-            logging.warning(f"Metric key '{key}' not found in results DataFrame for averaging.")
             avg_metrics[f'avg_{key}'] = 0.0
 
-    logging.info(f"Calculated average metrics over {num_evaluated} evaluated queries.")
     return avg_metrics, num_evaluated, num_skipped_error
 
 
@@ -309,8 +233,6 @@ st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1
 with st.sidebar:
     st.title("Tùy chọn Đánh giá")
 
-    # --- Initialize session state keys for sidebar widgets if they don't exist ---
-    # Attempt to get initial state from Chatbot state if it exists, otherwise use defaults
     DEFAULT_EVAL_CONFIG_STATE = {
         "selected_gemini_model": st.session_state.get("selected_gemini_model", config.DEFAULT_GEMINI_MODEL),
         "retrieval_query_mode": st.session_state.get("retrieval_query_mode", 'Tổng quát'),
@@ -321,16 +243,12 @@ with st.sidebar:
     for key, default_value in DEFAULT_EVAL_CONFIG_STATE.items():
         if key not in st.session_state:
             st.session_state[key] = default_value
-            # logging.info(f"Initialized missing key '{key}' in Evaluation sidebar state with default: {default_value}") # Optional logging
 
-    # Đảm bảo key use_history_llm1 tồn tại với giá trị False mặc định cho Evaluation nếu nó bị thiếu
-    # Không có widget điều khiển cho nó ở đây.
     if 'use_history_for_llm1' not in st.session_state:
         st.session_state.use_history_for_llm1 = False
 
 
     st.header("Mô hình")
-    # Widget đọc và ghi vào st.session_state['selected_gemini_model']
     st.selectbox(
         "Chọn mô hình Gemini (để tạo query variations):",
         options=config.AVAILABLE_GEMINI_MODELS,
@@ -339,10 +257,8 @@ with st.sidebar:
         help="Chọn mô hình ngôn ngữ lớn để phân tích và tạo biến thể câu hỏi cho Retrieval."
     )
 
-
     st.header("Cấu hình Retrieval")
 
-    # Widget đọc và ghi vào st.session_state['retrieval_query_mode']
     st.radio(
         "Nguồn câu hỏi cho Retrieval:",
         options=['Đơn giản', 'Tổng quát', 'Sâu'],
@@ -356,7 +272,6 @@ with st.sidebar:
         )
     )
 
-    # Widget đọc và ghi vào st.session_state['retrieval_method']
     st.radio(
         "Phương thức Retrieval:",
         options=['dense', 'sparse', 'hybrid'],
@@ -408,22 +323,18 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
 
         if retriever_instance and g_embedding_model:
             init_ok = True
-            logging.info("Core components initialized successfully for evaluation.")
             # Thông báo về reranker model nếu không tải được hoặc bị tắt
             if not g_reranking_model_loaded:
                  st.warning("⚠️ Không tải được Reranker Model. Chức năng rerank sẽ không hoạt động.")
-                 logging.warning("Reranker model failed to load, reranking will be disabled if attempted.")
             elif not use_reranker_current: # Dùng biến mới đọc từ state
                  st.info("Reranker Model đã tải, nhưng chức năng Rerank đang **Tắt** trong cấu hình sidebar.")
 
         else:
             missing = [comp for comp, loaded in [("Retriever/VectorDB", retriever_instance), ("Embedding Model", g_embedding_model)] if not loaded]
             st.error(f"⚠️ Lỗi khởi tạo: {', '.join(missing)}.")
-            logging.error(f"Failed to initialize components: {', '.join(missing)}.")
 
     except Exception as e:
         st.error(f"⚠️ Lỗi nghiêm trọng khi khởi tạo hệ thống: {e}")
-        logging.exception("Critical error during system initialization for evaluation.")
 
 if init_ok:
     # --- Hiển thị Cấu hình Đánh giá sẽ sử dụng (đọc từ session state, giờ do sidebar quản lý) ---
@@ -460,10 +371,8 @@ if init_ok:
                 # Reset last_eval_config khi tải file mới để tránh hiển thị kết quả cũ với cấu hình sai
                 st.session_state.last_eval_config = {}
                 st.success(f"Đã tải file '{uploaded_file.name}' ({len(eval_data_list)} câu hỏi).")
-                logging.info(f"Loaded evaluation file: {uploaded_file.name}")
             except Exception as e:
                 st.error(f"Lỗi xử lý file JSON: {e}")
-                logging.exception("Error processing uploaded JSON file.")
                 st.session_state.eval_data = None; st.session_state.eval_uploaded_filename = ""
                 st.session_state.eval_run_completed = False
 
@@ -507,7 +416,6 @@ if init_ok:
                     )
                     total_eval_time = time.time() - start_eval_time
                     st.success(f"Hoàn thành đánh giá sau {total_eval_time:.2f} giây.")
-                    logging.info(f"Evaluation completed in {total_eval_time:.2f} seconds.")
 
                     st.session_state.eval_results_df = results_df
                     st.session_state.eval_run_completed = True
@@ -611,7 +519,6 @@ if init_ok:
                 st.download_button("💾 Tải về CSV", results_csv, fname_csv, "text/csv", key="dl_csv")
         except Exception as e:
             st.error(f"Lỗi khi chuẩn bị file kết quả: {e}")
-            logging.exception("Error preparing evaluation results for download.")
 
     # --- Quản lý Trạng thái Đánh giá ---
     st.markdown("---")
@@ -630,9 +537,7 @@ if init_ok:
         st.session_state.use_history_llm1 = False # Luôn reset use_history_llm1 về False cho Evaluation
 
         st.success("Đã xóa trạng thái đánh giá.")
-        logging.info("Evaluation state cleared.")
         time.sleep(1); st.rerun()
 
 else:
     st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")
-    logging.warning("Evaluation page cannot proceed as core components are not ready.")

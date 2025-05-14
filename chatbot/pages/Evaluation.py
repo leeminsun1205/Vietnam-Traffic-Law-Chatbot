@@ -474,13 +474,14 @@ if init_ok:
     # --- Quản lý Trạng thái Đánh giá ---
     st.markdown("---")
     st.subheader("Quản lý Trạng thái Đánh giá")
+    st.write(st.session_state.get('eval_uploaded_filename'))
     if st.button("Xóa File Đã Tải và Kết Quả", key="clear_eval_state"):
         st.session_state.eval_data = None
         # st.session_state.eval_uploaded_filename = ""
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
-        st.session_state["eval_file_uploader"] = None
+        st.session_state.eval_uploaded_filename = None
         st.write(st.session_state.get('eval_uploaded_filename'))
         st.success("Đã xóa trạng thái đánh giá.")
         time.sleep(1)
@@ -488,4 +489,3 @@ if init_ok:
     st.write(st.session_state.get('eval_uploaded_filename'))
 else:
     st.warning("⚠️ Hệ thống cơ bản chưa sẵn sàng. Vui lòng kiểm tra lỗi và khởi động lại.")
-st.write(st.session_state.get('eval_uploaded_filename'))

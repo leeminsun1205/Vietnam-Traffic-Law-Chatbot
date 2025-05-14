@@ -5,12 +5,12 @@ import streamlit as st
 # --- Debug: Kiểm tra trạng thái ngay khi script tải (giữ lại hoặc xóa tùy ý) ---
 import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.info("Evaluation Page Script Started (After fixing APIException).")
+logging.info("Evaluation Page Script Started (Removing K=1 metrics).")
 logging.info(f"State on load - Gemini Model: {st.session_state.get('selected_gemini_model', 'NOT_FOUND')}")
 logging.info(f"State on load - Query Mode: {st.session_state.get('retrieval_query_mode', 'NOT_FOUND')}")
 logging.info(f"State on load - Retrieval Method: {st.session_state.get('retrieval_method', 'NOT_FOUND')}")
 logging.info(f"State on load - Use Reranker: {st.session_state.get('use_reranker', 'NOT_FOUND')}")
-logging.info(f"State on load - Use History LLM1: {st.session_state.get('use_history_for_llm1', 'NOT_FOUND')}")
+# Đã bỏ log History LLM1 ở đây
 logging.info("--------------------------------------")
 # --- Kết thúc Debug ---
 
@@ -76,19 +76,18 @@ def run_retrieval_evaluation(
     embedding_model,
     reranking_model, # Có thể là None nếu không dùng rerank
     gemini_model,
-    eval_config: dict # Chứa retrieval_query_mode, retrieval_method, use_reranker, use_history_for_llm1
+    eval_config: dict # Chứa retrieval_query_mode, retrieval_method, use_reranker
     ):
 
     results_list = []
-    k_values = [1, 3, 5, 10] # Các giá trị K để tính metrics
+    # Đã bỏ K=1
+    k_values = [3, 5, 10] # Các giá trị K để tính metrics
 
     # --- Lấy cấu hình từ eval_config ---
-    # Các giá trị này đã được đọc từ st.session_state trước khi gọi hàm này
     retrieval_query_mode = eval_config.get('retrieval_query_mode', 'Tổng quát')
     retrieval_method = eval_config.get('retrieval_method', 'hybrid')
     use_reranker = eval_config.get('use_reranker', True)
-    use_history_llm1 = eval_config.get('use_history_for_llm1', True) # Đọc giá trị này ngay cả khi không có widget ở đây
-    dummy_history = [{"role": "user", "content": "..."}] if use_history_llm1 else None # Sử dụng giá trị này
+    dummy_history = None # Luôn là None vì không dùng history trong evaluation
 
     progress_bar = st.progress(0)
     status_text = st.empty()
@@ -122,24 +121,24 @@ def run_retrieval_evaluation(
             "retrieval_query_mode": retrieval_query_mode,
             "retrieval_method": retrieval_method,
             "use_reranker": use_reranker,
-            "use_history_llm1": use_history_llm1, # Ghi lại giá trị này vào kết quả
             "status": "error", "retrieved_ids": [], "relevant_ids": list(relevant_chunk_ids),
             "processing_time": 0.0, 'summarizing_query': '',
             'variation_time': 0.0, 'search_time': 0.0, 'rerank_time': 0.0,
             'num_variations_generated': 0, 'num_unique_docs_found': 0, 'num_docs_reranked': 0,
             'num_retrieved_before_rerank': 0, 'num_retrieved_after_rerank': 0
         }
+        # Vòng lặp khởi tạo metrics, tự động dùng k_values mới
         for k in k_values:
             query_metrics[f'precision@{k}'] = 0.0; query_metrics[f'recall@{k}'] = 0.0
             query_metrics[f'f1@{k}'] = 0.0; query_metrics[f'mrr@{k}'] = 0.0; query_metrics[f'ndcg@{k}'] = 0.0
 
         try:
             # Bước 1: Tạo variations/summarizing query (luôn chạy)
-            # Sử dụng dummy_history dựa trên use_history_llm1
+            # dummy_history giờ luôn là None
             variation_start = time.time()
             relevance_status, _, all_queries, summarizing_query = utils.generate_query_variations(
                 original_query=original_query, gemini_model=gemini_model,
-                chat_history=dummy_history, # Sử dụng biến này
+                chat_history=dummy_history, # Sử dụng biến này (luôn None)
                 num_variations=config.NUM_QUERY_VARIATIONS
             )
             query_metrics["variation_time"] = time.time() - variation_start
@@ -234,6 +233,7 @@ def run_retrieval_evaluation(
             logging.debug(f"QID {query_id}: Final retrieved IDs for metrics (top {len(retrieved_ids)}): {retrieved_ids}")
 
             query_metrics["status"] = "evaluated"
+            # Vòng lặp tính metrics, tự động dùng k_values mới
             for k in k_values:
                 query_metrics[f'precision@{k}'] = precision_at_k(retrieved_ids, relevant_chunk_ids, k)
                 query_metrics[f'recall@{k}'] = recall_at_k(retrieved_ids, relevant_chunk_ids, k)
@@ -266,7 +266,8 @@ def calculate_average_metrics(df_results: pd.DataFrame):
         return None, num_evaluated, num_skipped_error
 
     avg_metrics = {}
-    k_values = [1, 3, 5, 10]
+    # Đã bỏ K=1
+    k_values = [3, 5, 10]
     metric_keys_k = [f'{m}@{k}' for k in k_values for m in ['precision', 'recall', 'f1', 'mrr', 'ndcg']]
     timing_keys = ['processing_time', 'variation_time', 'search_time', 'rerank_time']
     count_keys = ['num_variations_generated', 'num_unique_docs_found', 'num_docs_reranked', 'num_retrieved_before_rerank', 'num_retrieved_after_rerank']
@@ -302,19 +303,23 @@ with st.sidebar:
     st.title("Tùy chọn Đánh giá")
 
     # --- Initialize session state keys for sidebar widgets if they don't exist ---
-    # This ensures widgets have a state to read from on first load of Evaluation page
+    # Attempt to get initial state from Chatbot state if it exists, otherwise use defaults
     DEFAULT_EVAL_CONFIG_STATE = {
-        "selected_gemini_model": st.session_state.get("selected_gemini_model", config.DEFAULT_GEMINI_MODEL), # Attempt to get from Chatbot state first
-        "retrieval_query_mode": st.session_state.get("retrieval_query_mode", 'Tổng quát'), # Attempt to get from Chatbot state first
-        "retrieval_method": st.session_state.get("retrieval_method", 'hybrid'), # Attempt to get from Chatbot state first
-        "use_reranker": st.session_state.get("use_reranker", True), # Attempt to get from Chatbot state first
-        "use_history_for_llm1": st.session_state.get("use_history_for_llm1", True), # Attempt to get from Chatbot state first (no widget, but needed for eval config)
+        "selected_gemini_model": st.session_state.get("selected_gemini_model", config.DEFAULT_GEMINI_MODEL),
+        "retrieval_query_mode": st.session_state.get("retrieval_query_mode", 'Tổng quát'),
+        "retrieval_method": st.session_state.get("retrieval_method", 'hybrid'),
+        "use_reranker": st.session_state.get("use_reranker", True),
     }
 
     for key, default_value in DEFAULT_EVAL_CONFIG_STATE.items():
         if key not in st.session_state:
             st.session_state[key] = default_value
             # logging.info(f"Initialized missing key '{key}' in Evaluation sidebar state with default: {default_value}") # Optional logging
+
+    # Đảm bảo key use_history_llm1 tồn tại với giá trị False mặc định cho Evaluation nếu nó bị thiếu
+    # Không có widget điều khiển cho nó ở đây.
+    if 'use_history_for_llm1' not in st.session_state:
+        st.session_state.use_history_for_llm1 = False
 
 
     st.header("Mô hình")
@@ -366,10 +371,7 @@ with st.sidebar:
         help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm."
     )
 
-    # --- Cài đặt History LLM1 (không có widget nhưng vẫn cần giá trị) ---
-    # Giá trị này sẽ được đọc trực tiếp từ st.session_state khi cần
-    # (được khởi tạo ở trên hoặc truyền từ trang Chatbot nếu thành công)
-
+    # Đã bỏ cài đặt cho History LLM1 ở sidebar
 
 # --- Khởi tạo hoặc kiểm tra Session State (Tiếp tục) ---
 # Phần khởi tạo state riêng của Evaluation (giữ nguyên)
@@ -389,7 +391,7 @@ g_reranking_model_loaded = None # Đổi tên biến để tránh nhầm lẫn
 with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
     try:
         g_embedding_model = utils.load_embedding_model(config.embedding_model_name)
-        # Tải reranker model nhưng chỉ dùng nếu use_reranker_eval là True
+        # Tải reranker model nhưng chỉ dùng nếu use_reranker_eval là True (đọc từ state)
         g_reranking_model_loaded = utils.load_reranker_model(config.reranking_model_name)
 
         _, retriever_instance = data_loader.load_or_create_rag_components(g_embedding_model)
@@ -426,8 +428,7 @@ if init_ok:
         st.info(f"**Ret. Method:** `{st.session_state.get('retrieval_method', 'N/A')}`")
     with cfg_col2:
         st.info(f"**Reranker:** `{'Bật' if st.session_state.get('use_reranker', False) else 'Tắt'}`")
-        # Hiển thị trạng thái của History LLM1, dù không có widget điều khiển
-        st.info(f"**History LLM1 (Mặc định):** `{'Bật' if st.session_state.get('use_history_for_llm1', True) else 'Tắt'}`") # Đọc giá trị từ state hoặc default
+        # Đã bỏ hiển thị trạng thái History LLM1
     with cfg_col3:
         st.info(f"**Gemini Model (Query Var):** `{st.session_state.get('selected_gemini_model', 'N/A')}`")
 
@@ -438,7 +439,7 @@ if init_ok:
         'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
         'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
         'use_reranker': st.session_state.get('use_reranker', True),
-        'use_history_for_llm1': st.session_state.get('use_history_for_llm1', True), # Đọc từ state hoặc default
+        'use_history_llm1': False, # Giá trị này luôn là False cho evaluation
         'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
         'embedding_model_name': config.embedding_model_name,
         # Cập nhật tên reranker model dựa trên trạng thái tải và cấu hình
@@ -484,7 +485,7 @@ if init_ok:
                 'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
                 'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
                 'use_reranker': st.session_state.get('use_reranker', True),
-                'use_history_llm1': st.session_state.get('use_history_for_llm1', True),
+                'use_history_llm1': False, # Giá trị này luôn là False cho evaluation
                 'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
                 'embedding_model_name': config.embedding_model_name,
                 'reranker_model_name': config.reranking_model_name if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.get('use_reranker', True) else "DISABLED_BY_CONFIG"),
@@ -529,7 +530,7 @@ if init_ok:
         cfg_col1.metric("Nguồn Query", last_config.get('retrieval_query_mode', 'N/A'))
         cfg_col2.metric("Ret. Method", last_config.get('retrieval_method', 'N/A'))
         cfg_col3.metric("Reranker", "Bật" if last_config.get('use_reranker', False) else "Tắt")
-        cfg_col4.metric("History LLM1", "Bật" if last_config.get('use_history_for_llm1', False) else "Tắt") # Hiển thị trạng thái history đã dùng
+        cfg_col4.metric("History LLM1", "Tắt") # Luôn hiển thị Tắt vì không dùng history
         st.caption(f"Gemini: `{last_config.get('gemini_model_name', 'N/A')}`, Embedding: `{last_config.get('embedding_model_name', 'N/A')}`, Reranker: `{last_config.get('reranker_model_name', 'N/A')}`")
 
 
@@ -542,7 +543,8 @@ if init_ok:
 
         if avg_metrics:
             st.markdown("#### Metrics Trung bình @K (trên các queries hợp lệ)")
-            k_values_display = [1, 3, 5, 10]
+            # Đã bỏ K=1
+            k_values_display = [3, 5, 10]
             cols_k = st.columns(len(k_values_display))
             for idx, k in enumerate(k_values_display):
                 with cols_k[idx]:
@@ -574,17 +576,19 @@ if init_ok:
         with st.expander("Xem Kết quả Chi tiết cho từng Query"):
             display_columns = [
                 'query_id', 'query', 'status',
-                'retrieval_query_mode','retrieval_method', 'use_reranker', 'use_history_llm1', # Cấu hình đã chạy
-                'precision@1', 'recall@1', 'f1@1','mrr@1', 'ndcg@1',
-                'precision@3', 'recall@3', 'f1@3', 'mrr@3', 'ndcg@3',
+                'retrieval_query_mode','retrieval_method', 'use_reranker', # Đã bỏ use_history_llm1 khỏi cột hiển thị
+                'precision@3', 'recall@3', 'f1@3', 'mrr@3', 'ndcg@3', # Chỉ giữ K=3, 5, 10
                 'precision@5', 'recall@5', 'f1@5', 'mrr@5', 'ndcg@5',
                 'precision@10', 'recall@10', 'f1@10', 'mrr@10', 'ndcg@10',
                 'processing_time', 'variation_time', 'search_time', 'rerank_time',
                 'num_variations_generated','num_unique_docs_found', 'num_retrieved_before_rerank','num_docs_reranked', 'num_retrieved_after_rerank',
                 'retrieved_ids', 'relevant_ids', 'summarizing_query', 'error_message'
             ]
+            # Lọc lại các cột hiển thị để chỉ giữ lại các cột thực sự có trong DataFrame
+            # Điều này quan trọng vì các metrics @1 không còn được tính
             existing_display_columns = [col for col in display_columns if col in detailed_results_df.columns]
             st.dataframe(detailed_results_df[existing_display_columns])
+
 
         st.subheader("Lưu Kết quả Chi tiết")
         try:
@@ -596,10 +600,11 @@ if init_ok:
             qmode_suffix = last_config.get('retrieval_query_mode', 'na').lower()[:3]
             method_suffix = last_config.get('retrieval_method', 'na').lower()
             rerank_suffix = "rr" if last_config.get('use_reranker', False) else "norr"
-            hist_suffix = "hist" if last_config.get('use_history_for_llm1', False) else "nohist"
+            # Đã bỏ hist_suffix khỏi tên file
             model_suffix = last_config.get('gemini_model_name', 'gemini').split('/')[-1].replace('.','-')[:15]
 
-            base_filename = f"eval_{qmode_suffix}_{method_suffix}_{rerank_suffix}_{hist_suffix}_{model_suffix}_{timestamp}"
+            # Tên file không còn chứa thông tin history
+            base_filename = f"eval_{qmode_suffix}_{method_suffix}_{rerank_suffix}_{model_suffix}_{timestamp}"
             fname_json = f"{base_filename}.json"
             fname_csv = f"{base_filename}.csv"
 
@@ -626,7 +631,7 @@ if init_ok:
         st.session_state.retrieval_query_mode = 'Tổng quát'
         st.session_state.retrieval_method = 'hybrid'
         st.session_state.use_reranker = True
-        st.session_state.use_history_llm1 = True # Reset cả key không có widget
+        st.session_state.use_history_llm1 = False # Luôn reset use_history_llm1 về False cho Evaluation
 
         st.success("Đã xóa trạng thái đánh giá.")
         logging.info("Evaluation state cleared.")

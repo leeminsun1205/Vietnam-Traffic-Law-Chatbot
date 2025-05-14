@@ -482,12 +482,6 @@ if init_ok:
         st.session_state.eval_run_completed = False
         st.session_state.eval_results_df = None
         st.session_state.last_eval_config = {}
-        # # Reset các cài đặt sidebar về mặc định khi xóa trạng thái
-        # st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
-        # st.session_state.retrieval_query_mode = 'Tổng quát'
-        # st.session_state.retrieval_method = 'hybrid'
-        # st.session_state.use_reranker = True
-
         st.success("Đã xóa trạng thái đánh giá.")
         # time.sleep(1)
         st.rerun()

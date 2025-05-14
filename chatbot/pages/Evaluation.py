@@ -318,9 +318,9 @@ if init_ok:
     uploaded_file = st.file_uploader(
         "Chọn file JSON dữ liệu đánh giá...", type=["json"], key="eval_file_uploader"
     )
-    if st.session_state.is_delected:
+    if st.session_state.is_deleted:
         uploaded_file = None
-        st.session_state.is_delected = False
+        st.session_state.is_deleted = False
 
     if uploaded_file is not None:
         if uploaded_file.name != st.session_state.eval_uploaded_filename:

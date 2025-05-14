@@ -345,11 +345,6 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
 
         if retriever_instance and g_embedding_model:
             init_ok = True
-            # Thông báo về reranker model nếu không tải được hoặc bị tắt
-            if use_reranker_current and not g_reranking_model_loaded: # Kiểm tra lại trạng thái tải
-                 st.warning("⚠️ Không tải được Reranker Model. Chức năng rerank sẽ không hoạt động.")
-            elif not use_reranker_current: # Dùng biến mới đọc từ state
-                 st.info("Chức năng Rerank đang **Tắt** trong cấu hình sidebar.")
 
         else:
             missing = [comp for comp, loaded in [("Retriever/VectorDB", retriever_instance), ("Embedding Model", g_embedding_model)] if not loaded]

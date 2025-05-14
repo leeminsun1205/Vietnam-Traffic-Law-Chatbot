@@ -11,7 +11,7 @@ import config
 import utils
 import data_loader
 from retriever import HybridRetriever
-from utils import precision_at_k, recall_at_k, f1_at_k, mrr_at_k, ndcg_at_k
+from utils import precision_at_k, recall_at_k, f1_at_k, mrr_at_k, ndcg_at_k, calculate_average_metrics
 
 def run_retrieval_evaluation(
     eval_data: list,
@@ -181,36 +181,6 @@ def run_retrieval_evaluation(
 
     status_text.text(f"Hoàn thành đánh giá {total_items} queries!")
     return pd.DataFrame(results_list)
-
-
-def calculate_average_metrics(df_results: pd.DataFrame):
-    evaluated_df = df_results[df_results['status'] == 'evaluated'].copy()
-    num_evaluated = len(evaluated_df)
-    num_skipped_error = len(df_results) - num_evaluated
-
-    if num_evaluated == 0:
-        return None, num_evaluated, num_skipped_error
-
-    avg_metrics = {}
-    # Đã bỏ K=1
-    k_values = [3, 5, 10]
-    metric_keys_k = [f'{m}@{k}' for k in k_values for m in ['precision', 'recall', 'f1', 'mrr', 'ndcg']]
-    timing_keys = ['processing_time', 'variation_time', 'search_time', 'rerank_time']
-    count_keys = ['num_variations_generated', 'num_unique_docs_found', 'num_docs_reranked', 'num_retrieved_before_rerank', 'num_retrieved_after_rerank']
-
-    all_keys_to_average = metric_keys_k + timing_keys + count_keys
-
-    for key in all_keys_to_average:
-        if key in evaluated_df.columns:
-            evaluated_df[key] = pd.to_numeric(evaluated_df[key], errors='coerce')
-            total = evaluated_df[key].sum(skipna=True)
-            valid_count = evaluated_df[key].notna().sum()
-            avg_metrics[f'avg_{key}'] = total / valid_count if valid_count > 0 else 0.0
-        else:
-            avg_metrics[f'avg_{key}'] = 0.0
-
-    return avg_metrics, num_evaluated, num_skipped_error
-
 
 # --- Giao diện Streamlit ---
 st.set_page_config(page_title="Đánh giá Retrieval", layout="wide")

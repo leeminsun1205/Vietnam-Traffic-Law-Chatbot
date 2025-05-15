@@ -5,13 +5,12 @@ import config
 import utils
 import data_loader
 
-# --- Hàm Cache để Khởi tạo DB và Retriever ---
 @st.cache_resource
 def cached_load_or_create_components(_embedding_model):
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
     return vector_db, hybrid_retriever
 
-# --- Cấu hình Trang Streamlit ---
+# --- CẤU HÌNH TRANG STREAMLIT ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
 
 # --- Khởi tạo Session State cho Lịch sử Chat và Cấu hình ---
@@ -21,21 +20,21 @@ if "messages" not in st.session_state:
 # if "messages" not in st.session_state:
 #     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
 
-# Cấu hình mô hình và trả lời
 if "selected_gemini_model" not in st.session_state:
     st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
+
 if "answer_mode" not in st.session_state:
     st.session_state.answer_mode = 'Ngắn gọn'
 
-# Cấu hình truy vấn 
 if "retrieval_query_mode" not in st.session_state:
     st.session_state.retrieval_query_mode = 'Tổng quát' 
+
 if "retrieval_method" not in st.session_state:
-    st.session_state.retrieval_method = 'hybrid' 
+    st.session_state.retrieval_method = 'hybrid'
+
 if "use_reranker" not in st.session_state:
     st.session_state.use_reranker = True 
 
-# Nhớ ngữ cảnh
 if "use_history_for_llm1" not in st.session_state:
     st.session_state.use_history_for_llm1 = True
 
@@ -96,6 +95,7 @@ with st.sidebar:
     )
 
     st.header("Ngữ cảnh")
+
     use_hist_llm1 = st.toggle(
         "Dùng lịch sử cho phân tích câu hỏi",
         key="use_history_for_llm1",
@@ -112,7 +112,6 @@ with st.sidebar:
         time.sleep(1)
         st.rerun()
     st.markdown("---")
-
 
 # --- Giao diện chính của Ứng dụng ---
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
@@ -317,10 +316,10 @@ if init_ok:
                 if message_placeholder:
                     message_placeholder.markdown(full_response)
                 else:
-                    st.markdown(full_response) # Fallback nếu placeholder lỗi
+                    st.markdown(full_response) 
             finally:
                 # Đảm bảo tin nhắn của assistant luôn được thêm vào history
-                if full_response: # Chỉ thêm nếu có nội dung
+                if full_response: 
                     st.session_state.messages.append({"role": "assistant", "content": full_response})
 
 elif not init_ok:

@@ -44,7 +44,6 @@ def load_gemini_model(model_name):
 
 # --- Query Augmentation ---
 def generate_query_variations(original_query, gemini_model, chat_history=None, num_variations=config.NUM_QUERY_VARIATIONS):
-    
     history_prefix = ""
     if chat_history:
         history_prefix = "**Lịch sử trò chuyện gần đây (để tham khảo ngữ cảnh):**\n"
@@ -106,51 +105,44 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
     all_queries = [original_query]
     summarizing_query = original_query
 
-    try:
-        response = gemini_model.generate_content(prompt)
+    response = gemini_model.generate_content(prompt)
 
-        if hasattr(response, 'text') and response.text:
-            generated_text = response.text
-            json_match = re.search(r"```json\s*(\{.*?\})\s*```|(\{.*?\})", generated_text, re.DOTALL)
-            parsed_data = None
-            if json_match:
-                json_str = json_match.group(1) or json_match.group(2)
-                if json_str:
-                    json_str = json_str.strip()
-                    try:
-                        parsed_data = json.loads(json_str)
-                    except json.JSONDecodeError as e:
-                        print(f"Warning: Could not parse JSON response from LLM: {e}")
-                        print(f"Raw response part for JSON: {json_str}")
+    if hasattr(response, 'text') and response.text:
+        generated_text = response.text
+        json_match = re.search(r"```json\s*(\{.*?\})\s*```|(\{.*?\})", generated_text, re.DOTALL)
+        parsed_data = None
+        if json_match:
+            json_str = json_match.group(1) or json_match.group(2)
+            if json_str:
+                json_str = json_str.strip()
+                try:
+                    parsed_data = json.loads(json_str)
+                except json.JSONDecodeError as e:
+                    print(f"Warning: Could not parse JSON response from LLM: {e}")
+                    print(f"Raw response part for JSON: {json_str}")
 
-            if isinstance(parsed_data, dict):
-                relevance_status = parsed_data.get('relevance', 'valid')
+        if isinstance(parsed_data, dict):
+            relevance_status = parsed_data.get('relevance', 'valid')
 
-                if relevance_status == 'invalid':
-                    direct_answer_if_invalid = parsed_data.get('invalid_answer', "")
-                else: 
-                    variations = parsed_data.get('variations', [])
-                    parsed_summary = parsed_data.get('summarizing_query', '')
+            if relevance_status == 'invalid':
+                direct_answer_if_invalid = parsed_data.get('invalid_answer', "")
+            else: 
+                variations = parsed_data.get('variations', [])
+                parsed_summary = parsed_data.get('summarizing_query', '')
 
-                    if isinstance(variations, list) and variations:
-                        valid_variations = [v for v in variations if isinstance(v, str) and v.strip()]
-                        all_queries.extend(valid_variations[:num_variations])
-                        all_queries = list(set(all_queries))
+                if isinstance(variations, list) and variations:
+                    valid_variations = [v for v in variations if isinstance(v, str) and v.strip()]
+                    all_queries.extend(valid_variations[:num_variations])
+                    all_queries = list(set(all_queries))
 
-                    if parsed_summary and isinstance(parsed_summary, str) and parsed_summary.strip():
-                        summarizing_query = parsed_summary.strip()
-                    else:
-                         summarizing_query = original_query # Fallback
+                if parsed_summary and isinstance(parsed_summary, str) and parsed_summary.strip():
+                    summarizing_query = parsed_summary.strip()
+                else:
+                        summarizing_query = original_query # Fallback
 
-        # Đảm bảo summarizing_query không bao giờ rỗng nếu relevance là 'valid'
-        if relevance_status == 'valid' and not summarizing_query:
-            summarizing_query = original_query
+    if relevance_status == 'valid' and not summarizing_query:
+        summarizing_query = original_query
 
-    except Exception as e:
-        print(f"Error during Gemini API call or processing: {e}")
-        # Giữ nguyên giá trị mặc định nếu có lỗi
-
-    # Đảm bảo trả về đúng thứ tự
     if relevance_status == 'invalid':
         all_queries = [original_query]
         summarizing_query = original_query
@@ -203,7 +195,7 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
         return [{"doc": doc, "score": None, "original_index": idx} for doc, idx in zip(original_docs, original_indices)]
 
 # --- Hàm tải tệp mapping URL ---
-# @st.cache_data 
+@st.cache_data 
 def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader/vanban_url_map.json"):
     with open(filepath, 'r', encoding='utf-8') as f:
         mapping = json.load(f)
@@ -426,7 +418,6 @@ def calculate_average_metrics(df_results: pd.DataFrame):
         return None, num_evaluated, num_skipped_error
 
     avg_metrics = {}
-    # Đã bỏ K=1
     k_values = [3, 5, 10]
     metric_keys_k = [f'{m}@{k}' for k in k_values for m in ['precision', 'recall', 'f1', 'mrr', 'ndcg']]
     timing_keys = ['processing_time', 'variation_time', 'search_time', 'rerank_time']

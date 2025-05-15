@@ -7,36 +7,27 @@ import config
 from rank_bm25 import BM25Okapi
 from pyvi import ViTokenizer
 from config import VIETNAMESE_STOP_WORDS
-import logging # Thêm logging
-import streamlit as st
 
 # --- Hàm retrieve_relevant_chunks gốc ---
 def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
     """Embed query và tìm kiếm trong vector_db."""
     if not query_text or embedding_model is None or vector_db is None or vector_db.index is None or vector_db.index.ntotal == 0:
-        logging.warning("Vector search skipped due to missing query, model, or empty DB.")
         return np.array([]), np.array([]) # Trả về mảng rỗng
-    try:
-        query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
-        # Đảm bảo query_embedding là 2D array
-        if query_embedding.ndim == 1:
-            query_embedding = np.expand_dims(query_embedding, axis=0)
+    
+    query_embedding = embedding_model.encode(query_text, convert_to_numpy=True).astype('float32')
 
-        # Kiểm tra dimension khớp với index
-        if query_embedding.shape[1] != vector_db.embedding_dimension:
-            logging.error(f"Query embedding dimension ({query_embedding.shape[1]}) mismatch with index dimension ({vector_db.embedding_dimension}).")
-            return np.array([]), np.array([])
-        actual_k = min(k, vector_db.index.ntotal)
-        if actual_k <= 0:
-            return np.array([]), np.array([])
-        distances, indices = vector_db.search(query_embedding, k=actual_k)
-        # search trả về 2D arrays, lấy phần tử đầu tiên
-        return distances, indices
-    except Exception as e:
-        logging.exception(f"Error during vector search for query '{query_text[:50]}...': {e}")
-        return np.array([]), np.array([]) # Trả về mảng rỗng khi có lỗi
+    if query_embedding.ndim == 1:
+        query_embedding = np.expand_dims(query_embedding, axis=0)
 
-
+    if query_embedding.shape[1] != vector_db.embedding_dimension:
+        return np.array([]), np.array([])
+    
+    actual_k = min(k, vector_db.index.ntotal)
+    if actual_k <= 0:
+        return np.array([]), np.array([])
+    distances, indices = vector_db.search(query_embedding, k=actual_k)
+    # search trả về 2D arrays, lấy phần tử đầu tiên
+    return distances, indices
 class HybridRetriever:
     """Kết hợp Vector Search (Dense), BM25 Search (Sparse), hoặc cả hai (Hybrid)."""
     def __init__(self, vector_db, bm25_save_path):
@@ -52,26 +43,18 @@ class HybridRetriever:
                 self._initialize_bm25()
                 if self.bm25:
                     self.save_bm25(self.bm25_index_path)
-            else:
-                logging.warning("No document texts found to initialize BM25.")
 
     def _initialize_bm25(self):
         """Khởi tạo BM25 index."""
-        if not self.document_texts:
-            logging.warning("Cannot initialize BM25: No document texts available.")
-            return
-        logging.info("Initializing BM25 index...")
+        if not self.document_texts: return
         try:
             # Tokenize corpus, bỏ qua các document rỗng
             tokenized_corpus = [self._tokenize_vi(text) for text in self.document_texts if text and isinstance(text, str)]
             if not any(tokenized_corpus): # Kiểm tra xem có token nào không
-                 logging.warning("BM25 initialization failed: No valid tokens found after tokenization.")
                  self.bm25 = None
             else:
                  self.bm25 = BM25Okapi(tokenized_corpus)
-                 logging.info(f"BM25 index initialized with {len(tokenized_corpus)} documents.")
         except Exception as e:
-            logging.exception(f"Error initializing BM25: {e}")
             self.bm25 = None
 
     def _tokenize_vi(self, text):
@@ -79,7 +62,6 @@ class HybridRetriever:
         if not text or not isinstance(text, str): return []
         try:
             text_lower = text.lower()
-            # Sử dụng word_tokenize=True để tách từ tốt hơn trước khi split
             tokenized_text = ViTokenizer.tokenize(text_lower)
             word_tokens = tokenized_text.split()
 
@@ -87,79 +69,55 @@ class HybridRetriever:
             for token in word_tokens:
                 # Giữ lại dấu gạch dưới, loại bỏ các ký tự đặc biệt khác
                 cleaned_token = re.sub(r'[^\w\s_]', '', token, flags=re.UNICODE).strip()
-                # Kiểm tra token hợp lệ và không nằm trong stop words
                 if cleaned_token and cleaned_token not in VIETNAMESE_STOP_WORDS:
                     final_tokens.append(cleaned_token)
             return final_tokens
         except Exception as e:
-            logging.error(f"Error tokenizing text: '{text[:50]}...'. Error: {e}")
             return []
 
 
     def search(self, query_text, embedding_model, method='hybrid', k=20):
-        if not query_text:
-            logging.warning("Search skipped: Empty query text.")
-            return []
-
+        if not query_text: return []
         results = []
         indices_set = set() 
 
         if method == 'dense':
-            logging.debug(f"Performing DENSE search for: '{query_text[:50]}...' with k={k}")
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             if indices is not None and len(indices) > 0:
                 for i, idx in enumerate(indices):
-                     # Đảm bảo idx hợp lệ
                     if isinstance(idx, (int, np.integer)) and 0 <= idx < len(self.documents) and idx not in indices_set:
                         results.append({
                             'doc': self.documents[idx],
-                            'score': float(distances[i]), # Lưu distance làm score
+                            'score': float(distances[i]), 
                             'index': int(idx)
                         })
                         indices_set.add(idx)
                 # Sắp xếp theo distance tăng dần (score nhỏ hơn là tốt hơn)
                 results.sort(key=lambda x: x['score'])
-            logging.debug(f"Dense search found {len(results)} results.")
-
 
         elif method == 'sparse':
-            logging.debug(f"Performing SPARSE search for: '{query_text[:50]}...' with k={k}")
             if self.bm25:
                 tokenized_query = self._tokenize_vi(query_text)
-                if tokenized_query:
-                    try:
-                        bm25_scores = self.bm25.get_scores(tokenized_query)
-                        # Lấy index và score của các document có score > 0
-                        bm25_scored_indices = [(bm25_scores[i], i) for i in range(len(bm25_scores)) if bm25_scores[i] > 0]
-                        # Sắp xếp theo score giảm dần
-                        bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
-                        # Lấy top K kết quả
-                        for score, idx in bm25_scored_indices[:k]:
-                             if idx not in indices_set: # Chỉ thêm nếu chưa có
-                                results.append({
-                                    'doc': self.documents[idx],
-                                    'score': float(score), # Lưu BM25 score
-                                    'index': int(idx)
-                                })
-                                indices_set.add(idx)
-                        logging.debug(f"Sparse search found {len(results)} results.")
-                    except Exception as e:
-                         logging.exception(f"Error during BM25 search: {e}")
-                else:
-                     logging.warning("Sparse search skipped: Could not tokenize query.")
-            else:
-                 logging.warning("Sparse search skipped: BM25 index not available.")
-
+                if tokenized_query:    
+                    bm25_scores = self.bm25.get_scores(tokenized_query)
+                    bm25_scored_indices = [(bm25_scores[i], i) for i in range(len(bm25_scores)) if bm25_scores[i] > 0]
+                    bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
+                    for score, idx in bm25_scored_indices[:k]:
+                        if idx not in indices_set: 
+                            results.append({
+                                'doc': self.documents[idx],
+                                'score': float(score), 
+                                'index': int(idx)
+                            })
+                            indices_set.add(idx)
 
         elif method == 'hybrid':
-            logging.debug(f"Performing HYBRID search for: '{query_text[:50]}...' with final_k={k}")
             # --- 1. Vector Search (Dense) ---
-            vec_distances, vec_indices = retrieve_relevant_chunks(
-                query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY # Lấy nhiều hơn cho fusion
+            _, vec_indices = retrieve_relevant_chunks(
+                query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY
             )
             vec_indices_list = []
             if vec_indices is not None and len(vec_indices) > 0:
-                # Chuyển numpy array thành list các số nguyên
                 vec_indices_list = [int(i) for i in vec_indices.flatten().tolist() if isinstance(i, (int, np.integer))]
 
             # --- 2. BM25 Search (Sparse) ---
@@ -167,14 +125,10 @@ class HybridRetriever:
             if self.bm25:
                 tokenized_query = self._tokenize_vi(query_text)
                 if tokenized_query:
-                    try:
-                        bm25_scores = self.bm25.get_scores(tokenized_query)
-                        bm25_scored_indices = [(bm25_scores[i], i) for i in range(len(bm25_scores)) if bm25_scores[i] > 0]
-                        bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
-                        # Lấy index từ kết quả BM25, số lượng bằng vector_search_k
-                        bm25_indices_list = [int(index) for score, index in bm25_scored_indices[:config.VECTOR_K_PER_QUERY]]
-                    except Exception as e:
-                         logging.exception(f"Error during BM25 part of hybrid search: {e}")
+                    bm25_scores = self.bm25.get_scores(tokenized_query)
+                    bm25_scored_indices = [(bm25_scores[i], i) for i in range(len(bm25_scores)) if bm25_scores[i] > 0]
+                    bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
+                    bm25_indices_list = [int(index) for _, index in bm25_scored_indices[:config.VECTOR_K_PER_QUERY]]
 
             # --- 3. Rank Fusion (RRF) ---
             rank_lists_to_fuse = []
@@ -185,15 +139,10 @@ class HybridRetriever:
             fused_scores_dict = {}
             if rank_lists_to_fuse:
                 fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Dùng RRF_K từ config
-                logging.debug(f"Hybrid search fused {len(fused_indices)} indices.")
             elif vec_indices_list: # Fallback: Nếu chỉ có kết quả dense
                  fused_indices = vec_indices_list
                  # Tạo dict score giả dựa trên rank (score cao hơn cho rank thấp hơn)
                  fused_scores_dict = {idx: 1.0 / (rank + 1) for rank, idx in enumerate(fused_indices)}
-                 logging.debug("Hybrid search using dense results only (fallback).")
-            else:
-                 logging.debug("Hybrid search found no results from dense or sparse.")
-
 
             # --- 4. Get Top K Documents ---
             for rank, idx in enumerate(fused_indices):
@@ -204,13 +153,8 @@ class HybridRetriever:
                     score = fused_scores_dict.get(idx, 1.0 / (rank + 1 + config.RRF_K)) # Lấy score RRF hoặc rank-based
                     results.append({'doc': self.documents[idx], 'score': float(score), 'index': int(idx)})
                     indices_set.add(idx)
-            logging.debug(f"Hybrid search returning {len(results)} final results.")
 
-
-        else:
-            logging.error(f"Invalid search method specified: {method}")
-            return []
-
+        else: return []
         return results 
 
     def _rank_fusion_indices(self, rank_lists, k=60):
@@ -228,29 +172,21 @@ class HybridRetriever:
     def save_bm25(self, filepath):
         """Lưu trạng thái BM25 vào file pickle."""
         if self.bm25:
-            try:
-                with open(filepath, 'wb') as f:
-                    pickle.dump(self.bm25, f)
-                logging.info(f"BM25 index saved to {filepath}")
-            except Exception as e:
-                logging.exception(f"Error saving BM25 index to {filepath}: {e}")
+            with open(filepath, 'wb') as f:
+                pickle.dump(self.bm25, f)
 
     def load_bm25(self, filepath):
         """Tải trạng thái BM25 từ file pickle."""
         if os.path.exists(filepath):
-             try:
-                 with open(filepath, 'rb') as f:
-                     self.bm25 = pickle.load(f)
+            try:
+                with open(filepath, 'rb') as f:
+                    self.bm25 = pickle.load(f)
                  # Kiểm tra xem object load được có phương thức cần thiết không
-                 if not hasattr(self.bm25, 'get_scores'):
-                     logging.error(f"Loaded object from {filepath} is not a valid BM25 index.")
-                     self.bm25 = None; return False
-                 logging.info(f"BM25 index loaded successfully from {filepath}")
-                 return True
-             except Exception as e:
-                 logging.exception(f"Error loading BM25 index from {filepath}: {e}")
-                 self.bm25 = None
-                 return False
-        else:
-            logging.info(f"BM25 index file not found at {filepath}. Will attempt to initialize.")
-            return False
+                if not hasattr(self.bm25, 'get_scores'):
+                    self.bm25 = None
+                    return False
+                return True
+            except Exception as e:
+                self.bm25 = None
+                return False
+        else: return False

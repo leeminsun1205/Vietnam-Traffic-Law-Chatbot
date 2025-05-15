@@ -5,7 +5,6 @@ from retriever import HybridRetriever
 from utils import embed_legal_chunks
 
 def load_or_create_rag_components(embedding_model):
-
     vector_db_instance = SimpleVectorDatabase()
     hybrid_retriever_instance = None
 
@@ -25,7 +24,6 @@ def load_or_create_rag_components(embedding_model):
         if valid_chunks and embeddings_array is not None:
             vector_db_instance.add_documents(valid_chunks, embeddings_array)
             vector_db_instance.save(config.SAVED_DATA_PREFIX)
-
             hybrid_retriever_instance = HybridRetriever(vector_db_instance, bm25_save_path=f"{config.SAVED_DATA_PREFIX}_bm25.pkl")
         else: return None, None 
 

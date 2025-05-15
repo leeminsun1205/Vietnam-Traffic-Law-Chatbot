@@ -243,7 +243,6 @@ with st.sidebar:
         )
     )
 
-    # Widget đọc và ghi vào st.session_state['use_reranker']
     st.toggle(
         "Sử dụng Reranker",
         value=st.session_state.get('use_reranker', True), # Đọc từ state
@@ -296,25 +295,22 @@ with st.spinner("Kiểm tra và khởi tạo tài nguyên cốt lõi..."):
         st.error(f"⚠️ Lỗi nghiêm trọng khi khởi tạo hệ thống: {e}")
 
 if init_ok:
-    # --- Hiển thị Cấu hình Đánh giá sẽ sử dụng (đọc từ session state, giờ do sidebar quản lý) ---
     st.caption(f"Mô hình: `{st.session_state.get('selected_gemini_model', 'N/A')}` | Nguồn Query: `{st.session_state.get('retrieval_query_mode', 'N/A')}` | Retrieval: `{st.session_state.get('retrieval_method', 'N/A')}` | Reranker: `{'Bật' if st.session_state.get('use_reranker', False) else 'Tắt'}`")
 
-    # Tạo dict cấu hình cho hàm đánh giá - Đọc trực tiếp từ st.session_state
-    # Các giá trị này giờ được đảm bảo tồn tại do sidebar hoặc khởi tạo sớm
     eval_config_dict = {
         'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
         'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
         'use_reranker': st.session_state.get('use_reranker', True),
         'gemini_model_name': st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL),
         'embedding_model_name': config.embedding_model_name,
-        # Cập nhật tên reranker model dựa trên trạng thái tải và cấu hình
         'reranker_model_name': config.reranking_model_name if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else ("DISABLED_BY_CONFIG" if st.session_state.get('use_reranker', True) else "DISABLED_BY_CONFIG"),
     }
-    # Kiểm tra cuối cùng cho reranker model để truyền vào hàm run_retrieval_evaluation
+
     reranker_model_for_run = g_reranking_model_loaded if st.session_state.get('use_reranker', True) and g_reranking_model_loaded else None
 
     uploader_key = f"eval_file_uploader_{st.session_state.upload_counter}"
     st.subheader("Tải Lên File Đánh giá")
+
     uploaded_file = st.file_uploader(
         "Chọn file JSON dữ liệu đánh giá...", type=["json"], key=uploader_key
     )
@@ -326,7 +322,6 @@ if init_ok:
                 st.session_state.eval_data = eval_data_list
                 st.session_state.eval_uploaded_filename = uploaded_file.name
                 st.session_state.eval_run_completed = False
-                # Reset last_eval_config khi tải file mới để tránh hiển thị kết quả cũ với cấu hình sai
                 st.session_state.last_eval_config = {}
                 st.success(f"Đã tải file '{uploaded_file.name}' ({len(eval_data_list)} câu hỏi).")
             except Exception as e:
@@ -342,8 +337,7 @@ if init_ok:
 
         # Nút bắt đầu đánh giá
         if st.button("🚀 Bắt đầu Đánh giá", key="start_eval_button"):
-             # Lưu cấu hình hiện tại từ st.session_state vào last_eval_config trước khi chạy
-             # Đây là cấu hình mà người dùng đã chọn trên sidebar của trang Evaluation
+
              current_config_for_save = {
                 'retrieval_query_mode': st.session_state.get('retrieval_query_mode', 'Tổng quát'),
                 'retrieval_method': st.session_state.get('retrieval_method', 'hybrid'),
@@ -355,9 +349,7 @@ if init_ok:
              st.session_state.last_eval_config = current_config_for_save.copy() # Lưu bản sao
 
              with st.spinner(f"Đang tải model Gemini: {st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)}..."):
-                 # Tải Gemini model dựa trên lựa chọn mới nhất từ sidebar (đã có trong session state)
                  g_gemini_model_eval = utils.load_gemini_model(st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL))
-
 
              if g_gemini_model_eval:
                 st.info(f"Model Gemini '{st.session_state.get('selected_gemini_model', config.DEFAULT_GEMINI_MODEL)}' đã sẵn sàng.")
@@ -367,23 +359,22 @@ if init_ok:
                         eval_data=st.session_state.eval_data,
                         hybrid_retriever=retriever_instance,
                         embedding_model=g_embedding_model,
-                        reranking_model=reranker_model_for_run, # Truyền model (hoặc None)
-                        gemini_model=g_gemini_model_eval, # Truyền Gemini model đã tải
-                        eval_config=st.session_state.last_eval_config # Truyền dict config đã lưu (đảm bảo nhất)
+                        reranking_model=reranker_model_for_run, 
+                        gemini_model=g_gemini_model_eval, 
+                        eval_config=st.session_state.last_eval_config 
                     )
                     total_eval_time = time.time() - start_eval_time
                     st.success(f"Hoàn thành đánh giá sau {total_eval_time:.2f} giây.")
 
                     st.session_state.eval_results_df = results_df
                     st.session_state.eval_run_completed = True
-                    st.rerun() # Rerun để hiển thị kết quả
-
+                    st.rerun() 
 
     # --- Hiển thị Kết quả ---
     if st.session_state.eval_run_completed and st.session_state.eval_results_df is not None:
         st.subheader("Kết quả Đánh giá")
         detailed_results_df = st.session_state.eval_results_df
-        last_config = st.session_state.last_eval_config # Đọc config đã chạy
+        last_config = st.session_state.last_eval_config 
 
         # --- Hiển thị lại cấu hình đã chạy ---
         st.markdown("**Cấu hình đã sử dụng cho lần chạy cuối:**")
@@ -392,7 +383,6 @@ if init_ok:
         cfg_col2.metric("Ret. Method", last_config.get('retrieval_method', 'N/A'))
         cfg_col3.metric("Reranker", "Bật" if last_config.get('use_reranker', False) else "Tắt")
         st.caption(f"Gemini: `{last_config.get('gemini_model_name', 'N/A')}`, Embedding: `{last_config.get('embedding_model_name', 'N/A')}`, Reranker: `{last_config.get('reranker_model_name', 'N/A')}`")
-
 
         avg_metrics, num_eval, num_skipped_error = calculate_average_metrics(detailed_results_df)
 
@@ -403,7 +393,6 @@ if init_ok:
 
         if avg_metrics:
             st.markdown("#### Metrics Trung bình @K (trên các queries hợp lệ)")
-            # Đã bỏ K=1
             k_values_display = [3, 5, 10]
             cols_k = st.columns(len(k_values_display))
             for idx, k in enumerate(k_values_display):
@@ -428,10 +417,8 @@ if init_ok:
             col_count3.metric("Avg Docs Reranked", f"{avg_metrics.get('avg_num_docs_reranked', 0.0):.1f}")
             col_count4.metric("Avg Final Docs", f"{avg_metrics.get('avg_num_retrieved_after_rerank', 0.0):.1f}")
 
-
         else:
             st.warning("Không thể tính metrics trung bình (không có query hợp lệ).")
-
 
         with st.expander("Xem Kết quả Chi tiết cho từng Query"):
             display_columns = [
@@ -444,8 +431,7 @@ if init_ok:
                 'num_variations_generated','num_unique_docs_found', 'num_retrieved_before_rerank','num_docs_reranked', 'num_retrieved_after_rerank',
                 'retrieved_ids', 'relevant_ids', 'summarizing_query', 'error_message'
             ]
-            # Lọc lại các cột hiển thị để chỉ giữ lại các cột thực sự có trong DataFrame
-            # Điều này quan trọng vì các metrics @1 không còn được tính
+
             existing_display_columns = [col for col in display_columns if col in detailed_results_df.columns]
             st.dataframe(detailed_results_df[existing_display_columns])
 

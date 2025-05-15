@@ -3,10 +3,10 @@ import json
 from datetime import datetime
 
 # --- Constants and Regex ---
-TYPE_SOURCE = "Nghị định số"
-DATE_EFF = "10-10-2024"
-CHANGE_URL = "https://thuvienphapluat.vn/van-ban/Thue-Phi-Le-Phi/Nghi-dinh-130-2024-ND-CP-quy-dinh-thu-phi-su-dung-duong-bo-cao-toc-thuoc-so-huu-toan-dan-621998.aspx"
-NAME_FILE = "legal_48"
+TYPE_SOURCE = "Luật hình sự số"
+DATE_EFF = "01-01-2018"
+CHANGE_URL = "https://thuvienphapluat.vn/van-ban/Trach-nhiem-hinh-su/Van-ban-hop-nhat-11-VBHN-VPQH-2025-Bo-luat-Hinh-su-650257.aspx"
+NAME_FILE = "legal_50"
 
 REGEX_CHUONG = re.compile(r"^\s*Chương\s+([IVXLCDM]+)\s*(.*)", re.IGNORECASE)
 REGEX_MUC = re.compile(r"^\s*Mục\s+(\d+)\.?\s*(.*)", re.IGNORECASE)

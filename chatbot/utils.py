@@ -79,7 +79,7 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
         ```
     * **Nếu câu hỏi CÓ liên quan:** Hãy thực hiện các yêu cầu sau:
         1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
-        2.  Tạo MỘT câu hỏi tổng hợp bao quát.
+        2.  Tạo MỘT câu hỏi tổng hợp bao quát (summarizing_query), câu hỏi này phải đảm bảo chứa tất cả các keyword của câu hỏi gốc (để tránh làm sai lệch quá nhiều).
         3.  Ưu tiên biến thể chứa "không tuân thủ, không chấp hành" nếu hỏi về lỗi, vi phạm.
         4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
         5.  Nếu câu hỏi có **liên quan đến phương tiện** mà hỏi 1 cách tổng quát (không chỉ rõ loại xe nào) phải ưu tiên 1 câu có "xe mô tô, xe gắn máy, các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy" và 1 câu có "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
@@ -452,29 +452,22 @@ def log_qa_to_json(user_query, chatbot_response, filepath=None):
         "chatbot_response": chatbot_response
     }
 
-    try:
-        # Đọc dữ liệu hiện có từ tệp JSON (nếu tệp tồn tại và hợp lệ)
-        if os.path.exists(filepath):
-            with open(filepath, 'r', encoding='utf-8') as f:
-                try:
-                    data = json.load(f)
-                    if not isinstance(data, list): # Đảm bảo dữ liệu là một danh sách
-                        data = []
-                except json.JSONDecodeError: # Xử lý trường hợp tệp rỗng hoặc bị hỏng
+    # Đọc dữ liệu hiện có từ tệp JSON (nếu tệp tồn tại và hợp lệ)
+    if os.path.exists(filepath):
+        with open(filepath, 'r', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+                if not isinstance(data, list): # Đảm bảo dữ liệu là một danh sách
                     data = []
-        else:
-            data = [] # Nếu tệp không tồn tại, bắt đầu với một danh sách rỗng
+            except json.JSONDecodeError: # Xử lý trường hợp tệp rỗng hoặc bị hỏng
+                data = []
+    else:
+        data = [] # Nếu tệp không tồn tại, bắt đầu với một danh sách rỗng
 
-        # Thêm mục mới vào danh sách
-        data.append(new_entry)
+    # Thêm mục mới vào danh sách
+    data.append(new_entry)
 
-        # Ghi lại toàn bộ danh sách vào tệp JSON
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+    # Ghi lại toàn bộ danh sách vào tệp JSON
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
 
-    except IOError as e:
-        # Ghi lỗi ra console hoặc xử lý theo cách khác nếu cần
-        # Ví dụ: st.error(f"Lỗi khi ghi log Q&A: {e}") # Cân nhắc nếu hàm này được gọi từ background
-        print(f"IOError khi ghi log Q&A vào {filepath}: {e}")
-    except Exception as e:
-        print(f"Lỗi không xác định khi ghi log Q&A vào {filepath}: {e}")

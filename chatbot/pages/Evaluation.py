@@ -169,7 +169,6 @@ def run_retrieval_evaluation(
                 query_metrics[f'mrr@{k}'] = mrr_at_k(retrieved_ids, relevant_chunk_ids, k)
                 query_metrics[f'ndcg@{k}'] = ndcg_at_k(retrieved_ids, relevant_chunk_ids, k)
 
-
         except Exception as e:
             query_metrics["status"] = "error_runtime"
             query_metrics["error_message"] = str(e)

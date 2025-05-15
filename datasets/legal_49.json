@@ -1,0 +1,3107 @@
+[
+  {
+    "id": "119_2024_NĐ-CP_chunk_1",
+    "text": "Nghị Định\n119/2024/NĐ-CP\nQUY ĐỊNH VỀ THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nNgày ban hành: 2024-09-30",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {}
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_2",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 1. Phạm vi điều chỉnh\nNghị định này quy định chi tiết về thanh toán điện tử giao thông đường bộ; tài khoản giao thông; thanh toán tiền sử dụng đường bộ trên đường cao tốc; cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "dieu": "1",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_3",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 2. Đối tượng áp dụng\nNghị định này áp dụng đối với các tổ chức, cá nhân liên quan đến hoạt động thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "dieu": "2",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_4",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n1. Phương tiện giao thông đường bộ (sau đây gọi tắt là phương tiện) là phương tiện giao thông cơ giới đường bộ, xe máy chuyên dùng và các loại xe tương tự thuộc đối tượng phải thu các loại phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_5",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n2. Chủ phương tiện là chủ sở hữu phương tiện hoặc cá nhân, tổ chức khác được chủ sở hữu phương tiện giao quyền chiếm hữu, sử dụng phương tiện thuộc đối tượng phải thu các loại phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện. Chủ phương tiện đồng thời là chủ tài khoản giao thông, chủ phương tiện thanh toán được quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_6",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n3. Thẻ đầu cuối là thiết bị điện tử được gắn trên phương tiện để giao tiếp thông tin với hệ thống thiết bị lắp đặt tại các điểm thu theo tiêu chuẩn về nhận dạng tần số vô tuyến thụ động cho việc giao tiếp không dây và lưu trữ các thông tin liên quan đến kiểm định an toàn kỹ thuật và bảo vệ môi trường của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_7",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n4. Phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện bao gồm:\n4. a) Tiền sử dụng đường bộ bao gồm tiền dịch vụ sử dụng đường bộ theo pháp luật về giá và phí sử dụng đường cao tốc thu đối với phương tiện lưu thông trên tuyến đường cao tốc do Nhà nước đầu tư, sở hữu, quản lý và khai thác;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "4",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_8",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n4. Phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện bao gồm:\nb) Phí, giá, tiền dịch vụ khác liên quan đến hoạt động giao thông của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "4",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_9",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n5. Cơ quan có thẩm quyền bao gồm:\n5. a) Bộ Giao thông vận tải đối với các dự án đầu tư kết cấu hạ tầng đường bộ có thu tiền sử dụng đường bộ do Bộ Giao thông vận tải quản lý, các dự án của Tổng công ty Đầu tư phát triển đường cao tốc Việt Nam và các dịch vụ liên quan đến hoạt động giao thông của phương tiện do Bộ Giao thông vận tải quản lý;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "5",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_10",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n5. Cơ quan có thẩm quyền bao gồm:\nb) Các bộ, ngành khác đối với các dịch vụ khác liên quan đến hoạt động giao thông của phương tiện do bộ, ngành quản lý;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "5",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_11",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n5. Cơ quan có thẩm quyền bao gồm:\nc) Ủy ban nhân dân cấp tỉnh đối với các dự án đầu tư kết cấu hạ tầng đường bộ có thu tiền sử dụng đường bộ và các dịch vụ liên quan đến hoạt động giao thông của phương tiện do địa phương quản lý.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "5",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_12",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n6. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ là đơn vị được cơ quan có thẩm quyền lựa chọn để cung cấp dịch vụ thanh toán điện tử giao thông đường bộ đối với các loại phí, giá, tiền dịch vụ được quy định tại khoản 4 Điều này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_13",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n7. Nhà cung cấp dịch vụ thanh toán giao thông đường bộ là đơn vị được cơ quan có thẩm quyền hoặc đơn vị quản lý thu lựa chọn để cung cấp dịch vụ thanh toán điện tử giao thông đường bộ đối với các loại phí, giá, tiền dịch vụ được quy định tại điểm b khoản 4 Điều này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_14",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n8. Đơn vị quản lý thu là tổ chức được cơ quan có thẩm quyền giao quyền thu hoặc có quyền thu các loại phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "8",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_15",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n9. Đơn vị vận hành thu là tổ chức được đơn vị quản lý thu lựa chọn để vận hành hệ thống thiết bị lắp đặt tại các điểm thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "9",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_16",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n10. Điểm thu là nơi đặt trạm thu phí đường bộ hoặc là nơi lắp đặt các hệ thống thiết bị để tương tác với phương tiện, đọc các thông tin của phương tiện, thẻ đầu cuối và xử lý giao dịch thanh toán điện tử giao thông đường bộ hoặc các hình thức thanh toán khác đối với phương tiện được đơn vị quản lý thu chấp thuận.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "10",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_17",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n11. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ là một thành phần của hệ thống quản lý cơ sở dữ liệu đường bộ do Bộ Giao thông vận tải đầu tư, tổ chức quản lý, vận hành, khai thác để quản lý tập trung cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "11",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_18",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 3. Giải thích từ ngữ\n12. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ hoặc của Nhà cung cấp dịch vụ thanh toán giao thông đường đường bộ (sau đây gọi chung là Nhà cung cấp dịch vụ thanh toán điện tử giao thông) bao gồm các phân hệ, hệ thống phần cứng, phần mềm đặt tại trung tâm dữ liệu, phục vụ các yêu cầu, quy trình nghiệp vụ thanh toán điện tử giao thông. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông thực hiện thu nhận, xử lý các giao dịch được gửi về từ hệ thống thiết bị lắp đặt tại điểm thu và thực hiện các chức năng được quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "12",
+        "dieu": "3",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_19",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 4. Nguyên tắc chung\n1. Bảo đảm tính minh bạch của công tác thanh toán điện tử các loại phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "4",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_20",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 4. Nguyên tắc chung\n2. Bảo đảm yêu cầu về kết nối liên thông giữa các cấu thành hệ thống thanh toán điện tử giao thông. Mỗi phương tiện chỉ gắn 01 thẻ đầu cuối tại một thời điểm.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "4",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_21",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 4. Nguyên tắc chung\n3. Bảo đảm an toàn, bảo mật thông tin cá nhân của chủ phương tiện theo quy định pháp luật về bảo vệ dữ liệu cá nhân, trừ trường hợp cung cấp thông tin theo quyết định của cơ quan nhà nước có thẩm quyền theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "4",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_22",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 4. Nguyên tắc chung\n4. Bảo đảm việc tích hợp, cung cấp thông tin đầy đủ, kịp thời để phục vụ các mục tiêu quản lý nhà nước theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "4",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_23",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 4. Nguyên tắc chung\n5. Bảo đảm quyền được lựa chọn, sử dụng dịch vụ, tiện ích giá trị gia tăng của chủ phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "4",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_24",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n1. Phá hủy, làm giả, xoá dữ liệu hoặc can thiệp nội dung thẻ đầu cuối; chuyển thẻ đầu cuối từ phương tiện tham gia giao thông này sang phương tiện tham gia giao thông khác.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_25",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n2. Xâm nhập hoặc tìm cách xâm nhập, phá hoại, đánh cắp dữ liệu, làm thay đổi trái phép chương trình phần mềm, dữ liệu điện tử sử dụng trong thanh toán điện tử giao thông đường bộ; lợi dụng lỗi hệ thống mạng máy tính để trục lợi.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_26",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n3. Cung cấp thông tin không trung thực trong quá trình tham gia các hoạt động thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_27",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n4. Tiết lộ, cung cấp thông tin có liên quan đến dữ liệu cá nhân không đúng theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_28",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n5. Mở hoặc duy trì tài khoản giao thông nặc danh, mạo danh.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_29",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n6. Các hành vi cố tình trốn tránh, gian lận trong thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_30",
+    "text": "Chương I QUY ĐỊNH CHUNG\nĐiều 5. Những hành vi không được thực hiện trong hoạt động thanh toán điện tử giao thông đường bộ\n7. Cạnh tranh không lành mạnh giữa các Nhà cung cấp dịch vụ thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "5",
+        "chuong": "I"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_31",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n1. Thanh toán điện tử giao thông đường bộ được thực hiện tự động bởi Hệ thống thanh toán điện tử giao thông đường bộ (sau đây gọi tắt là hệ thống thanh toán điện tử giao thông).",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_32",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n2. Hệ thống thanh toán điện tử giao thông bao gồm các cấu thành sau:\n2. a) Thẻ đầu cuối gắn trên các phương tiện;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_33",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n2. Hệ thống thanh toán điện tử giao thông bao gồm các cấu thành sau:\nb) Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_34",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n2. Hệ thống thanh toán điện tử giao thông bao gồm các cấu thành sau:\nc) Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "2",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_35",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n2. Hệ thống thanh toán điện tử giao thông bao gồm các cấu thành sau:\nd) Hệ thống thiết bị lắp đặt tại các điểm thu;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "d",
+        "khoan": "2",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_36",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n2. Hệ thống thanh toán điện tử giao thông bao gồm các cấu thành sau:\nđ) Hệ thống đường truyền dữ liệu;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "đ",
+        "khoan": "2",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_37",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 6. Cấu thành hệ thống thanh toán điện tử giao thông\n2. Hệ thống thanh toán điện tử giao thông bao gồm các cấu thành sau:\ne) Các hệ thống, thiết bị, hạng mục khác bảo đảm hoạt động của Hệ thống thanh toán điện tử giao thông; bảo đảm kết nối liên thông giữa các cấu thành của hệ thống thanh toán điện tử giao thông với nhau.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "e",
+        "khoan": "2",
+        "dieu": "6",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_38",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 7. Thẻ đầu cuối gắn trên các phương tiện\n1. Phương tiện phải được gắn thẻ đầu cuối để mở tài khoản giao thông. Việc gắn thẻ đầu cuối và kích hoạt thẻ đầu cuối do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện theo các quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "7",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_39",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 7. Thẻ đầu cuối gắn trên các phương tiện\n2. Bộ Công an, Bộ Quốc phòng phối hợp với Bộ Giao thông vận tải và Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện gắn thẻ đầu cuối cho các phương tiện phục vụ an ninh, quốc phòng tham gia giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "7",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_40",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 7. Thẻ đầu cuối gắn trên các phương tiện\n3. Chủ phương tiện phải trả chi phí gắn thẻ đầu cuối cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ. Thẻ đầu cuối được Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ bảo hành trong thời gian tối thiểu là 12 tháng kể từ thời điểm gắn thẻ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "7",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_41",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n1. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ phải bảo đảm các yêu cầu sau đây:\n1. a) Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được xây dựng theo tiêu chuẩn, quy chuẩn kỹ thuật công nghệ thông tin, định mức kinh tế - kỹ thuật có liên quan, bảo đảm hoạt động ổn định, liên tục;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_42",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n1. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ phải bảo đảm các yêu cầu sau đây:\nb) Bảo đảm kết nối với các hệ thống, cơ sở dữ liệu quy định tại khoản 2 Điều này;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_43",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n1. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ phải bảo đảm các yêu cầu sau đây:\nc) Bảo đảm quyền khai thác thông tin của cơ quan, tổ chức, cá nhân theo quy định của pháp luật về giao dịch điện tử và quy định khác của pháp luật có liên quan.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "1",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_44",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n2. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được kết nối với các hệ thống, cơ sở dữ liệu sau đây:\n2. a) Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_45",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n2. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được kết nối với các hệ thống, cơ sở dữ liệu sau đây:\nb) Cơ sở dữ liệu về trật tự, an toàn giao thông đường bộ;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_46",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n2. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được kết nối với các hệ thống, cơ sở dữ liệu sau đây:\nc) Cơ sở dữ liệu quốc gia về dân cư.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "2",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_47",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n3. Thông tin trong cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được quản lý tập trung tại Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được quy định tại Phụ lục kèm theo Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_48",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 8. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ\n4. Chi phí quản lý, vận hành, khai thác Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ được lấy từ nguồn chi phí tổ chức, quản lý, giám sát thu phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện và các nguồn tài chính được quy định tại khoản 1 Điều 42 Luật Đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "8",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_49",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n1. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\n1. a) Mở và quản lý tài khoản giao thông;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_50",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n1. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\nb) Xác định chi phí chủ phương tiện phải trả đối với các dịch vụ do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ cung cấp;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_51",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n1. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\nc) Kết nối với phương tiện thanh toán hợp pháp của tổ chức cung ứng dịch vụ thanh toán không dùng tiền mặt hoặc tổ chức cung ứng dịch vụ trung gian thanh toán (sau đây gọi là tổ chức cung ứng phương tiện thanh toán không dùng tiền mặt) theo quy định tại khoản 2 Điều 11 Nghị định này;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "1",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_52",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n1. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\nd) Hoàn trả doanh thu phí, giá, tiền dịch vụ liên quan đến hoạt động giao thông của phương tiện cho các đơn vị quản lý thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "d",
+        "khoan": "1",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_53",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n2. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán giao thông đường bộ do Nhà cung cấp dịch vụ thanh toán giao thông đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\n2. a) Kết nối, sử dụng thông tin tài khoản giao thông từ Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_54",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n2. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán giao thông đường bộ do Nhà cung cấp dịch vụ thanh toán giao thông đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\nb) Xác định chi phí chủ phương tiện phải trả đối với các dịch vụ do Nhà cung cấp dịch vụ thanh toán giao thông đường bộ cung cấp;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_55",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n2. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán giao thông đường bộ do Nhà cung cấp dịch vụ thanh toán giao thông đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\nc) Kết nối với phương tiện thanh toán hợp pháp của tổ chức cung ứng phương tiện thanh toán không dùng tiền mặt theo quy định tại khoản 2 Điều 11 Nghị định này;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "2",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_56",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n2. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán giao thông đường bộ do Nhà cung cấp dịch vụ thanh toán giao thông đường bộ đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành, khai thác để thực hiện các nội dung sau đây:\nd) Hoàn trả doanh thu phí, giá, tiền dịch vụ khác liên quan đến hoạt động giao thông của phương tiện cho các đơn vị quản lý thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "d",
+        "khoan": "2",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_57",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n3. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông phải bảo đảm các yêu cầu sau đây:\n3. a) Hệ thống điều hành và trung tâm dữ liệu được xây dựng theo tiêu chuẩn, quy chuẩn kỹ thuật công nghệ thông tin, định mức kinh tế - kỹ thuật có liên quan, bảo đảm hoạt động ổn định, liên tục;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "3",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_58",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n3. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông phải bảo đảm các yêu cầu sau đây:\nb) Bảo đảm kết nối với các hệ thống, cơ sở dữ liệu quy định tại khoản 4 Điều này;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "3",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_59",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n3. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông phải bảo đảm các yêu cầu sau đây:\nc) Bảo đảm quyền khai thác thông tin của cơ quan, tổ chức, cá nhân theo quy định của pháp luật về giao dịch điện tử và quy định khác của pháp luật có liên quan.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "3",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_60",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n4. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông được kết nối với các hệ thống, cơ sở dữ liệu sau đây:\n4. a) Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "4",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_61",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n4. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông được kết nối với các hệ thống, cơ sở dữ liệu sau đây:\nb) Hệ thống thiết bị lắp đặt tại các điểm thu;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "4",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_62",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 9. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n4. Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông được kết nối với các hệ thống, cơ sở dữ liệu sau đây:\nc) Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông khác.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "4",
+        "dieu": "9",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_63",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 10. Hệ thống thiết bị lắp đặt tại các điểm thu\n1. Hệ thống thiết bị lắp đặt tại các điểm thu phải được thiết kế, đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành bảo trì, kết nối với Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông để thực hiện các nội dung sau đây:\n1. a) Xác định giao dịch của phương tiện giao thông tại điểm thu;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "10",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_64",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 10. Hệ thống thiết bị lắp đặt tại các điểm thu\n1. Hệ thống thiết bị lắp đặt tại các điểm thu phải được thiết kế, đầu tư, xây dựng, cải tạo, nâng cấp, quản lý, vận hành bảo trì, kết nối với Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông để thực hiện các nội dung sau đây:\nb) Xác định chi phí chủ phương tiện phải trả trong giao dịch thanh toán điện tử giao thông đường bộ chưa được xác định bởi Nhà cung cấp dịch vụ thanh toán điện tử giao thông theo quy định tại điểm b khoản 1 và điểm b khoản 2 Điều 9 Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "10",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_65",
+    "text": "Chương II HỆ THỐNG THANH TOÁN ĐIỆN TỬ GIAO THÔNG\nĐiều 10. Hệ thống thiết bị lắp đặt tại các điểm thu\n2. Đơn vị quản lý thu tổ chức đầu tư, xây dựng, cải tạo, quản lý, vận hành hệ thống lắp đặt tại các điểm thu và quyết định chi phí quản lý, vận hành và bảo trì theo quy định tại Điều 41 Luật Đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "10",
+        "chuong": "II"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_66",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n1. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ mở tài khoản giao thông và cung cấp tài khoản truy cập ứng dụng thanh toán điện tử giao thông đường bộ cho chủ phương tiện ngay lần đầu gắn thẻ đầu cuối.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_67",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n2. Tại thời điểm thực hiện giao dịch thanh toán điện tử giao thông đường bộ, tài khoản giao thông chỉ được kết nối với một phương tiện thanh toán không dùng tiền mặt theo quy định của pháp luật ngân hàng để thực hiện thanh toán điện tử giao thông đường bộ. Phương tiện thanh toán không dùng tiền mặt do tổ chức cung ứng phương tiện thanh toán không dùng tiền mặt cung cấp thông qua hợp đồng dịch vụ với Nhà cung cấp dịch vụ thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_68",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n3. Mỗi tài khoản giao thông có thể sử dụng để chi trả cho nhiều phương tiện tham gia giao thông thuộc sở hữu của chủ phương tiện; mỗi phương tiện tham gia giao thông chỉ được nhận chi trả từ một tài khoản giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_69",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n4. Đối tượng mở tài khoản giao thông bao gồm:\n4. a) Chủ phương tiện là cá nhân có năng lực hành vi dân sự đầy đủ theo quy định của pháp luật;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "4",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_70",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n4. Đối tượng mở tài khoản giao thông bao gồm:\nb) Chủ phương tiện là tổ chức được thành lập, hoạt động hợp pháp theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "4",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_71",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n5. Hồ sơ mở tài khoản giao thông phải bảo đảm cung cấp đầy đủ thông tin tài khoản giao thông theo quy định tại Phụ lục kèm theo Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_72",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n6. Xác thực thông tin chủ phương tiện mở tài khoản giao thông\n6. a) Chủ phương tiện phải cung cấp, cập nhật đầy đủ, chính xác các thông tin trong hồ sơ mở tài khoản giao thông cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và chịu trách nhiệm về tính trung thực của các thông tin mà mình cung cấp.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "6",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_73",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n6. Xác thực thông tin chủ phương tiện mở tài khoản giao thông\nb) Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ có trách nhiệm kiểm tra, đối chiếu; xác minh thông tin nhận biết chủ phương tiện đối với trường hợp chủ phương tiện là tổ chức và xác thực thông tin nhận biết chủ phương tiện thông qua cơ sở dữ liệu quốc gia về dân cư đối với chủ phương tiện là cá nhân.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "6",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_74",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n7. Thông tin tài khoản giao thông phải được Nhà cung cấp dịch vụ thanh toán điện tử giao thông đồng bộ sau khi mở hoặc sau mỗi lần có thay đổi thông tin với Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ. Thông tin phương tiện thanh toán phải được Nhà cung cấp dịch vụ thanh toán giao thông đường bộ đồng bộ sau khi kết nối hoặc sau mỗi lần có thay đổi hoặc bổ sung phương tiện thanh toán với Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ. Các thông tin này phải được đồng bộ với Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ trong vòng 06 giờ kể từ khi có sự cập nhật, thay đổi trên Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_75",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n8. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ phải công khai cho chủ phương tiện các điều khoản về việc đăng ký mở và sử dụng tài khoản giao thông; trình tự, thủ tục tiếp nhận, xử lý hồ sơ mở tài khoản giao thông; phương thức và địa điểm ký hợp đồng mở, sử dụng tài khoản giao thông cho từng đối tượng phù hợp với điều kiện và khả năng cung ứng của mình nhưng phải bảo đảm tuân thủ các quy định của pháp luật và chịu trách nhiệm về tính chính xác, chặt chẽ, đầy đủ của hồ sơ và hợp đồng mở, sử dụng tài khoản giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "8",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_76",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 11. Mở tài khoản giao thông\n9. Trong trường hợp có sự thay đổi thông tin trong hồ sơ mở tài khoản giao thông, chủ tài khoản giao thông phải thông báo cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ để cập nhật trên Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ trong thời hạn tối đa 10 ngày kể từ ngày thay đổi. Chủ tài khoản giao thông chịu toàn bộ trách nhiệm trong trường hợp không thông báo cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ theo quy định tại khoản này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "9",
+        "dieu": "11",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_77",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n1. Chủ phương tiện phải bảo đảm đủ tiền trong phương tiện thanh toán được kết nối với tài khoản giao thông khi thực hiện thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_78",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n2. Trường hợp số tiền trong phương tiện thanh toán được kết nối với tài khoản giao thông không đủ để thực hiện thanh toán tiền sử dụng đường bộ trên đường cao tốc thì phương tiện không được đi qua trạm thu phí đường bộ trên đường cao tốc.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_79",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n3. Trường hợp số tiền trong phương tiện thanh toán được kết nối với tài khoản giao thông không đủ để thực hiện thanh toán tiền sử dụng đường bộ thì phương tiện phải sử dụng làn thu phí hỗn hợp tại trạm thu phí đường bộ, trừ trường hợp quy định tại khoản 2 Điều này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_80",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n4. Trường hợp số tiền trong phương tiện thanh toán được kết nối với tài khoản giao thông không đủ để thực hiện thanh toán điện tử giao thông đường bộ, trừ trường hợp quy định tại khoản 2, khoản 3 Điều này thì thực hiện các hình thức thanh toán khác tại điểm thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_81",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n5. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ sử dụng trực tiếp các tài khoản giao thông do mình quản lý để thực hiện thanh toán điện tử giao thông đường bộ đối với các dịch vụ do Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ cung cấp.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_82",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n6. Khi có yêu cầu hoặc được sự đồng ý của chủ tài khoản giao thông, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ sử dụng thông tin tài khoản giao thông thông qua kết nối, chia sẻ dữ liệu với Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ để thực hiện thanh toán điện tử giao thông đường bộ đối với các dịch vụ do Nhà cung cấp dịch vụ thanh toán giao thông đường bộ cung cấp. Nhà cung cấp dịch vụ thanh toán giao thông đường bộ cung cấp tài khoản truy cập ứng dụng thanh toán điện tử giao thông đường bộ cho chủ phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_83",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 12. Sử dụng tài khoản giao thông\n7. Trong trường hợp Nhà cung cấp dịch vụ thanh toán điện tử giao thông không duy trì được dịch vụ thanh toán điện tử giao thông đường bộ, Bộ Giao thông vận tải quyết định việc sử dụng tài khoản giao thông để bảo đảm không gián đoạn hoạt động thanh toán điện tử giao thông đường bộ trên cơ sở đồng ý của chủ tài khoản giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "12",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_84",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 13. Khoá tài khoản giao thông\n1. Khóa tài khoản giao thông theo đề nghị của chủ tài khoản giao thông\n1. a) Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện khóa tài khoản giao thông khi có đề nghị của chủ tài khoản giao thông hoặc người giám hộ, người đại diện hợp pháp của chủ tài khoản giao thông hoặc theo thỏa thuận trước bằng văn bản giữa chủ tài khoản giao thông với Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ, trừ trường hợp quy định tại điểm b khoản này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "13",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_85",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 13. Khoá tài khoản giao thông\n1. Khóa tài khoản giao thông theo đề nghị của chủ tài khoản giao thông\nb) Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ từ chối yêu cầu khóa tài khoản giao thông khi chủ tài khoản giao thông chưa thanh toán xong khoản nợ phải trả cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ hoặc Nhà cung cấp dịch vụ thanh toán giao thông đường bộ. Thông tin khoản nợ phải trả cho Nhà cung cấp dịch vụ thanh toán giao thông đường bộ được đồng bộ từ Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "13",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_86",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 13. Khoá tài khoản giao thông\n1. Khóa tài khoản giao thông theo đề nghị của chủ tài khoản giao thông\nc) Thời gian khóa tài khoản giao thông thực hiện theo yêu cầu của chủ tài khoản giao thông hoặc người giám hộ, người đại diện hợp pháp của chủ tài khoản giao thông hoặc theo văn bản thỏa thuận giữa chủ tại khoản giao thông với Nhà cung cấp dịch vụ thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "1",
+        "dieu": "13",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_87",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 13. Khoá tài khoản giao thông\n2. Khóa tài khoản giao thông theo yêu cầu bằng văn bản của cơ quan có thẩm quyền theo quy định của pháp luật\n2. a) Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện khóa tài khoản giao thông theo yêu cầu bằng văn bản của cơ quan có thẩm quyền theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "13",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_88",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 13. Khoá tài khoản giao thông\n2. Khóa tài khoản giao thông theo yêu cầu bằng văn bản của cơ quan có thẩm quyền theo quy định của pháp luật\nb) Ngay sau khi thực hiện khóa tài khoản giao thông, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ phải thông báo cho chủ tài khoản giao thông hoặc người giám hộ, người đại diện theo pháp luật của chủ tài khoản giao thông biết về lý do khóa tài khoản giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "13",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_89",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 13. Khoá tài khoản giao thông\n2. Khóa tài khoản giao thông theo yêu cầu bằng văn bản của cơ quan có thẩm quyền theo quy định của pháp luật\nc) Thời gian khóa tài khoản giao thông thực hiện theo yêu cầu của cơ quan có thẩm quyền trong văn bản yêu cầu khóa tài khoản giao thông hoặc trong văn bản yêu cầu chấm dứt khóa tài khoản giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "2",
+        "dieu": "13",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_90",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 14. Đóng tài khoản giao thông\n1. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện đóng tài khoản giao thông trong các trường hợp sau:\n1. a) Có đề nghị đóng tài khoản giao thông của chủ tài khoản giao thông hoặc người giám hộ, người đại diện theo pháp luật của chủ tài khoản giao thông và chủ tài khoản giao thông đã thực hiện đầy đủ các nghĩa vụ liên quan đến tài khoản giao thông;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "14",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_91",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 14. Đóng tài khoản giao thông\n1. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện đóng tài khoản giao thông trong các trường hợp sau:\nb) Chủ tài khoản giao thông là cá nhân bị chết, bị tuyên bố là đã chết, bị mất tích; Chủ tài khoản giao thông là tổ chức bị chấm dứt hoạt động, phá sản, giải thể theo quy định của pháp luật;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "14",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_92",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 14. Đóng tài khoản giao thông\n1. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện đóng tài khoản giao thông trong các trường hợp sau:\nc) Các trường hợp đóng tài khoản giao thông theo thỏa thuận giữa Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và chủ tài khoản giao thông;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "1",
+        "dieu": "14",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_93",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 14. Đóng tài khoản giao thông\n1. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện đóng tài khoản giao thông trong các trường hợp sau:\nd) Chủ tài khoản giao thông thực hiện một trong các hành vi không được thực hiện quy định tại Điều 5 của Nghị định này hoặc vi phạm thỏa thuận mở và sử dụng tài khoản giao thông với Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "d",
+        "khoan": "1",
+        "dieu": "14",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_94",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 14. Đóng tài khoản giao thông\n1. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện đóng tài khoản giao thông trong các trường hợp sau:\nđ) Các trường hợp khác theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "đ",
+        "khoan": "1",
+        "dieu": "14",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_95",
+    "text": "Chương III MỞ VÀ SỬ DỤNG TÀI KHOẢN GIAO THÔNG\nĐiều 14. Đóng tài khoản giao thông\n2. Sau khi đóng tài khoản giao thông, chủ tài khoản giao thông muốn sử dụng tài khoản giao thông phải làm thủ tục mở tài khoản giao thông theo quy định tại Điều 11 của Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "14",
+        "chuong": "III"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_96",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n1. Hình thức vận hành hệ thống thiết bị lắp đặt tại trạm thu phí đường bộ theo hình thức điện tử không dừng\n1. a) Hình thức đơn làn có barrier\nTheo hình thức này, barrier tại trạm thu phí đường bộ sẽ mở cho phương tiện đi qua khi phương tiện có gắn thẻ đầu cuối hợp lệ và thực hiện thành công thanh toán tiền sử dụng đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_97",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n1. Hình thức vận hành hệ thống thiết bị lắp đặt tại trạm thu phí đường bộ theo hình thức điện tử không dừng\nb) Hình thức đa làn tự do\nTheo hình thức này, tại khu vực trạm thu phí đường bộ chỉ còn duy trì giá long môn và các thiết bị thu phí gắn trên giá long môn. Hình thức này chỉ áp dụng tại đầu vào của đường cao tốc.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_98",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n2. Quá trình xử lý giao dịch thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n2. a) Khi phương tiện đi vào vùng nhận diện của hệ thống thiết bị lắp đặt tại trạm thu phí đường bộ, hệ thống thiết bị lắp đặt tại trạm thu phí đường bộ sẽ đọc thông tin, gửi thông tin giao dịch về Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ để thực hiện thanh toán tiền sử dụng đường bộ và gửi lại thông tin cho hệ thống thiết bị lắp đặt tại trạm thu phí đường bộ để kết thúc giao dịch phương tiện qua trạm thu phí đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_99",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n2. Quá trình xử lý giao dịch thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\nb) Nội dung trao đổi thông tin và quá trình xử lý giao dịch thanh toán tiền sử dụng đường bộ được thực hiện theo quy chuẩn, tiêu chuẩn kỹ thuật về trạm thu phí đường bộ và các quy chuẩn, tiêu chuẩn kỹ thuật khác có liên quan.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_100",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n2. Quá trình xử lý giao dịch thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\nc) Sau khi kết thúc giao dịch, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và đơn vị vận hành thu đồng bộ thông tin giao dịch thanh toán tiền sử dụng đường bộ về Hệ thống cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "2",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_101",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n3. Phương thức thanh toán tiền sử dụng đường bộ\n3. a) Phương thức mở là phương thức thanh toán mà chủ phương tiện phải trả một mức tiền tại trạm thu phí đường bộ không phụ thuộc vào chiều dài quãng đường phương tiện đã đi được trên đoạn đường thanh toán tiền sử dụng đường bộ mà chỉ phụ thuộc vào kiểu loại phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "3",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_102",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n3. Phương thức thanh toán tiền sử dụng đường bộ\nb) Phương thức kín là phương thức thanh toán mà chủ phương tiện phải trả một mức tiền tại trạm thu phí đường bộ dựa vào chiều dài quãng đường phương tiện đã đi được trên đoạn đường thanh toán tiền sử dụng đường bộ và kiểu loại phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "3",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_103",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n4. Các tuyến, đoạn tuyến đường cao tốc; các tuyến, đoạn tuyến đường cao tốc nối tiếp nhau được tổ chức thu thành một hệ thống thu thực hiện theo phương thức kín theo hình thức điện tử không dừng.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_104",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n5. Các trạm thu phí đường bộ không nằm trên đường cao tốc phải triển khai thu tiền sử dụng đường bộ theo hình thức điện tử không dừng và duy trì mỗi trạm thu phí đường bộ có 01 làn thu phí hỗn hợp hoặc 01 làn xử lý sự cố (làn thu phí áp dụng cả hình thức điện tử không dừng và một dừng) trên mỗi chiều lưu thông theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_105",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 15. Thanh toán tiền sử dụng đường bộ theo hình thức điện tử không dừng\n6. Việc thiết kế, đầu tư, xây dựng, cải tạo, nâng cấp trạm thu phí đường bộ, hình thức vận hành hệ thống thiết bị lắp đặt tại trạm thu phí đường bộ và phương thức thu tiền sử dụng đường bộ được cấp có thẩm quyền quyết định trong Báo cáo nghiên cứu khả thi của dự án đầu tư kết cấu hạ tầng đường bộ hoặc trong Đề án khai thác tài sản kết cấu hạ tầng đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "15",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_106",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 16. Đối soát doanh thu thu tiền sử dụng đường bộ\n1. Đối soát doanh thu thu tiền sử dụng đường bộ được thực hiện theo các nguyên tắc sau:\n1. a) Hằng ngày, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện đối soát doanh thu thu tiền sử dụng đường bộ theo khung thời gian từ 00h00 đến 24h00 (thời điểm chốt số liệu) với đơn vị vận hành thu để làm cơ sở cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ hoàn trả doanh thu thu tiền sử dụng đường bộ cho đơn vị quản lý thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "16",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_107",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 16. Đối soát doanh thu thu tiền sử dụng đường bộ\n1. Đối soát doanh thu thu tiền sử dụng đường bộ được thực hiện theo các nguyên tắc sau:\nb) Hằng tháng, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và Đơn vị quản lý thu thực hiện đối soát và chốt công nợ trước ngày 05 của tháng liền kề hoặc thời điểm khác do các bên thỏa thuận.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "16",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_108",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 16. Đối soát doanh thu thu tiền sử dụng đường bộ\n1. Đối soát doanh thu thu tiền sử dụng đường bộ được thực hiện theo các nguyên tắc sau:\nc) Trong thời hạn 30 ngày kể từ ngày kết thúc mỗi năm tài chính, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và Đơn vị quản lý thu thực hiện chốt công nợ và quyết toán cho năm liền trước đó.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "1",
+        "dieu": "16",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_109",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 16. Đối soát doanh thu thu tiền sử dụng đường bộ\n2. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ xây dựng quy trình nghiệp vụ quy định thời gian bù trừ, thanh toán, việc tra soát, đối chiếu dữ liệu, bảo đảm thực hiện quyết toán kịp thời, đầy đủ, chính xác cho các bên có liên quan.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "16",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_110",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 16. Đối soát doanh thu thu tiền sử dụng đường bộ\n3. Đơn vị quản lý thu, đơn vị vận hành thu và Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ có trách nhiệm phối hợp để thực hiện quy trình đối soát và khắc phục, điều chỉnh các lỗi, sai số phát hiện được thông qua quá trình đối soát.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "16",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_111",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 16. Đối soát doanh thu thu tiền sử dụng đường bộ\n4. Sau khi đối soát doanh thu thu tiền sử dụng đường bộ, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ đồng bộ thông tin giao dịch thanh toán tiền sử dụng đường bộ có thay đổi về Hệ thống cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "16",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_112",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 17. Hoàn trả doanh thu thu tiền sử dụng đường bộ\n1. Trên cơ sở số liệu đã thống nhất sau khi thực hiện đối soát doanh thu thu tiền sử dụng đường bộ hằng ngày, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ chuyển toàn bộ số tiền thu tiền sử dụng đường bộ (bao gồm cả thuế giá trị gia tăng) theo đối soát tại mỗi trạm thu phí đường bộ theo hình thức điện tử không dừng cho Đơn vị quản lý thu sau khi trừ đi chi phí tổ chức, quản lý, giám sát thu tiền sử dụng đường bộ. Thời gian chuyển trả theo quy định tại hợp đồng dịch vụ thu giữa Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và đơn vị quản lý thu nhưng không vượt quá 48 giờ kể từ thời điểm chốt số liệu. Trường hợp vào các ngày lễ, ngày nghỉ mà hệ thống ngân hàng nghỉ làm việc không thực hiện được việc chuyển tiền qua hệ thống ngân hàng thì sẽ chuyển vào ngày làm việc kế tiếp, trừ trường hợp các bên có thỏa thuận khác.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "17",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_113",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 17. Hoàn trả doanh thu thu tiền sử dụng đường bộ\n2. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ có trách nhiệm xây dựng quy trình thực hiện giao dịch thu tiền sử dụng đường bộ theo hình thức điện tử không dừng; kê khai và nộp các loại thuế trên phần chi phí tổ chức, quản lý, giám sát thu tiền sử dụng đường bộ được hưởng theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "17",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_114",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 18. Xử lý các trường hợp miễn thu, thu theo tháng, theo quý, theo năm\n1. Các phương tiện được miễn thu tiền sử dụng đường bộ theo quy định của pháp luật được gắn thẻ đầu cuối và mở tài khoản giao thông với thông tin xe ưu tiên, khi lưu thông qua làn thu phí điện tử không dừng sẽ được nhận diện tự động và cho phép lưu thông qua trạm thu phí đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "18",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_115",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 18. Xử lý các trường hợp miễn thu, thu theo tháng, theo quý, theo năm\n2. Thu theo tháng, theo quý, theo năm\n2. a) Trường hợp chủ phương tiện có nhu cầu thanh toán tiền sử dụng đường bộ theo tháng, theo quý hoặc theo năm cho một hoặc một số trạm thu phí đường bộ theo hình thức điện tử không dừng cụ thể, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện trừ tiền trong phương tiện thanh toán của chủ phương tiện tại thời điểm đăng ký thanh toán theo tháng, quý, năm.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "18",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_116",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 18. Xử lý các trường hợp miễn thu, thu theo tháng, theo quý, theo năm\n2. Thu theo tháng, theo quý, theo năm\nb) Phương tiện đã đăng ký thanh toán tiền sử dụng đường bộ theo tháng, quý, năm đi qua trạm thu phí đường bộ đã đăng ký, Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ không trừ tiền trong phương tiện thanh toán của chủ phương tiện. Ngoài việc trả theo tháng, quý, năm cho trạm thu phí đường bộ cụ thể được đăng ký, chủ phương tiện phải thực hiện các hình thức thanh toán theo quy định để đi qua các trạm thu phí đường bộ theo hình thức điện tử không dừng khác trong trường hợp có nhu cầu sử dụng.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "18",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_117",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 19. Chi phí tổ chức, quản lý, giám sát thu tiền sử dụng đường bộ\n1. Chi phí tổ chức, quản lý, giám sát thu tiền sử dụng đường bộ bao gồm chi phí cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và chi phí quản lý, vận hành, khai thác Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "19",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_118",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 1. THANH TOÁN TIỀN SỬ DỤNG ĐƯỜNG BỘ\nĐiều 19. Chi phí tổ chức, quản lý, giám sát thu tiền sử dụng đường bộ\n2. Chi phí cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ được xác định trong hợp đồng dịch vụ thu giữa Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ và đơn vị quản lý thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "19",
+        "muc": "1",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_119",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n1. Đơn vị quản lý thu sử dụng hình thức đơn làn có barrier hoặc sử dụng hệ thống thiết bị di động để đọc thông tin thẻ đầu cuối để thanh toán các loại phí, giá, tiền dịch vụ khác phải thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_120",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n2. Quá trình xử lý giao dịch thanh toán\n2. a) Trường hợp Nhà cung cấp dịch vụ thanh toán giao thông đường bộ xác định chi phí\nKhi phương tiện đi vào vùng nhận diện của hệ thống thiết bị lắp đặt tại điểm thu, hệ thống thiết bị lắp đặt tại điểm thu sẽ đọc thông tin, gửi thông tin giao dịch về Hệ thống điều hành và trung tâm dữ liệu của Nhà cung cấp dịch vụ thanh toán giao thông đường bộ để thực hiện thanh toán điện tử giao thông đường bộ và gửi lại thông tin cho hệ thống thiết bị lắp đặt tại điểm thu để kết thúc giao dịch phương tiện qua điểm thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_121",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n2. Quá trình xử lý giao dịch thanh toán\nb) Trường hợp hệ thống thiết bị lắp đặt tại điểm thu xác định chi phí\nKhi phương tiện đi vào vùng nhận diện của hệ thống thiết bị lắp đặt tại điểm thu, hệ thống thiết bị lắp đặt tại điểm thu sẽ đọc thông tin để tính phí, giá, tiền dịch vụ khác phải thu và gửi thông tin giao dịch cho hệ thống của Nhà cung cấp dịch vụ thanh toán giao thông đường bộ để thực hiện thanh toán điện tử giao thông đường bộ; Nhà cung cấp dịch vụ thanh toán giao thông đường bộ gửi lại thông tin giao dịch sau khi xử lý cho hệ thống thiết bị lắp đặt tại điểm thu để kết thúc giao dịch phương tiện qua điểm thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_122",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n2. Quá trình xử lý giao dịch thanh toán\nc) Nội dung trao đổi thông tin và quá trình xử lý giao dịch thanh toán điện tử giao thông đường bộ được thực hiện theo quy chuẩn, tiêu chuẩn kỹ thuật về điểm thu và các quy chuẩn, tiêu chuẩn kỹ thuật khác có liên quan.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "2",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_123",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n2. Quá trình xử lý giao dịch thanh toán\nd) Sau khi kết thúc giao dịch, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và đơn vị vận hành thu đồng bộ thông tin giao dịch thanh toán điện tử giao thông đường bộ về Hệ thống cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "d",
+        "khoan": "2",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_124",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n2. Quá trình xử lý giao dịch thanh toán\nđ) Đơn vị quản lý thu quyết định việc xử lý thanh toán theo quy định tại điểm a hoặc điểm b khoản 2 Điều này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "đ",
+        "khoan": "2",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_125",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 20. Thanh toán các loại phí, giá, tiền dịch vụ khác\n3. Đơn vị quản lý thu quyết định phương thức thanh toán phù hợp với dịch vụ phải thu phí, giá, tiền dịch vụ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "20",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_126",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 21. Đối soát doanh thu dịch vụ\n1. Đối soát doanh thu dịch vụ được thực hiện theo các nguyên tắc sau:\n1. a) Hằng ngày, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ thực hiện đối soát doanh thu dịch vụ theo khung thời gian từ 00h00 đến 24h00 (thời điểm chốt số liệu bù trừ) với hệ thống thiết bị lắp đặt tại điểm thu để làm cơ sở cho Nhà cung cấp dịch vụ thanh toán giao thông đường bộ hoàn trả doanh thu dịch vụ cho đơn vị quản lý thu;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "21",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_127",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 21. Đối soát doanh thu dịch vụ\n1. Đối soát doanh thu dịch vụ được thực hiện theo các nguyên tắc sau:\nb) Hằng tháng, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và Đơn vị quản lý thu thực hiện đối soát và chốt công nợ trước ngày 05 của tháng liền kề hoặc thời điểm khác do các bên thỏa thuận;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "21",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_128",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 21. Đối soát doanh thu dịch vụ\n1. Đối soát doanh thu dịch vụ được thực hiện theo các nguyên tắc sau:\nc) Trong thời hạn 30 ngày kể từ ngày kết thúc mỗi năm tài chính, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và Đơn vị quản lý thu thực hiện chốt công nợ và quyết toán cho năm liền trước đó.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "1",
+        "dieu": "21",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_129",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 21. Đối soát doanh thu dịch vụ\n2. Nhà cung cấp dịch vụ thanh toán giao thông đường bộ xây dựng quy trình nghiệp vụ quy định thời gian bù trừ, thanh toán, việc tra soát, đối chiếu dữ liệu, bảo đảm thực hiện quyết toán kịp thời, đầy đủ, chính xác cho các bên có liên quan.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "21",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_130",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 21. Đối soát doanh thu dịch vụ\n3. Đơn vị quản lý thu, đơn vị vận hành thu và Nhà cung cấp dịch vụ thanh toán giao thông đường bộ có trách nhiệm phối hợp để thực hiện quy trình đối soát và khắc phục, điều chỉnh các lỗi, sai số phát hiện được thông qua quá trình đối soát.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "21",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_131",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 21. Đối soát doanh thu dịch vụ\n4. Sau khi đối soát doanh thu dịch vụ, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ đồng bộ thông tin giao dịch thanh toán điện tử giao thông đường bộ có thay đổi về Hệ thống cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "21",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_132",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 22. Hoàn trả doanh thu dịch vụ\n1. Trên cơ sở số liệu đã thống nhất sau khi thực hiện đối soát doanh thu dịch vụ hằng ngày, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ chuyển toàn bộ số tiền tương ứng với doanh thu dịch vụ thu được theo đối soát (bao gồm cả thuế giá trị gia tăng) tại mỗi điểm thu cho Đơn vị quản lý thu sau khi trừ đi chi phí tổ chức, quản lý, giám sát thu phí, giá, tiền dịch vụ khác theo quy định. Thời gian chuyển trả theo quy định tại hợp đồng dịch vụ thu giữa Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và đơn vị quản lý thu nhưng không vượt quá 48 giờ kể từ thời điểm chốt số liệu. Trường hợp vào các ngày lễ, ngày nghỉ mà hệ thống ngân hàng nghỉ làm việc không thực hiện được việc chuyển tiền qua hệ thống ngân hàng thì sẽ chuyển vào ngày làm việc kế tiếp, trừ trường hợp các bên có thỏa thuận khác.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "22",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_133",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 22. Hoàn trả doanh thu dịch vụ\n2. Nhà cung cấp dịch vụ thanh toán giao thông đường bộ có trách nhiệm xây dựng quy trình thực hiện giao dịch thu phí, giá, tiền dịch vụ khác; kê khai và nộp các loại thuế trên phần chi phí tổ chức, quản lý, giám sát thu phí, giá, tiền dịch vụ khác được hưởng theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "22",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_134",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 23. Xử lý các trường hợp miễn thu, thu theo tháng, theo quý, theo năm\n1. Các phương tiện được miễn thanh toán các loại phí, giá, tiền dịch vụ khác theo quy định của pháp luật hoặc của đơn vị quản lý thu có gắn thẻ đầu cuối, khi lưu thông qua điểm thu sẽ được nhận diện tự động và cho phép lưu thông qua điểm thu hoặc được xác nhận miễn thanh toán.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "23",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_135",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 23. Xử lý các trường hợp miễn thu, thu theo tháng, theo quý, theo năm\n2. Thu theo tháng, theo quý, theo năm\n2. a) Trường hợp chủ phương tiện có nhu cầu thanh toán các loại phí, giá, tiền dịch vụ khác theo tháng, theo quý hoặc theo năm cho một hoặc một số điểm thu cụ thể, Nhà cung cấp dịch vụ thanh toán giao thông đường bộ thực hiện trừ tiền trong phương tiện thanh toán của chủ phương tiện tại thời điểm đăng ký thanh toán theo tháng, quý, năm.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "2",
+        "dieu": "23",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_136",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 23. Xử lý các trường hợp miễn thu, thu theo tháng, theo quý, theo năm\n2. Thu theo tháng, theo quý, theo năm\nb) Phương tiện đã đăng ký thanh toán các loại phí, giá, tiền dịch vụ khác theo tháng, quý, năm đi qua điểm thu đã đăng ký, hệ thống thiết bị lắp đặt tại điểm thu không trừ tiền trong phương tiện thanh toán của chủ phương tiện. Ngoài việc trả theo tháng, quý, năm cho trạm điểm thu cụ thể được đăng ký, chủ phương tiện phải thực hiện các hình thức thanh toán theo quy định để thanh toán các loại phí, giá, tiền dịch vụ tại các điểm thu khác trong trường hợp có nhu cầu sử dụng.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "2",
+        "dieu": "23",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_137",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 24. Chi phí tổ chức, quản lý, giám sát thu phí, giá, tiền dịch vụ khác\n1. Chi phí tổ chức, quản lý, giám sát thu phí, giá, tiền dịch vụ khác bao gồm chi phí cho Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và chi phí quản lý, vận hành, khai thác Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "24",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_138",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 2. THANH TOÁN CÁC LOẠI PHÍ, GIÁ, TIỀN DỊCH VỤ KHÁC\nĐiều 24. Chi phí tổ chức, quản lý, giám sát thu phí, giá, tiền dịch vụ khác\n2. Chi phí cho Nhà cung cấp dịch vụ thanh toán giao thông đường bộ được xác định trong hợp đồng dịch vụ thu giữa Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và đơn vị quản lý thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "24",
+        "muc": "2",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_139",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 25. Quyền về thông tin, báo cáo\n1. Cơ quan có thẩm quyền, đơn vị quản lý Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ, đơn vị quản lý thu có quyền yêu cầu các Nhà cung cấp dịch vụ thanh toán điện tử giao thông cung cấp thông tin giao dịch thanh toán điện tử giao thông đường bộ có liên quan theo định kỳ và đột xuất.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "25",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_140",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 25. Quyền về thông tin, báo cáo\n2. Nhà cung cấp dịch vụ thanh toán điện tử giao thông, đơn vị quản lý thu có quyền yêu cầu chủ phương tiện cung cấp thông tin tài khoản giao thông hoặc thông tin giao dịch thanh toán điện tử giao thông đường bộ có liên quan khi sử dụng dịch vụ của mình trên nguyên tắc tuân thủ khoản 3 Điều 4 Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "25",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_141",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 26. Nghĩa vụ về thông tin, báo cáo\n1. Nhà cung cấp dịch vụ thanh toán điện tử giao thông có nghĩa vụ báo cáo và cung cấp thông tin cho các cơ quan có thẩm quyền theo quy định tại khoản 1 Điều 25 Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "26",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_142",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 26. Nghĩa vụ về thông tin, báo cáo\n2. Nhà cung cấp dịch vụ thanh toán điện tử giao thông có nghĩa vụ cung cấp thông tin về giao dịch qua tài khoản giao thông cho chủ phương tiện mở tài khoản giao thông theo thỏa thuận.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "26",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_143",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 27. Bảo mật và an toàn thông tin mạng\n1. Quyền từ chối cung cấp thông tin\nĐơn vị vận hành Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ, Nhà cung cấp dịch vụ thanh toán điện tử giao thông, đơn vị vận hành thu có quyền từ chối yêu cầu của tổ chức, cá nhân về việc cung cấp thông tin về chủ phương tiện, giao dịch và của chủ phương tiện, trừ trường hợp theo yêu cầu của cơ quan nhà nước có thẩm quyền theo quy định của pháp luật hoặc được sự chấp thuận của chủ tài khoản giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "27",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_144",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 27. Bảo mật và an toàn thông tin mạng\n2. Nghĩa vụ bảo mật thông tin\nĐơn vị vận hành Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ, Nhà cung cấp dịch vụ thanh toán điện tử giao thông, đơn vị vận hành thu có trách nhiệm giữ bí mật các thông tin liên quan đến chủ phương tiện, giao dịch của chủ phương tiện, trừ trường hợp pháp luật có quy định khác.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "27",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_145",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 27. Bảo mật và an toàn thông tin mạng\n3. An toàn thông tin mạng\nĐơn vị quản lý Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ, Nhà cung cấp dịch vụ thanh toán điện tử giao thông, đơn vị quản lý thu có trách nhiệm bảo vệ hệ thống thông tin của hệ thống thuộc trách nhiệm quản lý theo quy định của pháp luật về an toàn thông tin mạng và giao dịch điện tử.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "27",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_146",
+    "text": "Chương IV THANH TOÁN ĐIỆN TỬ GIAO THÔNG ĐƯỜNG BỘ\nMục 3. THÔNG TIN, BÁO CÁO VÀ BẢO MẬT, AN TOÀN THÔNG TIN\nĐiều 28. Bảo đảm an toàn trong thanh toán\nNhà cung cấp dịch vụ thanh toán điện tử giao thông, đơn vị vận hành thu phải áp dụng các biện pháp bảo đảm an toàn trong thanh toán theo quy định của pháp luật. Chủ phương tiện có nghĩa vụ tuân thủ các biện pháp bảo đảm an toàn trong thanh toán theo quy định và hướng dẫn của Nhà cung cấp dịch vụ thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "dieu": "28",
+        "muc": "3",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_147",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 29. Trách nhiệm của Bộ Giao thông vận tải\n1. Tổ chức thực hiện, kiểm tra, giám sát hoạt động thanh toán điện tử giao thông đường bộ, bảo đảm chính xác, khách quan, minh bạch.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "29",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_148",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 29. Trách nhiệm của Bộ Giao thông vận tải\n2. Quản lý, kiểm soát hoạt động của Hệ thống thanh toán điện tử giao thông theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "29",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_149",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 29. Trách nhiệm của Bộ Giao thông vận tải\n3. Đầu tư, tổ chức quản lý, vận hành, khai thác Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "29",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_150",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 29. Trách nhiệm của Bộ Giao thông vận tải\n4. Thực hiện nhiệm vụ cơ quan có thẩm quyền đối với các dự án có thu tiền sử dụng đường bộ theo quy định; thanh toán điện tử các loại phí, giá, dịch vụ thuộc phạm vi quản lý liên quan đến hoạt động giao thông của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "29",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_151",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 29. Trách nhiệm của Bộ Giao thông vận tải\n5. Xử lý hoặc kiến nghị xử lý các nội dung phát sinh theo thẩm quyền.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "29",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_152",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 29. Trách nhiệm của Bộ Giao thông vận tải\n6. Phối hợp với Bộ Công an kết nối, chia sẻ giữa Cơ sở dữ liệu về trật tự, an toàn giao thông đường bộ và các cấu thành Hệ thống thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "29",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_153",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n1. Bộ Công an, Bộ Quốc phòng\nChỉ đạo các cơ quan chức năng thuộc Bộ Công an, Bộ Quốc phòng phối hợp với Bộ Giao thông vận tải và Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện việc gắn thẻ đầu cuối cho các phương tiện phục vụ mục đích quốc phòng, an ninh tham gia giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_154",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n2. Bộ Tài chính\nChủ trì, phối hợp với Bộ Giao thông vận tải quản lý hướng dẫn Nhà cung cấp dịch vụ thanh toán điện tử giao thông, đơn vị quản lý thu sử dụng hoá đơn điện tử theo quy định của pháp luật về hoá đơn trong hoạt động thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_155",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n3. Bộ Thông tin và Truyền thông\n3. a) Cấp giấy phép sử dụng tần số vô tuyến điện và xử lý nhiễu có hại (nếu có) cho thiết bị vô tuyến điện thuộc Hệ thống thanh toán điện tử giao thông theo quy định của pháp luật về tần số vô tuyến điện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "3",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_156",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n3. Bộ Thông tin và Truyền thông\nb) Hướng dẫn, hỗ trợ các đơn vị có liên quan trong việc bảo đảm an toàn thông tin, cho các cấu thành Hệ thống thanh toán điện tử giao thông theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "3",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_157",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n3. Bộ Thông tin và Truyền thông\nc) Kiểm tra, giám sát các đơn vị có liên quan thực hiện các quy định của pháp luật trong lĩnh vực công nghệ thông tin có liên quan đến hoạt động thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "c",
+        "khoan": "3",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_158",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n3. Bộ Thông tin và Truyền thông\nd) Chỉ đạo các cơ quan thông tấn, báo chí, hệ thống thông tin cơ sở đẩy mạnh công tác tuyên truyền, phổ biến lợi ích cũng như các quy định của pháp luật về thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "d",
+        "khoan": "3",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_159",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n4. Các bộ, ngành khác\nThực hiện nhiệm vụ theo chức năng, thẩm quyền trong việc thanh toán điện tử các loại phí, giá, dịch vụ liên quan đến hoạt động giao thông của phương tiện do bộ, ngành quản lý.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_160",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 30. Trách nhiệm của các bộ, ngành, địa phương có liên quan\n5. Ủy ban nhân dân cấp tỉnh\nThực hiện nhiệm vụ cơ quan có thẩm quyền đối với các dự án có thu tiền sử dụng đường bộ theo quy định; thanh toán điện tử các loại phí, giá, dịch vụ thuộc phạm vi quản lý liên quan đến hoạt động giao thông của phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "30",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_161",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n1. Thực hiện gắn thẻ đầu cuối cho phương tiện tại lần kiểm định gần nhất hoặc trước khi đến hạn kiểm định hoặc khi qua trạm thu phí đường bộ lần đầu hoặc ngay khi thẻ đầu cuối bị mất, hỏng do lỗi của chủ phương tiện hoặc sau khi hết hạn bảo hành. Chi trả tiền gắn thẻ đầu cuối cho Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_162",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n2. Cung cấp thông tin để mở tài khoản giao thông, khai báo và sửa đổi thông tin tài khoản giao thông khi có thay đổi; cung cấp các thông tin cần thiết để Nhà cung cấp dịch vụ thanh toán điện tử giao thông giao hoàn trả tiền vào phương tiện thanh toán liên kết với tài khoản giao thông của chủ phương tiện khi cần thiết.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_163",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n3. Thực hiện dịch vụ thanh toán điện tử giao thông đường bộ theo đúng hướng dẫn của Nhà cung cấp dịch vụ thanh toán điện tử giao thông.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_164",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n4. Phối hợp với Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ thực hiện việc chuyển đổi tài khoản thu phí đã có theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ sang tài khoản giao thông và thực hiện kết nối phương tiện thanh toán không dùng tiền mặt với tài khoản giao thông trước ngày 01 tháng 10 năm 2025.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_165",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n5. Đọc, hiểu quyền, nghĩa vụ của chủ phương tiện và đồng ý tuân thủ các quy định về bảo mật dữ liệu cá nhân khi cung cấp, cho phép chia sẻ thông tin dữ liệu cá nhân chủ phương tiện, các Nhà cung cấp dịch vụ thanh toán điện tử giao thông, các đơn vị quản lý thu và đơn vị vận hành thu nhằm định danh, xác thực, xử lý và lưu trữ dữ liệu trong quá trình cung cấp dịch vụ thanh toán điện tử giao thông đường bộ cho phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_166",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n6. Quyết định việc sử dụng thông tin tài khoản giao thông để thực hiện thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_167",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n7. Thanh toán các loại phí, giá, dịch vụ liên quan đến hoạt động giao thông của phương tiện theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_168",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 31. Quyền và nghĩa vụ của chủ phương tiện\n8. Chấp hành các hướng dẫn về giao thông khi lưu thông qua điểm thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "8",
+        "dieu": "31",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_169",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n1. Hướng dẫn sử dụng, bảo hành thẻ đầu cuối gắn cho chủ phương tiện trong trường hợp Nhà cung cấp dịch vụ thanh toán điện tử giao thông là nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_170",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n2. Hướng dẫn chủ phương tiện cách thức sử dụng dịch vụ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_171",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n3. Tổ chức tiếp nhận, xử lý thông tin tra soát, khiếu nại của chủ phương tiện\n3. a) Áp dụng tối thiểu hai hình thức tiếp nhận thông tin tra soát, khiếu nại bao gồm qua tổng đài điện thoại (có ghi âm, hoạt động 24/24 giờ trong ngày và 7/7 ngày trong tuần) và qua trụ sở/chi nhánh của Nhà cung cấp dịch vụ thanh toán điện tử giao thông; bảo đảm xác thực những thông tin cơ bản mà chủ phương tiện đã cung cấp cho Nhà cung cấp dịch vụ thanh toán điện tử giao thông;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "3",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_172",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n3. Tổ chức tiếp nhận, xử lý thông tin tra soát, khiếu nại của chủ phương tiện\nb) Thời hạn xử lý đề nghị tra soát, khiếu nại không quá 45 ngày làm việc kể từ ngày tiếp nhận đề nghị tra soát, khiếu nại lần đầu của chủ phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "3",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_173",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n4. Xử lý kết quả tra soát, khiếu nại\n4. a) Trong thời hạn tối đa 05 ngày làm việc kể từ ngày thông báo kết quả tra soát, khiếu nại cho chủ phương tiện, Nhà cung cấp dịch vụ thanh toán điện tử giao thông thực hiện bồi hoàn tổn thất cho khách hàng theo thỏa thuận và quy định của pháp luật hiện hành đối với những tổn thất phát sinh không do lỗi của chủ phương tiện và/hoặc không thuộc các trường hợp bất khả kháng theo thỏa thuận về điều khoản và điều kiện sử dụng dịch vụ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "4",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_174",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n4. Xử lý kết quả tra soát, khiếu nại\nb) Trong trường hợp hết thời hạn xử lý tra soát, khiếu nại được quy định tại điểm b khoản 3 Điều này mà vẫn chưa xác định được nguyên nhân hay lỗi thuộc bên nào thì trong vòng 15 ngày làm việc tiếp theo, Nhà cung cấp dịch vụ thanh toán điện tử giao thông thỏa thuận với chủ phương tiện về phương án xử lý hoặc tạm thời bồi hoàn tổn thất cho chủ phương tiện cho đến khi có kết luận cuối cùng của cơ quan có thẩm quyền phân định rõ lỗi và trách nhiệm của các bên.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "4",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_175",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n5. Trường hợp vụ việc có dấu hiệu tội phạm, Nhà cung cấp dịch vụ thanh toán điện tử giao thông thực hiện thông báo cho cơ quan nhà nước có thẩm quyền theo quy định của pháp luật về tố tụng hình sự và báo cáo Cục Đường bộ Việt Nam; đồng thời, thông báo bằng văn bản cho chủ phương tiện về tình trạng xử lý đề nghị tra soát, khiếu nại. Việc xử lý kết quả tra soát, khiếu nại thuộc trách nhiệm giải quyết của cơ quan nhà nước có thẩm quyền. Trong trường hợp cơ quan nhà nước có thẩm quyền thông báo kết quả giải quyết không có yếu tố tội phạm, trong vòng 15 ngày làm việc kể từ ngày có kết luận của cơ quan nhà nước có thẩm quyền, Nhà cung cấp dịch vụ thanh toán điện tử giao thông thỏa thuận với chủ phương tiện về phương án xử lý kết quả tra soát, khiếu nại.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_176",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n6. Trường hợp Nhà cung cấp dịch vụ thanh toán điện tử giao thông, chủ phương tiện và các bên liên quan không thỏa thuận được và/hoặc không đồng ý với quá trình xử lý đề nghị tra soát, khiếu nại thì việc giải quyết tranh chấp được thực hiện theo quy định của pháp luật.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_177",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n7. Hướng dẫn chủ phương tiện về việc thu thập, xử lý, sử dụng, lưu trữ thông tin dữ liệu cá nhân và yêu cầu chủ phương tiện xác nhận đồng ý trước khi chia sẻ một phần hoặc toàn bộ thông tin dữ liệu cá nhân với các bên liên quan phục vụ cho việc cung cấp dịch vụ thanh toán điện tử giao thông đường bộ cho phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_178",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n8. Lưu trữ các dữ liệu hoạt động về “Quyền được biết”, “Quyền đồng ý”, “Quyền truy cập”, “Quyền rút lại sự đồng ý”, “Quyền xóa” hoặc “Quyền hạn chế xử lý dữ liệu”, “Quyền cung cấp dữ liệu” của chủ phương tiện khi sử dụng dịch vụ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "8",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_179",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 32. Quyền và nghĩa vụ của Nhà cung cấp dịch vụ thanh toán điện tử giao thông đối với chủ phương tiện\n9. Thực hiện các biện pháp bảo vệ dữ liệu cá nhân theo tiêu chuẩn bảo vệ dữ liệu cá nhân và theo quy định của pháp luật về bảo vệ dữ liệu cá nhân; bảo vệ quyền và lợi ích hợp pháp của chủ phương tiện và của các Nhà cung cấp dịch vụ thanh toán điện tử giao thông trong quá trình xử lý dữ liệu cá nhân.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "9",
+        "dieu": "32",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_180",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n1. Đối với đơn vị quản lý thu\n1. a) Ký hợp đồng cung cấp dịch vụ thu với đơn vị quản lý thu; Thực hiện các quyền và nghĩa vụ theo hợp đồng ký kết;",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "a",
+        "khoan": "1",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_181",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n1. Đối với đơn vị quản lý thu\nb) Hoàn trả doanh thu theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "diem": "b",
+        "khoan": "1",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_182",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n2. Xây dựng, ban hành quy trình nghiệp vụ theo quy định tại các Điều 16, 17, 21, 22 Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_183",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n3. Đồng bộ thông tin tài khoản giao thông và thông tin giao dịch thanh toán điện tử giao thông đường bộ về Hệ thống cơ sở dữ liệu thanh toán điện tử giao thông đường bộ theo các quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_184",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n4. Thông báo cho cơ quan Cảnh sát giao thông khi phát hiện các trường hợp xe gắn biển số giả, biển số không do cơ quan có thẩm quyền cấp để kịp thời ngăn chặn, xử lý.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_185",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n5. Thực hiện chế độ báo cáo theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_186",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n6. Kê khai và nộp các loại thuế, phí, lệ phí theo quy định của pháp luật về thuế, phí và lệ phí.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_187",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n7. Mở tài khoản trên hệ thống ngân hàng thương mại để tiếp nhận tiền từ việc thực hiện thanh toán điện tử giao thông đường bộ của chủ phương tiện.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_188",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n8. Cung cấp hình ảnh, thông tin hành trình, lịch trình di chuyển của phương tiện khi có đề nghị của cơ quan có thẩm quyền.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "8",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_189",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 33. Quyền và nghĩa vụ khác của Nhà cung cấp dịch vụ thanh toán điện tử giao thông\n9. Các trách nhiệm khác theo hợp đồng với các đơn vị có liên quan, theo các quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "9",
+        "dieu": "33",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_190",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 34. Quyền và nghĩa vụ của đơn vị vận hành thu\n1. Thực hiện nhiệm vụ được đơn vị quản lý thu giao hoặc thực hiện theo hợp đồng dịch vụ thu ký kết với đơn vị quản lý thu. Phối hợp với các cơ quan chức năng của địa phương nơi đặt điểm thu để giữ gìn an ninh, trật tự trong quá trình thanh toán điện tử giao thông đường bộ, bảo đảm an toàn giao thông, tránh ùn tắc giao thông, bảo đảm không xảy ra các hiện tượng tiêu cực, cản trở, gây phiền hà trong hoạt động thanh toán điện tử giao thông đường bộ; xử lý kịp thời các hành vi vi phạm trong quá trình thanh toán.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "34",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_191",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 34. Quyền và nghĩa vụ của đơn vị vận hành thu\n2. Trong trường hợp hệ thống thiết bị lắp đặt tại điểm thu bị trục trặc, hư hỏng, đơn vị vận hành thu phải kịp thời có báo cáo cơ quan có thẩm quyền hoặc báo cáo đơn vị quản lý thu; đồng thời, khẩn trương khắc phục các sự cố của hệ thống. Thời gian khắc phục sự cố không quá 48 giờ, kể từ thời điểm hệ thống bị trục trặc, hư hỏng. Trong thời gian khắc phục sự cố, đơn vị vận hành thu phải thông báo công khai tại điểm thu và trên phương tiện truyền thông, thông tin đại chúng; có biện pháp bảo đảm thu nhanh gọn, an toàn, tránh ùn tắc giao thông và có biện pháp giám sát chống thất thoát doanh thu.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "34",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_192",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 34. Quyền và nghĩa vụ của đơn vị vận hành thu\n3. Thực hiện các quy trình nghiệp vụ do Nhà cung cấp dịch vụ thanh toán điện tử giao thông ban hành.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "34",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_193",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 34. Quyền và nghĩa vụ của đơn vị vận hành thu\n4. Đồng bộ thông tin giao dịch thanh toán điện tử giao thông đường bộ về Hệ thống cơ sở dữ liệu thanh toán điện tử giao thông đường bộ theo các quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "34",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_194",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 34. Quyền và nghĩa vụ của đơn vị vận hành thu\n5. Thực hiện các biện pháp bảo vệ dữ liệu cá nhân theo tiêu chuẩn bảo vệ dữ liệu cá nhân và theo quy định của pháp luật về bảo vệ dữ liệu cá nhân; bảo vệ quyền và lợi ích hợp pháp của chủ phương tiện và của đơn vị vận hành thu trong quá trình xử lý dữ liệu cá nhân.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "34",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_195",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 34. Quyền và nghĩa vụ của đơn vị vận hành thu\n6. Các trách nhiệm khác theo hợp đồng với các đơn vị có liên quan, theo các quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "34",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_196",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n1. Chủ trì xây dựng và phê duyệt quy trình thanh toán điện tử giao thông đường bộ phù hợp với hình thức và phương thức thanh toán điện tử tại điểm thu; quy định nội bộ về kiểm tra, xử lý vi phạm, xử lý sự cố trong quá trình thực hiện thanh toán điện tử giao thông đường bộ.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_197",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n2. Thực hiện hoặc ký hợp đồng giao đơn vị vận hành thu thực hiện việc thiết kế, đầu tư, xây dựng, cải tạo, quản lý, vận hành hệ thống thiết bị lắp đặt tại các điểm thu theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_198",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n3. Ký hợp đồng cung cấp dịch vụ thu với Nhà cung cấp dịch vụ thanh toán điện tử giao thông; thực hiện các quyền và nghĩa vụ theo hợp đồng ký kết.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_199",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n4. Thực hiện các quy trình nghiệp vụ do Nhà cung cấp dịch vụ thanh toán điện tử giao thông ban hành.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_200",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n5. Thực hiện chế độ báo cáo theo quy định.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_201",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n6. Kê khai và nộp các loại thuế, phí, lệ phí theo quy định của pháp luật về thuế, phí và lệ phí.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_202",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n7. Thực hiện các biện pháp bảo vệ dữ liệu cá nhân theo tiêu chuẩn bảo vệ dữ liệu cá nhân và theo quy định của pháp luật về bảo vệ dữ liệu cá nhân; bảo vệ quyền và lợi ích hợp pháp của chủ phương tiện và của các đơn vị quản lý thu trong quá trình xử lý dữ liệu cá nhân.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_203",
+    "text": "Chương V TRÁCH NHIỆM CỦA CÁC ĐƠN VỊ TRONG THANH TOÁN\nĐiều 35. Quyền và nghĩa vụ của đơn vị quản lý thu\n8. Các trách nhiệm khác theo hợp đồng với các đơn vị có liên quan, theo các quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "8",
+        "dieu": "35",
+        "chuong": "V"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_204",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n1. Việc thu phí dịch vụ sử dụng đường bộ theo hình thức điện tử không dừng đã được thực hiện theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ tiếp tục được thực hiện đến ngày 01 tháng 7 năm 2026.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_205",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n2. Nhà cung cấp dịch vụ thu phí dịch vụ sử dụng đường bộ được quy định theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ là Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ được quy định tại Nghị định này.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_206",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n3. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ tiếp tục thu tiền sử dụng đường bộ theo các quy định về thu phí dịch vụ sử dụng đường bộ theo hình thức điện tử không dừng tại Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ đến ngày 01 tháng 7 năm 2026.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "3",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_207",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n4. Nhà cung cấp dịch vụ thanh toán giao thông đường bộ và Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ kết nối hệ thống điều hành và trung tâm dữ liệu để kết nối, chia sẻ thông tin tài khoản giao thông đến ngày 01 tháng 7 năm 2026. Chi phí kết nối theo thỏa thuận giữa các bên với nhau.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "4",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_208",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n5. Các cơ quan, đơn vị liên quan điều chỉnh hợp đồng dự án và các nội dung liên quan đã thực hiện theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ để phù hợp với Nghị định này. Việc bổ sung dịch vụ thanh toán điện tử giao thông đường bộ vào hợp đồng ký giữa Nhà cung cấp dịch vụ thu phí dịch vụ sử dụng đường bộ được quy định theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ với cơ quan có thẩm quyền thực hiện trên cơ sở đàm phán, điều chỉnh hợp đồng.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "5",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_209",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n6. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ hoàn thiện việc chuyển tài khoản thu phí của chủ phương tiện theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ sang tài khoản giao thông kết nối với phương tiện thanh toán của chủ phương tiện trước ngày 01 tháng 10 năm 2025.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "6",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_210",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 36. Xử lý chuyển tiếp\n7. Nhà cung cấp dịch vụ thanh toán tiền sử dụng đường bộ hoàn thiện việc chuyển tiền từ tài khoản thu phí của chủ phương tiện theo Quyết định số 19/2020/QĐ-TTg ngày 17 tháng 6 năm 2020 của Thủ tướng Chính phủ sang phương tiện thanh toán của chủ phương tiện được kết nối với tài khoản giao thông trước ngày 01 tháng 10 năm 2025.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "7",
+        "dieu": "36",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_211",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 37. Hiệu lực thi hành\n1. Nghị định này có hiệu lực thi hành kể từ ngày 01 tháng 10 năm 2024.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "1",
+        "dieu": "37",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_212",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 37. Hiệu lực thi hành\n2. Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ vận hành từ ngày 01 tháng 7 năm 2026. Các nội dung có liên quan đến Hệ thống quản lý cơ sở dữ liệu thanh toán điện tử giao thông đường bộ quy định trong Nghị định này có hiệu lực từ ngày 01 tháng 7 năm 2026.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "khoan": "2",
+        "dieu": "37",
+        "chuong": "IV"
+      }
+    }
+  },
+  {
+    "id": "119_2024_NĐ-CP_chunk_213",
+    "text": "Chương IV TỔ CHỨC THỰC HIỆN\nĐiều 38. Trách nhiệm tổ chức thực hiện\nCác Bộ trưởng, Thủ trưởng cơ quan ngang bộ, Thủ trưởng cơ quan thuộc Chính phủ, Chủ tịch Ủy ban nhân dân tỉnh, thành phố trực thuộc Trung ương và các tổ chức, cá nhân có liên quan chịu trách nhiệm thi hành Nghị định này./.",
+    "metadata": {
+      "source": "Nghị định số 119_2024_NĐ-CP",
+      "effective_date": "01-10-2024",
+      "url": "https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Nghi-dinh-119-2024-ND-CP-thanh-toan-dien-tu-giao-thong-duong-bo-626100.aspx",
+      "context": {
+        "dieu": "38",
+        "chuong": "IV"
+      }
+    }
+  }
+]

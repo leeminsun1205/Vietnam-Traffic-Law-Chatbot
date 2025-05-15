@@ -3,10 +3,10 @@ import json
 from datetime import datetime
 
 # --- Constants and Regex ---
-TYPE_SOURCE = "Quy chuẩn kỹ thuật số"
-DATE_EFF = "1-1-2025"
-CHANGE_URL = "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html"
-NAME_FILE = "legal_31"
+TYPE_SOURCE = "Nghị định số"
+DATE_EFF = "10-10-2024"
+CHANGE_URL = "https://thuvienphapluat.vn/van-ban/Thue-Phi-Le-Phi/Nghi-dinh-130-2024-ND-CP-quy-dinh-thu-phi-su-dung-duong-bo-cao-toc-thuoc-so-huu-toan-dan-621998.aspx"
+NAME_FILE = "legal_48"
 
 REGEX_CHUONG = re.compile(r"^\s*Chương\s+([IVXLCDM]+)\s*(.*)", re.IGNORECASE)
 REGEX_MUC = re.compile(r"^\s*Mục\s+(\d+)\.?\s*(.*)", re.IGNORECASE)
@@ -301,6 +301,6 @@ def process_legal_text(input_filepath, output_filepath):
 
 # --- Main Execution Guard ---
 if __name__ == '__main__':
-    input_file = f'{NAME_FILE}.txt'
-    output_file = f'{NAME_FILE}.json'
+    input_file = f'text/{NAME_FILE}.txt'
+    output_file = f'datasets/{NAME_FILE}.json'
     process_legal_text(input_file, output_file)

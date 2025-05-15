@@ -9,6 +9,7 @@ import streamlit as st
 import config
 import math
 import pandas as pd
+from datetime import datetime
 
 # --- Model Loading Functions ---
 @st.cache_resource
@@ -437,3 +438,43 @@ def calculate_average_metrics(df_results: pd.DataFrame):
 
     return avg_metrics, num_evaluated, num_skipped_error
 
+def log_qa_to_json(user_query, chatbot_response, filepath=None):
+    """
+    Lưu trữ câu hỏi của người dùng và câu trả lời của chatbot vào một tệp JSON.
+    Mỗi mục sẽ bao gồm timestamp, câu hỏi và câu trả lời.
+    """
+    if filepath is None:
+        filepath = config.QA_LOG_FILE
+
+    new_entry = {
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "user_query": user_query,
+        "chatbot_response": chatbot_response
+    }
+
+    try:
+        # Đọc dữ liệu hiện có từ tệp JSON (nếu tệp tồn tại và hợp lệ)
+        if os.path.exists(filepath):
+            with open(filepath, 'r', encoding='utf-8') as f:
+                try:
+                    data = json.load(f)
+                    if not isinstance(data, list): # Đảm bảo dữ liệu là một danh sách
+                        data = []
+                except json.JSONDecodeError: # Xử lý trường hợp tệp rỗng hoặc bị hỏng
+                    data = []
+        else:
+            data = [] # Nếu tệp không tồn tại, bắt đầu với một danh sách rỗng
+
+        # Thêm mục mới vào danh sách
+        data.append(new_entry)
+
+        # Ghi lại toàn bộ danh sách vào tệp JSON
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+
+    except IOError as e:
+        # Ghi lỗi ra console hoặc xử lý theo cách khác nếu cần
+        # Ví dụ: st.error(f"Lỗi khi ghi log Q&A: {e}") # Cân nhắc nếu hàm này được gọi từ background
+        print(f"IOError khi ghi log Q&A vào {filepath}: {e}")
+    except Exception as e:
+        print(f"Lỗi không xác định khi ghi log Q&A vào {filepath}: {e}")

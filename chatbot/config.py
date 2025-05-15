@@ -22,7 +22,7 @@ KAGGLE_INPUT_PATH = '/kaggle/working/CS431.P22/datasets'
 LOCAL_DATA_PATH = './' 
 SAVED_DATA_DIR = 'loader'
 SAVED_DATA_PREFIX = os.path.join(SAVED_DATA_DIR, 'legal_rag_data') 
-
+QA_LOG_FILE = os.path.join(SAVED_DATA_DIR, 'chatbot_qa_log.json')
 # Xác định đường dẫn dữ liệu JSON
 JSON_DATA_PATH = KAGGLE_INPUT_PATH 
 JSON_FILE_PATTERN = os.path.join(JSON_DATA_PATH, 'legal_{i}.json')

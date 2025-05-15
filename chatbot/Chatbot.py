@@ -35,8 +35,8 @@ if "retrieval_method" not in st.session_state:
 if "use_reranker" not in st.session_state:
     st.session_state.use_reranker = True 
 
-if "use_history_for_llm1" not in st.session_state:
-    st.session_state.use_history_for_llm1 = True
+# if "use_history_for_llm1" not in st.session_state:
+#     st.session_state.use_history_for_llm1 = True
 
 # --- Sidebar ---
 with st.sidebar:
@@ -94,14 +94,14 @@ with st.sidebar:
         help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm (tăng độ chính xác nhưng chậm hơn)."
     )
 
-    st.header("Ngữ cảnh")
+    # st.header("Ngữ cảnh")
 
-    use_hist_llm1 = st.toggle(
-        "Dùng lịch sử cho phân tích câu hỏi",
-        key="use_history_for_llm1",
-        value=st.session_state.use_history_for_llm1,
-        help="Cho phép LLM xem xét ngữ cảnh hội thoại khi phân tích câu hỏi đầu vào."
-    )
+    # use_hist_llm1 = st.toggle(
+    #     "Dùng lịch sử cho phân tích câu hỏi",
+    #     key="use_history_for_llm1",
+    #     value=st.session_state.use_history_for_llm1,
+    #     help="Cho phép LLM xem xét ngữ cảnh hội thoại khi phân tích câu hỏi đầu vào."
+    # )
 
     st.markdown("---") 
 
@@ -118,9 +118,9 @@ st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
 st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về Luật giao thông đường bộ Việt Nam.")
 
 # --- Cập nhật Caption hiển thị cấu hình ---
-hist_llm1_status = "Bật" if st.session_state.use_history_for_llm1 else "Tắt"
+# hist_llm1_status = "Bật" if st.session_state.use_history_for_llm1 else "Tắt"
 reranker_status = "Bật" if st.session_state.use_reranker else "Tắt"
-st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status}` | History LLM1: `{hist_llm1_status}`")
+st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status}`")
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -170,11 +170,11 @@ if init_ok:
                 processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.")
                 message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
-                history_for_llm1 = None
-                log_hist_llm1 = "(không dùng lịch sử)"
-                if st.session_state.use_history_for_llm1:
-                    history_for_llm1 = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1]
-                    log_hist_llm1 = "(có dùng lịch sử)"
+                # history_for_llm1 = None
+                # log_hist_llm1 = "(không dùng lịch sử)"
+                # if st.session_state.use_history_for_llm1:
+                history_for_llm1 = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1]
+                log_hist_llm1 = "(có dùng lịch sử)"
                 processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi {log_hist_llm1}...")
                 message_placeholder.markdown(" ".join(processing_log) + "⏳")
 

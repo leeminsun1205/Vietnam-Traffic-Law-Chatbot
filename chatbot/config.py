@@ -20,14 +20,14 @@ DEFAULT_GEMINI_MODEL = 'gemini-2.0-flash'
 # --- Cấu hình Đường dẫn ---
 KAGGLE_INPUT_PATH = '/kaggle/working/CS431.P22/datasets'
 LOCAL_DATA_PATH = './' 
-SAVED_DATA_DIR = 'loader'
+SAVED_DATA_DIR = '/kaggle/working/CS431.P22/loader'
 SAVED_DATA_PREFIX = os.path.join(SAVED_DATA_DIR, 'legal_rag_data') 
 QA_LOG_FILE = os.path.join(SAVED_DATA_DIR, 'chatbot_qa_log.json')
 # Xác định đường dẫn dữ liệu JSON
 JSON_DATA_PATH = KAGGLE_INPUT_PATH 
 JSON_FILE_PATTERN = os.path.join(JSON_DATA_PATH, 'legal_{i}.json')
-NUM_FILES = 31 
-NUMBERS_TO_SKIP = {29, 30}
+NUM_FILES = 50 
+NUMBERS_TO_SKIP = {29, 30, 37, 38, 39, 40}
 
 MAX_HISTORY_TURNS = 10
 
@@ -45,14 +45,14 @@ RRF_K = 60
 # --- Danh sách Stop Words ---
 VIETNAMESE_STOP_WORDS = {
     'bị', 'bởi', 'cả', 'các', 'cái', 'cần', 'càng', 
-    'chỉ', 'chiếc', 'cho', 'chứ', 'chưa', 'có', 'có_thể', 
+    'chỉ', 'chiếc', 'cho', 'chứ', 'có', 'có_thể', 
     'cứ', 'cùng', 'cũng', 'đã', 'đang', 'đây', 'để', 'đến_nỗi', 
-    'đều', 'điều', 'do', 'đó', 'được', 'gì', 'khi', 'không', 
+    'đều', 'điều', 'do', 'đó', 'được', 'gì', 'khi', 
     'là', 'lại', 'lên', 'lúc', 'mà', 'mỗi', 'một_cách', 
     'này', 'nên', 'nếu', 'ngay', 'nhiều', 'như', 'nhưng', 
-    'những', 'nơi', 'nữa', 'phải', 'qua', 'ra', 'rằng', 'rất', 
-    'rồi', 'sau', 'sẽ', 'so', 'sự', 'tại', 'theo', 'thì', 'trên', 
-    'trước', 'từ', 'từng', 'và', 'vẫn', 'vào', 'vậy', 'vì', 'việc', 'với', 'vừa'
+    'những', 'nữa', 'phải', 'qua', 'ra', 'rằng', 'rất', 
+    'rồi', 'sau', 'sẽ', 'so', 'tại', 'theo', 'thì', 'trên', 
+    'trước', 'từ', 'từng', 'và', 'vẫn', 'vào', 'vậy', 'vì', 'với', 'vừa'
 }
 
 # --- Cấu hình Khác ---

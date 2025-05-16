@@ -198,7 +198,7 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
 
 # --- Hàm tải tệp mapping URL ---
 @st.cache_data 
-def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/chatbot/loader/vanban_url_map.json"):
+def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/loader/vanban_url_map.json"):
     with open(filepath, 'r', encoding='utf-8') as f:
         mapping = json.load(f)
         return mapping 

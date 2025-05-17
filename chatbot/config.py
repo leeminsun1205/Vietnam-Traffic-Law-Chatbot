@@ -26,7 +26,7 @@ QA_LOG_FILE = os.path.join(SAVED_DATA_DIR, 'chatbot_qa_log.json')
 # Xác định đường dẫn dữ liệu JSON
 JSON_DATA_PATH = KAGGLE_INPUT_PATH 
 JSON_FILE_PATTERN = os.path.join(JSON_DATA_PATH, 'legal_{i}.json')
-NUM_FILES = 50 
+NUM_FILES = 51 
 NUMBERS_TO_SKIP = {29, 30, 37, 38, 39, 40}
 
 MAX_HISTORY_TURNS = 10

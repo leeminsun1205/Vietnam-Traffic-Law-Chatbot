@@ -276,7 +276,7 @@ if init_ok:
                     answer_mode = st.session_state.answer_mode
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời (chế độ: {answer_mode})...")
                     message_placeholder.markdown(" ".join(processing_log))
-
+                    st.write(final_relevant_documents)
                     full_response = utils.generate_answer_with_gemini(
                         query_text=user_query, # Vẫn dùng câu hỏi gốc của user để LLM trả lời
                         relevant_documents=final_relevant_documents, 

@@ -305,6 +305,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - Điểm thứ d trong Điều/Khoản
         - Điểm thứ đ trong Điều/Khoản
         - ... 
+    8.  Cần phân biệt rõ xe máy và xe máy chuyên dùng. Nếu câu hỏi chỉ nói là xe máy thì phải hiểu là xe hai bánh, xe gắn máy, ... Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ.
     **Trả lời:**
     """
 
@@ -331,6 +332,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - Điểm thứ d trong Điều/Khoản
         - Điểm thứ đ trong Điều/Khoản
         - ...
+    7.  Cần phân biệt rõ xe máy và xe máy chuyên dùng. Nếu câu hỏi chỉ nói là xe máy thì phải hiểu là xe hai bánh, xe gắn máy, ... Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ.
     **Trả lời NGẮN GỌN:**
     """
 

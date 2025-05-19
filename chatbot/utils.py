@@ -384,35 +384,30 @@ def extract_and_normalize_document_key(citation_text):
 
 #     return final_answer_display
 # --- Generation (Phần chính cần sửa) ---
-def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
-    """Tạo câu trả lời cuối cùng bằng Gemini, xử lý hiển thị biển báo."""
 
-    url_mapping_dict = load_document_url_mapping() # Tải mapping URL
+def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
+    url_mapping_dict = load_document_url_mapping()
     context_str_parts = []
-    source_details_for_prompt = [] # Đây sẽ là list các chuỗi, mỗi chuỗi mô tả một nguồn
+    source_details_for_prompt = []
 
     if not relevant_documents:
         context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp."
     else:
-        for i, item in enumerate(relevant_documents): # relevant_documents là list các dict {'doc': ..., 'score': ..., 'original_index': ...}
-            doc_content = item.get('doc') # doc_content là dict {'id':..., 'text':..., 'metadata':...}
+        for i, item in enumerate(relevant_documents):
+            doc_content = item.get('doc')
             if not isinstance(doc_content, dict):
-                # st.warning(f"Bỏ qua item không hợp lệ trong relevant_documents ở vị trí {i}: item không phải dict hoặc thiếu 'doc'.")
                 continue
-
             text = doc_content.get('text', '').strip()
             metadata = doc_content.get('metadata', {})
-            if not text: # Bỏ qua nếu không có nội dung text
+            if not text:
                 continue
-
             source_name = metadata.get('source', 'N/A')
-            context_meta = metadata.get('context', {}) # metadata['context'] là một dict
+            context_meta = metadata.get('context', {})
             chuong = context_meta.get('chuong')
             muc = context_meta.get('muc')
             dieu = context_meta.get('dieu')
             khoan = context_meta.get('khoan')
             diem = context_meta.get('diem')
-
             source_parts = [f"Văn bản: {source_name}"]
             if chuong: source_parts.append(f"Chương {chuong}")
             if muc: source_parts.append(f"Mục {muc}")
@@ -420,40 +415,30 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             if khoan: source_parts.append(f"Khoản {khoan}")
             if diem: source_parts.append(f"Điểm {diem}")
             source_ref_full = ", ".join(source_parts)
-
-            # --- THAY ĐỔI: Thêm thông tin về biển báo vào prompt cho LLM ---
             traffic_sign_filename = metadata.get('traffic_sign')
             traffic_sign_info_for_llm = ""
             if traffic_sign_filename:
-                # Thông báo cho LLM biết nguồn này có liên quan đến biển báo
                 traffic_sign_info_for_llm = (
                     f" (LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo '{traffic_sign_filename}'. "
                     f"Nếu sử dụng thông tin từ đây để trả lời, hãy nhớ dùng placeholder chỉ mục biển báo.)"
                 )
-            # -------------------------------------------------------------
             source_details_for_prompt.append(f"Nguồn {i+1}: [{source_ref_full}]{traffic_sign_info_for_llm}\nNội dung: {text}\n---")
-
         if not source_details_for_prompt:
              context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp để xây dựng prompt."
         else:
              context_for_prompt = "\n".join(source_details_for_prompt)
 
-    # --- Xây dựng chuỗi lịch sử chat gần đây ---
     history_prefix = ""
     if chat_history:
         history_prefix = "**Lịch sử trò chuyện gần đây (dùng để tham khảo ngữ cảnh):**\n"
-        # Giới hạn số lượt chat trong history để không làm prompt quá dài
-        limited_history = chat_history[-(config.MAX_HISTORY_TURNS * 2):] # Lấy tối đa MAX_HISTORY_TURNS cặp user-assistant
+        limited_history = chat_history[-(config.MAX_HISTORY_TURNS * 2):]
         for msg in limited_history:
             role = msg.get("role", "unknown").capitalize()
             content = msg.get("content", "").strip()
-            # Giới hạn độ dài từng tin nhắn nếu cần thiết
-            # content = content[:200] + '...' if len(content) > 200 else content
             if role and content:
                  history_prefix += f"{role}: {content}\n"
         history_prefix += "---\n"
 
-    # --- THAY ĐỔI: Cập nhật Prompt với yêu cầu placeholder cho biển báo ---
     placeholder_instruction = (
         "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO**: Nếu bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
         "VÀ nguồn đó có ghi chú '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo ...)', "
@@ -464,7 +449,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         "`...nội dung bạn trích từ Nguồn 3... [DISPLAY_TRAFFIC_SIGN_INDEX_3]`."
         "Đảm bảo placeholder này nằm tách biệt và dễ dàng được tìm thấy."
     )
-
     common_requirements = f"""
     1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài luồng được cung cấp.
     2.  **Gom nhóm nguồn và trích dẫn:**
@@ -484,7 +468,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     9.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
     {placeholder_instruction}
     """
-
     full_prompt_template = f"""Bạn là một trợ lý AI chuyên sâu về Luật Giao thông Đường bộ Việt Nam.
     {history_prefix}
     **Nhiệm vụ:** Dựa vào Lịch sử trò chuyện (nếu có) và thông tin chi tiết trong phần 'Ngữ cảnh được cung cấp' dưới đây, hãy trả lời câu hỏi HIỆN TẠI của người dùng một cách **CHI TIẾT, ĐẦY ĐỦ** và chính xác nhất có thể.
@@ -498,7 +481,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     {common_requirements}
     **Câu trả lời của bạn (chi tiết):**
     """
-
     brief_prompt_template = f"""Bạn là một trợ lý AI chuyên sâu về Luật Giao thông Đường bộ Việt Nam.
     {history_prefix}
     **Nhiệm vụ:** Dựa vào Lịch sử trò chuyện (nếu có) và thông tin trong 'Ngữ cảnh được cung cấp', trả lời câu hỏi HIỆN TẠI của người dùng (`{query_text}`) một cách **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm vấn đề.
@@ -512,49 +494,38 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     {common_requirements}
     **Câu trả lời của bạn (ngắn gọn):**
     """
-    # -------------------------------------------------------------------
-
     prompt_to_use = brief_prompt_template if mode == 'Ngắn gọn' else full_prompt_template
-
-    final_answer_display = "Xin lỗi, tôi chưa thể tạo câu trả lời vào lúc này." # Default error message
+    final_answer_display = "Xin lỗi, tôi chưa thể tạo câu trả lời vào lúc này."
     try:
         if not gemini_model:
             raise ValueError("Mô hình Gemini chưa được tải hoặc không khả dụng.")
-
-        # st.info(f"Prompt gửi đến Gemini:\n```\n{prompt_to_use}\n```") # Để debug prompt
-
         response = gemini_model.generate_content(prompt_to_use)
-
         if hasattr(response, 'text') and response.text:
             final_answer_display = response.text.strip()
         elif response.parts:
             final_answer_display = "".join(part.text for part in response.parts if hasattr(part, 'text')).strip()
-            if not final_answer_display: # Nếu sau khi join vẫn rỗng
+            if not final_answer_display:
                 final_answer_display = "Không nhận được nội dung văn bản từ Gemini."
         else:
-            # Ghi lại lỗi hoặc thông tin response để debug nếu cần
-            # st.warning(f"Gemini không trả về 'text' hoặc 'parts' có thể đọc được. Response: {response}")
             final_answer_display = "Phản hồi từ Gemini không có nội dung văn bản."
-
     except Exception as e:
-        # st.error(f"Lỗi nghiêm trọng khi tạo câu trả lời từ Gemini: {e}")
-        final_answer_display = f"Đã xảy ra sự cố khi xử lý yêu cầu của bạn. Chi tiết lỗi: {str(e)[:200]}..." # Giới hạn độ dài lỗi hiển thị
+        final_answer_display = f"Đã xảy ra sự cố khi xử lý yêu cầu của bạn. Chi tiết lỗi: {str(e)[:200]}..."
 
-    # --- THAY ĐỔI: Xử lý placeholder và nhúng ảnh Base64 ---
-    # `relevant_documents` là danh sách các dict {'doc': document_content, 'score': ..., 'original_index': ...}
-    # `document_content` là dict {'id': ..., 'text': ..., 'metadata': ...}
+    # --- THAY ĐỔI: Xử lý placeholder và nhúng ảnh Base64 (với logic chống lặp ảnh) ---
     if relevant_documents and isinstance(relevant_documents, list) and final_answer_display:
         processed_answer_parts = []
         last_idx = 0
-        # Tìm tất cả các placeholder trong câu trả lời của LLM
+        # --- THÊM MỚI: Set để theo dõi ảnh đã hiển thị ---
+        displayed_sign_filenames = set()
+        # ----------------------------------------------------
+
         for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", final_answer_display):
             placeholder_full = match.group(0)
-            source_idx_one_based = int(match.group(1)) # Index LLM trả về (1-based)
-            source_idx_zero_based = source_idx_one_based - 1 # Chuyển về 0-based để truy cập list
+            source_idx_one_based = int(match.group(1))
+            source_idx_zero_based = source_idx_one_based - 1
 
-            processed_answer_parts.append(final_answer_display[last_idx:match.start()]) # Phần text trước placeholder
-
-            image_markdown_to_insert = "" # Mặc định là chuỗi rỗng nếu có lỗi
+            processed_answer_parts.append(final_answer_display[last_idx:match.start()])
+            image_markdown_to_insert = ""
 
             if 0 <= source_idx_zero_based < len(relevant_documents):
                 doc_item = relevant_documents[source_idx_zero_based]
@@ -564,47 +535,40 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                     traffic_sign_filename = metadata.get('traffic_sign')
 
                     if traffic_sign_filename:
-                        image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename)
-                        if os.path.exists(image_full_path):
-                            try:
-                                with open(image_full_path, "rb") as img_file:
-                                    b64_string = base64.b64encode(img_file.read()).decode()
-                                file_ext = os.path.splitext(traffic_sign_filename)[1][1:].lower()
-                                if not file_ext: file_ext = "png" # Mặc định
-
-                                image_markdown_to_insert = (
-                                    f"\n<div style='text-align: left; margin-top: 8px; margin-bottom: 8px; padding-left: 20px;'>" # Căn lề trái, thụt vào
-                                    f"<img src='data:image/{file_ext};base64,{b64_string}' "
-                                    f"alt='Biển báo: {traffic_sign_filename}' "
-                                    f"style='max-width: 150px; max-height:150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
-                                    f"<p style='font-size: 0.8em; margin-top: 2px; font-style: italic;'>{traffic_sign_filename}</p>"
-                                    f"</div>\n"
-                                )
-                            except Exception as e_img:
-                                # st.warning(f"Lỗi khi mã hóa ảnh {traffic_sign_filename}: {e_img}")
-                                image_markdown_to_insert = f"\n<p style='color: red; font-style: italic; padding-left: 20px;'>[Lỗi hiển thị ảnh: {traffic_sign_filename}]</p>"
-                        else:
-                            # st.warning(f"Không tìm thấy tệp ảnh: {image_full_path} (cho placeholder {placeholder_full})")
-                            image_markdown_to_insert = f"\n<p style='color: orange; font-style: italic; padding-left: 20px;'>[Không tìm thấy ảnh: {traffic_sign_filename}]</p>"
-                    # else: LLM dùng placeholder nhưng chunk đó lại không có 'traffic_sign' trong metadata (lỗi của LLM hoặc dữ liệu)
-                    #     st.warning(f"LLM đã dùng placeholder {placeholder_full} nhưng Nguồn {source_idx_one_based} không có 'traffic_sign' trong metadata.")
-            # else: Index từ LLM không hợp lệ
-            #     st.warning(f"LLM trả về index không hợp lệ trong placeholder: {placeholder_full}")
-
+                        # --- THAY ĐỔI: Kiểm tra xem ảnh đã được hiển thị chưa ---
+                        if traffic_sign_filename not in displayed_sign_filenames:
+                            image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename)
+                            if os.path.exists(image_full_path):
+                                try:
+                                    with open(image_full_path, "rb") as img_file:
+                                        b64_string = base64.b64encode(img_file.read()).decode()
+                                    file_ext = os.path.splitext(traffic_sign_filename)[1][1:].lower()
+                                    if not file_ext: file_ext = "png"
+                                    image_markdown_to_insert = (
+                                        f"\n<div style='text-align: left; margin-top: 8px; margin-bottom: 8px; padding-left: 20px;'>"
+                                        f"<img src='data:image/{file_ext};base64,{b64_string}' "
+                                        f"alt='Biển báo: {traffic_sign_filename}' "
+                                        f"style='max-width: 150px; max-height:150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
+                                        f"<p style='font-size: 0.8em; margin-top: 2px; font-style: italic;'>{traffic_sign_filename}</p>"
+                                        f"</div>\n"
+                                    )
+                                    displayed_sign_filenames.add(traffic_sign_filename) # Đánh dấu đã hiển thị
+                                except Exception as e_img:
+                                    image_markdown_to_insert = f"\n<p style='color: red; font-style: italic; padding-left: 20px;'>[Lỗi hiển thị ảnh: {traffic_sign_filename}]</p>"
+                            else:
+                                image_markdown_to_insert = f"\n<p style='color: orange; font-style: italic; padding-left: 20px;'>[Không tìm thấy ảnh: {traffic_sign_filename}]</p>"
+                        # else: Ảnh đã được hiển thị, không chèn lại. image_markdown_to_insert sẽ là "" (rỗng).
+                        # ------------------------------------------------------------
             processed_answer_parts.append(image_markdown_to_insert)
             last_idx = match.end()
 
-        processed_answer_parts.append(final_answer_display[last_idx:]) # Phần text còn lại sau placeholder cuối cùng
+        processed_answer_parts.append(final_answer_display[last_idx:])
         final_answer_display = "".join(processed_answer_parts)
-    # -------------------------------------------------------
+    # --------------------------------------------------------------------------------
 
-    # --- Xử lý trích dẫn URL (giữ nguyên logic, nhưng áp dụng cho `final_answer_display` đã được xử lý) ---
     found_urls = set()
-    # Regex tìm trích dẫn có thể cần điều chỉnh nếu ảnh làm ảnh hưởng (nhưng không nên vì ảnh là HTML)
     citations_found = re.findall(r'\((?:[Tt]heo\s)?([^)]+?)\)', final_answer_display)
-
     for citation_text in citations_found:
-        # Bỏ qua nếu citation_text chứa tag HTML (có thể là phần của ảnh)
         if '<' in citation_text and '>' in citation_text:
             continue
         doc_key = extract_and_normalize_document_key(citation_text)
@@ -612,23 +576,19 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             url = url_mapping_dict.get(doc_key)
             if url:
                 found_urls.add(url)
-
     if found_urls:
         sorted_urls = sorted(list(found_urls))
-        # Cải thiện cách hiển thị URL, có thể chỉ lấy tên miền
         urls_display_list = []
         for url in sorted_urls:
             display_name = url
             try:
-                # Lấy phần domain + path, bỏ query string/fragment
                 from urllib.parse import urlparse
                 parsed_url = urlparse(url)
                 display_name = parsed_url.netloc + parsed_url.path
                 if display_name.endswith('/'): display_name = display_name[:-1]
-            except ImportError: # dự phòng nếu urllib.parse không có sẵn
+            except ImportError:
                 pass
             urls_display_list.append(f"- [{display_name}]({url})")
-
         urls_string = "\n".join(urls_display_list)
         final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{urls_string}"
 

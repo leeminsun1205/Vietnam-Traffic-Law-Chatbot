@@ -111,8 +111,10 @@ st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
+    # with st.chat_message(message["role"]):
+    #     st.markdown(message["content"])
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        st.markdown(message["content"], unsafe_allow_html=True)
 
 # --- Khởi tạo hệ thống ---
 init_ok = False
@@ -292,13 +294,13 @@ if init_ok:
                     log_content = "\n".join(processing_log)
                     st.markdown(f"```text\n{log_content}\n```")
                 # Hiển thị câu trả lời cuối cùng
-                message_placeholder.markdown(full_response)
+                message_placeholder.markdown(full_response, unsafe_allow_html=True)
 
             except Exception as e:
                 st.error(f"🐞 Đã xảy ra lỗi: {e}") # Hiển thị lỗi rõ ràng hơn
                 full_response = f"🐞 Xin lỗi, đã có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại hoặc thay đổi cấu hình."
                 if message_placeholder:
-                    message_placeholder.markdown(full_response)
+                    message_placeholder.markdown(full_response, unsafe_allow_html=True)
                 else:
                     st.markdown(full_response) 
             finally:

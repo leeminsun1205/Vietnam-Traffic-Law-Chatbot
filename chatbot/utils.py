@@ -10,6 +10,7 @@ import config
 import math
 import pandas as pd
 from datetime import datetime
+import base64
 
 # --- Model Loading Functions ---
 @st.cache_resource

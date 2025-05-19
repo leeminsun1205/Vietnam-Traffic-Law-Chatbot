@@ -306,7 +306,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - Điểm thứ d trong Điều/Khoản
         - Điểm thứ đ trong Điều/Khoản
         - ... 
-    8.  Cần phân biệt rõ xe máy và xe máy chuyên dùng. Nếu câu hỏi chỉ nói là xe máy thì phải hiểu là xe hai bánh, xe gắn máy, ... Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ.
+    8.  Cần phân biệt rõ xe máy và xe máy chuyên dùng (Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ). Nếu câu hỏi chỉ nói là xe máy thì câu trả lời phải hiểu là xe máy thông thường, xe hai bánh, xe gắn máy, ...
+    9.  Phải thể hiện được tính logic từ câu hỏi sang câu trả lời ví dụ câu hỏi yêu cầu cao như so sánh, tính tổng, tình huống, ...
     **Trả lời:**
     """
 
@@ -333,7 +334,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - Điểm thứ d trong Điều/Khoản
         - Điểm thứ đ trong Điều/Khoản
         - ...
-    7.  Cần phân biệt rõ xe máy và xe máy chuyên dùng. Nếu câu hỏi chỉ nói là xe máy thì phải hiểu là xe hai bánh, xe gắn máy, ... Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ.
+    7.  Cần phân biệt rõ xe máy và xe máy chuyên dùng (Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ). Nếu câu hỏi chỉ nói là xe máy thì câu trả lời phải hiểu là xe máy thông thường, xe hai bánh, xe gắn máy, ...
+    8.  Phải thể hiện được tính logic từ câu hỏi sang câu trả lời ví dụ câu hỏi yêu cầu cao như so sánh, tính tổng, tình huống, ...
     **Trả lời NGẮN GỌN:**
     """
 

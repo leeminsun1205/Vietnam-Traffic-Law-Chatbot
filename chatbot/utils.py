@@ -225,6 +225,13 @@ def extract_and_normalize_document_key(citation_text):
             identifier = 'QH15'
         key = f"{number}_{year}_{identifier}".upper()
         return key
+    
+    match3 = re.search(r'(\d+)\s*[_/]\s*([A-ZĐ]+(?:-[A-ZĐ]+)*)', citation_text, re.IGNORECASE)
+    if match3:
+        number = match3.group(1)
+        identifier = match3.group(2)
+        key = f"{number}_{identifier}".upper()
+        return key
     return None
 
 # --- Generation ---

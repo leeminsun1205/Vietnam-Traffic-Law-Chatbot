@@ -12,21 +12,12 @@ def parse_chunk_id_string(id_string):
     if not isinstance(id_string, str):
         return [] # Trả về list rỗng nếu không phải string
 
-    # Loại bỏ dấu ngoặc vuông ở đầu/cuối và khoảng trắng thừa
     cleaned_string = id_string.strip().strip('[]').strip()
 
-    if not cleaned_string: # Nếu chuỗi rỗng sau khi làm sạch
+    if not cleaned_string: 
         return []
 
-    # Tách chuỗi bằng dấu phẩy, sau đó loại bỏ khoảng trắng thừa của từng ID
-    # Dùng regex để tìm các ID, an toàn hơn split nếu có khoảng trắng bất thường
-    # Regex này tìm các chuỗi ký tự không phải là dấu phẩy, cách, ngoặc vuông, hoặc ngoặc kép/đơn
-    # Hoặc một cách đơn giản hơn nếu định dạng luôn là ", ":
-    # ids = [item.strip() for item in cleaned_string.split(',')]
-    # Cách dùng regex:
-    ids = re.findall(r"[^,\s\'\"\[\]]+", cleaned_string) # Tìm tất cả các chuỗi ký tự hợp lệ làm ID
-
-    # Lọc bỏ các phần tử rỗng có thể xuất hiện sau khi tách/tìm
+    ids = re.findall(r"[^,\s\'\"\[\]]+", cleaned_string) 
     return [item for item in ids if item]
 
 

@@ -7567,8 +7567,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_590",
-    "text": "Phụ lục B\nB.31  Biển số P.131 (a,b,c)\"Cấm đỗ xe\"\na) Để báo nơi cấm đỗ xe trừ các xe được ưu tiên theo quy định, đặt biển số P.131 (a,b,c) \"Cấm đỗ xe\".\nBiển số P.131a có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển.\nBiển số P.131b có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển vào những ngày lẻ và biển số P.131c vào những ngày chẵn.",
+    "id": "41_2024_BGTVT_chunk_590a",
+    "text": "Phụ lục B\nB.31  Biển số P.131a \"Cấm đỗ xe\"\na) Để báo nơi cấm đỗ xe trừ các xe được ưu tiên theo quy định, đặt biển số P.131a \"Cấm đỗ xe\".\nBiển số P.131a có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7578,6 +7578,37 @@
         "muc_1": "B.31",
         "phu_luc": "B"
       }
+    },
+    "traffic_sign": "P_131a.png"
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_590b",
+    "text": "Phụ lục B\nB.31  Biển số P.131b \"Cấm đỗ xe ngày lẻ\"\na) Để báo nơi cấm đỗ xe ngày lẻ trừ các xe được ưu tiên theo quy định, đặt biển số P.131b \"Cấm đỗ xe ngày lẻ\".\nBiển số P.131b có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển vào những ngày lẻ.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "B.31",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_131b.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_590c",
+    "text": "Phụ lục B\nB.31  Biển số P.131c \"Cấm đỗ xe ngày chẵn\"\na) Để báo nơi cấm đỗ xe ngày chẵn trừ các xe được ưu tiên theo quy định, đặt biển số P.131c \"Cấm đỗ xe ngày chẵn\".\nBiển số P.131c có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển vào những ngày chẵn.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "B.31",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_131c.png"
     }
   },
   {

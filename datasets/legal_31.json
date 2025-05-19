@@ -6190,8 +6190,34 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_504",
-    "text": "Phụ lục A\nA.2 Một số quy định khi sử dụng hệ thống đèn tín hiệu\n- Thời gian đèn xanh tối thiểu cho một hướng giao thông ít nhất là 15 giây;\n- Thời gian tín hiệu đèn dành cho người đi bộ dài ít nhất là 10 giây. Khi lưu lượng người đi bộ thấp và bề rộng đường hẹp (2 làn xe) và không là đường ưu tiên thì có thể giảm bớt thời gian tín hiệu đèn ngắn hơn, nhưng bảo đảm đủ để người đi bộ có thể qua được đường. Chú ý, tốc độ của người đi bộ sang đường tính bằng 1,2 m/s, nếu nơi bố trí dành cho người khuyết tật qua đường sẽ phải tính tốc độ của người sang đường thấp hơn 1,2 m/s và căn cứ vào thị sát để đặt chu kỳ đèn cho phù hợp...\nĐể trợ giúp người đi bộ sang đường nhất là người khiếm thị, khiếm thính hoặc khuyết tật người ta còn sử dụng thiết bị cảm biến thụ động hoặc nút ấn. Thiết bị nút ấn dành cho người đi bộ sang đường bao gồm nút ấn, đèn nhấp nháy đặt chung trên một cột ở vị trí thuận lợi trên vỉa hè ngay vị trí bắt đầu dành cho người đi bộ sang đường. Thiết bị nút ấn còn trang bị bộ phận phát âm thanh để báo nơi đặt thiết bị nút ấn, âm thanh dễ nhận biết có chu kỳ 0,15 giây và lặp lại sau 1 giây, âm thanh có thể nghe thấy từ cự ly 1,8 m đến 3,7 m và âm lượng không thấp hơn 5 dB nhưng không cao hơn 70 dB và sẽ bị vô hiệu hóa khi chu kỳ đèn nhấp nháy kết thúc. Khi đặt thiết bị nút ấn phải khảo sát thực địa để bố trí phù hợp.\n- Sử dụng đèn tín hiệu có đường kính 300 mm ở những đường có tốc V85 từ 60 km/h trở lên và ở nơi thường xuyên không có người điều khiển giao thông, nơi có nhiều người già tham gia giao thông;\n- Đèn tín hiệu phải nhìn thấy từ xa và không nhỏ hơn khoảng cách quy định trong bảng A.1:\nBảng A.1 - Khoảng cách tối thiểu nhìn thấy đèn tín hiệu\nTốc độ V85 (km/h)\tKhoảng cách nhìn thấy nhỏ nhất (m)\n30\t50\n40\t65\n50\t85\n60\t110\n70\t140\n80\t165\n90\t195\n- Những nơi đặt đèn có độ sáng của thiên nhiên sau đèn gây khó nhận biết của người điều khiển phương tiện thì cần nghiên cứu tạo nền sau đèn để trợ giúp nhận biết cho người điều khiển phương tiện;\n- Do người điều khiển phương tiện tập trung quan sát phía trước để điều khiển phương tiện, vì vậy, khi đặt đèn tín hiệu hoặc các báo hiệu giao thông trên lề, hè cần xác định vùng quan sát hiệu quả. Cách xác định như sau: mở một góc 40° từ vị trí mắt người lái đối xứng qua trục mắt tạo thành vùng nhìn rõ của người lái. Cũng cần chú ý khả năng quan sát được đèn của các xe phía sau các xe lớn hoặc người tham gia giao thông bị ngược ánh nắng mặt trời.",
+    "id": "41_2024_BGTVT_chunk_504_1",
+    "text": "Phụ lục A\nA.2 Một số quy định khi sử dụng hệ thống đèn tín hiệu\n- Thời gian đèn xanh tối thiểu cho một hướng giao thông ít nhất là 15 giây;",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "A.2",
+        "phu_luc": "A"
+      }
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_504_2",
+    "text": "Phụ lục A\nA.2 Một số quy định khi sử dụng hệ thống đèn tín hiệu\n- Thời gian tín hiệu đèn dành cho người đi bộ dài ít nhất là 10 giây. Khi lưu lượng người đi bộ thấp và bề rộng đường hẹp (2 làn xe) và không là đường ưu tiên thì có thể giảm bớt thời gian tín hiệu đèn ngắn hơn, nhưng bảo đảm đủ để người đi bộ có thể qua được đường. Chú ý, tốc độ của người đi bộ sang đường tính bằng 1,2 m/s, nếu nơi bố trí dành cho người khuyết tật qua đường sẽ phải tính tốc độ của người sang đường thấp hơn 1,2 m/s và căn cứ vào thị sát để đặt chu kỳ đèn cho phù hợp...",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "A.2",
+        "phu_luc": "A"
+      }
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_504_3",
+    "text": "Phụ lục A\nA.2 Một số quy định khi sử dụng hệ thống đèn tín hiệu\n- Sử dụng đèn tín hiệu có đường kính 300 mm ở những đường có tốc V85 từ 60 km/h trở lên và ở nơi thường xuyên không có người điều khiển giao thông, nơi có nhiều người già tham gia giao thông;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6213,19 +6239,10 @@
         "diem": "a",
         "muc_1": "B.1",
         "phu_luc": "B"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_505_sign",
-    "text": "Phụ lục B\nB.1 Biển số P.101 “Đường cấm”\nHình ảnh của biển số P.101 \"Đường cấm\"",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {},
+      },
       "traffic_sign": "P_101.png"
     }
+    
   },
   {
     "id": "41_2024_BGTVT_chunk_506",
@@ -6294,17 +6311,7 @@
         "diem": "a",
         "muc_1": "B.2",
         "phu_luc": "B"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_510_sign",
-    "text": "Phụ lục B\nB.2 Biển số P.102 “Cấm đi ngược chiều”\nHình ảnh biển số P.102 \"Cấm đi ngược chiều\"",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {},
+      },
       "traffic_sign": "P_102.png"
     }
   },
@@ -6324,7 +6331,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_512",
-    "text": "Phụ lục B\nB.3  Biển số P.103a “Cấm xe ôtô”, Biển số P.103b và P.103c “Cấm xe ôtô rẽ phải” và “Cấm xe ôtô rẽ trái”\na) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng đi qua, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103a “Cấm xe ôtô”\nNếu đường cấm vì lý do đường, cầu bị yếu, có thể đặt hàng rào chắn hay chướng ngại vật trong phần đường xe chạy.",
+    "text": "Phụ lục B\nB.3  Biển số P.103a “Cấm xe ôtô”\na) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng đi qua, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103a “Cấm xe ôtô”\nNếu đường cấm vì lý do đường, cầu bị yếu, có thể đặt hàng rào chắn hay chướng ngại vật trong phần đường xe chạy.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6333,12 +6340,13 @@
         "diem": "a",
         "muc_1": "B.3",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_103a.png"
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_513",
-    "text": "Phụ lục B\nB.3  Biển số P.103a “Cấm xe ôtô”, Biển số P.103b và P.103c “Cấm xe ôtô rẽ phải” và “Cấm xe ôtô rẽ trái”\nb) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng rẽ phải hay rẽ trái, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103b “Cấm xe ô tô rẽ phải” hay biển số P.103c “Cấm xe ô tô rẽ trái”.",
+    "id": "41_2024_BGTVT_chunk_513b",
+    "text": "Phụ lục B\nB.3  Biển số P.103b “Cấm xe ôtô rẽ phải”\nb) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng rẽ phải, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103b “Cấm xe ô tô rẽ phải”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6347,12 +6355,13 @@
         "diem": "b",
         "muc_1": "B.3",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_103b.png"
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_513_bien_a",
-    "text": "Phụ lục B\nB.3  Biển số P.103a “Cấm xe ôtô”, Biển số P.103b và P.103c “Cấm xe ôtô rẽ phải” và “Cấm xe ôtô rẽ trái”\nHình ảnh biển báo P.103a \"Cấm xe ô tô\".",
+    "id": "41_2024_BGTVT_chunk_513c",
+    "text": "Phụ lục B\nB.3  Biển số P.103c “Cấm xe ôtô rẽ trái”\nb) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng rẽ trái, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103c “Cấm xe ô tô rẽ trái”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6361,35 +6370,8 @@
         "diem": "b",
         "muc_1": "B.3",
         "phu_luc": "B"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_513_bien_b",
-    "text": "Phụ lục B\nB.3  Biển số P.103a “Cấm xe ôtô”, Biển số P.103b và P.103c “Cấm xe ôtô rẽ phải” và “Cấm xe ôtô rẽ trái”\nHình ảnh biển báo P.103b \"Cấm xe ô tô rẽ phải\".",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "muc_1": "B.3",
-        "phu_luc": "B"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_513_bien_c",
-    "text": "Phụ lục B\nB.3  Biển số P.103a “Cấm xe ôtô”, Biển số P.103b và P.103c “Cấm xe ôtô rẽ phải” và “Cấm xe ôtô rẽ trái”\nHình ảnh biển báo P.103b \"Cấm xe ô tô rẽ trái\".",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "muc_1": "B.3",
-        "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_103c.png"
     }
   },
   {
@@ -6403,7 +6385,8 @@
         "muc_1": "B.4",
         "phu_luc": "B"
       }
-    }
+    },
+    "traffic_sign": "P_104.png"
   },
   {
     "id": "41_2024_BGTVT_chunk_515",
@@ -6416,11 +6399,12 @@
         "muc_1": "B.5",
         "phu_luc": "B"
       }
-    }
+    },
+    "traffic_sign": "P_105.png"
   },
   {
     "id": "41_2024_BGTVT_chunk_516",
-    "text": "Phụ lục B\nB.6  Biển số P.106 (a,b) “Cấm xe ô tô tải” và Biển số P.106c “Cấm các xe chở hàng nguy hiểm”\na) Để báo đường cấm các loại xe ô tô tải trừ các xe được ưu tiên theo quy định, đặt biển số P.106a “Cấm xe ô tô tải”. Biển có hiệu lực cấm đối với cả máy kéo và các xe máy chuyên dùng đi vào đoạn đường đặt biển số P.106a.",
+    "text": "Phụ lục B\nB.6  Biển số P.106a “Cấm xe ô tô tải” \na) Để báo đường cấm các loại xe ô tô tải trừ các xe được ưu tiên theo quy định, đặt biển số P.106a “Cấm xe ô tô tải”. Biển có hiệu lực cấm đối với cả máy kéo và các xe máy chuyên dùng đi vào đoạn đường đặt biển số P.106a.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6430,11 +6414,12 @@
         "muc_1": "B.6",
         "phu_luc": "B"
       }
-    }
+    },
+    "traffic_sign": "P_106a.png"
   },
   {
     "id": "41_2024_BGTVT_chunk_517",
-    "text": "Phụ lục B\nB.6  Biển số P.106 (a,b) “Cấm xe ô tô tải” và Biển số P.106c “Cấm các xe chở hàng nguy hiểm”\nb) Để báo đường cấm các loại xe ô tô tải có khối lượng chuyên chở (theo Giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường phương tiện giao thông cơ giới đường bộ) lớn hơn một giá trị nhất định, đặt biển số P.106b. Biển có hiệu lực cấm các xe ô tô tải có khối lượng chuyên chở (xác định theo Giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường phương tiện giao thông cơ giới đường bộ) lớn hơn giá trị chữ số ghi trong biển (chữ số tấn ghi bằng màu trắng trên hình vẽ xe). Biển có hiệu lực cấm đối với cả máy kéo và các xe máy chuyên dùng đi vào đoạn đường đặt biển.",
+    "text": "Phụ lục B\nB.6  Biển số P.106b “Cấm xe ô tô tải” \nb) Để báo đường cấm các loại xe ô tô tải có khối lượng chuyên chở (theo Giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường phương tiện giao thông cơ giới đường bộ) lớn hơn một giá trị nhất định, đặt biển số P.106b. Biển có hiệu lực cấm các xe ô tô tải có khối lượng chuyên chở (xác định theo Giấy chứng nhận kiểm định an toàn kỹ thuật và bảo vệ môi trường phương tiện giao thông cơ giới đường bộ) lớn hơn giá trị chữ số ghi trong biển (chữ số tấn ghi bằng màu trắng trên hình vẽ xe). Biển có hiệu lực cấm đối với cả máy kéo và các xe máy chuyên dùng đi vào đoạn đường đặt biển.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6443,12 +6428,13 @@
         "diem": "b",
         "muc_1": "B.6",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_106b.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_518",
-    "text": "Phụ lục B\nB.6  Biển số P.106 (a,b) “Cấm xe ô tô tải” và Biển số P.106c “Cấm các xe chở hàng nguy hiểm”\nc) Để báo đường cấm các xe chở hàng nguy hiểm, đặt biển số P.106c.",
+    "text": "Phụ lục B\nB.6  Biển số P.106c “Cấm các xe chở hàng nguy hiểm”\nc) Để báo đường cấm các xe chở hàng nguy hiểm, đặt biển số P.106c.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6457,40 +6443,70 @@
         "diem": "c",
         "muc_1": "B.6",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_106c.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_519",
-    "text": "Phụ lục B\nB.7 Biển số P.107 \"Cấm xe ôtô khách và xe ôtô tải\"\na) Để báo đường cấm ô tô chở khách đi qua trừ các xe ưu tiên theo quy định, đặt biển số P.107a “Cấm xe ô tô khách”. Biển này không cấm xe buýt.",
+    "text": "Phụ lục B\nB.7 Biển số P.107 \"Cấm xe ôtô khách và xe ôtô tải\"\nĐể báo đường cấm xe ô tô chở khách và các loại xe ô tô tải kể cả các loại máy kéo và xe máy chuyên dùng đi qua trừ các xe được ưu tiên theo quy định, đặt biển số P.107 \"Cấm xe ô tô khách và xe ô tô tải\".",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "B.7",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_107.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_520a_a",
+    "text": "Phụ lục B\nB.7a Biển số P.107a \"Cấm xe ôtô khách\"\na) Để báo đường cấm ô tô chở khách đi qua trừ các xe ưu tiên theo quy định, đặt biển số P.107a “Cấm xe ô tô khách”. Biển này không cấm xe buýt.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "muc_1": "B.7",
+        "muc_1": "B.7a",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_107a.png"
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_520",
-    "text": "Phụ lục B\nB.7 Biển số P.107 \"Cấm xe ôtô khách và xe ôtô tải\"\nb) Trường hợp cấm xe khách theo số chỗ ngồi thì sử dụng biển phụ ghi số chỗ ngồi đối với các xe cần cấm hoặc ghi số chỗ ngồi vào biểu tượng xe bằng chữ trắng.\nB.7b  Biển số P.107b \"Cấm xe ô tô taxi\"\nĐể báo đường cấm xe ô tô taxi đi lại, đặt biển số P.107b “Cấm xe ô tô taxi”. Trường hợp cấm xe ô tô taxi theo giờ thì đặt biển phụ ghi giờ cấm.",
+    "id": "41_2024_BGTVT_chunk_520a_b",
+    "text": "Phụ lục B\nB.7a Biển số P.107a \"Cấm xe ôtô khách\"\nb) Trường hợp cấm xe khách theo số chỗ ngồi thì sử dụng biển phụ ghi số chỗ ngồi đối với các xe cần cấm hoặc ghi số chỗ ngồi vào biểu tượng xe bằng chữ trắng.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "muc_1": "B.7",
+        "muc_1": "B.7a",
         "phu_luc": "B"
       }
     }
   },
   {
+    "id": "41_2024_BGTVT_chunk_520b",
+    "text": "Phụ lục B\nB.7b Biển số P.107b \"Cấm xe ô tô taxi\"\nĐể báo đường cấm xe ô tô taxi đi lại, đặt biển số P.107b “Cấm xe ô tô taxi”. Trường hợp cấm xe ô tô taxi theo giờ thì đặt biển phụ ghi giờ cấm.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "B.7b",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_107b.png"
+    }
+  },
+  {
     "id": "41_2024_BGTVT_chunk_521",
-    "text": "Phụ lục B\nB.8  Biển số P.108 \"Cấm xe kéo rơ-moóc\"\nĐể báo đường cấm các loại xe cơ giới kéo theo rơ-moóc kể cả xe máy, máy kéo, ô tô khách kéo theo rơ-moóc đi lại, trừ loại ôtô sơ-mi rơ-moóc và các xe được ưu tiên (có kéo theo rơ-moóc) theo quy định, đặt biển số P.108 \"Cấm xe ô tô, máy kéo kéo rơ-moóc\".\nB.8a  Biển số P.108a \"Cấm xe sơ-mi rơ-moóc\"\nĐể báo đường cấm các loại xe sơ-mi rơ-moóc và các xe kéo rơ- moóc trừ các xe được ưu tiên (có dạng xe sơ-mi rơ-moóc hoặc có kéo theo rơ-moóc) theo quy định, đặt biển số P.108a \"Cấm xe sơ-mi rơ-moóc\".",
+    "text": "Phụ lục B\nB.8  Biển số P.108 \"Cấm xe kéo rơ-moóc\"\nĐể báo đường cấm các loại xe cơ giới kéo theo rơ-moóc kể cả xe máy, máy kéo, ô tô khách kéo theo rơ-moóc đi lại, trừ loại ôtô sơ-mi rơ-moóc và các xe được ưu tiên (có kéo theo rơ-moóc) theo quy định, đặt biển số P.108 \"Cấm xe ô tô, máy kéo kéo rơ-moóc\".",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6498,7 +6514,22 @@
       "context": {
         "muc_1": "B.8",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_108.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_521a",
+    "text": "Phụ lục B\nB.8a  Biển số P.108a \"Cấm xe sơ-mi rơ-moóc\"\nĐể báo đường cấm các loại xe sơ-mi rơ-moóc và các xe kéo rơ- moóc trừ các xe được ưu tiên (có dạng xe sơ-mi rơ-moóc hoặc có kéo theo rơ-moóc) theo quy định, đặt biển số P.108a \"Cấm xe sơ-mi rơ-moóc\".",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "B.8a",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_108a.png"
     }
   },
   {
@@ -6512,11 +6543,12 @@
         "muc_1": "B.9",
         "phu_luc": "B"
       }
-    }
+    },
+    "traffic_sign": "P_109.png"
   },
   {
     "id": "41_2024_BGTVT_chunk_523",
-    "text": "Phụ lục B\nB.10  Biển số P.110a \"Cấm xe đạp\" và Biển số P.110b\"Cấm xe đạp thồ\"\na) Để báo đường cấm xe đạp đi qua, đặt biển số P.110a \"Cấm xe đạp\". Biển không có giá trị cấm những người dắt xe đạp.",
+    "text": "Phụ lục B\nB.10  Biển số P.110a \"Cấm xe đạp\"\na) Để báo đường cấm xe đạp đi qua, đặt biển số P.110a \"Cấm xe đạp\". Biển không có giá trị cấm những người dắt xe đạp.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6525,12 +6557,13 @@
         "diem": "a",
         "muc_1": "B.10",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_110a.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_524",
-    "text": "Phụ lục B\nB.10  Biển số P.110a \"Cấm xe đạp\" và Biển số P.110b\"Cấm xe đạp thồ\"\nb) Để báo đường cấm xe đạp thồ đi qua, đặt biển số P.110b \"Cấm xe đạp thồ\". Biển này không cấm người dắt loại xe này.",
+    "text": "Phụ lục B\nB.10  Biển số P.110b\"Cấm xe đạp thồ\"\nb) Để báo đường cấm xe đạp thồ đi qua, đặt biển số P.110b \"Cấm xe đạp thồ\". Biển này không cấm người dắt loại xe này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6539,12 +6572,13 @@
         "diem": "b",
         "muc_1": "B.10",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_110b.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_525",
-    "text": "Phụ lục B\nB.11  Biển số P.111a \"Cấm xe gắn máy\", biển số P.111 (b,c) \"Cấm xe ba bánh loại có động cơ\" và biển số P.111d \"Cấm xe ba bánh loại không có động cơ\"\na) Để báo đường cấm xe gắn máy đi qua, đặt biển số P.111a \"Cấm xe gắn máy\". Biển không có giá trị đối với xe đạp.",
+    "text": "Phụ lục B\nB.11  Biển số P.111a \"Cấm xe gắn máy\"\na) Để báo đường cấm xe gắn máy đi qua, đặt biển số P.111a \"Cấm xe gắn máy\". Biển không có giá trị đối với xe đạp.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6553,12 +6587,13 @@
         "diem": "a",
         "muc_1": "B.11",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_111a.png"
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_526",
-    "text": "Phụ lục B\nB.11  Biển số P.111a \"Cấm xe gắn máy\", biển số P.111 (b,c) \"Cấm xe ba bánh loại có động cơ\" và biển số P.111d \"Cấm xe ba bánh loại không có động cơ\"\nb) Để báo đường cấm xe ba bánh loại có động cơ như xe lam, xe xích lô máy, xe lôi máy, v.v... đặt biển số P.111b hoặc P.111c \"Cấm xe ba bánh loại có động cơ\".",
+    "id": "41_2024_BGTVT_chunk_526b",
+    "text": "Phụ lục B\nB.11  Biển số P.111b \"Cấm xe ba bánh loại có động cơ\"\nb) Để báo đường cấm xe ba bánh loại có động cơ như xe lam, xe xích lô máy, xe lôi máy, v.v... đặt biển số P.111b hoặc P.111c \"Cấm xe ba bánh loại có động cơ\".",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6567,12 +6602,28 @@
         "diem": "b",
         "muc_1": "B.11",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_111b.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_526c",
+    "text": "Phụ lục B\nB.11  Biển số P.111c \"Cấm xe ba bánh loại có động cơ\"\nb) Để báo đường cấm xe ba bánh loại có động cơ như xe lam, xe xích lô máy, xe lôi máy, v.v... đặt biển số P.111b hoặc P.111c \"Cấm xe ba bánh loại có động cơ\".",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "b",
+        "muc_1": "B.11",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_111c.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_527",
-    "text": "Phụ lục B\nB.11  Biển số P.111a \"Cấm xe gắn máy\", biển số P.111 (b,c) \"Cấm xe ba bánh loại có động cơ\" và biển số P.111d \"Cấm xe ba bánh loại không có động cơ\"\nc) Để báo đường cấm xe ba bánh loại không có động cơ như xe xích lô, xe lôi đạp, v.v... đặt biển số P. 111d \"Cấm xe ba bánh loại không có động cơ\".",
+    "text": "Phụ lục B\nB.11  Biển số P.111d \"Cấm xe ba bánh loại không có động cơ\"\nc) Để báo đường cấm xe ba bánh loại không có động cơ như xe xích lô, xe lôi đạp, v.v... đặt biển số P. 111d \"Cấm xe ba bánh loại không có động cơ\".",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6581,7 +6632,8 @@
         "diem": "c",
         "muc_1": "B.11",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_111d.png"
     }
   },
   {
@@ -6594,7 +6646,8 @@
       "context": {
         "muc_1": "B.12",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_112.png"
     }
   },
   {
@@ -6607,7 +6660,8 @@
       "context": {
         "muc_1": "B.13",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_113.png"
     }
   },
   {
@@ -6620,7 +6674,8 @@
       "context": {
         "muc_1": "B.14",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_114.png"
     }
   },
   {
@@ -6633,7 +6688,8 @@
       "context": {
         "muc_1": "B.15",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_115.png"
     }
   },
   {
@@ -6646,7 +6702,8 @@
       "context": {
         "muc_1": "B.16",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_116.png"
     }
   },
   {
@@ -6660,7 +6717,8 @@
         "diem": "a",
         "muc_1": "B.17",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_117.png"
     }
   },
   {
@@ -6716,7 +6774,8 @@
         "diem": "a",
         "muc_1": "B.18",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_118.png"
     }
   },
   {
@@ -6772,7 +6831,8 @@
         "diem": "a",
         "muc_1": "B.19",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_119.png"
     }
   },
   {
@@ -6814,7 +6874,8 @@
         "diem": "a",
         "muc_1": "B.20",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_120.png"
     }
   },
   {
@@ -6842,7 +6903,8 @@
         "diem": "a",
         "muc_1": "B.21",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_121.png"
     }
   },
   {
@@ -6874,8 +6936,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_549",
-    "text": "Phụ lục B\nB.23  Biển số P.123a \"Cấm rẽ trái\" và Biển số P.123b \"Cấm rẽ phải\"\na) Để báo cấm rẽ trái hoặc rẽ phải (theo hướng mũi tên chỉ) ở những vị trí đường giao nhau, đặt biển số P.123a \"Cấm rẽ trái\" hoặc biển số P.123b \"Cấm rẽ phải\". Biển không có giá trị cấm quay đầu xe.",
+    "id": "41_2024_BGTVT_chunk_549a",
+    "text": "Phụ lục B\nB.23  Biển số P.123a \"Cấm rẽ trái\"\na) Để báo cấm rẽ trái (theo hướng mũi tên chỉ) ở những vị trí đường giao nhau, đặt biển số P.123a \"Cấm rẽ trái\". Biển không có giá trị cấm quay đầu xe.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6885,6 +6947,22 @@
         "muc_1": "B.23",
         "phu_luc": "B"
       }
+    },
+    "traffic_sign": "P_123a.png"
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_549b",
+    "text": "Phụ lục B\nB.23  Biển số P.123b \"Cấm rẽ phải\"\na) Để báo cấm rẽ phải (theo hướng mũi tên chỉ) ở những vị trí đường giao nhau, đặt biển số P.123b \"Cấm rẽ phải\". Biển không có giá trị cấm quay đầu xe.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "B.23",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_123b.png"
     }
   },
   {
@@ -6916,8 +6994,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_552",
-    "text": "Phụ lục B\nB.24  Biển số P.124 (a,b) \"Cấm quay đầu xe\", biển số P.124c \"Cấm rẽ trái và quay đầu xe”, biển số P.124d \"Cấm rẽ phải và quay đầu xe”, biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe” và biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\na) Để báo cấm các loại xe quay đầu (theo kiểu chữ U), đặt biển số P.124a \"Cấm quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm quay đầu xe.",
+    "id": "41_2024_BGTVT_chunk_552_1",
+    "text": "Phụ lục B\nB.24  Biển số P.124a \"Cấm quay đầu xe\"\na) Để báo cấm các loại xe quay đầu (theo kiểu chữ U), đặt biển số P.124a \"Cấm quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm quay đầu xe.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6926,12 +7004,28 @@
         "diem": "a",
         "muc_1": "B.24",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_124a1.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_552_2",
+    "text": "Phụ lục B\nB.24  Biển số P.124a \"Cấm quay đầu xe\"\na) Để báo cấm các loại xe quay đầu (theo kiểu chữ U), đặt biển số P.124a \"Cấm quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm quay đầu xe.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "B.24",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_124a2.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_553",
-    "text": "Phụ lục B\nB.24  Biển số P.124 (a,b) \"Cấm quay đầu xe\", biển số P.124c \"Cấm rẽ trái và quay đầu xe”, biển số P.124d \"Cấm rẽ phải và quay đầu xe”, biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe” và biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\nb) Để báo cấm xe ô tô quay đầu (theo kiểu chữ U), đặt biển số P.124b \"Cấm ô tô quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm xe ô tô quay đầu.",
+    "text": "Phụ lục B\nB.24  Biển số P.124b \"Cấm ô tô quay đầu xe\"\nb) Để báo cấm xe ô tô quay đầu (theo kiểu chữ U), đặt biển số P.124b \"Cấm ô tô quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm xe ô tô quay đầu.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6940,12 +7034,28 @@
         "diem": "b",
         "muc_1": "B.24",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_124b1.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_553",
+    "text": "Phụ lục B\nB.24  Biển số P.124b \"Cấm ô tô quay đầu xe\"\nb) Để báo cấm xe ô tô quay đầu (theo kiểu chữ U), đặt biển số P.124b \"Cấm ô tô quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm xe ô tô quay đầu.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "b",
+        "muc_1": "B.24",
+        "phu_luc": "B"
+      },
+      "traffic_sign": "P_124b2.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_554",
-    "text": "Phụ lục B\nB.24  Biển số P.124 (a,b) \"Cấm quay đầu xe\", biển số P.124c \"Cấm rẽ trái và quay đầu xe”, biển số P.124d \"Cấm rẽ phải và quay đầu xe”, biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe” và biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\nc) Để báo cấm các loại xe rẽ trái đồng thời cấm quay đầu, đặt biển số P.124c “Cấm rẽ trái và quay đầu xe”.",
+    "text": "Phụ lục B\nB.24  Biển số P.124c \"Cấm rẽ trái và quay đầu xe”\nc) Để báo cấm các loại xe rẽ trái đồng thời cấm quay đầu, đặt biển số P.124c “Cấm rẽ trái và quay đầu xe”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6954,12 +7064,13 @@
         "diem": "c",
         "muc_1": "B.24",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_124c.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_555",
-    "text": "Phụ lục B\nB.24  Biển số P.124 (a,b) \"Cấm quay đầu xe\", biển số P.124c \"Cấm rẽ trái và quay đầu xe”, biển số P.124d \"Cấm rẽ phải và quay đầu xe”, biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe” và biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\nd) Để báo cấm các loại xe rẽ phải đồng thời cấm quay đầu, đặt biển số P.124d “Cấm rẽ phải và quay đầu xe”.",
+    "text": "Phụ lục B\nB.24  Biển số P.124d \"Cấm rẽ phải và quay đầu xe”\nd) Để báo cấm các loại xe rẽ phải đồng thời cấm quay đầu, đặt biển số P.124d “Cấm rẽ phải và quay đầu xe”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6968,12 +7079,13 @@
         "diem": "d",
         "muc_1": "B.24",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_124d.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_556",
-    "text": "Phụ lục B\nB.24  Biển số P.124 (a,b) \"Cấm quay đầu xe\", biển số P.124c \"Cấm rẽ trái và quay đầu xe”, biển số P.124d \"Cấm rẽ phải và quay đầu xe”, biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe” và biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\ne) Để báo cấm xe ô tô rẽ trái và đồng thời cấm quay đầu, đặt biển số P.124e “Cấm ô tô rẽ trái và quay đầu xe”.",
+    "text": "Phụ lục B\nB.24  Biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe”\ne) Để báo cấm xe ô tô rẽ trái và đồng thời cấm quay đầu, đặt biển số P.124e “Cấm ô tô rẽ trái và quay đầu xe”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6982,12 +7094,13 @@
         "diem": "e",
         "muc_1": "B.24",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_124e.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_557",
-    "text": "Phụ lục B\nB.24  Biển số P.124 (a,b) \"Cấm quay đầu xe\", biển số P.124c \"Cấm rẽ trái và quay đầu xe”, biển số P.124d \"Cấm rẽ phải và quay đầu xe”, biển số P.124e \"Cấm ô tô rẽ trái và quay đầu xe” và biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\nf) Để báo cấm xe ô tô rẽ phải và đồng thời cấm quay đầu, đặt biển số P.124f “Cấm ô tô rẽ phải và quay đầu xe”.",
+    "text": "Phụ lục B\nB.24  Biển số P.124f \"Cấm ô tô rẽ phải và quay đầu xe”\nf) Để báo cấm xe ô tô rẽ phải và đồng thời cấm quay đầu, đặt biển số P.124f “Cấm ô tô rẽ phải và quay đầu xe”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6996,7 +7109,8 @@
         "diem": "f",
         "muc_1": "B.24",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_124f.png"
     }
   },
   {
@@ -7038,7 +7152,8 @@
         "diem": "a",
         "muc_1": "B.25",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_125.png"
     }
   },
   {
@@ -7080,7 +7195,8 @@
         "diem": "a",
         "muc_1": "B.26",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_126.png"
     }
   },
   {
@@ -7136,7 +7252,8 @@
         "diem": "a",
         "muc_1": "B.27",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_127_3.png"
     }
   },
   {
@@ -7360,7 +7477,8 @@
         "diem": "a",
         "muc_1": "B.28",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_128.png"
     }
   },
   {
@@ -7387,7 +7505,8 @@
       "context": {
         "muc_1": "B.29",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_129.png"
     }
   },
   {
@@ -7401,7 +7520,8 @@
         "diem": "a",
         "muc_1": "B.30",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_130.png"
     }
   },
   {
@@ -7499,7 +7619,8 @@
         "diem": "a",
         "muc_1": "B.32",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_132.png"
     }
   },
   {
@@ -7526,7 +7647,8 @@
       "context": {
         "muc_1": "B.33",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_133.png"
     }
   },
   {
@@ -7540,7 +7662,8 @@
         "diem": "a",
         "muc_1": "B.34",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_134.png"
     }
   },
   {
@@ -7568,7 +7691,8 @@
         "diem": "a",
         "muc_1": "B.35",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_135.png"
     }
   },
   {
@@ -7595,7 +7719,8 @@
       "context": {
         "muc_1": "B.36",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_136.png"
     }
   },
   {
@@ -7608,7 +7733,8 @@
       "context": {
         "muc_1": "B.37",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_137.png"
     }
   },
   {
@@ -7621,7 +7747,8 @@
       "context": {
         "muc_1": "B.38",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_138.png"
     }
   },
   {
@@ -7634,7 +7761,8 @@
       "context": {
         "muc_1": "B.39",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_139.png"
     }
   },
   {
@@ -7647,7 +7775,8 @@
       "context": {
         "muc_1": "B.40",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_140.png"
     }
   },
   {

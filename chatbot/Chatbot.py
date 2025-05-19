@@ -5,7 +5,7 @@ import config
 import utils
 import data_loader
 
-@st.cache_resource
+# @st.cache_resource
 def cached_load_or_create_components(_embedding_model):
     vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
     return vector_db, hybrid_retriever

@@ -273,7 +273,7 @@ if init_ok:
                          processing_log.append(f"[{time.time() - start_time:.2f}s]: Không tìm thấy tài liệu liên quan.")
                          message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
-                    st.write('final_relevant_documents')
+                    st.write(final_relevant_documents)
                     # --- Bước Generate Answer ---
                     answer_mode = st.session_state.answer_mode
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời (chế độ: {answer_mode})...")

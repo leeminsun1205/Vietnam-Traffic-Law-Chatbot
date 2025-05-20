@@ -570,7 +570,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                                     # ------------------------------------------
                                     
                                     single_image_html = (
-                                        f"<div style='flex: 1 0 18%; max-width: 19%; margin: 5px; text-align: center;'>"
+                                        f"<div style='flex: 1 0 23%; max-width: 24%; margin: 5px; text-align: center;'>"
                                         f"<img src='data:image/{file_ext};base64,{b64_string}' "
                                         f"alt='Biển báo: {display_sign_name}' " # Alt text cũng có thể dùng tên đã xử lý
                                         f"style='width: 100%; max-width: 120px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"

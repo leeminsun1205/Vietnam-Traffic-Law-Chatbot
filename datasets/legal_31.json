@@ -6384,9 +6384,9 @@
       "context": {
         "muc_1": "B.4",
         "phu_luc": "B"
-      }
-    },
-    "traffic_sign": "P_104.png"
+      },
+      "traffic_sign": "P_104.png"
+    }
   },
   {
     "id": "41_2024_BGTVT_chunk_515",
@@ -6398,9 +6398,9 @@
       "context": {
         "muc_1": "B.5",
         "phu_luc": "B"
-      }
-    },
-    "traffic_sign": "P_105.png"
+      },
+      "traffic_sign": "P_105.png"
+    }
   },
   {
     "id": "41_2024_BGTVT_chunk_516",
@@ -6413,9 +6413,9 @@
         "diem": "a",
         "muc_1": "B.6",
         "phu_luc": "B"
-      }
-    },
-    "traffic_sign": "P_106a.png"
+      },
+      "traffic_sign": "P_106a.png"
+    } 
   },
   {
     "id": "41_2024_BGTVT_chunk_517",
@@ -6946,9 +6946,9 @@
         "diem": "a",
         "muc_1": "B.23",
         "phu_luc": "B"
-      }
-    },
-    "traffic_sign": "P_123a.png"
+      },
+      "traffic_sign": "P_123a.png"
+    }
   },
   {
     "id": "41_2024_BGTVT_chunk_549b",
@@ -7342,7 +7342,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_574",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\ni) Khi sử dụng biển số P.127 tại các đoạn nhập làn và tách làn của các vị trí ra và vào đường ô tô, để chỉ rõ hiệu lực của biển chỉ có tác dụng cho các xe nhập làn và tách làn tại vị trí này, sử dụng kèm biển số S.509, trên biển ghi chữ “Lối vào” hoặc “Lối ra” tương ứng.\nB.27a  Biển số P.127a \"Tốc độ tối đa cho phép về ban đêm\"",
+    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\ni) Khi sử dụng biển số P.127 tại các đoạn nhập làn và tách làn của các vị trí ra và vào đường ô tô, để chỉ rõ hiệu lực của biển chỉ có tác dụng cho các xe nhập làn và tách làn tại vị trí này, sử dụng kèm biển số S.509, trên biển ghi chữ “Lối vào” hoặc “Lối ra” tương ứng.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7356,112 +7356,131 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_575",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\na) Khi cần quy định tốc độ tối đa về ban đêm cho các phương tiện, đặt biển số P.127a “Tốc độ tối đa cho phép về ban đêm”.\nÁp dụng biển số P.127a cho một số trường hợp qua khu đông dân cư vào ban đêm nhằm mục đích nâng cao tốc độ vận hành khi đường ít xe chạy. Biển chỉ có hiệu lực trong thời gian ghi trên biển và trong phạm vi từ vị trí đặt biển đến vị trí biển số R.421 “Hết khu đông dân cư”. Biển được đặt sau vị trí biển số R.420 “Bắt đầu khu đông dân cư”.",
+    "text": "Phụ lục B\nB.27  Biển số P.127a \"Tốc độ tối đa cho phép về ban đêm\"\na) Khi cần quy định tốc độ tối đa về ban đêm cho các phương tiện, đặt biển số P.127a “Tốc độ tối đa cho phép về ban đêm”.\nÁp dụng biển số P.127a cho một số trường hợp qua khu đông dân cư vào ban đêm nhằm mục đích nâng cao tốc độ vận hành khi đường ít xe chạy. Biển chỉ có hiệu lực trong thời gian ghi trên biển và trong phạm vi từ vị trí đặt biển đến vị trí biển số R.421 “Hết khu đông dân cư”. Biển được đặt sau vị trí biển số R.420 “Bắt đầu khu đông dân cư”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "muc_1": "B.27",
+        "muc_1": "B.27a",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_127a.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_576",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\nb) Số ghi trên biển tốc độ tối đa cho phép lớn nhất về ban đêm tính bằng km/h và không lớn hơn 80 km/h. Người tham gia giao thông về ban đêm không được vượt quá giá trị tốc độ ghi trên biển trừ một số trường hợp ưu tiên được quy định. Trong phạm vi hiệu lực của biển số P.127a “Tốc độ tối đa cho phép về ban đêm”, nếu gặp biển số P.127 “Tốc độ tối đa cho phép” thì người lái phải tuân thủ theo giá trị tốc độ tối đa quy định ghi trên biển số P.127.\nB.27b  Biển số P.127b \"Biển ghép tốc độ tối đa cho phép trên từng làn đường\"",
+    "text": "Phụ lục B\nB.27  Biển số P.127b \"Tốc độ tối đa cho phép về ban đêm\"\nb) Số ghi trên biển tốc độ tối đa cho phép lớn nhất về ban đêm tính bằng km/h và không lớn hơn 80 km/h. Người tham gia giao thông về ban đêm không được vượt quá giá trị tốc độ ghi trên biển trừ một số trường hợp ưu tiên được quy định. Trong phạm vi hiệu lực của biển số P.127a “Tốc độ tối đa cho phép về ban đêm”, nếu gặp biển số P.127 “Tốc độ tối đa cho phép” thì người lái phải tuân thủ theo giá trị tốc độ tối đa quy định ghi trên biển số P.127.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "muc_1": "B.27",
+        "muc_1": "B.27a",
         "phu_luc": "B"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_577",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\na) Khi quy định tốc độ tối đa cho phép trên từng làn đường, nếu chỉ sử dụng biển đặt bên đường hoặc trên cột cần vươn hay giá long môn, sử dụng biển số P.127b. Xe chạy trên làn nào phải tuân thủ tốc độ tối đa cho phép trên làn đường đó.",
+    "text": "Phụ lục B\nB.27b  Biển số P.127b \"Biển ghép tốc độ tối đa cho phép trên từng làn đường\"\na) Khi quy định tốc độ tối đa cho phép trên từng làn đường, nếu chỉ sử dụng biển đặt bên đường hoặc trên cột cần vươn hay giá long môn, sử dụng biển số P.127b. Xe chạy trên làn nào phải tuân thủ tốc độ tối đa cho phép trên làn đường đó.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "muc_1": "B.27",
+        "muc_1": "B.27b",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_127b.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_578",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\nb) Biển số P. 127b là biển hình chữ nhật nền màu xanh, trên đó thể hiện tốc độ tối đa trên các làn đường. Biển đặt bên đường hoặc treo trên giá long môn, cột cần vươn.\nB.27c Biển số P.127c \"Biển ghép tốc độ tối đa cho phép theo phương tiện, trên từng làn đường\"",
+    "text": "Phụ lục B\nB.27b  Biển số P.127b \"Biển ghép tốc độ tối đa cho phép trên từng làn đường\"\nb) Biển số P. 127b là biển hình chữ nhật nền màu xanh, trên đó thể hiện tốc độ tối đa trên các làn đường. Biển đặt bên đường hoặc treo trên giá long môn, cột cần vươn.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "muc_1": "B.27",
+        "muc_1": "B.27b",
         "phu_luc": "B"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_579",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\na) Khi quy định tốc độ tối đa cho phép theo phương tiện trên từng làn đường, sử dụng biển số P.127c. Các loại phương tiện phải đi đúng làn đường và tuân thủ tốc độ tối đa cho phép trên làn đường đó.",
+    "text": "Phụ lục B\nB.27c Biển số P.127c \"Biển ghép tốc độ tối đa cho phép theo phương tiện, trên từng làn đường\"\na) Khi quy định tốc độ tối đa cho phép theo phương tiện trên từng làn đường, sử dụng biển số P.127c. Các loại phương tiện phải đi đúng làn đường và tuân thủ tốc độ tối đa cho phép trên làn đường đó.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "muc_1": "B.27",
+        "muc_1": "B.27c",
         "phu_luc": "B"
-      }
+      },
+      "traffic_sign": "P_127c.png"
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_580",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\nb) Biển số P.127c là biển hình chữ nhật nền màu xanh, trên đó thể hiện tốc độ tối đa trên các làn đường. Biển đặt bên đường hoặc treo trên cột cần vươn hay giá long môn. Biểu tượng trên biển có thể thay đổi theo điều kiện sử dụng thực tế.\nB.27d  Biển số DP.127 \"Biển hết tốc độ tối đa cho phép theo biển ghép\"",
+    "text": "Phụ lục B\nB.27c Biển số P.127c \"Biển ghép tốc độ tối đa cho phép theo phương tiện, trên từng làn đường\"\nb) Biển số P.127c là biển hình chữ nhật nền màu xanh, trên đó thể hiện tốc độ tối đa trên các làn đường. Biển đặt bên đường hoặc treo trên cột cần vươn hay giá long môn. Biểu tượng trên biển có thể thay đổi theo điều kiện sử dụng thực tế.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "muc_1": "B.27",
+        "muc_1": "B.27c",
         "phu_luc": "B"
       }
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_581",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\na) Đến hết đoạn đường tốc độ tối đa cho phép theo biển ghép số P.127b, P.127c, đặt biển số DP.127 “Biển hết tốc độ tối đa cho phép theo biển ghép” tương ứng với các phương án tổ chức giao thông. Trường hợp \"Hết tất cả các lệnh cấm\" đặt biển số DP.135.",
+    "id": "41_2024_BGTVT_chunk_581a",
+    "text": "Phụ lục B\nB.27d  Biển số DP.127 \"Biển hết tốc độ tối đa cho phép theo biển ghép\"\na) Đến hết đoạn đường tốc độ tối đa cho phép theo biển ghép số P.127b, P.127c, đặt biển số DP.127 “Biển hết tốc độ tối đa cho phép theo biển ghép” tương ứng với các phương án tổ chức giao thông. Trường hợp \"Hết tất cả các lệnh cấm\" đặt biển số DP.135.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "muc_1": "B.27",
+        "muc_1": "B.27d",
         "phu_luc": "B"
       }
-    }
+    },
+    "traffic_sign": "P_127e.png"
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_581a",
+    "text": "Phụ lục B\nB.27d  Biển số DP.127 \"Biển hết tốc độ tối đa cho phép theo biển ghép\"\na) Đến hết đoạn đường tốc độ tối đa cho phép theo biển ghép số P.127b, P.127c, đặt biển số DP.127 “Biển hết tốc độ tối đa cho phép theo biển ghép” tương ứng với các phương án tổ chức giao thông. Trường hợp \"Hết tất cả các lệnh cấm\" đặt biển số DP.135.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "B.27d",
+        "phu_luc": "B"
+      }
+    },
+    "traffic_sign": "P_127d.png"
   },
   {
     "id": "41_2024_BGTVT_chunk_582",
-    "text": "Phụ lục B\nB.27  Biển số P.127 \"Tốc độ tối đa cho phép\"\nb) Biển có giá trị báo cho, người tham gia giao thông biết hiệu lực của biển số P.127(b,c) hết tác dụng. Kể từ biển này, các xe được phép chạy với tốc độ tối đa đã quy định trong Luật Đường bộ và Luật Trật tự, an toàn giao thông đường bộ.",
+    "text": "Phụ lục B\nB.27d  Biển số DP.127 \"Biển hết tốc độ tối đa cho phép theo biển ghép\"\nb) Biển có giá trị báo cho, người tham gia giao thông biết hiệu lực của biển số P.127(b,c) hết tác dụng. Kể từ biển này, các xe được phép chạy với tốc độ tối đa đã quy định trong Luật Đường bộ và Luật Trật tự, an toàn giao thông đường bộ.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "muc_1": "B.27",
+        "muc_1": "B.27d",
         "phu_luc": "B"
       }
     }
@@ -7577,9 +7596,9 @@
         "diem": "a",
         "muc_1": "B.31",
         "phu_luc": "B"
-      }
-    },
-    "traffic_sign": "P_131a.png"
+      },
+      "traffic_sign": "P_131a.png"
+    }
   },
   {
     "id": "41_2024_BGTVT_chunk_590b",
@@ -7811,8 +7830,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_605",
-    "text": "Phụ lục C\nC.1  Biển số W.201 (a,b) \"Chỗ ngoặt nguy hiểm\"\na) Để báo trước sắp đến một chỗ ngoặt nguy hiểm, đặt biển số W.201 (a,b):\n- Biển số W.201a chỗ ngoặt nguy hiểm vòng bên trái;\n- Biển số W.201b chỗ ngoặt nguy hiểm vòng bên phải.",
+    "id": "41_2024_BGTVT_chunk_605a",
+    "text": "Phụ lục C\nC.1  Biển số W.201a \"Chỗ ngoặt nguy hiểm\"\na) Để báo trước sắp đến một chỗ ngoặt nguy hiểm, đặt biển số W.201:\n- Biển số W.201a chỗ ngoặt nguy hiểm vòng bên trái;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7821,11 +7840,27 @@
         "diem": "a",
         "muc_1": "C.1",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": "W_201a.png"
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_606",
+    "id": "41_2024_BGTVT_chunk_605b",
+    "text": "Phụ lục C\nC.1  Biển số W.201b \"Chỗ ngoặt nguy hiểm\"\na) Để báo trước sắp đến một chỗ ngoặt nguy hiểm, đặt biển số W.201:\n- Biển số W.201b chỗ ngoặt nguy hiểm vòng bên phải.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "C.1",
+        "phu_luc": "C"
+      },
+      "traffic_sign": "W_201b.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_606a",
     "text": "Phụ lục C\nC.1  Biển số W.201 (a,b) \"Chỗ ngoặt nguy hiểm\"\nb) Chỗ ngoặt nguy hiểm là vị trí đường cong như sau:\n- Ở vùng đồng bằng, đường cong có góc chuyển hướng lớn hơn hay bằng 45° hoặc có bán kính nhỏ hơn hay bằng 100 m.\n- Ở vùng núi, đường cong có góc ở chuyển hướng lớn hơn hay bằng 45° hoặc có bán kính nhỏ hơn hay bằng 40 m.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
@@ -7867,8 +7902,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_609",
-    "text": "Phụ lục C\nC.2  Biển số W.202(a,b) \"Nhiều chỗ ngoặt nguy hiểm liên tiếp\"\na) Để báo trước sắp đến hai chỗ ngoặt ngược chiều nhau liên tiếp, đặt biển số W.202 (a,b):\n- Biển số W.202a đặt trong trường hợp có từ 2 chỗ ngoặt, ở gần nhau trong đó có ít nhất một chỗ ngoặt nguy hiểm mà chỗ ngoặt đầu tiên hướng vòng bên trái;\n- Biển số W.202b đặt trong trường hợp như biển số W.202a nhưng hướng vòng bên phải.",
+    "id": "41_2024_BGTVT_chunk_609a",
+    "text": "Phụ lục C\nC.2  Biển số W.202(a,b) \"Nhiều chỗ ngoặt nguy hiểm liên tiếp\"\na) Để báo trước sắp đến hai chỗ ngoặt ngược chiều nhau liên tiếp, đặt biển số W.202 (a,b):\n- Biển số W.202a đặt trong trường hợp có từ 2 chỗ ngoặt, ở gần nhau trong đó có ít nhất một chỗ ngoặt nguy hiểm mà chỗ ngoặt đầu tiên hướng vòng bên trái;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7877,7 +7912,23 @@
         "diem": "a",
         "muc_1": "C.2",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": "W_202a.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_609b",
+    "text": "Phụ lục C\nC.2  Biển số W.202(a,b) \"Nhiều chỗ ngoặt nguy hiểm liên tiếp\"\na) Để báo trước sắp đến hai chỗ ngoặt ngược chiều nhau liên tiếp, đặt biển số W.202 (a,b):\n- Biển số W.202b đặt trong trường hợp có từ 2 chỗ ngoặt, ở gần nhau trong đó có ít nhất một chỗ ngoặt nguy hiểm mà chỗ ngoặt đầu tiên hướng vòng bên phải.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "C.2",
+        "phu_luc": "C"
+      },
+      "traffic_sign": "W_202b.png"
     }
   },
   {
@@ -7895,8 +7946,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_611",
-    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203a đặt trong trường hợp đường bị thu hẹp cả hai bên;\n- Biển số W.203b hoặc biển số W.203c đặt trong trường hợp đường bị thu hẹp về phía trái hoặc phía phải.",
+    "id": "41_2024_BGTVT_chunk_611a",
+    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203a đặt trong trường hợp đường bị thu hẹp cả hai bên;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7905,7 +7956,38 @@
         "diem": "a",
         "muc_1": "C.3",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": "W_203a.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_611b",
+    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203b đặt trong trường hợp đường bị thu hẹp về phía trái.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "C.3",
+        "phu_luc": "C"
+      },
+      "traffic_sign": "W_203b.png"
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_611c",
+    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203c đặt trong trường hợp đường bị thu hẹp về phía phải.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "C.3",
+        "phu_luc": "C"
+      },
+      "traffic_sign": "W_203c.png"
     }
   },
   {
@@ -7975,7 +8057,8 @@
         "diem": "a",
         "muc_1": "C.4",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": "W_204.png"
     }
   },
   {
@@ -8002,7 +8085,8 @@
       "context": {
         "muc_1": "C.5",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": "W_205.png"
     }
   },
   {
@@ -8015,7 +8099,8 @@
       "context": {
         "muc_1": "C.6",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": "W_206.png"
     }
   },
   {
@@ -8029,7 +8114,8 @@
         "diem": "a",
         "muc_1": "C.7",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_207a.png", "W_207b.png", "W_207c.png", "W_207d.png", "W_207e.png", "W_207f.png", "W_207g.png", "W_207h.png", "W_207i.png", "W_207j.png", "W_207k.png"]
     }
   },
   {

@@ -387,7 +387,6 @@ def extract_and_normalize_document_key(citation_text):
 
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     url_mapping_dict = load_document_url_mapping()
-    context_str_parts = []
     source_details_for_prompt = []
 
     if not relevant_documents:
@@ -395,12 +394,11 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     else:
         for i, item in enumerate(relevant_documents):
             doc_content = item.get('doc')
-            if not isinstance(doc_content, dict):
-                continue
+            if not isinstance(doc_content, dict): continue
             text = doc_content.get('text', '').strip()
             metadata = doc_content.get('metadata', {})
-            if not text:
-                continue
+            if not text: continue
+
             source_name = metadata.get('source', 'N/A')
             context_meta = metadata.get('context', {})
             chuong = context_meta.get('chuong')
@@ -415,14 +413,28 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             if khoan: source_parts.append(f"Khoản {khoan}")
             if diem: source_parts.append(f"Điểm {diem}")
             source_ref_full = ", ".join(source_parts)
-            traffic_sign_filename = metadata.get('traffic_sign')
+
+            # Lấy giá trị traffic_sign, có thể là string hoặc list
+            traffic_sign_value = metadata.get('traffic_sign')
             traffic_sign_info_for_llm = ""
-            if traffic_sign_filename:
-                traffic_sign_info_for_llm = (
-                    f" (LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo '{traffic_sign_filename}'. "
-                    f"Nếu sử dụng thông tin từ đây để trả lời, hãy nhớ dùng placeholder chỉ mục biển báo.)"
-                )
+            if traffic_sign_value:
+                # Tạo tên hiển thị cho LLM, dù là string hay list
+                if isinstance(traffic_sign_value, list):
+                    # Hiển thị một vài tên file đầu tiên nếu list quá dài
+                    display_filenames = ", ".join(traffic_sign_value[:3])
+                    if len(traffic_sign_value) > 3:
+                        display_filenames += "..."
+                    traffic_sign_info_for_llm = (
+                        f" (LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến các biển báo: '{display_filenames}'. "
+                        f"Nếu sử dụng thông tin từ đây để trả lời, hãy nhớ dùng placeholder chỉ mục biển báo.)"
+                    )
+                elif isinstance(traffic_sign_value, str):
+                    traffic_sign_info_for_llm = (
+                        f" (LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo '{traffic_sign_value}'. "
+                        f"Nếu sử dụng thông tin từ đây để trả lời, hãy nhớ dùng placeholder chỉ mục biển báo.)"
+                    )
             source_details_for_prompt.append(f"Nguồn {i+1}: [{source_ref_full}]{traffic_sign_info_for_llm}\nNội dung: {text}\n---")
+
         if not source_details_for_prompt:
              context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp để xây dựng prompt."
         else:
@@ -440,14 +452,17 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         history_prefix += "---\n"
 
     placeholder_instruction = (
-        "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO**: Nếu bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
+        "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
+        "Khi bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
         "VÀ nguồn đó có ghi chú '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo ...)', "
-        "thì NGAY SAU KHI bạn trình bày xong phần nội dung văn bản lấy từ nguồn đó (ví dụ: sau một gạch đầu dòng, hoặc cuối một đoạn giải thích), "
-        "bạn PHẢI đặt một placeholder đặc biệt có dạng: `[DISPLAY_TRAFFIC_SIGN_INDEX_{index_nguồn}]`. "
-        "Trong đó, `{index_nguồn}` CHÍNH LÀ số thứ tự của 'Nguồn' đó (ví dụ: 1, 2, 3,...). "
-        "Ví dụ: Nếu 'Nguồn 3' trong ngữ cảnh có thông tin về biển báo và bạn dùng nó để trả lời, thì bạn phải viết: "
-        "`...nội dung bạn trích từ Nguồn 3... [DISPLAY_TRAFFIC_SIGN_INDEX_3]`."
-        "Đảm bảo placeholder này nằm tách biệt và dễ dàng được tìm thấy."
+        "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"
+        "    a. Đầu tiên, trình bày **nội dung văn bản** mà bạn trích xuất hoặc diễn giải.\n"
+        "    b. **Ngay sau nội dung văn bản đó**, nếu bạn muốn hoặc cần trích dẫn nguồn chi tiết cho phần văn bản này, hãy viết **trích dẫn nguồn** (ví dụ: `(Theo Điều X, Khoản Y, Văn bản Z)`).\n"
+        "    c. **CUỐI CÙNG, và NGAY SAU trích dẫn nguồn (hoặc ngay sau nội dung văn bản nếu không có trích dẫn nguồn cho đoạn đó)**, bạn PHẢI đặt một placeholder đặc biệt có dạng: `[DISPLAY_TRAFFIC_SIGN_INDEX_{index_nguồn}]`. "
+        "`{index_nguồn}` CHÍNH LÀ số thứ tự của 'Nguồn' đó.\n"
+        "    * **Ví dụ THỨ TỰ ĐÚNG**: `...nội dung từ Nguồn 3... (Theo Điều A, QCVN XYZ) [DISPLAY_TRAFFIC_SIGN_INDEX_3]`\n"
+        "    * Hoặc nếu không có trích dẫn cụ thể cho đoạn văn bản đó: `...nội dung từ Nguồn 3... [DISPLAY_TRAFFIC_SIGN_INDEX_3]`\n"
+        "    * **TUYỆT ĐỐI KHÔNG** đặt placeholder ảnh trước trích dẫn nguồn của nó. Placeholder ảnh phải là yếu tố cuối cùng liên quan đến khối thông tin của nguồn đó."
     )
     common_requirements = f"""
     1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài luồng được cung cấp.
@@ -511,13 +526,10 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     except Exception as e:
         final_answer_display = f"Đã xảy ra sự cố khi xử lý yêu cầu của bạn. Chi tiết lỗi: {str(e)[:200]}..."
 
-    # --- THAY ĐỔI: Xử lý placeholder và nhúng ảnh Base64 (với logic chống lặp ảnh) ---
     if relevant_documents and isinstance(relevant_documents, list) and final_answer_display:
         processed_answer_parts = []
         last_idx = 0
-        # --- THÊM MỚI: Set để theo dõi ảnh đã hiển thị ---
         displayed_sign_filenames = set()
-        # ----------------------------------------------------
 
         for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", final_answer_display):
             placeholder_full = match.group(0)
@@ -525,18 +537,25 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             source_idx_zero_based = source_idx_one_based - 1
 
             processed_answer_parts.append(final_answer_display[last_idx:match.start()])
-            image_markdown_to_insert = ""
+            
+            # --- BẮT ĐẦU THAY ĐỔI LOGIC XỬ LÝ NHIỀU ẢNH ---
+            images_html_for_current_placeholder_list = [] # Lưu HTML cho từng ảnh của placeholder này
 
             if 0 <= source_idx_zero_based < len(relevant_documents):
                 doc_item = relevant_documents[source_idx_zero_based]
                 doc_content = doc_item.get('doc')
                 if isinstance(doc_content, dict):
                     metadata = doc_content.get('metadata', {})
-                    traffic_sign_filename = metadata.get('traffic_sign')
+                    traffic_sign_value = metadata.get('traffic_sign') # Đây có thể là string hoặc list
 
-                    if traffic_sign_filename:
-                        # --- THAY ĐỔI: Kiểm tra xem ảnh đã được hiển thị chưa ---
-                        if traffic_sign_filename not in displayed_sign_filenames:
+                    filenames_to_process_for_chunk = []
+                    if isinstance(traffic_sign_value, str):
+                        filenames_to_process_for_chunk = [traffic_sign_value]
+                    elif isinstance(traffic_sign_value, list):
+                        filenames_to_process_for_chunk = traffic_sign_value
+                    
+                    for traffic_sign_filename in filenames_to_process_for_chunk:
+                        if traffic_sign_filename and traffic_sign_filename not in displayed_sign_filenames:
                             image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename)
                             if os.path.exists(image_full_path):
                                 try:
@@ -544,27 +563,43 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                                         b64_string = base64.b64encode(img_file.read()).decode()
                                     file_ext = os.path.splitext(traffic_sign_filename)[1][1:].lower()
                                     if not file_ext: file_ext = "png"
-                                    image_markdown_to_insert = (
-                                        f"\n<div style='text-align: left; margin-top: 8px; margin-bottom: 8px; padding-left: 20px;'>"
+                                    
+                                    # HTML cho một ảnh (sẽ được bọc trong item của grid sau)
+                                    single_image_html = (
+                                        f"<div style='flex: 1 0 18%; max-width: 19%; margin: 5px; text-align: center;'>" # 5 ảnh/hàng (100/5 = 20, trừ margin)
                                         f"<img src='data:image/{file_ext};base64,{b64_string}' "
                                         f"alt='Biển báo: {traffic_sign_filename}' "
-                                        f"style='max-width: 150px; max-height:150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
-                                        f"<p style='font-size: 0.8em; margin-top: 2px; font-style: italic;'>{traffic_sign_filename}</p>"
-                                        f"</div>\n"
+                                        f"style='width: 100%; max-width: 120px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
+                                        f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{traffic_sign_filename}</p>"
+                                        f"</div>"
                                     )
-                                    displayed_sign_filenames.add(traffic_sign_filename) # Đánh dấu đã hiển thị
+                                    images_html_for_current_placeholder_list.append(single_image_html)
+                                    displayed_sign_filenames.add(traffic_sign_filename)
                                 except Exception as e_img:
-                                    image_markdown_to_insert = f"\n<p style='color: red; font-style: italic; padding-left: 20px;'>[Lỗi hiển thị ảnh: {traffic_sign_filename}]</p>"
+                                    images_html_for_current_placeholder_list.append(f"<div style='color: red; font-style: italic; padding-left: 20px; flex-basis:100%'>[Lỗi hiển thị ảnh: {traffic_sign_filename}]</div>")
                             else:
-                                image_markdown_to_insert = f"\n<p style='color: orange; font-style: italic; padding-left: 20px;'>[Không tìm thấy ảnh: {traffic_sign_filename}]</p>"
-                        # else: Ảnh đã được hiển thị, không chèn lại. image_markdown_to_insert sẽ là "" (rỗng).
-                        # ------------------------------------------------------------
+                                images_html_for_current_placeholder_list.append(f"<div style='color: orange; font-style: italic; padding-left: 20px; flex-basis:100%'>[Không tìm thấy ảnh: {traffic_sign_filename}]</div>")
+                        elif traffic_sign_filename in displayed_sign_filenames:
+                             # Nếu muốn có thông báo ảnh đã hiển thị (có thể làm rối):
+                             # images_html_for_current_placeholder_list.append(f"<div style='font-size:0.8em; font-style:italic; color:grey; flex-basis:100%'>Biển báo {traffic_sign_filename} đã được hiển thị.</div>")
+                             pass # Bỏ qua nếu đã hiển thị
+
+            # Tạo container grid cho các ảnh của placeholder này nếu có ảnh
+            image_markdown_to_insert = ""
+            if images_html_for_current_placeholder_list:
+                image_grid_html_content = "".join(images_html_for_current_placeholder_list)
+                image_markdown_to_insert = (
+                    f"\n<div style='display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; margin-top: 10px; margin-bottom: 10px; padding-left: 15px; border-left: 3px solid #eee;'>"
+                    f"{image_grid_html_content}"
+                    f"</div>\n"
+                )
+            # --- KẾT THÚC THAY ĐỔI LOGIC XỬ LÝ NHIỀU ẢNH ---
+            
             processed_answer_parts.append(image_markdown_to_insert)
             last_idx = match.end()
 
         processed_answer_parts.append(final_answer_display[last_idx:])
         final_answer_display = "".join(processed_answer_parts)
-    # --------------------------------------------------------------------------------
 
     found_urls = set()
     citations_found = re.findall(r'\((?:[Tt]heo\s)?([^)]+?)\)', final_answer_display)

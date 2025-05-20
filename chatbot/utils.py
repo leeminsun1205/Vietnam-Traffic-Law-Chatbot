@@ -573,7 +573,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                                         f"<div style='flex: 1 0 23%; max-width: 24%; margin: 5px; text-align: center;'>"
                                         f"<img src='data:image/{file_ext};base64,{b64_string}' "
                                         f"alt='Biển báo: {display_sign_name}' " # Alt text cũng có thể dùng tên đã xử lý
-                                        f"style='width: 100%; max-width: 120px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
+                                        f"style='width: 100%; max-width: 150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
                                         f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{display_sign_name}</p>" # Sử dụng tên đã xử lý
                                         f"</div>"
                                     )

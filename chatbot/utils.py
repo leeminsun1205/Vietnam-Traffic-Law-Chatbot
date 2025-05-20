@@ -554,35 +554,38 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
                     elif isinstance(traffic_sign_value, list):
                         filenames_to_process_for_chunk = traffic_sign_value
                     
-                    for traffic_sign_filename in filenames_to_process_for_chunk:
-                        if traffic_sign_filename and traffic_sign_filename not in displayed_sign_filenames:
-                            image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename)
+                    for traffic_sign_filename_original in filenames_to_process_for_chunk: # Đổi tên biến để tránh nhầm lẫn
+                        if traffic_sign_filename_original and traffic_sign_filename_original not in displayed_sign_filenames:
+                            image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename_original)
                             if os.path.exists(image_full_path):
                                 try:
                                     with open(image_full_path, "rb") as img_file:
                                         b64_string = base64.b64encode(img_file.read()).decode()
-                                    file_ext = os.path.splitext(traffic_sign_filename)[1][1:].lower()
+                                    file_ext = os.path.splitext(traffic_sign_filename_original)[1][1:].lower()
                                     if not file_ext: file_ext = "png"
                                     
-                                    # HTML cho một ảnh (sẽ được bọc trong item của grid sau)
+                                    # --- THAY ĐỔI CÁCH HIỂN THỊ TÊN BIỂN BÁO ---
+                                    base_name_no_ext = os.path.splitext(traffic_sign_filename_original)[0]
+                                    display_sign_name = base_name_no_ext.replace("_", ".")
+                                    # ------------------------------------------
+                                    
                                     single_image_html = (
-                                        f"<div style='flex: 1 0 18%; max-width: 19%; margin: 5px; text-align: center;'>" # 5 ảnh/hàng (100/5 = 20, trừ margin)
+                                        f"<div style='flex: 1 0 18%; max-width: 19%; margin: 5px; text-align: center;'>"
                                         f"<img src='data:image/{file_ext};base64,{b64_string}' "
-                                        f"alt='Biển báo: {traffic_sign_filename}' "
+                                        f"alt='Biển báo: {display_sign_name}' " # Alt text cũng có thể dùng tên đã xử lý
                                         f"style='width: 100%; max-width: 120px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
-                                        f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{traffic_sign_filename}</p>"
+                                        f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{display_sign_name}</p>" # Sử dụng tên đã xử lý
                                         f"</div>"
                                     )
                                     images_html_for_current_placeholder_list.append(single_image_html)
-                                    displayed_sign_filenames.add(traffic_sign_filename)
+                                    # Vẫn dùng tên file gốc để kiểm tra trùng lặp
+                                    displayed_sign_filenames.add(traffic_sign_filename_original) 
                                 except Exception as e_img:
-                                    images_html_for_current_placeholder_list.append(f"<div style='color: red; font-style: italic; padding-left: 20px; flex-basis:100%'>[Lỗi hiển thị ảnh: {traffic_sign_filename}]</div>")
+                                    images_html_for_current_placeholder_list.append(f"<div style='color: red; font-style: italic; padding-left: 20px; flex-basis:100%'>[Lỗi hiển thị ảnh: {traffic_sign_filename_original}]</div>")
                             else:
-                                images_html_for_current_placeholder_list.append(f"<div style='color: orange; font-style: italic; padding-left: 20px; flex-basis:100%'>[Không tìm thấy ảnh: {traffic_sign_filename}]</div>")
-                        elif traffic_sign_filename in displayed_sign_filenames:
-                             # Nếu muốn có thông báo ảnh đã hiển thị (có thể làm rối):
-                             # images_html_for_current_placeholder_list.append(f"<div style='font-size:0.8em; font-style:italic; color:grey; flex-basis:100%'>Biển báo {traffic_sign_filename} đã được hiển thị.</div>")
-                             pass # Bỏ qua nếu đã hiển thị
+                                images_html_for_current_placeholder_list.append(f"<div style='color: orange; font-style: italic; padding-left: 20px; flex-basis:100%'>[Không tìm thấy ảnh: {traffic_sign_filename_original}]</div>")
+                        elif traffic_sign_filename_original in displayed_sign_filenames:
+                             pass
 
             # Tạo container grid cho các ảnh của placeholder này nếu có ảnh
             image_markdown_to_insert = ""

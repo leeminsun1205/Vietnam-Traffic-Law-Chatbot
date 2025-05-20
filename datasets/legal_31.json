@@ -6240,7 +6240,7 @@
         "muc_1": "B.1",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_101.png"
+      "traffic_sign": ["P_101.png"]
     }
     
   },
@@ -6312,7 +6312,7 @@
         "muc_1": "B.2",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_102.png"
+      "traffic_sign": ["P_102.png"]
     }
   },
   {
@@ -6346,7 +6346,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_513b",
-    "text": "Phụ lục B\nB.3  Biển số P.103b “Cấm xe ôtô rẽ phải”\nb) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng rẽ phải, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103b “Cấm xe ô tô rẽ phải”.",
+    "text": "Phụ lục B\nB.3  Biển số P.103b và P.103c “Cấm xe ôtô rẽ phải” và “Cấm xe ôtô rẽ trái”\nb) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng rẽ phải hay rẽ trái, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103b “Cấm xe ô tô rẽ phải” hay biển số P.103c “Cấm xe ô tô rẽ trái”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6356,22 +6356,7 @@
         "muc_1": "B.3",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_103b.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_513c",
-    "text": "Phụ lục B\nB.3  Biển số P.103c “Cấm xe ôtô rẽ trái”\nb) Để báo đường cấm các loại xe cơ giới kể cả xe máy 3 bánh có thùng rẽ trái, trừ xe máy 2 bánh, xe gắn máy và các xe được ưu tiên theo quy định, đặt biển số P.103c “Cấm xe ô tô rẽ trái”.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "muc_1": "B.3",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_103c.png"
+      "traffic_sign": ["P_103b.png", "P_103c.png"]
     }
   },
   {
@@ -6385,7 +6370,7 @@
         "muc_1": "B.4",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_104.png"
+      "traffic_sign": ["P_104.png"]
     }
   },
   {
@@ -6399,7 +6384,7 @@
         "muc_1": "B.5",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_105.png"
+      "traffic_sign": ["P_105.png"]
     }
   },
   {
@@ -6414,7 +6399,7 @@
         "muc_1": "B.6",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_106a.png"
+      "traffic_sign": ["P_106a.png"]
     } 
   },
   {
@@ -6429,7 +6414,7 @@
         "muc_1": "B.6",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_106b.png"
+      "traffic_sign": ["P_106b.png"]
     }
   },
   {
@@ -6444,7 +6429,7 @@
         "muc_1": "B.6",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_106c.png"
+      "traffic_sign": ["P_106c.png"]
     }
   },
   {
@@ -6458,7 +6443,7 @@
         "muc_1": "B.7",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_107.png"
+      "traffic_sign": ["P_107.png"]
     }
   },
   {
@@ -6473,7 +6458,7 @@
         "muc_1": "B.7a",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_107a.png"
+      "traffic_sign": ["P_107a.png"]
     }
   },
   {
@@ -6501,7 +6486,7 @@
         "muc_1": "B.7b",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_107b.png"
+      "traffic_sign": ["P_107b.png"]
     }
   },
   {
@@ -6515,7 +6500,7 @@
         "muc_1": "B.8",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_108.png"
+      "traffic_sign": ["P_108.png"]
     }
   },
   {
@@ -6529,7 +6514,7 @@
         "muc_1": "B.8a",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_108a.png"
+      "traffic_sign": ["P_108a.png"]
     }
   },
   {
@@ -6544,7 +6529,7 @@
         "phu_luc": "B"
       }
     },
-    "traffic_sign": "P_109.png"
+    "traffic_sign": ["P_109.png"]
   },
   {
     "id": "41_2024_BGTVT_chunk_523",
@@ -6558,7 +6543,7 @@
         "muc_1": "B.10",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_110a.png"
+      "traffic_sign": ["P_110a.png"]
     }
   },
   {
@@ -6573,7 +6558,7 @@
         "muc_1": "B.10",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_110b.png"
+      "traffic_sign": ["P_110b.png"]
     }
   },
   {
@@ -6588,12 +6573,12 @@
         "muc_1": "B.11",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_111a.png"
+      "traffic_sign": ["P_111a.png"]
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_526b",
-    "text": "Phụ lục B\nB.11  Biển số P.111b \"Cấm xe ba bánh loại có động cơ\"\nb) Để báo đường cấm xe ba bánh loại có động cơ như xe lam, xe xích lô máy, xe lôi máy, v.v... đặt biển số P.111b hoặc P.111c \"Cấm xe ba bánh loại có động cơ\".",
+    "id": "41_2024_BGTVT_chunk_526",
+    "text": "Phụ lục B\nB.11  Biển số P.111 (b,c) \"Cấm xe ba bánh loại có động cơ\"\nb) Để báo đường cấm xe ba bánh loại có động cơ như xe lam, xe xích lô máy, xe lôi máy, v.v... đặt biển số P.111b hoặc P.111c \"Cấm xe ba bánh loại có động cơ\".",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6603,22 +6588,7 @@
         "muc_1": "B.11",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_111b.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_526c",
-    "text": "Phụ lục B\nB.11  Biển số P.111c \"Cấm xe ba bánh loại có động cơ\"\nb) Để báo đường cấm xe ba bánh loại có động cơ như xe lam, xe xích lô máy, xe lôi máy, v.v... đặt biển số P.111b hoặc P.111c \"Cấm xe ba bánh loại có động cơ\".",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "muc_1": "B.11",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_111c.png"
+      "traffic_sign": ["P_111b.png", "P_111c.png"]
     }
   },
   {
@@ -6633,7 +6603,7 @@
         "muc_1": "B.11",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_111d.png"
+      "traffic_sign": ["P_111d.png"]
     }
   },
   {
@@ -6647,7 +6617,7 @@
         "muc_1": "B.12",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_112.png"
+      "traffic_sign": ["P_112.png"]
     }
   },
   {
@@ -6661,7 +6631,7 @@
         "muc_1": "B.13",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_113.png"
+      "traffic_sign": ["P_113.png"]
     }
   },
   {
@@ -6675,7 +6645,7 @@
         "muc_1": "B.14",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_114.png"
+      "traffic_sign": ["P_114.png"]
     }
   },
   {
@@ -6689,7 +6659,7 @@
         "muc_1": "B.15",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_115.png"
+      "traffic_sign": ["P_115.png"]
     }
   },
   {
@@ -6703,7 +6673,7 @@
         "muc_1": "B.16",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_116.png"
+      "traffic_sign": ["P_116.png"]
     }
   },
   {
@@ -6718,7 +6688,7 @@
         "muc_1": "B.17",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_117.png"
+      "traffic_sign": ["P_117.png"]
     }
   },
   {
@@ -6775,7 +6745,7 @@
         "muc_1": "B.18",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_118.png"
+      "traffic_sign": ["P_118.png"]
     }
   },
   {
@@ -6832,7 +6802,7 @@
         "muc_1": "B.19",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_119.png"
+      "traffic_sign": ["P_119.png"]
     }
   },
   {
@@ -6875,7 +6845,7 @@
         "muc_1": "B.20",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_120.png"
+      "traffic_sign": ["P_120.png"]
     }
   },
   {
@@ -6904,7 +6874,7 @@
         "muc_1": "B.21",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_121.png"
+      "traffic_sign": ["P_121.png"]
     }
   },
   {
@@ -6936,8 +6906,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_549a",
-    "text": "Phụ lục B\nB.23  Biển số P.123a \"Cấm rẽ trái\"\na) Để báo cấm rẽ trái (theo hướng mũi tên chỉ) ở những vị trí đường giao nhau, đặt biển số P.123a \"Cấm rẽ trái\". Biển không có giá trị cấm quay đầu xe.",
+    "id": "41_2024_BGTVT_chunk_549",
+    "text": "Phụ lục B\nB.23  Biển số P.123a \"Cấm rẽ trái\" và Biển số P.123b \"Cấm rẽ phải\"\na) Để báo cấm rẽ trái hoặc rẽ phải (theo hướng mũi tên chỉ) ở những vị trí đường giao nhau, đặt biển số P.123a \"Cấm rẽ trái\" hoặc biển số P.123b \"Cấm rẽ phải\". Biển không có giá trị cấm quay đầu xe.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -6947,22 +6917,7 @@
         "muc_1": "B.23",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_123a.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_549b",
-    "text": "Phụ lục B\nB.23  Biển số P.123b \"Cấm rẽ phải\"\na) Để báo cấm rẽ phải (theo hướng mũi tên chỉ) ở những vị trí đường giao nhau, đặt biển số P.123b \"Cấm rẽ phải\". Biển không có giá trị cấm quay đầu xe.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "B.23",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_123b.png"
+      "traffic_sign": ["P_123a.png", "P_123b.png"]
     }
   },
   {
@@ -6994,7 +6949,7 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_552_1",
+    "id": "41_2024_BGTVT_chunk_552",
     "text": "Phụ lục B\nB.24  Biển số P.124a \"Cấm quay đầu xe\"\na) Để báo cấm các loại xe quay đầu (theo kiểu chữ U), đặt biển số P.124a \"Cấm quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm quay đầu xe.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
@@ -7005,22 +6960,7 @@
         "muc_1": "B.24",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_124a1.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_552_2",
-    "text": "Phụ lục B\nB.24  Biển số P.124a \"Cấm quay đầu xe\"\na) Để báo cấm các loại xe quay đầu (theo kiểu chữ U), đặt biển số P.124a \"Cấm quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm quay đầu xe.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "B.24",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_124a2.png"
+      "traffic_sign": ["P_124a1.png", "P_124a2.png"]
     }
   },
   {
@@ -7035,22 +6975,7 @@
         "muc_1": "B.24",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_124b1.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_553",
-    "text": "Phụ lục B\nB.24  Biển số P.124b \"Cấm ô tô quay đầu xe\"\nb) Để báo cấm xe ô tô quay đầu (theo kiểu chữ U), đặt biển số P.124b \"Cấm ô tô quay đầu xe\". Chiều mũi tên phù hợp với chiều cấm xe ô tô quay đầu.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "muc_1": "B.24",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_124b2.png"
+      "traffic_sign": ["P_124b1.png", "P_123b2.png"]
     }
   },
   {
@@ -7065,7 +6990,7 @@
         "muc_1": "B.24",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_124c.png"
+      "traffic_sign": ["P_124c.png"]
     }
   },
   {
@@ -7080,7 +7005,7 @@
         "muc_1": "B.24",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_124d.png"
+      "traffic_sign": ["P_124d.png"]
     }
   },
   {
@@ -7095,7 +7020,7 @@
         "muc_1": "B.24",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_124e.png"
+      "traffic_sign": ["P_124e.png"]
     }
   },
   {
@@ -7110,7 +7035,7 @@
         "muc_1": "B.24",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_124f.png"
+      "traffic_sign": ["P_124f.png"]
     }
   },
   {
@@ -7153,7 +7078,7 @@
         "muc_1": "B.25",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_125.png"
+      "traffic_sign": ["P_125.png"]
     }
   },
   {
@@ -7196,7 +7121,7 @@
         "muc_1": "B.26",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_126.png"
+      "traffic_sign": ["P_126.png"]
     }
   },
   {
@@ -7253,7 +7178,7 @@
         "muc_1": "B.27",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_127_3.png"
+      "traffic_sign": ["P_127.png"]
     }
   },
   {
@@ -7366,7 +7291,7 @@
         "muc_1": "B.27a",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_127a.png"
+      "traffic_sign": ["P_127a.png"]
     }
   },
   {
@@ -7395,7 +7320,7 @@
         "muc_1": "B.27b",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_127b.png"
+      "traffic_sign": ["P_127b.png"]
     }
   },
   {
@@ -7424,7 +7349,7 @@
         "muc_1": "B.27c",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_127c.png"
+      "traffic_sign": ["P_127c.png"]
     }
   },
   {
@@ -7454,22 +7379,7 @@
         "phu_luc": "B"
       }
     },
-    "traffic_sign": "P_127e.png"
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_581a",
-    "text": "Phụ lục B\nB.27d  Biển số DP.127 \"Biển hết tốc độ tối đa cho phép theo biển ghép\"\na) Đến hết đoạn đường tốc độ tối đa cho phép theo biển ghép số P.127b, P.127c, đặt biển số DP.127 “Biển hết tốc độ tối đa cho phép theo biển ghép” tương ứng với các phương án tổ chức giao thông. Trường hợp \"Hết tất cả các lệnh cấm\" đặt biển số DP.135.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "B.27d",
-        "phu_luc": "B"
-      }
-    },
-    "traffic_sign": "P_127d.png"
+    "traffic_sign": ["P_127b.png", "P_127c.png"]
   },
   {
     "id": "41_2024_BGTVT_chunk_582",
@@ -7497,7 +7407,7 @@
         "muc_1": "B.28",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_128.png"
+      "traffic_sign": ["P_128.png"]
     }
   },
   {
@@ -7525,7 +7435,7 @@
         "muc_1": "B.29",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_129.png"
+      "traffic_sign": ["P_129.png"]
     }
   },
   {
@@ -7540,7 +7450,7 @@
         "muc_1": "B.30",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_130.png"
+      "traffic_sign": ["P_130.png"]
     }
   },
   {
@@ -7587,7 +7497,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_590a",
-    "text": "Phụ lục B\nB.31  Biển số P.131a \"Cấm đỗ xe\"\na) Để báo nơi cấm đỗ xe trừ các xe được ưu tiên theo quy định, đặt biển số P.131a \"Cấm đỗ xe\".\nBiển số P.131a có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển.",
+    "text": "Phụ lục B\nB.31  Biển số P.131 (a,b,c) \"Cấm đỗ xe\"\na) Để báo nơi cấm đỗ xe trừ các xe được ưu tiên theo quy định, đặt biển số P.131 (a,b,c) \"Cấm đỗ xe\".\nBiển số P.131a có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển.\nBiển số P.131b có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển vào những ngày lẻ và biển số P.131c vào những ngày chẵn.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7597,37 +7507,7 @@
         "muc_1": "B.31",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_131a.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_590b",
-    "text": "Phụ lục B\nB.31  Biển số P.131b \"Cấm đỗ xe ngày lẻ\"\na) Để báo nơi cấm đỗ xe ngày lẻ trừ các xe được ưu tiên theo quy định, đặt biển số P.131b \"Cấm đỗ xe ngày lẻ\".\nBiển số P.131b có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển vào những ngày lẻ.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "B.31",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_131b.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_590c",
-    "text": "Phụ lục B\nB.31  Biển số P.131c \"Cấm đỗ xe ngày chẵn\"\na) Để báo nơi cấm đỗ xe ngày chẵn trừ các xe được ưu tiên theo quy định, đặt biển số P.131c \"Cấm đỗ xe ngày chẵn\".\nBiển số P.131c có hiệu lực cấm các loại xe cơ giới đỗ ở phía đường có đặt biển vào những ngày chẵn.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "B.31",
-        "phu_luc": "B"
-      },
-      "traffic_sign": "P_131c.png"
+      "traffic_sign": ["P_131a.png", "P_131b.png", "P_131c.png"]
     }
   },
   {
@@ -7670,7 +7550,7 @@
         "muc_1": "B.32",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_132.png"
+      "traffic_sign": ["P_132.png"]
     }
   },
   {
@@ -7698,7 +7578,7 @@
         "muc_1": "B.33",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_133.png"
+      "traffic_sign": ["P_133.png"]
     }
   },
   {
@@ -7713,7 +7593,7 @@
         "muc_1": "B.34",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_134.png"
+      "traffic_sign": ["P_134.png"]
     }
   },
   {
@@ -7742,7 +7622,7 @@
         "muc_1": "B.35",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_135.png"
+      "traffic_sign": ["P_135.png"]
     }
   },
   {
@@ -7770,7 +7650,7 @@
         "muc_1": "B.36",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_136.png"
+      "traffic_sign": ["P_136.png"]
     }
   },
   {
@@ -7784,7 +7664,7 @@
         "muc_1": "B.37",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_137.png"
+      "traffic_sign": ["P_137.png"]
     }
   },
   {
@@ -7798,7 +7678,7 @@
         "muc_1": "B.38",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_138.png"
+      "traffic_sign": ["P_138.png"]
     }
   },
   {
@@ -7812,7 +7692,7 @@
         "muc_1": "B.39",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_139.png"
+      "traffic_sign": ["P_139.png"]
     }
   },
   {
@@ -7826,12 +7706,12 @@
         "muc_1": "B.40",
         "phu_luc": "B"
       },
-      "traffic_sign": "P_140.png"
+      "traffic_sign": ["P_140.png"]
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_605a",
-    "text": "Phụ lục C\nC.1  Biển số W.201a \"Chỗ ngoặt nguy hiểm\"\na) Để báo trước sắp đến một chỗ ngoặt nguy hiểm, đặt biển số W.201:\n- Biển số W.201a chỗ ngoặt nguy hiểm vòng bên trái;",
+    "id": "41_2024_BGTVT_chunk_605",
+    "text": "Phụ lục C\nC.1  Biển số W.201 (a,b) \"Chỗ ngoặt nguy hiểm\"\na) Để báo trước sắp đến một chỗ ngoặt nguy hiểm, đặt biển số W.201 (a,b):\n- Biển số W.201a chỗ ngoặt nguy hiểm vòng bên trái;\n- Biển số W.201b chỗ ngoặt nguy hiểm vòng bên phải.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7841,26 +7721,11 @@
         "muc_1": "C.1",
         "phu_luc": "C"
       },
-      "traffic_sign": "W_201a.png"
+      "traffic_sign": ["W_201a.png", "W_201b.png"]
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_605b",
-    "text": "Phụ lục C\nC.1  Biển số W.201b \"Chỗ ngoặt nguy hiểm\"\na) Để báo trước sắp đến một chỗ ngoặt nguy hiểm, đặt biển số W.201:\n- Biển số W.201b chỗ ngoặt nguy hiểm vòng bên phải.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "C.1",
-        "phu_luc": "C"
-      },
-      "traffic_sign": "W_201b.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_606a",
+    "id": "41_2024_BGTVT_chunk_606",
     "text": "Phụ lục C\nC.1  Biển số W.201 (a,b) \"Chỗ ngoặt nguy hiểm\"\nb) Chỗ ngoặt nguy hiểm là vị trí đường cong như sau:\n- Ở vùng đồng bằng, đường cong có góc chuyển hướng lớn hơn hay bằng 45° hoặc có bán kính nhỏ hơn hay bằng 100 m.\n- Ở vùng núi, đường cong có góc ở chuyển hướng lớn hơn hay bằng 45° hoặc có bán kính nhỏ hơn hay bằng 40 m.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
@@ -7889,7 +7754,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_608",
-    "text": "Phụ lục C\nC.1  Biển số W.201 (a,b) \"Chỗ ngoặt nguy hiểm\"\nd) Sau đoạn thẳng dài từ 1 km trở lên thì đường cong đầu tiên không phân biệt độ lớn góc ở tâm hoặc bán kính đều coi là chỗ ngoặt nguy hiểm.\nC.1a  Biển số W.201(c,d) \"Chỗ ngoặt nguy hiểm có nguy cơ lật xe\"\nĐể báo trước sắp đến chỗ ngoặt nguy hiểm có khả năng gây lật các xe có trọng tâm cao và trọng tải lớn như xe tải, xe buýt giường nằm, xe chở chất lỏng, v.v... đặt biển số W201(c,d):\n- Biển số W.201c chỗ ngoặt nguy hiểm có nguy cơ lật xe bên phải khi đường cong vòng sang trái;\n- Biển số W201d chỗ ngoặt nguy hiểm có nguy cơ lật xe bên trái khi đường cong vòng bên phải.",
+    "text": "Phụ lục C\nC.1  Biển số W.201 (a,b) \"Chỗ ngoặt nguy hiểm\"\nd) Sau đoạn thẳng dài từ 1 km trở lên thì đường cong đầu tiên không phân biệt độ lớn góc ở tâm hoặc bán kính đều coi là chỗ ngoặt nguy hiểm.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7902,7 +7767,21 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_609a",
+    "id": "41_2024_BGTVT_chunk_608sub",
+    "text": "Phụ lục C\nC.1a  Biển số W.201(c,d) \"Chỗ ngoặt nguy hiểm có nguy cơ lật xe\"\nĐể báo trước sắp đến chỗ ngoặt nguy hiểm có khả năng gây lật các xe có trọng tâm cao và trọng tải lớn như xe tải, xe buýt giường nằm, xe chở chất lỏng, v.v... đặt biển số W201(c,d):\n- Biển số W.201c chỗ ngoặt nguy hiểm có nguy cơ lật xe bên phải khi đường cong vòng sang trái;\n- Biển số W201d chỗ ngoặt nguy hiểm có nguy cơ lật xe bên trái khi đường cong vòng bên phải.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "C.1a",
+        "phu_luc": "C"
+      },
+      "traffic_sign": ["W_201c.png", "W_201d.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_609",
     "text": "Phụ lục C\nC.2  Biển số W.202(a,b) \"Nhiều chỗ ngoặt nguy hiểm liên tiếp\"\na) Để báo trước sắp đến hai chỗ ngoặt ngược chiều nhau liên tiếp, đặt biển số W.202 (a,b):\n- Biển số W.202a đặt trong trường hợp có từ 2 chỗ ngoặt, ở gần nhau trong đó có ít nhất một chỗ ngoặt nguy hiểm mà chỗ ngoặt đầu tiên hướng vòng bên trái;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
@@ -7913,22 +7792,7 @@
         "muc_1": "C.2",
         "phu_luc": "C"
       },
-      "traffic_sign": "W_202a.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_609b",
-    "text": "Phụ lục C\nC.2  Biển số W.202(a,b) \"Nhiều chỗ ngoặt nguy hiểm liên tiếp\"\na) Để báo trước sắp đến hai chỗ ngoặt ngược chiều nhau liên tiếp, đặt biển số W.202 (a,b):\n- Biển số W.202b đặt trong trường hợp có từ 2 chỗ ngoặt, ở gần nhau trong đó có ít nhất một chỗ ngoặt nguy hiểm mà chỗ ngoặt đầu tiên hướng vòng bên phải.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "C.2",
-        "phu_luc": "C"
-      },
-      "traffic_sign": "W_202b.png"
+      "traffic_sign": ["W_202a.png", "W_202b.png"]
     }
   },
   {
@@ -7946,8 +7810,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_611a",
-    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203a đặt trong trường hợp đường bị thu hẹp cả hai bên;",
+    "id": "41_2024_BGTVT_chunk_611",
+    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203a đặt trong trường hợp đường bị thu hẹp cả hai bên;\n- Biển số W.203b hoặc biển số W.203c đặt trong trường hợp đường bị thu hẹp về phía trái hoặc phía phải.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -7957,37 +7821,7 @@
         "muc_1": "C.3",
         "phu_luc": "C"
       },
-      "traffic_sign": "W_203a.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_611b",
-    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203b đặt trong trường hợp đường bị thu hẹp về phía trái.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "C.3",
-        "phu_luc": "C"
-      },
-      "traffic_sign": "W_203b.png"
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_611c",
-    "text": "Phụ lục C\nC.3  Biển số W.203(a,b,c) \"Đường bị thu hẹp\"\na) Để báo trước sắp đến một đoạn đường bị thu hẹp đột ngột, đặt biển số W.203 (a,b,c):\n- Biển số W.203c đặt trong trường hợp đường bị thu hẹp về phía phải.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "muc_1": "C.3",
-        "phu_luc": "C"
-      },
-      "traffic_sign": "W_203c.png"
+      "traffic_sign": ["W_203a.png", "W_203b.png", "W_203c.png"]
     }
   },
   {
@@ -8058,7 +7892,7 @@
         "muc_1": "C.4",
         "phu_luc": "C"
       },
-      "traffic_sign": "W_204.png"
+      "traffic_sign": ["W_204.png"]
     }
   },
   {
@@ -8086,7 +7920,7 @@
         "muc_1": "C.5",
         "phu_luc": "C"
       },
-      "traffic_sign": "W_205.png"
+      "traffic_sign": ["W_205a.png", "W_205b.png", "W_205c.png", "W_205d.png", "W_205e.png"]
     }
   },
   {
@@ -8100,7 +7934,7 @@
         "muc_1": "C.6",
         "phu_luc": "C"
       },
-      "traffic_sign": "W_206.png"
+      "traffic_sign": ["W_206.png"]
     }
   },
   {
@@ -8115,7 +7949,7 @@
         "muc_1": "C.7",
         "phu_luc": "C"
       },
-      "traffic_sign": ["W_207a.png", "W_207b.png", "W_207c.png", "W_207d.png", "W_207e.png", "W_207f.png", "W_207g.png", "W_207h.png", "W_207i.png", "W_207j.png", "W_207k.png"]
+      "traffic_sign": ["W_207a.png", "W_207b.png", "W_207c.png", "W_207d.png", "W_207e.png", "W_207f.png", "W_207g.png", "W_207h.png", "W_207i.png", "W_207k.png", "W_207l.png"]
     }
   },
   {
@@ -8272,7 +8106,7 @@
         "muc_1": "C.11",
         "phu_luc": "C"
       },
-      "traffic_sign": ["W_211a.png"]
+      "traffic_sign": ["W_211.png"]
     }
   },
   {
@@ -8385,7 +8219,8 @@
         "diem": "a",
         "muc_1": "C.16",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_216a.png", "W_216b.png"]
     }
   },
   {
@@ -8426,7 +8261,8 @@
       "context": {
         "muc_1": "C.17",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_217.png"]
     }
   },
   {
@@ -8439,7 +8275,8 @@
       "context": {
         "muc_1": "C.18",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_218.png"]
     }
   },
   {
@@ -8453,7 +8290,8 @@
         "diem": "a",
         "muc_1": "C.19",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_219.png"]
     }
   },
   {
@@ -8495,7 +8333,8 @@
         "diem": "a",
         "muc_1": "C.20",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_220.png"]
     }
   },
   {
@@ -8536,12 +8375,13 @@
       "context": {
         "muc_1": "C.21",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_221a.png", "W_221b.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_651",
-    "text": "Phụ lục C\nC.22  Biển số W.222a \"Đường trơn\" và Biển số W.222b \"Lề đường nguy hiểm\"\na) Để báo trước sắp tới đoạn đường có thể xảy ra trơn trượt đặc biệt là khi thời tiết xấu, mưa phùn, đặt biển số W.222a báo hiệu \"Đường trơn\". Khi gặp biển này, tốc độ xe chạy phải giảm phù hợp và người tham gia giao thông phải thận trọng.",
+    "text": "Phụ lục C\nC.22  Biển số W.222a \"Đường trơn\"\na) Để báo trước sắp tới đoạn đường có thể xảy ra trơn trượt đặc biệt là khi thời tiết xấu, mưa phùn, đặt biển số W.222a báo hiệu \"Đường trơn\". Khi gặp biển này, tốc độ xe chạy phải giảm phù hợp và người tham gia giao thông phải thận trọng.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -8550,12 +8390,13 @@
         "diem": "a",
         "muc_1": "C.22",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_222a.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_652",
-    "text": "Phụ lục C\nC.22  Biển số W.222a \"Đường trơn\" và Biển số W.222b \"Lề đường nguy hiểm\"\nb) Để báo những nơi lề đường không ổn định, khi xe đi vào dễ gây văng đất đá hoặc bánh xe quay tại chỗ, đặt biển số W.222b \"Lề đường nguy hiểm\".",
+    "text": "Phụ lục C\nC.22  Biển số W.222b \"Lề đường nguy hiểm\"\nb) Để báo những nơi lề đường không ổn định, khi xe đi vào dễ gây văng đất đá hoặc bánh xe quay tại chỗ, đặt biển số W.222b \"Lề đường nguy hiểm\".",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -8564,7 +8405,8 @@
         "diem": "b",
         "muc_1": "C.22",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_222b.png"]
     }
   },
   {
@@ -8577,7 +8419,8 @@
       "context": {
         "muc_1": "C.23",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_223a.png", "W_223b.png"]
     }
   },
   {
@@ -8591,7 +8434,8 @@
         "diem": "a",
         "muc_1": "C.24",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_224.png"]
     }
   },
   {
@@ -8633,7 +8477,8 @@
         "diem": "a",
         "muc_1": "C.25",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_225.png"]
     }
   },
   {
@@ -8674,7 +8519,8 @@
       "context": {
         "muc_1": "C.26",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_226.png"]
     }
   },
   {
@@ -8687,7 +8533,8 @@
       "context": {
         "muc_1": "C.27",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_227.png"]
     }
   },
   {
@@ -8701,7 +8548,8 @@
         "diem": "a",
         "muc_1": "C.28",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_228a.png", "W_228b.png"]
     }
   },
   {
@@ -8715,7 +8563,8 @@
         "diem": "b",
         "muc_1": "C.28",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_228c.png"]
     }
   },
   {
@@ -8729,7 +8578,8 @@
         "diem": "c",
         "muc_1": "C.28",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_228d.png"]
     }
   },
   {
@@ -8742,7 +8592,8 @@
       "context": {
         "muc_1": "C.29",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_229.png"]
     }
   },
   {
@@ -8755,7 +8606,8 @@
       "context": {
         "muc_1": "C.30",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_230.png"]
     }
   },
   {
@@ -8768,7 +8620,8 @@
       "context": {
         "muc_1": "C.31",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_231.png"]
     }
   },
   {
@@ -8782,7 +8635,8 @@
         "diem": "a",
         "muc_1": "C.32",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_232.png"]
     }
   },
   {
@@ -8809,7 +8663,8 @@
       "context": {
         "muc_1": "C.33",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_233.png"]
     }
   },
   {
@@ -8822,7 +8677,8 @@
       "context": {
         "muc_1": "C.34",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_234.png"]
     }
   },
   {
@@ -8835,7 +8691,8 @@
       "context": {
         "muc_1": "C.35",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_235.png"]
     }
   },
   {
@@ -8848,7 +8705,8 @@
       "context": {
         "muc_1": "C.36",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_236.png"]
     }
   },
   {
@@ -8861,7 +8719,8 @@
       "context": {
         "muc_1": "C.37",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_237.png"]
     }
   },
   {
@@ -8874,7 +8733,8 @@
       "context": {
         "muc_1": "C.38",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_238.png"]
     }
   },
   {
@@ -8888,7 +8748,8 @@
         "diem": "a",
         "muc_1": "C.39",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_239a.png", "W_239b.png"]
     }
   },
   {
@@ -8929,7 +8790,8 @@
       "context": {
         "muc_1": "C.40",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_240.png"]
     }
   },
   {
@@ -8942,7 +8804,8 @@
       "context": {
         "muc_1": "C.41",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_240.png"]
     }
   },
   {
@@ -8955,7 +8818,8 @@
       "context": {
         "muc_1": "C.42",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_242a.png", "W_242b.png"]
     }
   },
   {
@@ -8968,7 +8832,8 @@
       "context": {
         "muc_1": "C.43",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_243a.png", "W_243b.png", "W_243c.png"]
     }
   },
   {
@@ -8981,7 +8846,8 @@
       "context": {
         "muc_1": "C.44",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_244.png"]
     }
   },
   {
@@ -8994,7 +8860,8 @@
       "context": {
         "muc_1": "C.45",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_245a.png", "W_245b.png"]
     }
   },
   {
@@ -9007,7 +8874,8 @@
       "context": {
         "muc_1": "C.46",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_246a.png", "W_246b.png", "W_246c.png"]
     }
   },
   {
@@ -9021,7 +8889,8 @@
         "diem": "a",
         "muc_1": "C.47",
         "phu_luc": "C"
-      }
+      },
+      "traffic_sign": ["W_247.png"]
     }
   },
   {
@@ -9077,7 +8946,8 @@
         "diem": "a",
         "muc_1": "D.1",
         "phu_luc": "D"
-      }
+      },
+      "traffic_sign": ["R_122.png"]
     }
   },
   {
@@ -9138,7 +9008,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_695",
-    "text": "Phụ lục D\nD.1  Biển số R.122 \"Dừng lại\"\na) Để báo cho các loại xe (thô sơ và cơ giới) phải đi theo hướng quy định, đặt một trong những kiểu biển số R.301(a,b,c,d,e,f,g,h) \"Hướng đi phải theo\". Tùy theo hướng đi mà chọn kiểu biển cho phù hợp.",
+    "text": "Phụ lục D\nD.1a  Biển số R.301 (a,b,c,d,e,f,g,h) \"Hướng đi phải theo\"\na) Để báo cho các loại xe (thô sơ và cơ giới) phải đi theo hướng quy định, đặt một trong những kiểu biển số R.301(a,b,c,d,e,f,g,h) \"Hướng đi phải theo\". Tùy theo hướng đi mà chọn kiểu biển cho phù hợp.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -9152,7 +9022,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_696",
-    "text": "Phụ lục D\nD.1  Biển số R.122 \"Dừng lại\"\nb) Biển có hiệu lực bắt buộc các loại xe phải đi theo hướng mũi tên chỉ (trừ xe được quyền ưu tiên theo quy định):\n- Biển số R.301a: các xe chỉ được đi thẳng;\n- Biển số R.301b: các xe chỉ được rẽ phải;\n- Biển số R.301c: các xe chỉ được rẽ trái;\n- Biển số R.301d: các xe chỉ được rẽ phải;\n- Biển số R.301e: các xe chỉ được rẽ trái;\n- Biển số R.301f: các xe chỉ được đi thẳng và rẽ phải;\n- Biển số R.301g: các xe chỉ được đi thẳng và rẽ trái;\n- Biển số R.301h: các xe chỉ được rẽ trái và rẽ phải.",
+    "text": "Phụ lục D\nD.1a  Biển số R.301 (a,b,c,d,e,f,g,h) \"Hướng đi phải theo\"\nb) Biển có hiệu lực bắt buộc các loại xe phải đi theo hướng mũi tên chỉ (trừ xe được quyền ưu tiên theo quy định):\n- Biển số R.301a: các xe chỉ được đi thẳng;\n- Biển số R.301b: các xe chỉ được rẽ phải;\n- Biển số R.301c: các xe chỉ được rẽ trái;\n- Biển số R.301d: các xe chỉ được rẽ phải;\n- Biển số R.301e: các xe chỉ được rẽ trái;\n- Biển số R.301f: các xe chỉ được đi thẳng và rẽ phải;\n- Biển số R.301g: các xe chỉ được đi thẳng và rẽ trái;\n- Biển số R.301h: các xe chỉ được rẽ trái và rẽ phải.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -9166,7 +9036,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_697",
-    "text": "Phụ lục D\nD.1  Biển số R.122 \"Dừng lại\"\nc) Khi đặt biển số R.301a ở trước nơi đường giao nhau thì hiệu lực tác dụng của biển là ở phạm vi khu vực nơi đường giao nhau phía sau biển tức là cấm xe rẽ phải hay rẽ trái. Nếu biển này đặt ở sau nơi đường giao nhau (bắt đầu vào đoạn đường phố) thì hiệu lực tác dụng của biển là từ vị trí đặt biển đến nơi đường giao nhau. Trong trường hợp này cấm rẽ trái và quay đầu trong vùng tác dụng của biển, chỉ cho phép rẽ vào cổng nhà hoặc ngõ phố có trên đoạn đường từ nơi đường giao nhau đặt biển đến nơi đường giao nhau tiếp theo.\n- Biển số R.301(b,c) được đặt ở sau nơi đường giao nhau nhằm chỉ hướng cho phép xe đi ngang qua nơi đường giao nhau và ngăn chặn hướng đi ngược chiều trên đường phố với đường một chiều. Biển bắt buộc người tham gia giao thông chỉ được phép rẽ phải hoặc rẽ trái ở phạm vi nơi đường giao nhau trước mặt biển.\n- Biển số R.301(d,e) được đặt ở trước nơi đường giao nhau. Biển bắt buộc người tham gia giao thông chỉ được phép rẽ phải hoặc rẽ trái ở phạm vi nơi đường giao nhau đằng sau mặt biển.\n- Biển số R.301f được đặt ở trước nơi đường giao nhau. Biển bắt buộc người tham gia giao thông chỉ được phép đi thẳng hay rẽ phải ở phạm vi nơi đường giao nhau đằng sau mặt biển.\n- Biển số R.301g được đặt ở trước nơi đường giao nhau và người tham gia giao thông chỉ được phép đi thẳng hay rẽ trái và được phép quay đầu xe để đi theo hướng ngược lại.\n- Biển số R.301h được đặt ở sau nơi đường giao nhau nhằm ngăn ngừa chuyển động ngược chiều trên đường phố với đường một chiều. Biển bắt buộc người tham gia giao thông chỉ được phép rẽ trái, quay đầu hoặc rẽ phải ở phạm vi nơi đường giao nhau trước mặt biển.",
+    "text": "Phụ lục D\nD.1a  Biển số R.301 (a,b,c,d,e,f,g,h) \"Hướng đi phải theo\"\nc) Khi đặt biển số R.301a ở trước nơi đường giao nhau thì hiệu lực tác dụng của biển là ở phạm vi khu vực nơi đường giao nhau phía sau biển tức là cấm xe rẽ phải hay rẽ trái. Nếu biển này đặt ở sau nơi đường giao nhau (bắt đầu vào đoạn đường phố) thì hiệu lực tác dụng của biển là từ vị trí đặt biển đến nơi đường giao nhau. Trong trường hợp này cấm rẽ trái và quay đầu trong vùng tác dụng của biển, chỉ cho phép rẽ vào cổng nhà hoặc ngõ phố có trên đoạn đường từ nơi đường giao nhau đặt biển đến nơi đường giao nhau tiếp theo.\n- Biển số R.301(b,c) được đặt ở sau nơi đường giao nhau nhằm chỉ hướng cho phép xe đi ngang qua nơi đường giao nhau và ngăn chặn hướng đi ngược chiều trên đường phố với đường một chiều. Biển bắt buộc người tham gia giao thông chỉ được phép rẽ phải hoặc rẽ trái ở phạm vi nơi đường giao nhau trước mặt biển.\n- Biển số R.301(d,e) được đặt ở trước nơi đường giao nhau. Biển bắt buộc người tham gia giao thông chỉ được phép rẽ phải hoặc rẽ trái ở phạm vi nơi đường giao nhau đằng sau mặt biển.\n- Biển số R.301f được đặt ở trước nơi đường giao nhau. Biển bắt buộc người tham gia giao thông chỉ được phép đi thẳng hay rẽ phải ở phạm vi nơi đường giao nhau đằng sau mặt biển.\n- Biển số R.301g được đặt ở trước nơi đường giao nhau và người tham gia giao thông chỉ được phép đi thẳng hay rẽ trái và được phép quay đầu xe để đi theo hướng ngược lại.\n- Biển số R.301h được đặt ở sau nơi đường giao nhau nhằm ngăn ngừa chuyển động ngược chiều trên đường phố với đường một chiều. Biển bắt buộc người tham gia giao thông chỉ được phép rẽ trái, quay đầu hoặc rẽ phải ở phạm vi nơi đường giao nhau trước mặt biển.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11392,8 +11262,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_859",
-    "text": "Phụ lục G\nG1.1. Nhóm vạch phân chia hai chiều xe chạy ngược chiều\na. Vạch 1.1: Vạch phân chia hai chiều xe chạy (vạch tim đường), dạng vạch đơn, đứt nét\nÝ nghĩa sử dụng: dùng để phân chia hai chiều xe chạy ngược chiều nhau. Xe được phép cắt qua để sử dụng làn ngược chiều từ cả hai phía.\nQuy cách: Vạch 1.1 là vạch đơn, đứt nét, màu vàng. Bề rộng nét vẽ b = 15 cm, chiều dài đoạn nét liền L1 = 1 m - 3 m; chiều dài đoạn nét đứt (2 m - 6 m); tỷ lệ L1/L2=1:2. Trong trường hợp đường hẹp, không đủ 2 làn cơ giới, nhưng có nhiều xe máy lưu thông, có thể sử dụng vạch dạng này để phân chia, khi đó bề rộng vạch rộng 10cm, tỷ lệ L1/L2=1:3 hoặc 1:2.\nTốc độ vận hành càng cao, chọn chiều dài đoạn nét liền L1 và chiều dài đoạn nét đứt L2 càng lớn. Chọn giá trị chiều dài đoạn nét liền L1 và đoạn nét đứt L2 nhỏ trong các trường hợp cần tăng tính dẫn hướng xe chạy (ví dụ trong phạm vi đường cong nằm bán kính nhỏ).\nb. Vạch 1.2: Vạch phân chia hai chiều xe chạy (vạch tim đường), dạng vạch đơn, nét liền\nÝ nghĩa sử dụng: dùng để phân chia hai chiều xe chạy ngược chiều; xe không được lấn làn, không được đè lên vạch.\nQuy cách:\n- Vạch 1.2 là vạch đơn, liền nét, màu vàng, bề rộng vạch 15 cm. Vạch này thường sử dụng ở đoạn đường không đảm bảo tầm nhìn vượt xe, nguy cơ tai nạn giao thông đối đầu lớn trên các đường có 2 hoặc 3 làn xe cơ giới và không có dải phân cách giữa.\n- Chỉ được sử dụng vạch 1.2 để phân chia hai chiều xe chạy khi bề rộng làn đường đáp ứng được điều kiện chuyển động của các loại xe có kích thước lớn được phép tham gia giao thông trên tuyến đường đang xét.\nc. Vạch 1.3: Vạch phân chia hai chiều xe chạy (vạch tim đường), dạng vạch đôi, nét liền\nÝ nghĩa sử dụng: Dùng để phân chia hai chiều xe chạy ngược chiều, xe không được lấn làn, không được đè lên vạch.\nQuy cách:\n- Vạch 1.3 là vạch đôi song song, liền nét, màu vàng, bề rộng nét vẽ b = 15 cm, khoảng cách phía trong hai mép vạch đơn nhỏ nhất là 15 cm; lớn nhất là 50 cm. Nếu khoảng cách hai mép phía trong của các vạch đơn lớn hơn 50 cm thì sử dụng vạch kênh hóa dòng xe dạng gạch chéo, màu vàng (vạch 4.1).\n- Vạch này thường dùng để phân chia hai chiều xe chạy ngược chiều cho đường có từ 4 làn xe cơ giới trở lên, không có dải phân cách giữa trên đoạn đường không đảm bảo tầm nhìn vượt xe, nguy cơ tai nạn giao thông đối đầu lớn hoặc ở các vị trí cần thiết khác.\n- Trường hợp các đường có 2 hoặc 3 làn xe cơ giới, không có dải phân cách giữa có thể sử dụng vạch 1.3 ở các vị trí cần thiết để nhấn mạnh mức độ nguy hiểm, không được lấn làn, không được đè lên vạch. Tác dụng của vạch 1.3 trong trường hợp này tương tự vạch 1.2.\nd. Vạch 1.4: Vạch phân chia hai chiều xe chạy, dạng vạch đôi gồm một vạch nét liền, một vạch nét đứt\nÝ nghĩa sử dụng: dùng để phân chia hai chiều xe chạy ngược chiều. Xe trên làn đường tiếp giáp với vạch đứt nét được phép cắt qua và sử dụng làn ngược chiều khi cần thiết; Xe trên làn đường tiếp giáp với vạch liền nét không được lấn làn hoặc đè lên vạch.\nQuy cách:\n- Vạch 1.4 là vạch đôi song song, một vạch liền nét, một vạch đứt nét. Bề rộng nét vẽ của các vạch b = 15 cm; khoảng cách phía trong hai mép vạch đơn là 15 cm - 20 cm. Đối với vạch đứt nét, chiều dài đoạn nét liền L1 = (1 m - 3 m); chiều dài đoạn nét đứt L2 = (2 m - 6m); tỷ lệ L1/L2 = 1:2.\nTốc độ vận hành càng cao, chọn chiều dài đoạn nét liền L1 và chiều dài đoạn nét đứt L2 càng lớn. Chọn giá trị chiều dài đoạn nét liền L1 và đoạn nét đứt L2 nhỏ trong các trường hợp cần tăng tính dẫn hướng xe chạy (ví dụ trong phạm vi đường cong nằm bán kính nhỏ).\n- Vạch này được sử dụng trên đường có từ 2 làn xe trở lên, không có dải phân giữa, ở các đoạn cần thiết phải cấm xe sử dụng làn ngược chiều theo một hướng xe chạy nhất định để đảm bảo an toàn.\nTrường hợp chỉ có một làn xe bên phía tiếp giáp với vạch liền nét, bề rộng của làn đường này phải đáp ứng được điều kiện chuyển động của các loại xe có kích thước lớn được phép tham gia giao thông trên tuyến đường đang xét.\ne. Vạch 1.5: Vạch xác định ranh giới làn đường có thể thay đổi hướng xe chạy\nÝ nghĩa sử dụng: dùng để xác định ranh giới làn đường có thể thay đổi hướng xe chạy trên đó theo thời gian. Hướng xe chạy ở một thời điểm trên làn đường có thể đổi chiều được quy định bởi người điều khiển giao thông, tín hiệu đèn, biển báo hoặc các báo hiệu khác phù hợp.\nQuy cách: Vạch 1.5 là vạch đôi, đứt nét, màu vàng, bề rộng nét vẽ b = 15 cm; khoảng cách phía trong hai mép vạch đơn là 15 cm - 20 cm; khoảng cách nét liền L1 = (1 m - 2 m), khoảng cách nét đứt L2 = ( 3m - 6m), tỷ lệ L1:L2 = 1:3.\nTốc độ vận hành càng cao, chọn chiều dài đoạn nét liền L1 và chiều dài đoạn nét đứt L2 càng lớn. Chọn giá trị chiều dài đoạn nét liền L1 và đoạn nét đứt L2 nhỏ trong các trường hợp cần tăng tính dẫn hướng xe chạy (ví dụ trong phạm vi đường cong nằm bán kính nhỏ).\nf. Sử dụng vạch phân chia hai chiều xe chạy trong đường cong nằm hoặc đường cong đứng không đảm bảo tầm nhìn vượt xe an toàn\nĐể kẻ vạch tim đường cho các đoạn đường trong phạm vi đường cong nằm hoặc đường cong đứng có yêu cầu cấm vượt xe cần phải xác định được các vùng cấm vượt theo từng hướng xe chạy. Vùng cấm, vượt theo một hướng xe chạy là vùng có chiều dài tầm nhìn thực tế nhỏ hơn chiều dài tầm nhìn vượt xe an toàn tối thiểu. Tùy theo yêu cầu cấm vượt mà bố trí loại vạch sơn dùng để phân cách hai chiều xe chạy cho phù hợp. Sử dụng vạch 1.3 cho vùng cấm vượt ở cả hai phía; sử dụng vạch 1.4 cho vùng cấm vượt ở một phía (lưu ý nét sơn liền trong vạch 1.4 được vẽ về phía có yêu cầu cấm vượt) và sử dụng vạch 1.1 cho vùng không có yêu cầu cấm vượt ở cả hai phía (xem minh họa về các loại vạch trên Hình G.6 và Hình G.7).\nChỉ dẫn xác định vùng cấm vượt:\n+ Điểm bắt đầu vùng cấm vượt (điểm a và a’ trên Hình G.6 và Hình G.7) là điểm mà tầm nhìn thực tế đối với xe đi vào đường cong bắt đầu nhỏ hơn chiều dài tầm nhìn vượt xe tối thiểu tương ứng với tốc độ xe chạy tốc độ hạn chế lớn nhất hoặc tốc độ V85. Tốc độ V85 là giá trị tốc độ mà 85% số xe trong dòng xe có tốc độ nhỏ hơn hoặc bằng giá trị này. Chiều dài tầm nhìn vượt xe tối thiểu được lấy theo Bảng G.1 dưới đây.\nBảng G.1 - Chiều dài tầm nhìn vượt xe tối thiểu dùng để xác định vùng cấm vượt\nTốc độ hạn chế lớn nhất hoặc tốc độ V85 (km/h)\tTầm nhìn vượt xe tối thiểu (m) (chỉ dùng để xác định vùng cấm vượt)\tTốc độ hạn chế lớn nhất hoặc tốc độ V85 (km/h)\tTầm nhìn vượt xe tối thiểu (m) (chỉ dùng để xác định vùng cấm vượt)\n30\t120\t80\t245\n40\t140\t90\t280\n50\t160\t100\t320\n60\t180\t110\t355\n70\t210\t120\t395\n+ Điểm kết thúc vùng cấm vượt (điểm b và b’ trên Hình G.6 và Hình G.7) là điểm mà tầm nhìn thực tế bắt đầu lớn hơn chiều dài tầm nhìn vượt xe tối thiểu tương ứng tốc độ xe chạy V85 hoặc tốc độ thiết kế (sau khi xe đã đi qua đoạn không đảm bảo tầm nhìn vượt xe).\nQuy định về chiều dài các đoạn kẻ vạch:\n+ Khi chiều dài vùng cấm vượt (chiều dài đoạn vạch liền nét xen kẽ các đoạn vạch đứt nét) theo một chiều xe chạy nhỏ hơn 30 m, cần mở rộng vùng cấm vượt đảm bảo chiều dài nhỏ nhất 30 m.\n+ Chiều dài vùng cho phép vượt nằm xen kẽ các vùng cấm vượt trên một hướng xe chạy không được nhỏ hơn 100 m.\nChỉ sử dụng vạch có chức năng cấm vượt xe khi bề rộng làn xe trên hướng cấm vượt xe trong phạm vi đường cong đủ để đảm bảo điều kiện chuyển động của các loại xe có kích thước lớn được phép tham gia giao thông trên tuyến đường đang xét.\ng. Sử dụng vạch phân chia hai chiều xe chạy cho đường có 3 làn xe trong khu vực số làn đường trên một hướng thay đổi từ một làn sang hai làn và ngược lại\nHình G.8 và Hình G.9 minh họa việc sử dụng vạch sơn phân chia hai chiều xe chạy cho đường có 3 làn xe trong khu vực số làn đường trên một hướng thay đổi từ một làn sang hai lan và ngược lại:\nLưu ý:\n+ Các vạch gạch chéo được vẽ song song mỗi vạch rộng 45cm, khoảng cách hai mép vạch 100 cm, vạch nghiêng một góc 135o theo chiều ngược chiều kim đồng hồ so với hướng chuyển động của xe (vạch 4.1).\n+ Vạch xác định phạm vi kẻ vạch gạch chéo song song là vạch đơn liền nét (xem trên Hình G.8 và Hình G.9). Vạch này có bề rộng bằng bề rộng nét vẽ của các vạch đơn cấu tạo nên vạch 1.3 được sử dụng tương ứng trong Hình G.8 và Hình G.9.",
+    "id": "41_2024_BGTVT_chunk_859a",
+    "text": "Phụ lục G\nG1.1. Nhóm vạch phân chia hai chiều xe chạy ngược chiều\na. Vạch 1.1: Vạch phân chia hai chiều xe chạy (vạch tim đường), dạng vạch đơn, đứt nét\nÝ nghĩa sử dụng: dùng để phân chia hai chiều xe chạy ngược chiều nhau. Xe được phép cắt qua để sử dụng làn ngược chiều từ cả hai phía.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11401,12 +11271,69 @@
       "context": {
         "muc_1": "G1.1",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_1_1.png"]
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_860",
-    "text": "Phụ lục G\nG1.2. Nhóm vạch phân chia các làn xe chạy cùng chiều\na. Vạch 2.1: Vạch phân chia các làn xe cùng chiều, dạng vạch đơn, đứt nét\nÝ nghĩa sử dụng: dùng để phân chia các làn xe cùng chiều. Trong trường hợp này, xe được phép thực hiện việc chuyển làn đường qua vạch 2.1.\nQuy cách: Vạch 2.1 là vạch đơn, đứt nét, màu trắng. Bề rộng nét vẽ b = 15cm, chiều dài đoạn nét liền L1 = (1 m - 3 m); chiều dài đoạn nét đứt (3 m - 9 m); tỷ lệ L1/L2 = 1:3.\nTốc độ vận hành càng cao, chọn chiều dài đoạn nét liền L1 và chiều dài đoạn nét đứt L2 càng lớn. Chọn giá trị chiều dài đoạn nét liền L1 và đoạn nét đứt L2 nhỏ trong các trường hợp cần tăng tính dẫn hướng xe chạy (ví dụ trong phạm vi đường cong nằm bán kính nhỏ).\nb. Vạch 2.2: Vạch phân chia các làn xe cùng chiều, dạng vạch đơn, liền nét.\nÝ nghĩa sử dụng: dùng để phân chia các làn xe cùng chiều trong trường hợp không cho phép xe chuyển làn hoặc sử dụng làn khác; xe không được lấn làn, không được đè lên vạch.\nQuy cách: Vạch 2.2 là vạch đơn, liền nét, màu trắng, bề rộng vạch 15 cm.\nc. Vạch 2.3: Vạch giới hạn làn đường dành riêng hoặc làn đường ưu tiên\nÝ nghĩa sử dụng: Vạch giới hạn làn đường dành riêng cho một loại xe cơ giới nhất định (vạch liền nét), các loại xe khác không được đi vào làn xe này trừ những trường hợp khẩn cấp.\nVạch giới hạn làn đường ưu tiên cho một loại xe cơ giới nhất định (vạch đứt nét), các xe khác có thể sử dụng làn đường này nhưng phải nhường đường cho xe được ưu tiên sử dụng làn khi xuất hiện loại xe này trên làn xe.\nXe trên làn đường dành riêng hoặc làn đường ưu tiên có thể cắt qua các vạch này khi làn đường hoặc phần đường xe chạy liền kề không cấm sử dụng loại xe này.\nQuy cách:\n- Vạch giới hạn đường dành riêng hoác ưu tiên được cấu tạo bằng vạch đơn, màu trắng, bề rộng vạch 30 cm. Vạch 2.3 có thể là vạch đứt nét hoặc vạch liền nét. Đối với vạch nét đứt, bề rộng nét liền L1 = (1 m - 2m), bề rộng nét đứt L2 = (1 m - 2 m), tỷ lệ L1/L2= 1:1.\n- Vạch 2.3 dạng nét đứt cũng được dùng để xác định phạm vi làn đường dành riêng hoặc ưu tiên ở vị trí đầu hoặc cuối làn đường như minh họa trên Hình G.12.\n- Vạch giới hạn làn đường dành riêng hoặc ưu tiên được sử dụng đi kèm với chữ viết biểu thị loại xe được dành riêng hoặc ưu tiên hoặc có thể đi kèm với ký hiệu chỉ loại xe được phép sử dụng làn đường.\n- Vạch giới hạn làn đường dành riêng hoặc ưu tiên được kẻ từ chỗ bắt đầu bố trí làn đường dành riêng hoặc ưu tiên, cứ qua một nút giao phải viết lại chữ một lần. Nếu khoảng cách giữa các ngã tư dài hơn 500 m thì có thể viết chữ nhắc lại ở quãng giữa đoạn đường.\nd. Vạch 2.4: Vạch phân chia các làn xe cùng chiều, dạng vạch kép (một vạch liền, một vạch đứt nét).\nÝ nghĩa sử dụng: dùng để phân chia các làn xe cùng chiều, xe trên làn đường tiếp giáp với vạch đứt nét được phép cắt qua khi cần thiết; xe trên làn đường tiếp giáp với vạch liền nét không được lấn làn hoặc đè lên vạch.\nQuy cách: Gồm Vạch 2.1 kết hợp với Vạch 2.2.",
+    "id": "41_2024_BGTVT_chunk_859b",
+    "text": "Phụ lục G\nG1.1. Nhóm vạch phân chia hai chiều xe chạy ngược chiều\nb. Vạch 1.2: Vạch phân chia hai chiều xe chạy (vạch tim đường), dạng vạch đơn, nét liền.\nÝ nghĩa sử dụng: dùng để phân chia hai chiều xe chạy ngược chiều; xe không được lấn làn, không được đè lên vạch.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.1",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_1_2.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_859c",
+    "text": "Phụ lục G\nG1.1. Nhóm vạch phân chia hai chiều xe chạy ngược chiều\nc. Vạch 1.3: Vạch phân chia hai chiều xe chạy (vạch tim đường), dạng vạch đôi, nét liền\nÝ nghĩa sử dụng: Dùng để phân chia hai chiều xe chạy ngược chiều, xe không được lấn làn, không được đè lên vạch.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.1",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_1_3.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_859d",
+    "text": "Phụ lục G\nG1.1. Nhóm vạch phân chia hai chiều xe chạy ngược chiều\nd. Vạch 1.4: Vạch phân chia hai chiều xe chạy, dạng vạch đôi gồm một vạch nét liền, một vạch nét đứt.\nÝ nghĩa sử dụng: dùng để phân chia hai chiều xe chạy ngược chiều. Xe trên làn đường tiếp giáp với vạch đứt nét được phép cắt qua và sử dụng làn ngược chiều khi cần thiết; Xe trên làn đường tiếp giáp với vạch liền nét không được lấn làn hoặc đè lên vạch.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.1",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_1_4.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_859e",
+    "text": "Phụ lục G\nG1.1. Nhóm vạch phân chia hai chiều xe chạy ngược chiều\ne. Vạch 1.5: Vạch xác định ranh giới làn đường có thể thay đổi hướng xe chạy.\nÝ nghĩa sử dụng: dùng để xác định ranh giới làn đường có thể thay đổi hướng xe chạy trên đó theo thời gian. Hướng xe chạy ở một thời điểm trên làn đường có thể đổi chiều được quy định bởi người điều khiển giao thông, tín hiệu đèn, biển báo hoặc các báo hiệu khác phù hợp.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.1",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_1_5.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_860a",
+    "text": "Phụ lục G\nG1.2. Nhóm vạch phân chia các làn xe chạy cùng chiều\na. Vạch 2.1: Vạch phân chia các làn xe cùng chiều, dạng vạch đơn, đứt nét\nÝ nghĩa sử dụng: dùng để phân chia các làn xe cùng chiều. Trong trường hợp này, xe được phép thực hiện việc chuyển làn đường qua vạch 2.1.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11414,12 +11341,55 @@
       "context": {
         "muc_1": "G1.2",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_2_1.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_860b",
+    "text": "Phụ lục G\nG1.2. Nhóm vạch phân chia các làn xe chạy cùng chiều\nb. Vạch 2.2: Vạch phân chia các làn xe cùng chiều, dạng vạch đơn, liền nét.\nÝ nghĩa sử dụng: dùng để phân chia các làn xe cùng chiều trong trường hợp không cho phép xe chuyển làn hoặc sử dụng làn khác; xe không được lấn làn, không được đè lên vạch.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.2",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_2_2.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_860c",
+    "text": "Phụ lục G\nG1.2. Nhóm vạch phân chia các làn xe chạy cùng chiều\nc. Vạch 2.3: Vạch giới hạn làn đường dành riêng hoặc làn đường ưu tiên\nÝ nghĩa sử dụng: Vạch giới hạn làn đường dành riêng cho một loại xe cơ giới nhất định (vạch liền nét), các loại xe khác không được đi vào làn xe này trừ những trường hợp khẩn cấp.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.2",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_2_3.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_860d",
+    "text": "Phụ lục G\nG1.2. Nhóm vạch phân chia các làn xe chạy cùng chiều\nd. Vạch 2.4: Vạch phân chia các làn xe cùng chiều, dạng vạch kép (một vạch liền, một vạch đứt nét).\nÝ nghĩa sử dụng: dùng để phân chia các làn xe cùng chiều, xe trên làn đường tiếp giáp với vạch đứt nét được phép cắt qua khi cần thiết; xe trên làn đường tiếp giáp với vạch liền nét không được lấn làn hoặc đè lên vạch.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "G1.2",
+        "phu_luc": "G"
+      },
+      "traffic_sign": ["V_2_4.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_861",
-    "text": "Phụ lục G\nG1.3. Nhóm vạch giới hạn mép phần đường xe chạy\na. Vạch 3.1: Vạch giới hạn mép ngoài phần đường xe chạy hoặc vạch phân cách làn xe cơ giới và làn xe thô sơ\nÝ nghĩa sử dụng: để xác định mép ngoài phần đường xe chạy; hoặc phân cách làn xe cơ giới và xe thô sơ, xe chạy được phép đè lên vạch khi cần thiết và phải nhường đường cho xe thô sơ.\nQui cách:\n- Khi sử dụng vạch 3.1 (a, b) để xác định mép ngoài phần xe chạy (phần lề gia cố có kết cấu tương đương với kết cấu mặt đường được coi là phần xe chạy) thì mép ngoài cùng của vạch cách mép ngoài cùng phần xe chạy từ 15 đến 30 cm đối với đường thông thường và phân chia làn dừng khẩn cấp với phần đường xe chạy đối với đường ô tô cao tốc. Chỉ kẻ vạch giới hạn mép phần đường xe chạy trên đường cao tốc, đường có bề rộng phần đường xe chạy từ 7,0 m trở lên và các trường hợp cần thiết khác.\n- Khi sử dụng vạch 3.1 (a, b) để phân chia giữa làn đường xe cơ giới và làn đường xe thô sơ, phải sử dụng biển báo hoặc sơn chữ “XE ĐẠP”, hoặc biểu tượng xe đạp trên làn xe thô sơ.\n- Chỉ bố trí làn đường dành riêng cho xe thô sơ khi mật độ xe thô sơ lớn trên đường có mỗi chiều xe chạy từ 2 làn xe cơ giới trở lên hoặc trong trường hợp cần thiết khác và bề rộng phần đường dành cho xe thô sơ phải đảm bảo tối thiểu 1,5 m. Khi không bố trí làn xe thô sơ riêng thì có thể bố trí vạch phân chia các làn xe cùng chiều 2.1 hoặc 2.1 kết hợp 2.2.\nQuy cách vạch như sau: Vạch 3.1a là vạch đơn, liền nét, bề rộng vạch b = 15 cm - 20 cm. Vạch 3.1b là vạch đơn, nét đứt, bề rộng vạch b = (15 cm - 20 cm); khoảng cách nét liền L1 = 0,6 m; khoảng cách nét đứt L2 = 0,6 m. Tỷ lệ L1/L2 = 1:1.\nb. Một số loại vạch khác có thể sử dụng để xác định mép phần xe chạy\n- Vạch 3.2, vạch 3.3: sử dụng để phân cách giữa làn xe cơ bản và làn xe chuyển tốc, giữa làn xe cơ bản và làn xe phụ thêm hoặc vạch phân cách, kênh hóa các làn xe trong khu vực tách và nhập làn.\nVạch 3.2: Vạch liền nét, màu trắng, bề rộng vạch là 45 cm cho đường ô tô cao tốc và 30 cm cho các đường khác. Xe không được phép chuyển làn qua vạch 3.2 trừ các trường hợp khẩn cấp theo quy định tại Luật Đường bộ và Luật Trật tự, An toàn giao thông đường bộ.\nVạch 3.3: Vạch đứt nét, màu trắng, bề rộng vạch là 45 cm cho đường ô tô cao tốc và 30 cm cho các đường khác, khoảng cách nét đứt L1 = (100 cm - 300 cm); khoảng cách nét đứt L2 = (100 cm - 300 cm); L1:L2 = 1:1. Xe được phép cắt, chuyển làn qua vạch. Ngoài ra, vạch 3.3 còn được sử dụng để kẻ đoạn chuyển tiếp từ vạch 2.1 sang vạch 3.2. Chiều dài đoạn chuyển tiếp từ vạch 2.1 sang vạch 3.2 trong khoảng từ 50 m đến 100 m.\n- Vạch 3.4: sử dụng để báo hiệu sắp đến đến vạch 1.2 hoặc vạch 2.2; hoặc sử dụng để kẻ vạch chuyển tiếp từ vạch 1.1 đến vạch 1.2; hoặc từ vạch 2.1 đến vạch 2.2. Bề rộng vạch 3.4 được lấy tương ứng theo bề rộng của vạch 1.2 hoặc vạch 2.2.\nVạch 3.4: Vạch đứt nét, màu trắng, khoảng cách nét liền L1 = (3 m - 6 m), khoảng cách nét đứt L2 = 1 m - 2m, tỷ lệ L1: L2 = 3:1. Chiều dài vạch 3.4 lấy trong khoảng từ 50 m đến 100 m.\nc. Bố trí vạch phân làn đường trong khu vực tách và nhập làn\nNguyên tắc chung sử dụng các loại vạch như sau:\n- Tại các mũi đảo tách làn hoặc nhập làn có thể bố trí vạch sơn chữ V trên phần diện tích mặt đường giới hạn bởi các đường mép kéo dài từ các cạnh của đảo.\n- Các vạch chữ V (vạch 4.2) được vẽ song song mỗi vạch rộng 45 cm, khoảng cách hai mép vạch rộng 100 cm, vạch chữ V được đặt sao cho cạnh chữ V xuôi chiều với hướng chuyển động của xe và hợp với hướng xe chạy một góc 45o.\n- Vạch xác định phạm vi kẻ vạch chữ V là vạch liền nét, màu trắng, bề rộng vạch 20 cm (vạch 3.1).\n- Vạch phân cách giữa làn xe cơ bản và làn xe chuyển tốc; hoặc vạch phân cách, kênh hóa các làn xe trong khu vực tách và nhập làn tùy từng trường hợp mà có thể sử dụng vạch liền nét, màu trắng, bề rộng vạch 45 cm (vạch 3.2); hoặc sử dụng vạch đứt nét, màu trắng, bề rộng vạch 45 cm, khoảng cách nét đứt L1 = 300 cm; khoảng cách nét đứt L2 = 300 cm (vạch 3.3).\n- Xe không được phép cắt qua vạch chữ V trừ các trường hợp khẩn cấp.\nDưới đây là một số trường hợp điển hình bố trí vạch phân làn đường trong khu vực tách và nhập làn:\n- Bố trí vạch sơn khu vực tách làn kiểu trực tiếp:\n- Bố trí vạch sơn khu vực tách làn kiểu trực tiếp:\n- Bố trí vạch sơn khu vực nhập làn kiểu trực tiếp:\n- Bố trí vạch sơn khu vực nhập làn kiểu có làn chuyển tiếp song song:\nd. Bố trí vạch phân làn đường ở điểm dừng xe trên tuyến kiểu bến cảng (có vịnh dừng đỗ)\nSử dụng vạch 3.2 hoặc vạch 3.3 để phân cách giữa làn xe chạy chính và làn dừng xe. Tùy theo bề rộng mặt đường mà có thể sử dụng vạch 5.1 để tạo đảo phân làn đường. Chi tiết xem trên Hình G.18 và Hình G19.\ne. Bố trí vạch sơn trong khu vực bề rộng phần xe chạy bị thay đổi\nTrong khu vực bề rộng phần xe chạy bị thay đổi hoặc số làn xe chạy tăng lên hoặc ít đi, cần thiết phải bố trí các vạch sơn trên mặt đường (có thể kết hợp với biển báo) để cảnh báo người tham gia giao thông điều khiển xe thận trọng hơn.\nDưới đây là các hình vẽ thể hiện quy định về bố trí vạch sơn trong khu vực phần xe chạy bị thay đổi.\nLưu ý:\n- Các quy định về bố trí vạch sơn đề cập ở mục này chỉ áp dụng cho khu vực phần xe chạy bị thay đổi. Khu vực bề rộng phần xe chạy bị thay đổi được xác định là phạm vi chiều dài tổng cộng các đoạn D, L, và d tương ứng trên các Hình G.20, G.21, G.22, và G.23.\n- Trong khu vực bề rộng phần xe chạy bị thay đổi, vạch 1.3 được sử dụng để phân chia hai chiều xe chạy. Đối với hướng xe chạy có bề rộng mặt đường bị thu hẹp trong khu vực phần xe chạy bị thay đổi phải bố trí vạch giới hạn mép phần xe chạy (vạch 3.1) kết hợp với đặt biển số W.203 (b,c) “Đường bị thu hẹp”.\n- Chiều dài đoạn biến đổi bề rộng mặt đường L(m) được xác định như sau:\nL\t=\tV2W\t(khi V ≤ 60km/h)\t(1)\n155\nhoặc L = 0.625V.W (khi V > 60 km/h)                                    (2)\nTrong đó; V: Tốc độ hạn chế lớn nhất hoặc tốc độ V85, km/h; W: Chiều rộng giảm đi, m; D: chiều dài tầm nhìn dừng xe an toàn, m.\n- Đoạn kéo dài của vạch ở điểm cuối cùng giảm chiều rộng (d) được lựa chọn như sau: Đường có tốc độ hạn chế lớn nhất hoặc tốc độ V85 > 60 km/h là 40 m, các loại đường khác là 20 m.\nf. Bố trí vạch báo gần đến chướng ngại vật\nKhi có chướng ngại vật trên đường, cần thiết phải bố trí các vạch sơn trên mặt đường (có thể kết hợp với biển báo) để cảnh báo người tham gia giao thông điều khiển xe thận trọng hơn, vòng tránh chướng ngại vật trên mặt đường.\n- Trường hợp đường có hai làn xe, hai chiều xe chạy, khi chướng ngại vật nằm ở giữa đường thì có thể kẻ vạch theo Hình G.24.\nHình G.24 - Bố trí vạch sơn cho đường hai làn xe, hai chiều xe chạy khi có chướng ngại vật nằm ở giữa đường\nLưu ý: trị số d và L xác định tương tự như ở G1.3e: bố trí vạch sơn trong khu vực phần xe chạy bị thay đổi.\nVạch tim đường (vạch phân cách hai chiều xe chạy) có thể là vạch 1.1 hoặc vạch 1.2.\nBề rộng và màu sắc vạch liền nét trên Hình G.20 lấy giống với bề rộng vạch tim đường (vạch phân cách hai chiều xe chạy).\n- Trường hợp đường có từ 4 làn xe chạy trở lên, khi chướng ngại vật nằm ở giữa đường thì có thể kẻ vạch theo Hình G.25.\nHình G.25 - Bố trí vạch sơn cho đường có từ 4 làn xe trở lên khi có chướng ngại vật nằm ở giữa đường\nLưu ý: Trị số d và L xác định tương tự như quy định tại điểm e, mục G.1.3: bố trí vạch sơn trong khu vực phần xe chạy bị thay đổi.\nTrong phạm vi chiều dài đoạn d và L, sử dụng vạch đôi, liền nét có quy cách, màu sắc giống với vạch 1.3. Ngoài phạm vi này, sử dụng vạch tim đường (vạch phân cách hai chiều xe chạy) áp dụng thích hợp cho đường có từ 4 làn xe trở lên.\n- Trường hợp chướng ngại vật trên đường nằm ở giữa hai làn đường cùng chiều thì có thể kẻ vạch theo Hình G.26.\nHình G.26 - Bố trí vạch sơn khi chướng ngại vật nằm ở giữa hai làn đường cùng chiều\nLưu ý: trị số d và L xác định tương tự như mục: Bố trí vạch sơn trong khu vực bề rộng phần xe chạy bị thay đổi.\nTrong phạm vi chiều dài đoạn d, sử dụng vạch đơn, liền nét , màu trắng có bề rộng bằng vạch phân cách hai chiều xe chạy (vạch 2.1) tương ứng. Trong phạm vi chiều dài đoạn L, sử dụng vạch chữ V (vạch 4.2). Vạch xác định phạm vi vạch chữ V là vạch đơn, liền nét, màu trắng có bề rộng bằng vạch phân cách hai chiều xe chạy (vạch 2.1) được sử dụng.",
+    "text": "Phụ lục G\nG1.3. Nhóm vạch giới hạn mép phần đường xe chạy\na. Vạch 3.1: Vạch giới hạn mép ngoài phần đường xe chạy hoặc vạch phân cách làn xe cơ giới và làn xe thô sơ\nÝ nghĩa sử dụng: để xác định mép ngoài phần đường xe chạy; hoặc phân cách làn xe cơ giới và xe thô sơ, xe chạy được phép đè lên vạch khi cần thiết và phải nhường đường cho xe thô sơ.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11427,7 +11397,8 @@
       "context": {
         "muc_1": "G1.3",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_3_1.png"]
     }
   },
   {
@@ -11470,21 +11441,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_865",
-    "text": "Phụ lục G\nG.2. Vạch ngang đường",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "muc_1": "G.2",
-        "phu_luc": "G"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_866",
-    "text": "Phụ lục G\nG2.1. Vạch dừng xe\nVạch 7.1: Vạch dừng xe\nÝ nghĩa sử dụng: dùng để xác định vị trí dừng xe để chờ tín hiệu cho phép đi tiếp. Vạch dùng để xác định vị trí người điều khiển phương tiện phải dừng lại khi có tín hiệu đèn đỏ hoặc khi có biển số R.122. Vạch cũng dùng để xác định vị trí người điều khiển phải dừng lại trong các điều kiện nhất định ở một số vị trí như: trên nhánh dẫn tới nút giao cùng mức với đường sắt, trên làn chờ rẽ trái trong phạm vi nút giao, trước vị trí vạch người đi bộ qua đường.\nQuy cách vạch như sau:\nVạch 7.1 là vạch liền nét màu trắng. Bề rộng vạch, căn cứ vào cấp đường, lưu lượng xe, tốc độ xe chạy mà chọn dùng một trong các giá trị 20 cm, 30 cm hoặc 40 cm (bề rộng nét vẽ lớn hơn áp dụng cho đường có lưu lượng, tốc độ xe chạy lớn hơn). Vạch này kẻ ngang toàn bộ bề rộng đường của hướng xe chạy.\nVạch dừng xe cần đặt ở vị trí mà lái xe có thể dễ dàng quan sát. Tại các nút giao cùng mức, vạch dừng xe nên đặt trùng với đường kéo dài của bó vỉa trục đường giao khi trên nhánh dẫn không bố trí vạch đi bộ cắt qua đường; trường hợp trên nhánh dẫn có bố trí vạch đi bộ cắt qua đường thì vạch dừng xe nên đặt cách mép vạch người đi bộ qua đường (1,5 m - 3,0 m) (xem Hình G.47).\nVạch dừng xe có thể sử dụng kết hợp với vạch chữ “STOP”. Đỉnh chữ “STOP” cách mép vạch dừng xe trong khoảng từ (2,0 m - 3,0 m); và có thể vẽ thêm chữ “STOP” để báo hiệu trước trong phạm vi 25 m trước vị trí vạch dừng xe. Chi tiết thể hiện trên Hình 48.",
+    "text": "Phụ lục G\nG.2. Vạch ngang đường\nG2.1. Vạch dừng xe\nVạch 7.1: Vạch dừng xe\nÝ nghĩa sử dụng: dùng để xác định vị trí dừng xe để chờ tín hiệu cho phép đi tiếp. Vạch dùng để xác định vị trí người điều khiển phương tiện phải dừng lại khi có tín hiệu đèn đỏ hoặc khi có biển số R.122. Vạch cũng dùng để xác định vị trí người điều khiển phải dừng lại trong các điều kiện nhất định ở một số vị trí như: trên nhánh dẫn tới nút giao cùng mức với đường sắt, trên làn chờ rẽ trái trong phạm vi nút giao, trước vị trí vạch người đi bộ qua đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11492,12 +11450,13 @@
       "context": {
         "muc_1": "G2.1",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_7_1.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_867",
-    "text": "Phụ lục G\nG2.2. Vạch nhường đường\nVạch 7.2: Vạch nhường đường\nÝ nghĩa sử dụng: để báo hiệu cho xe phải đi chậm hoặc dừng lại khi cần thiết để nhường đường cho các phương tiện hoặc người trên các hướng giao thông khác được di chuyển trước. Vạch 7.2 được sử dụng kết hợp với biển số W.208 - “Giao với đường ưu tiên”.\nQuy cách vạch như sau:\nCó thể sử dụng một trong hai mẫu vạch nhường đường như sau:\n- Mẫu 1: Vạch nhường đường là vạch đôi, nét đứt, đi kèm với một hình tam giác ngược, tất cả đều màu trắng. Vạch được kẻ ngang trên toàn bộ bề rộng đường của hướng xe chạy. Chi tiết kích thước vạch xem Hình G.49.\n- Mẫu 2: Vạch nhường đường có hình tam giác cân màu trắng, đáy của tam giác hướng về đường ưu tiên rộng 50 cm chiều cao của tam giác là 70 cm. Hai mép kề nhau của 2 tam giác cách nhau 30 cm. Chi tiết xem trên Hình G.50.\nVạch nhường đường cần đặt ở vị trí mà lái xe có thể dễ dàng quan sát. Tại các nút giao cùng mức, vạch nhường đường nên đặt trùng với đường kéo dài của bó vỉa trục đường giao khi trên nhánh dẫn không bố trí vạch đi bộ cắt qua đường. Nếu trên nhánh dẫn có bố trí vạch đi bộ cắt qua đường thì vạch giảm tốc độ nhường đường nên đặt cách mép vạch người đi bộ qua đường (1,5 m - 3,0 m).",
+    "text": "Phụ lục G\nG2.2. Vạch nhường đường\nVạch 7.2: Vạch nhường đường\nÝ nghĩa sử dụng: để báo hiệu cho xe phải đi chậm hoặc dừng lại khi cần thiết để nhường đường cho các phương tiện hoặc người trên các hướng giao thông khác được di chuyển trước. Vạch 7.2 được sử dụng kết hợp với biển số W.208 - “Giao với đường ưu tiên”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11505,12 +11464,13 @@
       "context": {
         "muc_1": "G2.2",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_7_2.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_868",
-    "text": "Phụ lục G\nG2.3. Vạch đi bộ qua đường\nVạch 7.3: Vạch đi bộ qua đường\nÝ nghĩa sử dụng: Vạch đi bộ qua đường xác định phạm vi phần đường dành cho người đi bộ cắt qua đường.\nBố trí vạch đi bộ qua đường ở những nơi có người đi bộ qua đường, khoảng cách bố trí hai vạch đi bộ qua đường trên cùng một đoạn đường nên cách nhau lớn hơn 150 m. Chiều rộng nhỏ nhất dành cho bố trí vạch đi bộ qua đường không được nhỏ hơn 3 m, tuỳ theo lượng người đi qua để nâng thêm chiều rộng, mỗi cấp nâng lên là 1 m.\nTrên những đoạn đường không bình thường (tầm nhìn bị hạn chế, dốc dọc lớn, góc ngoặt lớn hoặc đường cong nằm bán kính nhỏ hoặc có các nguy hiểm khó lường hoặc ở những đoạn đường có bề rộng làn xe bị thu hẹp dần) thì không bố trí vạch đi bộ qua đường.\nQuy cách vạch như sau:\n- Mẫu 1: Vạch đi bộ qua đường là các đường vạch đậm liền song song màu trắng (còn gọi là vạch ngựa vằn). Kích thước vạch xem trên Hình G.51.\n- Mẫu 2: Sử dụng hai vạch liền, màu trắng, bề rộng nét vẽ b = 40 cm kẻ song song theo phương ngang đường để xác định phần đường dành cho người đi bộ (xem Hình 52). Mẫu 2 chỉ áp dụng để xác định phần đường cho người đi bộ qua đường ở những nơi có đèn tín hiệu phân định thời gian người đi bộ được phép qua đường.\nTrước vạch đi bộ qua đường cần sử dụng vạch dừng xe. Các phương tiện phải dừng lại trước vạch dừng xe nói trên trong thời gian tín hiệu đèn đỏ hoặc phải dừng lại quan sát trước khi cắt qua vạch dừng xe nếu biển số R.122 - “Dừng xe” được sử dụng kèm theo. Trường hợp không có đèn tín hiệu điều khiển và không sử dụng biển số R.122 - “Dừng xe”, các phương tiện phải dừng lại nhường đường cho người đi bộ qua đường khi có dấu hiệu người đi bộ qua đường trong khu vực kẻ vạch dừng xe.",
+    "text": "Phụ lục G\nG2.3. Vạch đi bộ qua đường\nVạch 7.3: Vạch đi bộ qua đường\nÝ nghĩa sử dụng: để báo hiệu cho xe phải đi chậm hoặc dừng lại khi cần thiết để nhường đường cho các phương tiện hoặc người trên các hướng giao thông khác được di chuyển trước. Vạch 7.2 được sử dụng kết hợp với biển số W.208 - “Giao với đường ưu tiên”.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11518,12 +11478,13 @@
       "context": {
         "muc_1": "G2.3",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_7_3.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_869",
-    "text": "Phụ lục G\nG2.4. Vạch xe đạp qua đường\nVạch 7.4: Vạch xe đạp qua đường\nÝ nghĩa sử dụng: Vạch đi bộ qua đường xác định phạm vi phần đường dành cho xe đạp cắt qua đường. Ở nơi đường giao nhau không có người, tín hiệu điều khiển giao thông thì xe đạp phải nhường đường cho phương tiện cơ giới chạy trên đường cắt ngang đường xe đạp.\nQuy cách vạch như sau:\nHai vạch đứt quãng chạy song song rộng bằng nhau bằng 40 cm, chiều dài vạch đứt quãng là 40 cm và cách nhau 40 cm. Hai mép ngoài của 2 vạch cách nhau 1,8 m. Vạch xác định vị trí chỗ xe đạp đi ngang qua đường trên những chỗ giao nhau. Nơi không có điều khiển bằng đèn tín hiệu thì xe đạp phải nhường cho xe cơ giới khác chạy trên đường.",
+    "text": "Phụ lục G\nG2.4. Vạch xe đạp qua đường\nVạch 7.4: Vạch xe đạp qua đường\nÝ nghĩa sử dụng: Vạch đi bộ qua đường xác định phạm vi phần đường dành cho xe đạp cắt qua đường. Ở nơi đường giao nhau không có người, tín hiệu điều khiển giao thông thì xe đạp phải nhường đường cho phương tiện cơ giới chạy trên đường cắt ngang đường xe đạp.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11531,25 +11492,13 @@
       "context": {
         "muc_1": "G2.4",
         "phu_luc": "G"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_870",
-    "text": "Phụ lục G\nG2.5. Vạch xác định khu vực cấm xe thô sơ trong nút giao\nVạch 7.5: Vạch xác định khu vực cấm xe thô sơ trong nút giao\nÝ nghĩa sử dụng: Vạch 7.5 sử dụng để báo cho người điều khiển xe thô sơ biết phạm vi cấm khi đi vào nút giao ngã tư có sử dụng đèn tín hiệu điều khiển.\nQuy cách vạch như sau:\nVạch 7.5 gồm các vạch đơn, đứt khúc màu vàng, bề rộng vạch 20 cm. Phạm vi làn cấm xe thô sơ lấy ranh giới là vạch giới hạn làn xe cơ giới. Phần kéo dài của vạch qua phạm vi làn xe thô sơ được vẽ bằng nét liền màu vàng có cùng bề rộng với phần nét đứt là 20 cm.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "muc_1": "G2.5",
-        "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_7_4.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_871",
-    "text": "Phụ lục G\nG2.6. Vạch chỉ dẫn sắp đến chỗ có bố trí vạch đi bộ qua đường\nVạch 7.6: Vạch chỉ dẫn sắp đến chỗ có bố trí vạch đi bộ qua đường\nÝ nghĩa sử dụng: Vạch 7.6 sử dụng để báo hiệu sắp đến chỗ có bố trí vạch đi bộ qua đường; đặc biệt đối với các chỗ bố trí vạch đi bộ qua đường ở giữa đoạn đường nối hai nút để cảnh báo người lái xe phải nhường đường cho người đi bộ qua đường.\nQuy cách vạch như sau:\nVạch có dạng hình thoi, màu trắng. Kích thước vạch xem trên Hình G.56.",
+    "text": "Phụ lục G\nG2.6. Vạch chỉ dẫn sắp đến chỗ có bố trí vạch đi bộ qua đường\nVạch 7.6: Vạch chỉ dẫn sắp đến chỗ có bố trí vạch đi bộ qua đường\nÝ nghĩa sử dụng: Vạch 7.6 sử dụng để báo hiệu sắp đến chỗ có bố trí vạch đi bộ qua đường; đặc biệt đối với các chỗ bố trí vạch đi bộ qua đường ở giữa đoạn đường nối hai nút để cảnh báo người lái xe phải nhường đường cho người đi bộ qua đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11557,12 +11506,13 @@
       "context": {
         "muc_1": "G2.6",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_7_6.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_872",
-    "text": "Phụ lục G\nG2.7. Vạch báo gần chỗ giao nhau với đường sắt\nVạch 7.7: Vạch báo gần chỗ giao nhau với đường sắt\nÝ nghĩa sử dụng: Vạch 7.7 sử dụng để báo cho người tham gia giao thông biết phía trước có chỗ giao nhau với đường sắt, nhắc người điều khiển phương tiện thận trọng. Cụm vạch này chỉ dùng ở chỗ không có người gác chắn đường sắt.\nQuy cách vạch như sau:\n- Chữ “R” dùng sơn phản quang màu trắng ở bên phải và bên trái vạch chéo “X”.\n- Vạch chéo “X” cách vạch nét đứt nằm ngang trước và sau là 450 cm, vạch rộng 40 cm, vạch chéo theo phương ngang hết bề rộng chiều xe chạy và dài 600 cm theo chiều dọc.\n- Vạch nét đứt nằm ngang dùng sơn phản quang trắng, nét rộng 40 cm, mỗi nét dài 60 cm, cách nhau 60 cm trước và sau vạch chéo “X”.\n- Bố trí kết hợp với vạch cấm vượt xe và vạch dừng xe. Khoảng cách từ điểm gần nhất của ray theo chiều dọc đến vạch dừng xe là 300 cm. Chi tiết xem trên Hình G.56.\nQuy cách vạch như sau:\n- Chữ “R” dùng sơn phản quang màu trắng ở bên phải và bên trái vạch chéo “X”.\n- Vạch chéo “X” cách vạch nét đứt nằm ngang trước và sau là 450 cm, vạch rộng 40 cm, vạch chéo theo phương ngang hết bề rộng chiều xe chạy và dài 600 cm theo chiều dọc.\n- Vạch nét đứt nằm ngang dùng sơn phản quang trắng, nét rộng 40 cm, mỗi nét dài 60 cm, cách nhau 60 cm trước và sau vạch chéo “X”.\n- Bố trí kết hợp với vạch cấm vượt xe và vạch dừng xe. Khoảng cách từ điểm gần nhất của ray theo chiều dọc đến vạch dừng xe là 300 cm. Chi tiết xem trên Hình G.56.\nQuy cách vạch như sau:\nVạch có dạng các đường liền hình mũi nhọn, màu trắng chạy song song với tim đường. Kích thước vạch xem trên Hình G.58.\nVạch xác định khoảng cách xe trên đường nên phối hợp sử dụng với biển báo, cách 50 m thì bố trí một nhóm vạch (2 vạch/ làn, vạch cách nhau 5 m theo chiều dọc) và bố trí trên chiều dài 200 m dọc theo đường (5 cụm vạch/làn đường)",
+    "text": "Phụ lục G\nG2.7. Vạch báo gần chỗ giao nhau với đường sắt\nVạch 7.7: Vạch báo gần chỗ giao nhau với đường sắt.\nÝ nghĩa sử dụng: Vạch 7.7 sử dụng để báo cho người tham gia giao thông biết phía trước có chỗ giao nhau với đường sắt, nhắc người điều khiển phương tiện thận trọng. Cụm vạch này chỉ dùng ở chỗ không có người gác chắn đường sắt.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -11570,7 +11520,8 @@
       "context": {
         "muc_1": "G2.7",
         "phu_luc": "G"
-      }
+      },
+      "traffic_sign": ["V_7_7.png"]
     }
   },
   {
@@ -11582,19 +11533,6 @@
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "muc_1": "G2.9",
-        "phu_luc": "G"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_874",
-    "text": "Phụ lục G\nG3. Vạch đứng\na. Vạch 8.1: Vạch đứng trên mốc cố định\nÝ nghĩa sử dụng: sử dụng vạch 8.1 để cảnh báo người điều khiển phương tiện chú ý, trên đường đi phía trước có chướng ngại vật cao hơn mặt đường để đề phòng va quệt phải. Vạch này kẻ trên bề mặt phần đứng của chướng ngại vật có khả năng gây nguy hiểm đối với phương tiện giao thông như: trụ cầu vượt qua đường hoặc mặt trước của hai bên tường ở chỗ cầu vượt hay đường chui qua đường hoặc ở cửa đường hầm, trên kết cấu dải phân cách, trên đảo an toàn của đường ngang dành cho người đi bộ v.v....\nQuy cách vạch như sau:\nVạch 8.1 cấu tạo gồm những nét chéo vàng, đen hoặc đỏ, trắng xen kẽ nhau, nghiêng góc 45°, bề rộng và khoảng cách nét là 15 cm khi kẻ nên cho nét chéo xuống chéo về phía đường xe chạy.\nThông thường màu vàng, đen được sử dụng cho các đường ngoài khu vực đô thị; màu đỏ, trắng được sử dụng cho các đường trong khu vực đô thị. Khi cần thiết, các vạch cũng có thể được bẻ gập dạng chữ V (xem ví dụ trên Hình G.63). Chi tiết cấu tạo vạch 8.1 thể hiện trên Hình 62.\nSử dụng vạch 8.1 cho đảo phân làn tại trạm thu phí:\n- Trên bề mặt kết cấu đảo phân làn tại cổng trạm thu phí sử dụng vạch 8.1 để biểu thị vị trí dải phân cách làn xe nhằm tăng tính dẫn hướng cho xe đi đúng làn đường.\n- Vạch có màu vàng và màu đen đan xen nhau, chiều rộng của mỗi vạch là 15 cm bắt đầu vẽ từ đầu dải phân cách tạo thành một góc là 45° so mặt phẳng ngang và nghiêng đều về hai phía. Cách vẽ như ở thể hiện trên Hình G.63 và Hình G.64.\nb. Vạch 8.2: vạch xác định mép dưới thấp nhất của kết cấu cầu vượt qua đường hoặc công trình khác đi phía trên đường\nÝ nghĩa sử dụng: Sử dụng vạch 8.2 để xác định mép dưới cùng của cầu vượt đường hoặc công trình tương tự nhằm cảnh báo cho người tham gia giao thông về các công trình này.\nQuy cách vạch như sau:\nVạch 8.2 cấu tạo gồm những nét vạch đỏ - trắng xen kẽ thẳng đứng có chiều rộng là 20 cm, cao 50 cm, bề rộng của phần vạch toàn bộ là 1 m.\nc. Vạch số 8.3: vạch kẻ xung quanh các cột tròn đặt trên các đảo an toàn, trên dải phân cách và các vị trí tương tự\nVạch trắng - đỏ song song với mặt phẳng nằm ngang có chiều rộng của phần màu trắng và phần màu đỏ bằng nhau và bằng chiều rộng B của công trình, vạch kẻ ở các cột tròn đặt trên đảo an toàn, trên dải phân cách hoặc các vị trí tương tự:\n- Nếu B ≤ 30cm thì a = 10cm.\n- Nếu B > 30cm thì a = 15cm.\nd. Vạch số 8.4: vạch kẻ trên cột tín hiệu, cột rào chắn, cột tiêu\nVạch xiên góc màu đỏ tạo với mặt phẳng ngang góc 30° rộng 15 cm, điểm giữa mép trên của vạch cách mặt phẳng đỉnh cột là 15 cm. Độ xiên của vạch hướng về phía mặt đường, vạch kẻ trên cột tín hiệu, cột rào chắn, cột tiêu.\ne. Vạch số 8.5: vạch kẻ ở thanh ngang trên cùng của hàng rào chắn chỗ đường cong có bán kính nhỏ, đường cao hơn so với khu vực xung quanh, đường dốc xuống và những nơi nguy hiểm khác\nVạch đỏ - trắng xen kẽ có kích thước hết bề rộng công trình, vạch đỏ dài 1 m và vạch trắng dài 2 m.\nf. Vạch số 8.6: Vạch kẻ ở thanh trên cùng của rào chắn ở những nơi đặc biệt nguy hiểm\nVạch đỏ liên tục chạy giữa bề mặt rào chắn rộng 10 cm.\ng. Vạch số 8.7: Vạch kẻ ở hàng vỉa các vỉa hè nơi nguy hiểm hoặc hàng vỉa của đảo an toàn\nVạch đỏ - trắng xen kẽ kẻ trên bề mặt đứng và ngang, chiều dài vạch đỏ là L1, vạch trắng là L2. Trong trường hợp thông thường: L1 = 1 m - 2 m; L2 = 2 m - 4 m, tỷ lệ L1:L2 = 1:2 (xem Hình G.70). Đối với các vị trí hàng vỉa uốn cong với bán kính nhỏ, L1 = 0,5m-2,0m; L2 = 0,5 m - 2,0 m, tỷ lệ L1:L2 = 1:1.\na. Vạch 9.1: vạch cấm xe quay đầu\nÝ nghĩa sử dụng: sử dụng vạch 9.1 ở những vị trí cấm quay đầu xe tại nút giao hoặc chỗ mở dải phân cách hai chiều xe chạy.\nQuy cách vạch như sau:\nSử dụng vạch màu vàng, hình dáng và kích thước xem trên Hình G.71.\nb. Vạch 9.2: Vạch quy định vị trí dừng đỗ của phương tiện giao thông công cộng trên đường\nÝ nghĩa sử dụng: Sử dụng vạch 9.2 quy định vị trí dừng xe của các phương tiện vận tải hành khách công cộng trên đường như xe buýt, xe tắc xi ... Các loại phương tiện khác và người đi bộ không được dừng, đỗ trong phạm vi kẻ vạch và trong khoảng cách 15 m từ vị trí vạch về hai phía theo phương dọc đường.\nQuy cách vạch như sau:\nVạch 9.2 là vạch đơn liền, màu vàng, bề rộng nét vẽ b = 10 cm. Vạch được vẽ dạng gãy khúc (có dạng hình chữ M, nhiều đỉnh). Chiều cao chữ M bằng 2.0 m, đường xiên của chữ M bằng nhau và bằng 2.0 m.\nc. Vạch 9.3: Vạch mũi tên chỉ hướng trên mặt đường\nÝ nghĩa sử dụng: Vạch mũi tên chỉ hướng trên mặt đường được sử dụng để chỉ hướng xe phải đi. Mũi tên chỉ hướng chủ yếu sử dụng ở các nút giao có tách nhập làn và trên đường có nhiều làn xe. Mũi tên cũng có thể được sử dụng cho các phần đường xe chạy một chiều để xác nhận hướng giao thông.\nQuy cách vạch như sau:\n- Màu sắc của mũi tên chỉ đường là màu trắng.\n- Tùy theo tốc độ xe chạy mà chọn kích thước các mũi tên phù hợp theo nguyên tắc tốc độ xe chạy càng lớn thì kích thước mũi tên càng lớn. Kích thước mũi tên thể hiện trên Hình G.73 áp dụng cho các đường có tốc độ xe chạy thấp. Kích thước mũi tên ghi ngoài ngoặc đơn thể hiện trên Hình G.74 áp dụng cho các đường có tốc độ xe chạy cao. Kích thước mũi tên ghi trong ngoặc đơn thể hiện trên Hình G.74 áp dụng cho đường ô tô cao tốc và các đường có tốc độ thiết kế ≥ 100km/h.\nd. Vạch 9.4: Vạch mũi tên báo số làn xe phía trước bị giảm\nÝ nghĩa sử dụng: sử dụng vạch mũi tên báo số làn xe phía trước bị giảm để báo cho người điều khiển phương tiện biết số làn xe theo hướng mũi tên bị giảm và phải chuyển làn đi theo hướng mũi tên.\nQuy cách vạch như sau: Vạch mũi tên báo số làn xe phía, trước bị giảm có màu trắng. Kích thước vạch trong trường hợp thông thường như thể hiện trên Hình G.75. Trường hợp đường có tốc độ xe chạy thấp kích thước vạch có thể giảm xuống 0,5 lần so với kích thước ghi trên Hình G.76. Trường hợp đường có tốc độ cao có thể tăng kích thước lên 1,5 lần so với kích thước ghi trên Hình G.76.\ne. Vạch 9.5: Vạch dạng chữ viết, chữ số, hoặc màu sắc trên mặt đường\nÝ nghĩa sử dụng: sử dụng đi kèm với các loại báo hiệu khác nhằm tăng tính rõ ràng về ý nghĩa của các báo hiệu.\nQuy định chung: Vạch dạng chữ viết hoặc số có màu trắng; chiều cao chữ viết 3,0 m áp dụng cho đường cao tốc; 2,5 m áp dụng cho các loại đường khác; trong đô thị với các đường có tốc độ xe chạy thấp có thể sử dụng chiều cao chữ là 1,6 m; khoảng cách các hàng chữ hoặc số theo phương dọc đường 1,0 m - 1,5 m; bề rộng nét vẽ 12 cm - 18 cm.\nMột số vạch chữ và số:\n- Vạch 9.5a: Vạch chữ “STOP”\n- Vạch 9.5b: vạch chữ làn đường dành riêng cho ô tô “Ô TÔ”\n- Vạch 9.5c: vạch chữ làn đường dành riêng cho xe máy “XE MÁY”\n- Vạch 9.5c: vạch chữ làn đường dành riêng cho xe máy “XE MÁY”\n- Vạch 9.5.e: vạch chữ làn đường dành riêng cho xe đạp “XE ĐẠP”\nf. Vạch 9.6: Vạch ký hiệu xe đạp trên mặt đường\nÝ nghĩa sử dụng: sử dụng trên các làn đường dành riêng cho xe đạp.\nQuy cách vạch như sau: Vạch có màu trắng minh họa hình vẽ xe đạp như thể hiện trên Hình G.82. Kích thước hình vẽ được chọn tùy theo bề rộng của làn xe đạp. Các giá trị chiều rộng và chiều cao hình vẽ có thể sử dụng gồm: 75 cm x 120 cm; 110 cm x 170 cm, và 170 cm x 275 cm.\ng. Màu sắc mặt đường: Trong một số trường hợp, có thể sử dụng màu sắc mặt đường để cảnh báo giao thông.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "muc_1": "G3",
         "phu_luc": "G"
       }
     }

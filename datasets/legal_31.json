@@ -701,48 +701,6 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_59",
-    "text": "CHƯƠNG 2\nĐiều 6. Điều khiển giao thông bằng tín hiệu đèn\n6.3. Ý nghĩa của đèn tín hiệu: tín hiệu đèn giao thông có 03 màu, gồm: màu xanh, màu vàng, màu đỏ; có hiển thị thời gian hoặc không hiển thị thời gian. Người tham gia giao thông đường bộ phải chấp hành như sau:\n6.3.1. Tín hiệu xanh: tín hiệu đèn màu xanh là được đi; trường hợp người đi bộ, xe lăn của người khuyết tật đang đi ở lòng đường, người điều khiển phương tiện tham gia giao thông đường bộ phải giảm tốc độ hoặc dừng lại nhường đường cho người đi bộ, xe lăn của người khuyết tật qua đường;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "6.3.1",
-        "khoan": "6.3",
-        "dieu": "6"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_60",
-    "text": "CHƯƠNG 2\nĐiều 6. Điều khiển giao thông bằng tín hiệu đèn\n6.3. Ý nghĩa của đèn tín hiệu: tín hiệu đèn giao thông có 03 màu, gồm: màu xanh, màu vàng, màu đỏ; có hiển thị thời gian hoặc không hiển thị thời gian. Người tham gia giao thông đường bộ phải chấp hành như sau:\n6.3.2. Tín hiệu đèn màu vàng phải dừng lại trước vạch dừng; trường hợp đang đi trên vạch dừng hoặc đã đi qua vạch dừng mà tín hiệu đèn màu vàng thì được đi tiếp.\nTrường hợp tín hiệu đèn màu vàng nhấp nháy, người điều khiển phương tiện tham gia giao thông đường bộ được đi nhưng phải quan sát, giảm tốc độ hoặc dừng lại nhường đường cho người đi bộ, xe lăn của người khuyết tật qua đường hoặc các phương tiện khác.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "6.3.2",
-        "khoan": "6.3",
-        "dieu": "6"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_61",
-    "text": "CHƯƠNG 2\nĐiều 6. Điều khiển giao thông bằng tín hiệu đèn\n6.3. Ý nghĩa của đèn tín hiệu: tín hiệu đèn giao thông có 03 màu, gồm: màu xanh, màu vàng, màu đỏ; có hiển thị thời gian hoặc không hiển thị thời gian. Người tham gia giao thông đường bộ phải chấp hành như sau:\n6.3.3. Tín hiệu đèn màu đỏ là cấm đi: báo hiệu phải dừng lại trước vạch dừng. Nếu không có vạch dừng thì phải dừng trước đèn tín hiệu theo chiều đi.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "6.3.3",
-        "khoan": "6.3",
-        "dieu": "6"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_62",
     "text": "CHƯƠNG 2\nĐiều 6. Điều khiển giao thông bằng tín hiệu đèn\n6.3. Ý nghĩa của đèn tín hiệu: tín hiệu đèn giao thông có 03 màu, gồm: màu xanh, màu vàng, màu đỏ; có hiển thị thời gian hoặc không hiển thị thời gian. Người tham gia giao thông đường bộ phải chấp hành như sau:\n6.3.4. Trường hợp không có vạch dừng, thì vị trí đặt đèn tín hiệu gần nhất theo chiều đi coi như là vạch dừng.",
     "metadata": {
@@ -907,144 +865,6 @@
         "diem": "6.6.2",
         "khoan": "6.6",
         "dieu": "6"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_77",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.1. Xe ưu tiên được quyền đi trước xe khác khi qua đường giao nhau từ bất kỳ hướng nào tới theo thứ tự ưu tiên từ trên xuống dưới như sau:\n7. a) Xe chữa cháy của Cảnh sát phòng cháy, chữa cháy và cứu nạn, cứu hộ và xe chữa cháy của các lực lượng khác được huy động đi làm nhiệm vụ chữa cháy;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "khoan": "7.1",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_78",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.1. Xe ưu tiên được quyền đi trước xe khác khi qua đường giao nhau từ bất kỳ hướng nào tới theo thứ tự ưu tiên từ trên xuống dưới như sau:\nb) Xe của lực lượng quân sự, công an, kiểm sát đi làm nhiệm vụ khẩn cấp; đoàn xe có xe Cảnh sát giao thông dẫn đường;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "khoan": "7.1",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_79",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.1. Xe ưu tiên được quyền đi trước xe khác khi qua đường giao nhau từ bất kỳ hướng nào tới theo thứ tự ưu tiên từ trên xuống dưới như sau:\nc) Xe cứu thương đi làm nhiệm vụ cấp cứu;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "c",
-        "khoan": "7.1",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_80",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.1. Xe ưu tiên được quyền đi trước xe khác khi qua đường giao nhau từ bất kỳ hướng nào tới theo thứ tự ưu tiên từ trên xuống dưới như sau:\nd) Xe hộ đê đi làm nhiệm vụ; xe đi làm nhiệm vụ cứu nạn, cứu hộ, khắc phục sự cố thiên tai, dịch bệnh hoặc xe đi làm nhiệm vụ trong tình trạng khẩn cấp theo quy định của pháp luật;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "d",
-        "khoan": "7.1",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_81",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.1. Xe ưu tiên được quyền đi trước xe khác khi qua đường giao nhau từ bất kỳ hướng nào tới theo thứ tự ưu tiên từ trên xuống dưới như sau:\nđ) Đoàn xe tang.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "đ",
-        "khoan": "7.2",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_82",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.2. Xe ưu tiên quy định tại các điểm a, b, c và d khoản 7.1 Điều này phải có tín hiệu ưu tiên theo quy định của pháp luật. Màu của tín hiệu đèn ưu tiên được quy định như sau:\n7. a) Xe chữa cháy của Cảnh sát phòng cháy, chữa cháy và cứu nạn, cứu hộ và xe chữa cháy của các lực lượng khác được huy động đi làm nhiệm vụ chữa cháy, xe của lực lượng quân sự đi làm nhiệm vụ khẩn cấp, xe cứu thương đang làm nhiệm vụ cấp cứu có đèn nhấp nháy màu đỏ;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "khoan": "7.2",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_83",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.2. Xe ưu tiên quy định tại các điểm a, b, c và d khoản 7.1 Điều này phải có tín hiệu ưu tiên theo quy định của pháp luật. Màu của tín hiệu đèn ưu tiên được quy định như sau:\nb) Xe của lực lượng công an, kiểm sát đi làm nhiệm vụ khẩn cấp, xe Cảnh sát giao thông dẫn đường có đèn nhấp nháy màu xanh và đỏ;",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "b",
-        "khoan": "7.2",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_84",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.2. Xe ưu tiên quy định tại các điểm a, b, c và d khoản 7.1 Điều này phải có tín hiệu ưu tiên theo quy định của pháp luật. Màu của tín hiệu đèn ưu tiên được quy định như sau:\nc) Xe hộ đê đi làm nhiệm vụ; xe đi làm nhiệm vụ cứu nạn, cứu hộ, khắc phục sự cố thiên tai, dịch bệnh hoặc xe đi làm nhiệm vụ trong tình trạng khẩn cấp theo quy định của pháp luật có đèn nhấp nháy màu xanh.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "c",
-        "khoan": "7.2",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_85",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.3. Xe ưu tiên quy định tại các điểm a, b, c và d khoản 7.1 Điều này không bị hạn chế tốc độ; được phép đi không phụ thuộc vào tín hiệu đèn giao thông, đi vào đường ngược chiều, các đường khác có thể đi được; riêng đối với đường cao tốc, chỉ được đi ngược chiều trên làn dừng xe khẩn cấp; phải tuân theo hiệu lệnh của người điều khiển giao thông, biển báo hiệu tạm thời.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "7.3",
-        "dieu": "7"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_86",
-    "text": "CHƯƠNG 2\nĐiều 7. Xe ưu tiên và tín hiệu của xe ưu tiên\n7.4. Khi có tín hiệu của xe ưu tiên, người và phương tiện tham gia giao thông đường bộ phải giảm tốc độ, đi sát lề đường bên phải hoặc dừng lại để nhường đường, trạm thu phí phải ưu tiên cho xe ưu tiên qua trạm trong mọi tình huống, không được gây cản trở.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "7.4",
-        "dieu": "7"
       }
     }
   },
@@ -3270,21 +3090,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_282",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.1. Sơ đồ, khoảng cách đến nút giao với đường dẫn vào đường cao tốc",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "47",
-        "dieu": "47"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_283",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.1.1. Biển số IE.450a chỉ dẫn khoảng cách đến nút giao với đường dẫn vào đường cao tốc (Hình 7a), dùng để báo trước khoảng cách sắp đến nút giao với đường dẫn vào đường cao tốc, với khoảng cách ghi trên biển quy về bội số của 100 m. Tùy theo mạng lưới đường kết nối, có thể đặt biển IE.450a tại khu vực các nút giao trong phạm vi bán kính 5km (trường hợp đặc biệt đặt xa hơn tại các đầu mối giao thông lớn) để báo trước từ xa cho người tham gia giao thông biết hướng lên đường cao tốc.",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.1. Sơ đồ, khoảng cách đến nút giao với đường dẫn vào đường cao tốc\n47.1.1. Biển số IE.450a chỉ dẫn khoảng cách đến nút giao với đường dẫn vào đường cao tốc (Hình 7a), dùng để báo trước khoảng cách sắp đến nút giao với đường dẫn vào đường cao tốc, với khoảng cách ghi trên biển quy về bội số của 100 m. Tùy theo mạng lưới đường kết nối, có thể đặt biển IE.450a tại khu vực các nút giao trong phạm vi bán kính 5km (trường hợp đặc biệt đặt xa hơn tại các đầu mối giao thông lớn) để báo trước từ xa cho người tham gia giao thông biết hướng lên đường cao tốc.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3292,12 +3099,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_450.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_284",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.1.2. Biển số IE.450b chỉ dẫn sơ đồ đến đường dẫn vào đường cao tốc (Hình 7b). Biển này đặt cách nút giao với đường dẫn vào đường cao tốc tối thiểu bằng tầm nhìn một chiều của cấp đường trên đường xe đang chạy theo quy định tại Bảng 6.\nHình 7 - Biển số IE.450 chỉ dẫn sơ đồ và khoảng cách đến nút giao với đường dẫn vào đường cao tốc\nBảng 6 - Tầm nhìn tối thiểu trên đường nhánh\nTốc độ thiết kế trên đường nhánh, km/h\t80\t60\t50\t40\t35\t30\nTầm nhìn, m\t110\t75\t65\t45\t35\t30",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.1. Sơ đồ, khoảng cách đến nút giao với đường dẫn vào đường cao tốc\n47.1.2. Biển số IE.450b chỉ dẫn sơ đồ đến đường dẫn vào đường cao tốc (Hình 7b). Biển này đặt cách nút giao với đường dẫn vào đường cao tốc tối thiểu bằng tầm nhìn một chiều của cấp đường trên đường xe đang chạy theo quy định tại Bảng 6.\nHình 7 - Biển số IE.450 chỉ dẫn sơ đồ và khoảng cách đến nút giao với đường dẫn vào đường cao tốc\nBảng 6 - Tầm nhìn tối thiểu trên đường nhánh\nTốc độ thiết kế trên đường nhánh, km/h\t80\t60\t50\t40\t35\t30\nTầm nhìn, m\t110\t75\t65\t45\t35\t30",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3305,25 +3113,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_285",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.2. Lối vào và khoảng cách đến lối vào đường cao tốc",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "47",
-        "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_450.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_286",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.2.1. Biển số IE.451a chỉ dẫn khoảng cách đến lối vào đường cao tốc, được đặt trên đường dẫn vào đường cao tốc (Hình 8a); dùng để báo trước khoảng cách đến lối vào đường cao tốc; tùy theo chiều dài của đường dẫn vào đường cao tốc mà xác định vị trí đặt biển đến lối vào đường cao tốc cho phù hợp.",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.2. Lối vào và khoảng cách đến lối vào đường cao tốc\n47.2.1. Biển số IE.451a chỉ dẫn khoảng cách đến lối vào đường cao tốc, được đặt trên đường dẫn vào đường cao tốc (Hình 8a); dùng để báo trước khoảng cách đến lối vào đường cao tốc; tùy theo chiều dài của đường dẫn vào đường cao tốc mà xác định vị trí đặt biển đến lối vào đường cao tốc cho phù hợp.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3331,12 +3127,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_451.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_287",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.2.2. Biển số IE.451b chỉ dẫn lối vào đường cao tốc (Hình 8b). Biển này đặt ở vị trí cuối đường dẫn vào đường cao tốc.\nHình 8 - Biển số IE.451 chỉ dẫn lối vào, khoảng cách đến lối vào đường cao tốc",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.2. Lối vào và khoảng cách đến lối vào đường cao tốc\n47.2.2. Biển số IE.451b chỉ dẫn lối vào đường cao tốc (Hình 8b). Biển này đặt ở vị trí cuối đường dẫn vào đường cao tốc.\nHình 8 - Biển số IE.451 chỉ dẫn lối vào, khoảng cách đến lối vào đường cao tốc",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3344,12 +3141,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_451.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_288",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.3. Bắt đầu đường cao tốc\nBiển số IE.452 chỉ dẫn bắt đầu đường cao tốc (Hình 9a). Biển này được thể hiện trên nền xanh lá cây, chữ màu trắng, bao gồm các thông tin về tên và ký hiệu đường cao tốc, giá trị hạn chế tốc độ tối đa và tốc độ tối thiểu. Trong trường hợp phân làn đường có tốc độ khác nhau thì hàng dưới của biển có đặt các tốc độ tương ứng (Hình 9b)\nHình 9b - Biển chỉ dẫn bắt đầu đường cao tốc phân làn đường có tốc độ khác nhau",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.3. Bắt đầu đường cao tốc\nBiển số IE.452 chỉ dẫn bắt đầu đường cao tốc (Hình 9a). Biển này được thể hiện trên nền xanh lá cây, chữ màu trắng, bao gồm các thông tin về tên và ký hiệu đường cao tốc, giá trị hạn chế tốc độ tối đa và tốc độ tối thiểu. Trong trường hợp phân làn đường có tốc độ khác nhau thì hàng dưới của biển có đặt các tốc độ tương ứng",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3357,25 +3155,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_289",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.4. Kết thúc đường cao tốc",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "47",
-        "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_452.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_290",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.4.1. Biển số IE.453a chỉ dẫn khoảng cách đến điểm kết thúc đường cao tốc (Hình 10a) và Biển số IE.453b chỉ dẫn điểm kết thúc đường cao tốc (Hình 10b). Kích thước Biển số IE.453 được quy định chi tiết trong Phụ lục P (mục P.4) của Quy chuẩn này.\nHình 10a - Biển số IE.453 chỉ dẫn khoảng cách đến điểm kết thúc đường cao tốc",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.4. Kết thúc đường cao tốc\n47.4.1. Biển số IE.453a chỉ dẫn khoảng cách đến điểm kết thúc đường cao tốc (Hình 10a) và Biển số IE.453b chỉ dẫn điểm kết thúc đường cao tốc (Hình 10b). Kích thước Biển số IE.453 được quy định chi tiết trong Phụ lục P (mục P.4) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3383,12 +3169,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_453ab.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_291",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.4.2. Biển số IE.453c “Hết đường cao tốc”\nĐể chỉ dẫn hết đường cao tốc, đặt biển số IE.453c “Hết đường cao tốc” (Hình 10b).\nHình 10b - Biển số IE.453c Hết đường cao tốc",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.4. Kết thúc đường cao tốc\n47.4.2. Biển số IE.453c “Hết đường cao tốc”\nĐể chỉ dẫn hết đường cao tốc, đặt biển số IE.453c “Hết đường cao tốc” (Hình 10b).",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3396,12 +3183,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_453c.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_292",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.5. Khoảng cách đến lối ra phía trước\nBiển số IE.454 chỉ dẫn khoảng cách đến lối ra phía trước (Hình 11). Tùy thuộc vào quy mô nút giao mà bố trí hai biển cách 1,0 km và 2,0 km trước nút giao hay chỉ sử dụng một biển với khoảng cách đặt trước nút giao 1,0 km. Giá trị khoảng cách ghi trên biển chỉ lấy số nguyên không lấy số lẻ. Kích thước biển chỉ dẫn khoảng cách đến lối ra phía trước được quy định chi tiết trong Phụ lục P (mục P.5) của Quy chuẩn này.\nHình 11 - Biển số IE.454 chỉ dẫn khoảng cách đến lối ra phía trước\nTại lối ra, đặt Biển số IE.464b tại dải phân ngã ba của nhánh rẽ.\nHình 11’ - Biển số E.464b chỉ dẫn hướng ra tại lối ra",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.5. Khoảng cách đến lối ra phía trước\nBiển số IE.454 chỉ dẫn khoảng cách đến lối ra phía trước (Hình 11). Tùy thuộc vào quy mô nút giao mà bố trí hai biển cách 1,0 km và 2,0 km trước nút giao hay chỉ sử dụng một biển với khoảng cách đặt trước nút giao 1,0 km. Giá trị khoảng cách ghi trên biển chỉ lấy số nguyên không lấy số lẻ. Kích thước biển chỉ dẫn khoảng cách đến lối ra phía trước được quy định chi tiết trong Phụ lục P (mục P.5) của Quy chuẩn này.\nTại lối ra, đặt Biển số IE.464b tại dải phân ngã ba của nhánh rẽ.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3409,12 +3197,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_454.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_293",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.6. Khoảng cách đến các lối ra tiếp theo\nBiển số IE.455 chỉ dẫn khoảng cách đến các lối ra tiếp theo (Hình 12) để báo trước khi qua khu vực phía trước có nhiều nút giao. Thông thường, biển chỉ dẫn khoảng cách đến các lối ra tiếp theo chỉ thể hiện cho hai hoặc ba nút giao liên tiếp trên đường cao tốc. Biển được lắp đặt ở phía trước nút giao bên lề đường để chỉ khoảng cách đến các lối ra tiếp theo. Kích thước biển chỉ dẫn khoảng cách đến các lối ra tiếp theo được quy định chi tiết trong Phụ lục P (mục P.6) của Quy chuẩn này.\nHình 12 - Biển số IE.455 chỉ dẫn khoảng cách đến các lối ra tiếp theo",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.6. Khoảng cách đến các lối ra tiếp theo\nBiển số IE.455 chỉ dẫn khoảng cách đến các lối ra tiếp theo (Hình 12) để báo trước khi qua khu vực phía trước có nhiều nút giao. Thông thường, biển chỉ dẫn khoảng cách đến các lối ra tiếp theo chỉ thể hiện cho hai hoặc ba nút giao liên tiếp trên đường cao tốc. Biển được lắp đặt ở phía trước nút giao bên lề đường để chỉ khoảng cách đến các lối ra tiếp theo. Kích thước biển chỉ dẫn khoảng cách đến các lối ra tiếp theo được quy định chi tiết trong Phụ lục P (mục P.6) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3422,25 +3211,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_294",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.7. Trạm dừng nghỉ",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "47",
-        "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_455.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_295",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.7.1. Biển số IE.456 chỉ dẫn khoảng cách và hướng rẽ đến trạm dừng nghỉ, được đặt bên lề đường cao tốc. Biển chỉ dẫn đến trạm dừng nghỉ bố trí ba hoặc bốn dịch vụ cơ bản, trong đó có ba dịch vụ chính sau: xăng dầu - ăn uống - nơi cung cấp thông tin. Dịch vụ thứ tư được lựa chọn trong số dịch vụ có trong trạm dừng nghỉ, như: điện thoại; nhà nghỉ; trạm sửa chữa; cấp cứu; bãi đỗ xe tải; dịch vụ cho người khuyết tật ... Các loại dịch vụ trong trạm dừng nghỉ được biểu hiện dưới dạng hình vẽ, biểu tượng đơn giản, dễ hiểu. Kích thước biểu tượng dịch vụ được quy định chi tiết trong Phụ lục P (mục P.9) của Quy chuẩn này.",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.7. Trạm dừng nghỉ\n47.7.1. Biển số IE.456 chỉ dẫn khoảng cách và hướng rẽ đến trạm dừng nghỉ, được đặt bên lề đường cao tốc. Biển chỉ dẫn đến trạm dừng nghỉ bố trí ba hoặc bốn dịch vụ cơ bản, trong đó có ba dịch vụ chính sau: xăng dầu - ăn uống - nơi cung cấp thông tin. Dịch vụ thứ tư được lựa chọn trong số dịch vụ có trong trạm dừng nghỉ, như: điện thoại; nhà nghỉ; trạm sửa chữa; cấp cứu; bãi đỗ xe tải; dịch vụ cho người khuyết tật ... Các loại dịch vụ trong trạm dừng nghỉ được biểu hiện dưới dạng hình vẽ, biểu tượng đơn giản, dễ hiểu. Kích thước biểu tượng dịch vụ được quy định chi tiết trong Phụ lục P (mục P.9) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3453,7 +3230,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_296",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.7.2. Biển số IE.456a thông báo khoảng cách đến trạm dừng nghỉ (Hình 13); Biển số IE.456b chỉ dẫn hướng rẽ vào trạm dừng nghỉ, đặt cách nút giao vào trạm dừng nghỉ khoảng 150 m (Hình 14); Biển số IE.456c chỉ dẫn lối vào trạm dừng nghỉ, đặt ngay trước lối vào trạm dừng nghỉ (Hình 15).",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.7. Trạm dừng nghỉ\n47.7.2. Biển số IE.456a thông báo khoảng cách đến trạm dừng nghỉ (Hình 13); Biển số IE.456b chỉ dẫn hướng rẽ vào trạm dừng nghỉ, đặt cách nút giao vào trạm dừng nghỉ khoảng 150 m (Hình 14); Biển số IE.456c chỉ dẫn lối vào trạm dừng nghỉ, đặt ngay trước lối vào trạm dừng nghỉ (Hình 15).",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3461,12 +3238,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_456.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_297",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.8. Nơi đỗ xe trong trạm dừng nghỉ\nThông thường, Biển số IE.457a chỉ dẫn khoảng cách đến nơi đỗ xe trong trạm dừng nghỉ (Hình 16) được lắp đặt cùng với biển chỉ dẫn đến trạm dừng nghỉ. Biển số IE.457b chỉ dẫn hướng rẽ đến vị trí bãi đỗ xe trong trạm dừng nghỉ. Kích thước chi tiết biển chỉ dẫn nơi đỗ xe trong trạm dừng nghỉ được quy định trong Phụ lục P (mục P.8) của Quy chuẩn này.\nHình 13 - Biển số IE.456a chỉ dẫn khoảng cách đến trạm dừng nghỉ",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.8. Nơi đỗ xe trong trạm dừng nghỉ\nThông thường, Biển số IE.457a chỉ dẫn khoảng cách đến nơi đỗ xe trong trạm dừng nghỉ (Hình 16) được lắp đặt cùng với biển chỉ dẫn đến trạm dừng nghỉ. Biển số IE.457b chỉ dẫn hướng rẽ đến vị trí bãi đỗ xe trong trạm dừng nghỉ. Kích thước chi tiết biển chỉ dẫn nơi đỗ xe trong trạm dừng nghỉ được quy định trong Phụ lục P (mục P.8) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3474,12 +3252,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_457.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_298",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.9. Khoảng cách đến các trạm dừng nghỉ tiếp theo\nBiển số IE.458 chỉ dẫn khoảng cách đến các trạm dừng nghỉ tiếp theo. Biển này được đặt tại vị trí ngay sau khi ra khỏi trạm dừng nghỉ, bên lề đường (Hình 17). Chi tiết biển chỉ dẫn khoảng” cách đến trạm dừng nghỉ tiếp theo được quy định trong Phụ lục P (mục P.10) của Quy chuẩn này.\nHình 17 - Biển số IE.458 chỉ dẫn khoảng cách đến trạm dừng nghỉ tiếp theo",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.9. Khoảng cách đến các trạm dừng nghỉ tiếp theo\nBiển số IE.458 chỉ dẫn khoảng cách đến các trạm dừng nghỉ tiếp theo. Biển này được đặt tại vị trí ngay sau khi ra khỏi trạm dừng nghỉ, bên lề đường (Hình 17). Chi tiết biển chỉ dẫn khoảng” cách đến trạm dừng nghỉ tiếp theo được quy định trong Phụ lục P (mục P.10) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3487,25 +3266,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_299",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.10. Khu tham quan, du lịch",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "47",
-        "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_458.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_300",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.10.1. Biển số IE459 chỉ dẫn đến khu tham quan, du lịch được đặt ở bên lề đường (Hình 18). Biển này chỉ dẫn khoảng cách và hướng đến khu du lịch, khu danh lam thắng cảnh. Kích thước chi tiết biển chỉ dẫn khu tham quan, du lịch được quy định trong Phụ lục P (mục P.11) của Quy chuẩn này.",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.10. Khu tham quan, du lịch\n47.10.1. Biển số IE459 chỉ dẫn đến khu tham quan, du lịch được đặt ở bên lề đường (Hình 18). Biển này chỉ dẫn khoảng cách và hướng đến khu du lịch, khu danh lam thắng cảnh. Kích thước chi tiết biển chỉ dẫn khu tham quan, du lịch được quy định trong Phụ lục P (mục P.11) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3513,12 +3280,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_459.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_301",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.10.2. Biển số IE.459a thông báo khoảng cách đến khu tham quan, du lịch; Biển số IE.459b chỉ dẫn hướng rẽ vào khu tham quan, du lịch, đặt cách nút giao vào khu tham quan, du lịch khoảng 150 m.\nHình 18 - Biển số IE.459 chỉ dẫn đến khu tham quan, du lịch",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.10. Khu tham quan, du lịch\n47.10.2. Biển số IE.459a thông báo khoảng cách đến khu tham quan, du lịch; Biển số IE.459b chỉ dẫn hướng rẽ vào khu tham quan, du lịch, đặt cách nút giao vào khu tham quan, du lịch khoảng 150 m.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3531,7 +3299,7 @@
   },
   {
     "id": "41_2024_BGTVT_chunk_302",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.11. Cột kilômét\nBiển số IE.460 chỉ dẫn cột kilômét trên đường cao tốc đặt tại lề đường (tương ứng với cột kilômét dạng tấm hình chữ nhật đặt ở lề đường quy định tại Điều 61 của Quy chuẩn này), bao gồm chữ Km và lý trình ghi dưới dạng chữ số được trình bày theo chiều dọc, có viền màu trắng trên nền màu xanh lá cây (Hình 19). Biển chỉ dẫn cột lý trình kilômét được đặt cách mép lề đường 0,5 m. Chi tiết biển chỉ dẫn cột kilômét được quy định trong Phụ lục I của Quy chuẩn này.\nHình 19 - Biển số IE.460 chỉ dẫn cột lý trình kilômét",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.11. Cột kilômét\nBiển số IE.460 chỉ dẫn cột kilômét trên đường cao tốc đặt tại lề đường (tương ứng với cột kilômét dạng tấm hình chữ nhật đặt ở lề đường quy định tại Điều 61 của Quy chuẩn này), bao gồm chữ Km và lý trình ghi dưới dạng chữ số được trình bày theo chiều dọc, có viền màu trắng trên nền màu xanh lá cây (Hình 19). Biển chỉ dẫn cột lý trình kilômét được đặt cách mép lề đường 0,5 m. Chi tiết biển chỉ dẫn cột kilômét được quy định trong Phụ lục I của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3539,12 +3307,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_460.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_303",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.12. Khu dịch vụ công cộng, giải trí\nBiển số IE.461 chỉ dẫn khoảng cách và hướng đến khu dịch vụ công cộng, giải trí. Biển này được thể hiện trên nền màu xanh lá cây, chữ màu trắng kết hợp với các biểu tượng dịch vụ tương ứng (Hình 20). Các biển này chỉ được sử dụng khi có yêu cầu (định hướng cho người điều khiển phương tiện giao thông tới các nơi có phục vụ công cộng như sân bay, ga tàu hoả, bến xe khách, bến cảng, bến tàu thuỷ, v.v... hay đến nơi có dịch vụ giải trí như sân gôn, khu câu cá, bãi tắm biển, khu rừng sinh thái. Biển này được lắp đặt bên lề đường, gần khu vực nút giao rẽ vào nơi cung cấp dịch vụ. Chi tiết biển chỉ dẫn đến khu dịch vụ công cộng, giải trí được quy định trong Phụ lục P (mục P.12) của Quy chuẩn này.\nHình 20 - Biển chỉ dẫn dịch vụ công cộng và giải trí",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.12. Khu dịch vụ công cộng, giải trí\nBiển số IE.461 chỉ dẫn khoảng cách và hướng đến khu dịch vụ công cộng, giải trí. Biển này được thể hiện trên nền màu xanh lá cây, chữ màu trắng kết hợp với các biểu tượng dịch vụ tương ứng (Hình 20). Các biển này chỉ được sử dụng khi có yêu cầu (định hướng cho người điều khiển phương tiện giao thông tới các nơi có phục vụ công cộng như sân bay, ga tàu hoả, bến xe khách, bến cảng, bến tàu thuỷ, v.v... hay đến nơi có dịch vụ giải trí như sân gôn, khu câu cá, bãi tắm biển, khu rừng sinh thái. Biển này được lắp đặt bên lề đường, gần khu vực nút giao rẽ vào nơi cung cấp dịch vụ. Chi tiết biển chỉ dẫn đến khu dịch vụ công cộng, giải trí được quy định trong Phụ lục P (mục P.12) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3552,12 +3321,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_461ab.png", "IE_461cd.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_304",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.13. Tần số trên sóng radio\nBiển số IE.462 chỉ dẫn tần số trên sóng radio được sử dụng ở những khu vực thời tiết hay thay đổi ảnh hưởng tới lưu thông của các phương tiện hoặc khu vực có điều kiện đi lại đặc biệt hoặc những vị trí cần thiết khác trên đường cao tốc (Hình 21). Biển chỉ dẫn thể hiện tần số sóng radio để phát thông tin thời tiết và các thông tin tiện ích liên quan đến giao thông trên đường cao tốc. Chi tiết biển chỉ dẫn thông tin trên sóng radio được quy định trong Phụ lục P (mục P.14) của Quy chuẩn này.\nHình 21 - Biển số IE.462 chỉ dẫn tần số trên sóng radio",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.13. Tần số trên sóng radio\nBiển số IE.462 chỉ dẫn tần số trên sóng radio được sử dụng ở những khu vực thời tiết hay thay đổi ảnh hưởng tới lưu thông của các phương tiện hoặc khu vực có điều kiện đi lại đặc biệt hoặc những vị trí cần thiết khác trên đường cao tốc (Hình 21). Biển chỉ dẫn thể hiện tần số sóng radio để phát thông tin thời tiết và các thông tin tiện ích liên quan đến giao thông trên đường cao tốc. Chi tiết biển chỉ dẫn thông tin trên sóng radio được quy định trong Phụ lục P (mục P.14) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3565,12 +3335,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_462.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_305",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.14. Công trình kiểm soát tải trọng xe\nBiển số IE.463 chỉ dẫn đến Công trình kiểm soát tải trọng xe (Hình 22), bao gồm: biển số IE.463a chỉ dẫn khoảng cách đến Công trình kiểm soát tải trọng xe; Biển số IE.463b chỉ dẫn hướng rẽ vào nơi đặt Công trình kiểm soát tải trọng xe; biển số IE.463c chỉ dẫn lối vào Công trình kiểm soát tải trọng xe. Biển số IE.463c chỉ lối vào Công trình kiểm soát tải trọng xe được đặt ở nút giao giữa đường cao tốc và đường vào Công trình kiểm soát tải trọng xe. Chi tiết biển chỉ dẫn đến Công trình kiểm soát tải trọng xe được quy định trong Phụ lục P (mục P.15) của Quy chuẩn này.\nHình 22 - Biển số IE.463 chỉ dẫn đến Công trình kiểm soát tải trọng xe",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.14. Công trình kiểm soát tải trọng xe\nBiển số IE.463 chỉ dẫn đến Công trình kiểm soát tải trọng xe (Hình 22), bao gồm: biển số IE.463a chỉ dẫn khoảng cách đến Công trình kiểm soát tải trọng xe; Biển số IE.463b chỉ dẫn hướng rẽ vào nơi đặt Công trình kiểm soát tải trọng xe; biển số IE.463c chỉ dẫn lối vào Công trình kiểm soát tải trọng xe. Biển số IE.463c chỉ lối vào Công trình kiểm soát tải trọng xe được đặt ở nút giao giữa đường cao tốc và đường vào Công trình kiểm soát tải trọng xe. Chi tiết biển chỉ dẫn đến Công trình kiểm soát tải trọng xe được quy định trong Phụ lục P (mục P.15) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3578,12 +3349,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_463.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_306",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.15. Địa điểm và phương hướng\nBiển số IE.464 chỉ dẫn địa điểm và phương hướng dùng để chỉ dẫn địa danh nơi đến và mũi trên cho một làn xe chạy cụ thể, bao gồm tên địa danh nơi đến và mũi tên chỉ xuống làn xe chạy (Hình 23). Các mũi tên sử dụng trong biển này bao gồm: 1) mũi tên phân làn có dạng mũi tên thẳng đứng hướng xuống dưới; 2) mũi tên chỉ hướng có dạng xiên lên trên để chỉ làn xe có hiệu lực đến một địa điểm nào đó. Biển chỉ dẫn địa điểm và phương hướng được bố trí trên giá long môn trước khu vực lối ra. Biển số IE.464b đặt tại dải phân ngã ba của nhánh rẽ hoặc ở vị trí gần nút giao phía lưng đường cong trên đường ra khỏi đường cao tốc. Chi tiết biển chỉ dẫn địa điểm và phương hướng được quy định trong Phụ lục P (mục P.16) của Quy chuẩn này.\nHình 23 - Biển số IE.464 chỉ dẫn địa điểm và phương hướng",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.15. Địa điểm và phương hướng\nBiển số IE.464 chỉ dẫn địa điểm và phương hướng dùng để chỉ dẫn địa danh nơi đến và mũi trên cho một làn xe chạy cụ thể, bao gồm tên địa danh nơi đến và mũi tên chỉ xuống làn xe chạy (Hình 23). Các mũi tên sử dụng trong biển này bao gồm: 1) mũi tên phân làn có dạng mũi tên thẳng đứng hướng xuống dưới; 2) mũi tên chỉ hướng có dạng xiên lên trên để chỉ làn xe có hiệu lực đến một địa điểm nào đó. Biển chỉ dẫn địa điểm và phương hướng được bố trí trên giá long môn trước khu vực lối ra. Biển số IE.464b đặt tại dải phân ngã ba của nhánh rẽ hoặc ở vị trí gần nút giao phía lưng đường cong trên đường ra khỏi đường cao tốc. Chi tiết biển chỉ dẫn địa điểm và phương hướng được quy định trong Phụ lục P (mục P.16) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3591,12 +3363,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_464a.png", "IE_464b.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_307",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.16. Địa điểm và khoảng cách\nBiển số IE.465 chỉ dẫn địa điểm và khoảng cách, bao gồm hai hoặc ba dòng mang tên của đích đến và khoảng cách tới đích đó tính bằng kilômét (Hình 24). Dòng thứ nhất (dòng trên cùng) xác định V trí nút giao đến địa danh gần nhất. Dòng thứ hai (nếu có) xác định khoảng cách đến khu du lịch giải trí hoặc đầu mối giao thông lớn. Dòng thứ ba (dòng cuối cùng) chỉ dẫn khoảng cách đến thành phố lớn (cấp cao nhất) mà tuyến đường đi qua. Biển này được đặt ở bên lề đường ngay khi vào đường cao tốc và sẽ được lặp lại với khoảng cách lớn hơn 10 km. Chi tiết biển chỉ dẫn địa điểm và khoảng cách được quy định trong Phụ lục P (mục P.17) của Quy chuẩn này.\nHình 24 - Biển số IE.465 chỉ dẫn địa điểm và khoảng cách",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.16. Địa điểm và khoảng cách\nBiển số IE.465 chỉ dẫn địa điểm và khoảng cách, bao gồm hai hoặc ba dòng mang tên của đích đến và khoảng cách tới đích đó tính bằng kilômét (Hình 24). Dòng thứ nhất (dòng trên cùng) xác định V trí nút giao đến địa danh gần nhất. Dòng thứ hai (nếu có) xác định khoảng cách đến khu du lịch giải trí hoặc đầu mối giao thông lớn. Dòng thứ ba (dòng cuối cùng) chỉ dẫn khoảng cách đến thành phố lớn (cấp cao nhất) mà tuyến đường đi qua. Biển này được đặt ở bên lề đường ngay khi vào đường cao tốc và sẽ được lặp lại với khoảng cách lớn hơn 10 km. Chi tiết biển chỉ dẫn địa điểm và khoảng cách được quy định trong Phụ lục P (mục P.17) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3604,12 +3377,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_465.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_308",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.17. Sơ đồ lối ra một chiều\nBiển số IE.466 chỉ dẫn sơ đồ lối ra một chiều tại tất cả các nút giao trên đường cao tốc, được bố trí ở trên giá long môn (Hình 25). Chi tiết biển chỉ dẫn sơ đồ lối ra một chiều được quy định trong Phụ lục P (mục P.18) của Quy chuẩn này.\nHình 25 - Biển số IE.466 chỉ dẫn sơ đồ lối ra một chiều",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.17. Sơ đồ lối ra một chiều\nBiển số IE.466 chỉ dẫn sơ đồ lối ra một chiều tại tất cả các nút giao trên đường cao tốc, được bố trí ở trên giá long môn (Hình 25). Chi tiết biển chỉ dẫn sơ đồ lối ra một chiều được quy định trong Phụ lục P (mục P.18) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3617,12 +3391,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_466.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_309",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.18. Nhập làn\nBiển số IE.467a chỉ dẫn vị trí nhập làn xe tại các vị trí nút giao thông có lưu lượng xe lớn. Để chỉ dẫn cho người điều khiển phương tiện giao thông biết trước sắp đến vị trí, nhập làn xe (Biển số IE.467b). Biển được đặt bên lề đường gần vị trí nút giao. Chi tiết biển chỉ dẫn nhập làn được quy định trong Phụ lục P (mục P.19) của Quy chuẩn này. Trong trường hợp không lắp đặt biển IE.467 thì sử dụng các biển cảnh báo W.207g và W.238.\nHình 26 - Biển số IE.467 chỉ dẫn vị trí nhập làn",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.18. Nhập làn\nBiển số IE.467a chỉ dẫn vị trí nhập làn xe tại các vị trí nút giao thông có lưu lượng xe lớn. Để chỉ dẫn cho người điều khiển phương tiện giao thông biết trước sắp đến vị trí, nhập làn xe (Biển số IE.467b). Biển được đặt bên lề đường gần vị trí nút giao. Chi tiết biển chỉ dẫn nhập làn được quy định trong Phụ lục P (mục P.19) của Quy chuẩn này. Trong trường hợp không lắp đặt biển IE.467 thì sử dụng các biển cảnh báo W.207g và W.238.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3630,12 +3405,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_467.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_310",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.19. Chướng ngại vật phía trước\nBiển số IE.468 chỉ dẫn chướng ngại vật phía trước để báo cảnh báo phía trước có sự cản trở lưu thông bình thường (nằm bên trong phần xe chạy hay ngay sát phần đường xe chạy) và chỉ dẫn hướng đi qua đó cần đặt biển. Biển số IE.468a chỉ dẫn đi theo hướng bên trái; Biển số IE.468b chỉ dẫn đi được cả hai hướng; Biển số IE.468c chỉ dẫn đi theo hướng bên phải (Hình 27). Biển chỉ dẫn chướng ngại vật phía trước gồm các đường xiên màu đen được bố trí trên nền màu vàng huỳnh quang. Chi tiết biển chỉ dẫn chướng ngại vật phía trước được quy định trong Phụ lục P (mục P.20) của Quy chuẩn này.\nHình 27 - Biển số IE.468 chỉ dẫn chướng ngại vật phía trước",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.19. Chướng ngại vật phía trước\nBiển số IE.468 chỉ dẫn chướng ngại vật phía trước để báo cảnh báo phía trước có sự cản trở lưu thông bình thường (nằm bên trong phần xe chạy hay ngay sát phần đường xe chạy) và chỉ dẫn hướng đi qua đó cần đặt biển. Biển số IE.468a chỉ dẫn đi theo hướng bên trái; Biển số IE.468b chỉ dẫn đi được cả hai hướng; Biển số IE.468c chỉ dẫn đi theo hướng bên phải (Hình 27). Biển chỉ dẫn chướng ngại vật phía trước gồm các đường xiên màu đen được bố trí trên nền màu vàng huỳnh quang. Chi tiết biển chỉ dẫn chướng ngại vật phía trước được quy định trong Phụ lục P (mục P.20) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3643,12 +3419,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_468.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_311",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.20. Tiêu phản quang\nBiển số IE.469 (tiêu phản quang) chỉ dẫn hướng rẽ để nhắc người điều khiển phương tiện chuẩn bị đổi hướng đi khi sắp vào đường cong nguy hiểm, có bán kính cong nhỏ (Hình 28). Biển được đặt ở phía lưng đường cong, cách mép lề đường 0,5 m hoặc đặt trên dải phân cách giữa đối với đường có hai chiều xe chạy riêng biệt. Chi tiết biển chỉ dẫn hướng rẽ được quy định trong Phụ lục P (mục P.21) của Quy chuẩn này. Khoảng cách lắp đặt Biển số 469 phụ thuộc vào bán kính cong và tốc độ lưu thông trên nhánh rẽ ra khỏi đường cao tốc, được quy định trong Bảng 7.\nHình 28 - Biển số IE.469 chỉ dẫn hướng rẽ\nBảng 7 - Quy định về khoảng cách đặt Biển số IE.469\nTốc độ (km/h)\tBán kính cong (m)\tKhoảng cách biển (m)\n< 30\t< 60\t12\n30 - 50\t60 - 120\t24\n50 - 70\t120 - 220\t36\n70 - 100\t220 - 380\t48",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.20. Tiêu phản quang\nBiển số IE.469 (tiêu phản quang) chỉ dẫn hướng rẽ để nhắc người điều khiển phương tiện chuẩn bị đổi hướng đi khi sắp vào đường cong nguy hiểm, có bán kính cong nhỏ (Hình 28). Biển được đặt ở phía lưng đường cong, cách mép lề đường 0,5 m hoặc đặt trên dải phân cách giữa đối với đường có hai chiều xe chạy riêng biệt. Chi tiết biển chỉ dẫn hướng rẽ được quy định trong Phụ lục P (mục P.21) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3656,12 +3433,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_469.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_312",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.21. Số điện thoại khẩn cấp\nBiển số IE.470 sử dụng chữ màu trắng trên nền màu xanh lá cây, cung cấp số điện thoại khẩn cấp cho người điều khiển phương tiện giao thông trong trường hợp khẩn cấp, xảy ra sự,cố, tai nạn trên đường cao tốc (Hình 29). Biển này được lắp đặt bên lề đường. Chi tiết biển chỉ dẫn số điện thoại khẩn cấp được quy định trong Phụ lục P (mục P.22) của Quy chuẩn này.\nHình 29 - Biển số IE.470 chỉ dẫn số điện thoại khẩn cấp",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.21. Số điện thoại khẩn cấp\nBiển số IE.470 sử dụng chữ màu trắng trên nền màu xanh lá cây, cung cấp số điện thoại khẩn cấp cho người điều khiển phương tiện giao thông trong trường hợp khẩn cấp, xảy ra sự,cố, tai nạn trên đường cao tốc (Hình 29). Biển này được lắp đặt bên lề đường. Chi tiết biển chỉ dẫn số điện thoại khẩn cấp được quy định trong Phụ lục P (mục P.22) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3669,12 +3447,13 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_470.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_313",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.22. Giữ khoảng cách lái xe an toàn\nBiển số IE.471 sử dụng chữ màu đen trên nền màu vàng huỳnh quang có viền màu đen (Hình 30). Biển này thông báo cho người điều khiển phương tiện biết để giữ khoảng cách lái xe an toàn khi lưu thông trên đường cao tốc. Quy định chi tiết biển chỉ dẫn giữ khoảng cách lái xe an toàn được trình bày trong Phụ lục P (mục P.23) của Quy chuẩn này.\nHình 30 - Biển số IE.471 chỉ dẫn giữ khoảng cách lái xe an toàn",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.22. Giữ khoảng cách lái xe an toàn\nBiển số IE.471 sử dụng chữ màu đen trên nền màu vàng huỳnh quang có viền màu đen (Hình 30). Biển này thông báo cho người điều khiển phương tiện biết để giữ khoảng cách lái xe an toàn khi lưu thông trên đường cao tốc. Quy định chi tiết biển chỉ dẫn giữ khoảng cách lái xe an toàn được trình bày trong Phụ lục P (mục P.23) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -3682,61 +3461,50 @@
       "context": {
         "khoan": "47",
         "dieu": "47"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_314",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.23. Trạm thu phí\n47. a) Biển số IE.472a",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "diem": "a",
-        "khoan": "47",
-        "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_471.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_315",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.23. Trạm thu phí\nb) Biển số IE.472b\nHình 31 - Biển số IE.472 chỉ dẫn khoảng cách đến trạm thu phí",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.23. Trạm thu phí\nBiển số IE.472 sử dụng chữ màu trắng trên nền màu xanh lá cây, được đặt cách trạm thu phí với một khoảng cách phù hợp nhằm thông báo cho người điều khiển phương tiện biết trước chuẩn bị đến trạm thu phí (Hình 31). Biển này được lắp đặt bên lề đường hoặc trên giá kiểu khung. Chi tiết biển chỉ dẫn trạm thu phí và các biển chỉ dẫn khác liên quan đến trạm thu phí được quy định trong Phụ lục P (mục P.24) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "diem": "b",
-        "khoan": "47",
+        "khoan": "47.23",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_472a.png", "IE_472b.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_316",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.24. Giảm tốc độ\nBiển số IE.473 cảnh báo cho người điều khiển phương tiện chú ý lái xe và giảm tốc độ tại khu vực có nguy cơ mất an toàn giao thông (Hình 32). Biển này sử dụng chữ màu đen trên nền màu vàng huỳnh quang, được đặt tại các vị trí cần thiết phải giảm tốc độ, như vào khu vực đường cong nguy hiểm hoặc khu vực sắp đến trạm thu phí, Công trình kiểm soát tải trọng xe, trạm dừng nghỉ, khu vực hay có sương mù, .... Thông thường, biển này được lắp đặt bên lề đường ở vị trí dễ quan sát hoặc trên giá kiểu khung. Chi tiết biển chỉ dẫn giảm tốc độ được quy định tại Phụ lục P (mục P25) của Quy chuẩn này.\nHình 32 - Biển số IE.473 chỉ dẫn giảm tốc độ",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.24. Giảm tốc độ\nBiển số IE.473 cảnh báo cho người điều khiển phương tiện chú ý lái xe và giảm tốc độ tại khu vực có nguy cơ mất an toàn giao thông (Hình 32). Biển này sử dụng chữ màu đen trên nền màu vàng huỳnh quang, được đặt tại các vị trí cần thiết phải giảm tốc độ, như vào khu vực đường cong nguy hiểm hoặc khu vực sắp đến trạm thu phí, Công trình kiểm soát tải trọng xe, trạm dừng nghỉ, khu vực hay có sương mù, .... Thông thường, biển này được lắp đặt bên lề đường ở vị trí dễ quan sát hoặc trên giá kiểu khung. Chi tiết biển chỉ dẫn giảm tốc độ được quy định tại Phụ lục P (mục P25) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "47",
+        "khoan": "47.24",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_473.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_317",
-    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.25. Lối ra đường cao tốc\nBiển số IE.474 sử dụng chữ màu trắng trên nền màu xanh lá cây, chỉ dẫn lối ra đường cao tốc, được đặt bên lề đường hoặc trên giá kiểu khung tại vị trí trước lối ra đường cao tốc (Hình 33). Chi tiết biển chỉ dẫn lối ra đường cao tốc được quy định trong Phụ lục P (mục P.26) của Quy chuẩn này.\nHình 33 - Biển số IE.474 chỉ dẫn lối ra",
+    "text": "Điều 47. Các loại biển chỉ dẫn trên đường cao tốc\n47.25. Lối ra đường cao tốc\nBiển số IE.474 sử dụng chữ màu trắng trên nền màu xanh lá cây, chỉ dẫn lối ra đường cao tốc, được đặt bên lề đường hoặc trên giá kiểu khung tại vị trí trước lối ra đường cao tốc (Hình 33). Chi tiết biển chỉ dẫn lối ra đường cao tốc được quy định trong Phụ lục P (mục P.26) của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "47",
+        "khoan": "47.25",
         "dieu": "47"
-      }
+      },
+      "traffic_sign": ["IE_474.png"]
     }
   },
   {
@@ -3747,7 +3515,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "48",
+        "khoan": "48.1",
         "dieu": "48"
       }
     }
@@ -3760,7 +3528,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "48",
+        "khoan": "48.2",
         "dieu": "48"
       }
     }
@@ -3773,7 +3541,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "48",
+        "khoan": "48.3",
         "dieu": "48"
       }
     }
@@ -3786,7 +3554,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "48",
+        "khoan": "48.4",
         "dieu": "48"
       }
     }
@@ -3799,7 +3567,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "48",
+        "khoan": "48.5",
         "dieu": "48"
       }
     }
@@ -3818,92 +3586,66 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_324",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.1. Dựa vào vị trí sử dụng, vạch kẻ đường được chia thành hai loại: vạch trên mặt bằng (bao gồm vạch trên mặt đường: vạch dọc đường, ngang đường và những loại vạch khác) và vạch đứng.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "49",
-        "dieu": "49"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_325",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.1.1. Vạch trên mặt bằng dùng để quy định các phần đường khác nhau trên mặt bằng có màu trắng trừ một số vạch quy định ở Phụ lục G có màu vàng. Trong một số trường hợp có thể sử dụng các màu sắc khác để nâng mức độ cảnh báo giao thông trên mặt đường.",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.1. Dựa vào vị trí sử dụng, vạch kẻ đường được chia thành hai loại: vạch trên mặt bằng (bao gồm vạch trên mặt đường: vạch dọc đường, ngang đường và những loại vạch khác) và vạch đứng.\n49.1.1. Vạch trên mặt bằng dùng để quy định các phần đường khác nhau trên mặt bằng có màu trắng trừ một số vạch quy định ở Phụ lục G có màu vàng. Trong một số trường hợp có thể sử dụng các màu sắc khác để nâng mức độ cảnh báo giao thông trên mặt đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
+        "khoan": "49.1.1",
         "dieu": "49"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_326",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.1.2. Vạch đứng kẻ trên thành vỉa hè, các công trình giao thông và một số bộ phận khác của đường. Loại vạch này kết hợp giữa vạch vàng và vạch đen hoặc vạch trắng và vạch đỏ.",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.1. Dựa vào vị trí sử dụng, vạch kẻ đường được chia thành hai loại: vạch trên mặt bằng (bao gồm vạch trên mặt đường: vạch dọc đường, ngang đường và những loại vạch khác) và vạch đứng.\n49.1.2. Vạch đứng kẻ trên thành vỉa hè, các công trình giao thông và một số bộ phận khác của đường. Loại vạch này kết hợp giữa vạch vàng và vạch đen hoặc vạch trắng và vạch đỏ.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
-        "dieu": "49"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_327",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2. Dựa vào phương pháp kẻ, vạch kẻ đường được chia thành ba loại như sau:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "49",
+        "khoan": "49.1.2",
         "dieu": "49"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_328",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2.1. Vạch dọc đường là vạch kẻ dọc theo hướng xe chạy trên đường;",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2. Dựa vào phương pháp kẻ, vạch kẻ đường được chia thành ba loại như sau:\n49.2.1. Vạch dọc đường là vạch kẻ dọc theo hướng xe chạy trên đường;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
+        "khoan": "49.2.1",
         "dieu": "49"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_329",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2.2. Vạch ngang đường là vạch kẻ có hướng cắt ngang đường hoặc hình thành một góc chéo với hướng xe chạy;",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2. Dựa vào phương pháp kẻ, vạch kẻ đường được chia thành ba loại như sau:\n49.2.2. Vạch ngang đường là vạch kẻ có hướng cắt ngang đường hoặc hình thành một góc chéo với hướng xe chạy;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
+        "khoan": "49.2.2",
         "dieu": "49"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_330",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2.3. Các loại vạch khác là các loại ký hiệu chữ hoặc hình thức khác.",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.2. Dựa vào phương pháp kẻ, vạch kẻ đường được chia thành ba loại như sau:\n49.2.3. Các loại vạch khác là các loại ký hiệu chữ hoặc hình thức khác.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
+        "khoan": "49.2.3",
         "dieu": "49"
       }
     }
@@ -3916,59 +3658,34 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
-        "dieu": "49"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_332",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.4. Dựa vào hình dáng, kiểu, vạch kẻ đường được chia thành hai loại sau:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "49",
+        "khoan": "49.3",
         "dieu": "49"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_333",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.4.1. Vạch trên mặt đường, trên thành vỉa hè (bó vỉa) hoặc ở ranh giới phân cách làn xe, gồm vạch kẻ liền và vạch kẻ đứt khúc;",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.4. Dựa vào hình dáng, kiểu, vạch kẻ đường được chia thành hai loại sau:\n49.4.1. Vạch trên mặt đường, trên thành vỉa hè (bó vỉa) hoặc ở ranh giới phân cách làn xe, gồm vạch kẻ liền và vạch kẻ đứt khúc;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
+        "khoan": "49.4.1",
         "dieu": "49"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_334",
-    "text": "Điều 49. Phân loại vạch kẻ đường\n49.4.2. Ký hiệu chữ và ký hiệu hình gồm chữ cái, chữ số hoặc hình vẽ trên mặt đường.",
+    "text": "Điều 49. Phân loại vạch kẻ đường\n49.4. Dựa vào hình dáng, kiểu, vạch kẻ đường được chia thành hai loại sau:\n49.4.2. Ký hiệu chữ và ký hiệu hình gồm chữ cái, chữ số hoặc hình vẽ trên mặt đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "49",
+        "khoan": "49.4.2",
         "dieu": "49"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_335",
-    "text": "Điều 50. Ý nghĩa sử dụng và kích thước của các vạch kẻ đường\nÝ nghĩa sử dụng và kích thước của các vạch kẻ đường phổ biến, được quy định ở Phụ lục G",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "dieu": "50"
       }
     }
   },
@@ -4009,105 +3726,92 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_339",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "54",
-        "dieu": "54"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_340",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.1. Phía lưng các đường cong nằm từ tiếp đầu đến tiếp cuối. Trong trường hợp có đường cong chuyển tiếp thì bố trí cọc tiêu từ điểm nối đầu đến điểm nối cuối;",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.1. Phía lưng các đường cong nằm từ tiếp đầu đến tiếp cuối. Trong trường hợp có đường cong chuyển tiếp thì bố trí cọc tiêu từ điểm nối đầu đến điểm nối cuối;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.1",
         "dieu": "54"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_341",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.2. Các đoạn nền đường bị thắt hẹp;",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.2. Các đoạn nền đường bị thắt hẹp;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.2",
         "dieu": "54"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_342",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.3. Các đoạn đường có taluy âm cao từ 2 m trở lên;",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.3. Các đoạn đường có taluy âm cao từ 2 m trở lên;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.3",
         "dieu": "54"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_343",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.4. Các đoạn đường men theo sông, suối, đầm, hồ, ao;",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.4. Các đoạn đường men theo sông, suối, đầm, hồ, ao;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.4",
         "dieu": "54"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_344",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.5. Các đoạn đường bộ giao nhau với đường sắt cùng mức;",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.5. Các đoạn đường bộ giao nhau với đường sắt cùng mức;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.5",
         "dieu": "54"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_345",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.6. Dọc hai bên những đoạn đường bị ngập nước thường xuyên hoặc chỉ ngập theo mùa và hai bên thân đường ngầm, đường tràn;",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.6. Dọc hai bên những đoạn đường bị ngập nước thường xuyên hoặc chỉ ngập theo mùa và hai bên thân đường ngầm, đường tràn;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.6",
         "dieu": "54"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_346",
-    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1.7. Các đoạn đường qua bãi cát, đồng lầy, đồi cỏ mà khó phân biệt mặt đường phần xe chạy với dải đất hai bên đường.",
+    "text": "Điều 54. Các trường hợp cắm cọc tiêu\n54.1. Những trường hợp cắm cọc tiêu:\n54.1.7. Các đoạn đường qua bãi cát, đồng lầy, đồi cỏ mà khó phân biệt mặt đường phần xe chạy với dải đất hai bên đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.1.7",
         "dieu": "54"
       }
     }
@@ -4120,7 +3824,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "54",
+        "khoan": "54.2",
         "dieu": "54"
       }
     }
@@ -4133,7 +3837,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.1",
         "dieu": "55"
       }
     }
@@ -4146,7 +3850,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.2",
         "dieu": "55"
       }
     }
@@ -4159,7 +3863,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.3",
         "dieu": "55"
       }
     }
@@ -4172,7 +3876,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.4",
         "dieu": "55"
       }
     }
@@ -4185,7 +3889,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.5",
         "dieu": "55"
       }
     }
@@ -4198,564 +3902,500 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
-        "dieu": "55"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_354",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "55",
+        "khoan": "55.6",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_355",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.1. Khoảng cách (S) giữa hai cọc tiêu trên đường thẳng thông thường là S = 10 m với các đường ô tô thông thường và 30 m với đường cao tốc;",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.1. Khoảng cách (S) giữa hai cọc tiêu trên đường thẳng thông thường là S = 10 m với các đường ô tô thông thường và 30 m với đường cao tốc;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.7.1",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_356",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\n55. a) Nếu đường cong có bán kính R = 10 m đến 30 m thì khoảng cách giữa hai cọc tiêu S = 3 m;",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\n55. a) Nếu đường cong có bán kính R = 10 m đến 30 m thì khoảng cách giữa hai cọc tiêu S = 3 m;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "55",
+        "khoan": "55.7.2",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_357",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\nb) Nếu đường cong có bán kính R: 30 m < R ≤ 100 m thì khoảng cách giữa hai cọc tiêu S = 5 m;",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\nb) Nếu đường cong có bán kính R: 30 m < R ≤ 100 m thì khoảng cách giữa hai cọc tiêu S = 5 m;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "55",
+        "khoan": "55.7.2",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_358",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\nc) Nếu đường cong có bán kính R > 100 m thì S = 10 m;",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\nc) Nếu đường cong có bán kính R > 100 m thì S = 10 m;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "55",
+        "khoan": "55.7.2",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_359",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\nd) Khoảng cách giữa hai cọc tiêu ở tiếp đầu (hoặc nối đầu) và tiếp cuối (hoặc nối cuối) có thể bố trí xa hơn 3 m so với khoảng cách của hai cọc tiêu trong phạm vi đường cong.",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.2. Khoảng cách giữa hai cọc tiêu trên đường cong nằm:\nd) Khoảng cách giữa hai cọc tiêu ở tiếp đầu (hoặc nối đầu) và tiếp cuối (hoặc nối cuối) có thể bố trí xa hơn 3 m so với khoảng cách của hai cọc tiêu trong phạm vi đường cong.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "d",
-        "khoan": "55",
+        "khoan": "55.7.2",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_360",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.3. Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc:\n55. a) Nếu đường có độ dốc ≥ 3%, khoảng cách giữa hai cọc tiêu là 5 m;",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.3. Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc:\n55. a) Nếu đường có độ dốc ≥ 3%, khoảng cách giữa hai cọc tiêu là 5 m;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "55",
+        "khoan": "55.7.3",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_361",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.3. Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc:\nb) Nếu đường có độ dốc < 3 %, khoảng cách giữa hai cọc tiêu là 10 m (không áp dụng đối với đầu cầu và đầu cống);",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.3. Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc:\nb) Nếu đường có độ dốc < 3 %, khoảng cách giữa hai cọc tiêu là 10 m (không áp dụng đối với đầu cầu và đầu cống);",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "55",
+        "khoan": "55.7.3",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_362",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.3. Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc:\nc) Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc nơi có đường cong nằm thì lấy theo quy định tại điểm 55.7.2 khoản 55.7 Điều này. Khi hết phạm vi đường cong nằm, khoảng cách của các cọc tiêu lấy theo tiết a và tiết b điểm này.",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.3. Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc:\nc) Khoảng cách giữa hai cọc tiêu trên đoạn đường dốc nơi có đường cong nằm thì lấy theo quy định tại điểm 55.7.2 khoản 55.7 Điều này. Khi hết phạm vi đường cong nằm, khoảng cách của các cọc tiêu lấy theo tiết a và tiết b điểm này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "55",
+        "khoan": "55.7.3",
         "dieu": "55"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_363",
-    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7.4. Mỗi hàng cọc tiêu cắm ít nhất là 6 cọc.",
+    "text": "Điều 55. Kỹ thuật cắm cọc tiêu\n55.7. Cọc tiêu phải cắm thẳng hàng trên đường thẳng và lượn cong dần trong đường cong, với khoảng cách giữa các cọc như sau:\n55.7.4. Mỗi hàng cọc tiêu cắm ít nhất là 6 cọc.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "55",
+        "khoan": "55.7.4",
         "dieu": "55"
       }
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_364",
-    "text": "Điều 56. Tiêu phản quang\n56.1. Quy định chung đối với tiêu phản quang",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "56",
-        "dieu": "56"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_365",
-    "text": "Điều 56. Tiêu phản quang\n56.1.1. Tiêu phản quang là thiết bị dẫn hướng được gắn các công cụ phản quang để dẫn hướng xe chạy vào ban đêm hoặc trong điều kiện sương mù, điều kiện hạn chế tầm nhìn. Tiêu phản quang được bố trí tại các nơi mà tuyến đường có thể gây hiểu lầm hoặc chưa rõ về hướng đường. Chiều cao đặt tiêu phản quang phù hợp với địa hình, quy mô tuyến đường, bảo đảm tiêu phản quang phát huy tác dụng dẫn hướng.",
+    "text": "Điều 56. Tiêu phản quang\n56.1. Quy định chung đối với tiêu phản quang\n56.1.1. Tiêu phản quang là thiết bị dẫn hướng được gắn các công cụ phản quang để dẫn hướng xe chạy vào ban đêm hoặc trong điều kiện sương mù, điều kiện hạn chế tầm nhìn. Tiêu phản quang được bố trí tại các nơi mà tuyến đường có thể gây hiểu lầm hoặc chưa rõ về hướng đường. Chiều cao đặt tiêu phản quang phù hợp với địa hình, quy mô tuyến đường, bảo đảm tiêu phản quang phát huy tác dụng dẫn hướng.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.1.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_366",
-    "text": "Điều 56. Tiêu phản quang\n56.1.2. Tiêu phản quang phải gắn công cụ phản quang cho phép nhìn rõ vào buổi tối dưới ánh đèn pha ô tô đạt tiêu chuẩn trong điều kiện thời tiết bình thường ở cự ly 300 m.",
+    "text": "Điều 56. Tiêu phản quang\n56.1. Quy định chung đối với tiêu phản quang\n56.1.2. Tiêu phản quang phải gắn công cụ phản quang cho phép nhìn rõ vào buổi tối dưới ánh đèn pha ô tô đạt tiêu chuẩn trong điều kiện thời tiết bình thường ở cự ly 300 m.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.1.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_367",
-    "text": "Điều 56. Tiêu phản quang\n56.1.3. Công cụ phản quang có thể là các tấm nhựa phản quang, các khối kim loại gắn phản quang, màng phản quang dán trên các miếng kim loại v.v... Công cụ phản quang có thể có dạng hình tròn, hình chữ nhật, hình tam giác hoặc hình đa giác được gắn lên các lan can phòng hộ, tường bảo vệ hoặc gắn xuống mặt đường. Công cụ phản quang cũng bao gồm các vật liệu phản quang dạng dải quấn quanh các cọc tiêu phản quang.",
+    "text": "Điều 56. Tiêu phản quang\n56.1. Quy định chung đối với tiêu phản quang\n56.1.3. Công cụ phản quang có thể là các tấm nhựa phản quang, các khối kim loại gắn phản quang, màng phản quang dán trên các miếng kim loại v.v... Công cụ phản quang có thể có dạng hình tròn, hình chữ nhật, hình tam giác hoặc hình đa giác được gắn lên các lan can phòng hộ, tường bảo vệ hoặc gắn xuống mặt đường. Công cụ phản quang cũng bao gồm các vật liệu phản quang dạng dải quấn quanh các cọc tiêu phản quang.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.1.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_368",
-    "text": "Điều 56. Tiêu phản quang\n56.1.4. Tiêu phản quang màu vàng được sử dụng ở các dải phân cách giữa, tại bên đường các đường một chiều hay bên phải của đường hai chiều. Tiêu phản quang màu đỏ được sử dụng cho hướng ngược chiều (bên trái) theo chiều đi của đường hai chiều (để cảnh báo người lái đi nhầm đường) và sử dụng cho các đường lánh nạn.",
+    "text": "Điều 56. Tiêu phản quang\n56.1. Quy định chung đối với tiêu phản quang\n56.1.4. Tiêu phản quang màu vàng được sử dụng ở các dải phân cách giữa, tại bên đường các đường một chiều hay bên phải của đường hai chiều. Tiêu phản quang màu đỏ được sử dụng cho hướng ngược chiều (bên trái) theo chiều đi của đường hai chiều (để cảnh báo người lái đi nhầm đường) và sử dụng cho các đường lánh nạn.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.1.4",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_369",
-    "text": "Điều 56. Tiêu phản quang\n56.1.5. Tiêu phản quang bao gồm: tiêu phản quang bố trí bên đường hoặc trên dải phân cách, tiêu phản quang dạng mũi tên và đinh phản quang (còn gọi là cóc phản quang) bố trí trên mặt đường.",
+    "text": "Điều 56. Tiêu phản quang\n56.1. Quy định chung đối với tiêu phản quang\n56.1.5. Tiêu phản quang bao gồm: tiêu phản quang bố trí bên đường hoặc trên dải phân cách, tiêu phản quang dạng mũi tên và đinh phản quang (còn gọi là cóc phản quang) bố trí trên mặt đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
-        "dieu": "56"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_370",
-    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "56",
+        "khoan": "56.1.5",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_371",
-    "text": "Điều 56. Tiêu phản quang\n56.2.1. Phạm vi áp dụng tiêu phản quang bố trí bên đường hoặc trên dải phân cách:\n56. a) Trên các đường cao tốc:\n+ Bố trí dọc hai bên đường. Khi đó, nếu lan can phòng hộ cách mép phần đường xe chạy dưới 2,4 m, gắn tiêu phản quang lên lan can phòng hộ. Các trường hợp khác có thể bố trí tiêu phản quang dạng cột đặt bên đường;\n+ Bố trí ít nhất một bên trên các nhánh nối của các nút giao khác mức liên thông.",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.1. Phạm vi áp dụng tiêu phản quang bố trí bên đường hoặc trên dải phân cách:\n56. a) Trên các đường cao tốc:\n+ Bố trí dọc hai bên đường. Khi đó, nếu lan can phòng hộ cách mép phần đường xe chạy dưới 2,4 m, gắn tiêu phản quang lên lan can phòng hộ. Các trường hợp khác có thể bố trí tiêu phản quang dạng cột đặt bên đường;\n+ Bố trí ít nhất một bên trên các nhánh nối của các nút giao khác mức liên thông.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "56",
+        "khoan": "56.2.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_372",
-    "text": "Điều 56. Tiêu phản quang\n56.2.1. Phạm vi áp dụng tiêu phản quang bố trí bên đường hoặc trên dải phân cách:\nb) Trên các đường khác: nên sử dụng tiêu phản quang tại vị trí các đoạn đường bị thu hẹp phần đường xe chạy mà không có lan can phòng hộ, các đoạn đường đèo dốc quanh co hạn chế tầm nhìn, trong phạm vi đường lánh nạn, nơi đường bộ giao nhau với đường sắt. Nơi đường thường xuyên có sương mù cần bố trí tiêu phản quang trên các vật thể cứng liền kề phần xe chạy như các đầu đảo giao thông, bó vỉa v.v... khi khó nhận biết các vật thể này về ban đêm.",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.1. Phạm vi áp dụng tiêu phản quang bố trí bên đường hoặc trên dải phân cách:\nb) Trên các đường khác: nên sử dụng tiêu phản quang tại vị trí các đoạn đường bị thu hẹp phần đường xe chạy mà không có lan can phòng hộ, các đoạn đường đèo dốc quanh co hạn chế tầm nhìn, trong phạm vi đường lánh nạn, nơi đường bộ giao nhau với đường sắt. Nơi đường thường xuyên có sương mù cần bố trí tiêu phản quang trên các vật thể cứng liền kề phần xe chạy như các đầu đảo giao thông, bó vỉa v.v... khi khó nhận biết các vật thể này về ban đêm.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "56",
+        "khoan": "56.2.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_373",
-    "text": "Điều 56. Tiêu phản quang\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\n56. a) Trên mặt đường đã được gắn đinh phản quang liên tục;",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\n56. a) Trên mặt đường đã được gắn đinh phản quang liên tục;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "56",
+        "khoan": "56.2.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_374",
-    "text": "Điều 56. Tiêu phản quang\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\nb) Đã sử dụng tiêu phản quang dạng mũi tên trong các đường cong;",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\nb) Đã sử dụng tiêu phản quang dạng mũi tên trong các đường cong;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "56",
+        "khoan": "56.2.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_375",
-    "text": "Điều 56. Tiêu phản quang\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\nc) Tại những nơi có đèn đường chiếu sáng liên tục về ban đêm;",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\nc) Tại những nơi có đèn đường chiếu sáng liên tục về ban đêm;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "56",
+        "khoan": "56.2.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_376",
-    "text": "Điều 56. Tiêu phản quang\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\nd) Làn đường mở rộng dần theo chiều xe chạy.",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.2. Không cần sử dụng tiêu phản quang bố trí bên đường và trên dải phân cách trong các trường hợp sau:\nd) Làn đường mở rộng dần theo chiều xe chạy.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "d",
-        "khoan": "56",
+        "khoan": "56.2.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_377",
-    "text": "Điều 56. Tiêu phản quang\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\n56. a) Tiêu phản quang đặt cách mép phần xe chạy phía ngoài cùng từ 0,6 m - 2,4 m và cách đều mép mặt đường, lượn cong đều theo mép phần đường xe chạy;",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\n56. a) Tiêu phản quang đặt cách mép phần xe chạy phía ngoài cùng từ 0,6 m - 2,4 m và cách đều mép mặt đường, lượn cong đều theo mép phần đường xe chạy;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "56",
+        "khoan": "56.2.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_378",
-    "text": "Điều 56. Tiêu phản quang\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\nb) Trên đường thẳng, khoảng cách giữa tiêu phản quang không nhỏ hơn 10 m và không quá 100 m;",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\nb) Trên đường thẳng, khoảng cách giữa tiêu phản quang không nhỏ hơn 10 m và không quá 100 m;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "56",
+        "khoan": "56.2.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_379",
-    "text": "Điều 56. Tiêu phản quang\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\nc) Trong phạm vi đường cong nằm, khoảng cách nhỏ nhất giữa các tiêu phản quang là 6 m và tối đa là 100 m phụ thuộc vào bán kính đường cong;",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\nc) Trong phạm vi đường cong nằm, khoảng cách nhỏ nhất giữa các tiêu phản quang là 6 m và tối đa là 100 m phụ thuộc vào bán kính đường cong;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "56",
+        "khoan": "56.2.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_380",
-    "text": "Điều 56. Tiêu phản quang\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\nd) Phần đường thẳng tiếp giáp với điểm bắt đầu hoặc kết thúc của đường cong bố trí 3 tiêu. Tiêu đầu tiên cách điểm bắt đầu hoặc kết thúc của đường cong là 1S; tiêu thứ hai cách tiêu thứ nhất là 3S, và tiêu thứ 3 cách tiêu thứ 2 là 6S nhưng cũng không cách xa quá 100 m (S là khoảng cách giữa các tiêu bố trí trong đường cong).",
+    "text": "Điều 56. Tiêu phản quang\n56.2. Tiêu phản quang bố trí bên đường hoặc trên dải phân cách\n56.2.3. Vị trí và khoảng cách tiêu phản quang bố trí bên đường và trên dải phân cách như sau:\nd) Phần đường thẳng tiếp giáp với điểm bắt đầu hoặc kết thúc của đường cong bố trí 3 tiêu. Tiêu đầu tiên cách điểm bắt đầu hoặc kết thúc của đường cong là 1S; tiêu thứ hai cách tiêu thứ nhất là 3S, và tiêu thứ 3 cách tiêu thứ 2 là 6S nhưng cũng không cách xa quá 100 m (S là khoảng cách giữa các tiêu bố trí trong đường cong).",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "d",
-        "khoan": "56",
-        "dieu": "56"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_381",
-    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "56",
+        "khoan": "56.2.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_382",
-    "text": "Điều 56. Tiêu phản quang\n56.3.1. Tiêu phản quang dạng mũi tên bao gồm một biển vẽ dạng mũi tên chỉ hướng màu đen trên nền vàng gắn trên đỉnh các cột (xem Hình 34a). Tiêu phản quang dạng mũi tên chỉ hướng ngược chiều (bên trái) màu trắng trên nền đỏ thường sử dụng cho đường 2 chiều không có dải phân cách giữa (Hình 34b)\nHình 34a - Tiêu phản quang dạng mũi tên\nHình 34b - Tiêu phản quang dạng mũi tên (bên trái) cho đường 2 chiều",
+    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên\n56.3.1. Tiêu phản quang dạng mũi tên bao gồm một biển vẽ dạng mũi tên chỉ hướng màu đen trên nền vàng gắn trên đỉnh các cột (xem Hình 34a). Tiêu phản quang dạng mũi tên chỉ hướng ngược chiều (bên trái) màu trắng trên nền đỏ thường sử dụng cho đường 2 chiều không có dải phân cách giữa (Hình 34b)\nHình 34a - Tiêu phản quang dạng mũi tên\nHình 34b - Tiêu phản quang dạng mũi tên (bên trái) cho đường 2 chiều",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.3.1",
         "dieu": "56"
-      }
+      },
+      "traffic_sign": ["H34a.png, H34b.png"]
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_383",
-    "text": "Điều 56. Tiêu phản quang\n56.3.2. Kích thước tiêu phản quang dạng mũi tên được quy định như sau:\nKích thước (mm)\tA\tB\tC\tD\tE\tF\nĐường có tốc độ thiết kế < 60 km/h\t220\t400\t110\t200\t10\t10\nĐường có tốc độ thiết kế 60 - 80 km/h\t300\t500\t150\t250\t15\t15\nĐường có tốc độ thiết kế > 80 km/h\t600\t800\t300\t400\t20\t20\n* Ở các đoạn đường đèo dốc, sương mù có thể tăng kích thước lên 1 cấp nâng cao an toàn giao thông.",
+    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên\n56.3.2. Kích thước tiêu phản quang dạng mũi tên được quy định như sau:\nKích thước (mm)\tA\tB\tC\tD\tE\tF\nĐường có tốc độ thiết kế < 60 km/h\t220\t400\t110\t200\t10\t10\nĐường có tốc độ thiết kế 60 - 80 km/h\t300\t500\t150\t250\t15\t15\nĐường có tốc độ thiết kế > 80 km/h\t600\t800\t300\t400\t20\t20\n* Ở các đoạn đường đèo dốc, sương mù có thể tăng kích thước lên 1 cấp nâng cao an toàn giao thông.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.3.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_384",
-    "text": "Điều 56. Tiêu phản quang\n56.3.3. Tiêu phản quang dạng mũi tên được sử dụng trong phạm vi đường cong nằm trong các trường hợp sau:\n56. a) Trên các đường cao tốc tại các đường cong có bán kính bằng bán kính tối thiểu nhỏ nhất theo cấp đường;",
+    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên\n56.3.3. Tiêu phản quang dạng mũi tên được sử dụng trong phạm vi đường cong nằm trong các trường hợp sau:\n56. a) Trên các đường cao tốc tại các đường cong có bán kính bằng bán kính tối thiểu nhỏ nhất theo cấp đường;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "56",
+        "khoan": "56.3.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_385",
-    "text": "Điều 56. Tiêu phản quang\n56.3.3. Tiêu phản quang dạng mũi tên được sử dụng trong phạm vi đường cong nằm trong các trường hợp sau:\nb) Trên các nhánh rẽ trái gián tiếp của các nút giao khác mức liên thông;",
+    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên\n56.3.3. Tiêu phản quang dạng mũi tên được sử dụng trong phạm vi đường cong nằm trong các trường hợp sau:\nb) Trên các nhánh rẽ trái gián tiếp của các nút giao khác mức liên thông;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "56",
+        "khoan": "56.3.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_386",
-    "text": "Điều 56. Tiêu phản quang\n56.3.3. Tiêu phản quang dạng mũi tên được sử dụng trong phạm vi đường cong nằm trong các trường hợp sau:\nc) Trên các đoạn đường cong hạn chế tầm nhìn hoặc các đường cong được đánh giá là điểm đen, điểm tiềm ẩn về tai nạn giao thông; các đường cong được gắn biển số W.201 “Chỗ ngoặt nguy hiểm” có lưng hướng ra phía vực sâu mà không có tường bảo vệ hoặc lan can phòng hộ; các đường cong dạng con rắn.",
+    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên\n56.3.3. Tiêu phản quang dạng mũi tên được sử dụng trong phạm vi đường cong nằm trong các trường hợp sau:\nc) Trên các đoạn đường cong hạn chế tầm nhìn hoặc các đường cong được đánh giá là điểm đen, điểm tiềm ẩn về tai nạn giao thông; các đường cong được gắn biển số W.201 “Chỗ ngoặt nguy hiểm” có lưng hướng ra phía vực sâu mà không có tường bảo vệ hoặc lan can phòng hộ; các đường cong dạng con rắn.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "56",
+        "khoan": "56.3.3",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_387",
-    "text": "Điều 56. Tiêu phản quang\n56.3.4. Tiêu phản quang dạng mũi tên được bố trí ở phía lưng của đường cong nằm, bắt đầu từ điểm bắt đầu cho đến điểm kết thúc đoạn cong. Khoảng cách giữa các tiêu phản quang dạng mũi tên không nhỏ hơn 12 m và không lớn hơn 60 m.",
+    "text": "Điều 56. Tiêu phản quang\n56.3. Tiêu phản quang dạng mũi tên\n56.3.4. Tiêu phản quang dạng mũi tên được bố trí ở phía lưng của đường cong nằm, bắt đầu từ điểm bắt đầu cho đến điểm kết thúc đoạn cong. Khoảng cách giữa các tiêu phản quang dạng mũi tên không nhỏ hơn 12 m và không lớn hơn 60 m.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
-        "dieu": "56"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_388",
-    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "56",
+        "khoan": "56.3.4",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_389",
-    "text": "Điều 56. Tiêu phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\n56. a) Trên các đường cao tốc:\n+ Bố trí trên các vạch sơn kênh hóa dòng xe tại đầu các mũi đảo tách dòng và nhập dòng. Trong trường hợp này, cần sử dụng đinh phản quang trong phạm vi từ mũi đảo thực (đảo cứng) cho đến mũi hết mũi đảo bằng vạch sơn với cự ly giữa các đinh phản quang tối đa là 6 m.\n+ Có thể bố trí đinh phản quang trên các vạch sơn phân chia giữa phần xe chạy chính và làn dừng xe khẩn cấp.",
+    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\n56. a) Trên các đường cao tốc:\n+ Bố trí trên các vạch sơn kênh hóa dòng xe tại đầu các mũi đảo tách dòng và nhập dòng. Trong trường hợp này, cần sử dụng đinh phản quang trong phạm vi từ mũi đảo thực (đảo cứng) cho đến mũi hết mũi đảo bằng vạch sơn với cự ly giữa các đinh phản quang tối đa là 6 m.\n+ Có thể bố trí đinh phản quang trên các vạch sơn phân chia giữa phần xe chạy chính và làn dừng xe khẩn cấp.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "56",
+        "khoan": "56.4.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_390",
-    "text": "Điều 56. Tiêu phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\nb) Với đường nhiều hơn 2 làn xe mỗi hướng không có dải phân cách cố định, có thể bố trí một hàng đinh phản quang tại tim đường nằm giữa vạch sơn phân chia hai chiều xe chạy hoặc phân làn đường, mép đường.",
+    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\nb) Với đường nhiều hơn 2 làn xe mỗi hướng không có dải phân cách cố định, có thể bố trí một hàng đinh phản quang tại tim đường nằm giữa vạch sơn phân chia hai chiều xe chạy hoặc phân làn đường, mép đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "56",
+        "khoan": "56.4.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_391",
-    "text": "Điều 56. Tiêu phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\nc) Đối với đường có 2 làn xe, cần xem xét bố trí đinh phản quang tại tim đường kết hợp với vạch sơn phân chia chiều đường xe chạy, đặc biệt đối với tuyến đường tại khu vực miền núi, đường đèo dốc quanh co, nhiều sương mù, tầm nhìn hạn chế. Trong trường hợp cần thiết, có thế gắn đinh phản quang tại dọc theo mép đường xe chạy.",
+    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\nc) Đối với đường có 2 làn xe, cần xem xét bố trí đinh phản quang tại tim đường kết hợp với vạch sơn phân chia chiều đường xe chạy, đặc biệt đối với tuyến đường tại khu vực miền núi, đường đèo dốc quanh co, nhiều sương mù, tầm nhìn hạn chế. Trong trường hợp cần thiết, có thế gắn đinh phản quang tại dọc theo mép đường xe chạy.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "56",
+        "khoan": "56.4.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_392",
-    "text": "Điều 56. Tiêu phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\nd) Chiều rộng đinh phản quang tối thiểu 10cm và không vượt quá chiều rộng vạch sơn bố trí đinh.",
+    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang\n56.4.1. Đinh phản quang theo phương dọc đường được bố trí như sau:\nd) Chiều rộng đinh phản quang tối thiểu 10cm và không vượt quá chiều rộng vạch sơn bố trí đinh.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "d",
-        "khoan": "56",
+        "khoan": "56.4.1",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_393",
-    "text": "Điều 56. Tiêu phản quang\n56.4.2. Có thể sử dụng đinh phản quang màu vàng gắn theo phương ngang đường tại vị trí mặt đường bị thấp xuống hoặc vồng lên đột ngột theo phương ngang đường và trên vạch dừng xe nơi phần đường người đi bộ cắt qua không có tín hiệu đèn điều khiển.",
+    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang\n56.4.2. Có thể sử dụng đinh phản quang màu vàng gắn theo phương ngang đường tại vị trí mặt đường bị thấp xuống hoặc vồng lên đột ngột theo phương ngang đường và trên vạch dừng xe nơi phần đường người đi bộ cắt qua không có tín hiệu đèn điều khiển.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.4.2",
         "dieu": "56"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_394",
-    "text": "Điều 56. Tiêu phản quang\n56.4.3. Đinh phản quang không được nhô cao khỏi mặt đường quá 2,5 cm.",
+    "text": "Điều 56. Tiêu phản quang\n56.4. Đinh phản quang\n56.4.3. Đinh phản quang không được nhô cao khỏi mặt đường quá 2,5 cm.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "56",
+        "khoan": "56.4.3",
         "dieu": "56"
       }
     }
@@ -4768,7 +4408,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "57",
+        "khoan": "57.1",
         "dieu": "57"
       }
     }
@@ -4781,7 +4421,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "57",
+        "khoan": "57.2",
         "dieu": "57"
       }
     }
@@ -4794,7 +4434,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "58",
+        "khoan": "58.1",
         "dieu": "58"
       }
     }
@@ -4807,7 +4447,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "58",
+        "khoan": "58.2",
         "dieu": "58"
       }
     }
@@ -4820,7 +4460,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "58",
+        "khoan": "58.3",
         "dieu": "58"
       }
     }
@@ -4833,7 +4473,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "58",
+        "khoan": "58.4",
         "dieu": "58"
       }
     }
@@ -4846,7 +4486,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "59",
+        "khoan": "59.1",
         "dieu": "59"
       }
     }
@@ -4859,7 +4499,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "59",
+        "khoan": "59.2",
         "dieu": "59"
       }
     }
@@ -4872,7 +4512,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "59",
+        "khoan": "59.3",
         "dieu": "59"
       }
     }
@@ -4885,7 +4525,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "59",
+        "khoan": "59.4",
         "dieu": "59"
       }
     }
@@ -4903,53 +4543,40 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_406",
-    "text": "Điều 61. Phân loại cột kilômét\n61.1. Có 3 loại cột kilômét được sử dụng gồm:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "61",
-        "dieu": "61"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_407",
-    "text": "Điều 61. Phân loại cột kilômét\n61.1.1. Cột kilômét dạng cột thấp (Hình I.1 - Phụ lục I);",
+    "text": "Điều 61. Phân loại cột kilômét\n61.1. Có 3 loại cột kilômét được sử dụng gồm:\n61.1.1. Cột kilômét dạng cột thấp (Hình I.1 - Phụ lục I);",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.1.1",
         "dieu": "61"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_408",
-    "text": "Điều 61. Phân loại cột kilômét\n61.1.2. Cột kilômét dạng cột cao (Hình I.2 - Phụ lục I);",
+    "text": "Điều 61. Phân loại cột kilômét\n61.1. Có 3 loại cột kilômét được sử dụng gồm:\n61.1.2. Cột kilômét dạng cột cao (Hình I.2 - Phụ lục I);",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.1.2",
         "dieu": "61"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_409",
-    "text": "Điều 61. Phân loại cột kilômét\n61.1.3. Cột kilômét dạng tấm hình chữ nhật (Hình I.3 - Phụ lục I).",
+    "text": "Điều 61. Phân loại cột kilômét\n61.1. Có 3 loại cột kilômét được sử dụng gồm:\n61.1.3. Cột kilômét dạng tấm hình chữ nhật (Hình I.3 - Phụ lục I).",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.1.3",
         "dieu": "61"
       }
     }
@@ -4962,7 +4589,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.2",
         "dieu": "61"
       }
     }
@@ -4975,7 +4602,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.3",
         "dieu": "61"
       }
     }
@@ -4988,7 +4615,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.4",
         "dieu": "61"
       }
     }
@@ -5001,7 +4628,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.5",
         "dieu": "61"
       }
     }
@@ -5014,7 +4641,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.6",
         "dieu": "61"
       }
     }
@@ -5027,7 +4654,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "61",
+        "khoan": "61.7",
         "dieu": "61"
       }
     }
@@ -5040,7 +4667,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "62",
+        "khoan": "62.1",
         "dieu": "62"
       }
     }
@@ -5053,7 +4680,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "62",
+        "khoan": "62.2",
         "dieu": "62"
       }
     }
@@ -5066,7 +4693,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "62",
+        "khoan": "62.3",
         "dieu": "62"
       }
     }
@@ -5079,7 +4706,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "62",
+        "khoan": "62.4",
         "dieu": "62"
       }
     }
@@ -5104,7 +4731,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "64",
+        "khoan": "64.1",
         "dieu": "64"
       }
     }
@@ -5117,7 +4744,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "64",
+        "khoan": "64.2",
         "dieu": "64"
       }
     }
@@ -5130,7 +4757,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "64",
+        "khoan": "64.3",
         "dieu": "64"
       }
     }
@@ -5143,7 +4770,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "64",
+        "khoan": "64.4",
         "dieu": "64"
       }
     }
@@ -5156,7 +4783,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "65",
+        "khoan": "65.1",
         "dieu": "65"
       }
     }
@@ -5169,7 +4796,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "65",
+        "khoan": "65.2",
         "dieu": "65"
       }
     }
@@ -5194,7 +4821,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "67",
+        "khoan": "67.1",
         "dieu": "67"
       }
     }
@@ -5207,7 +4834,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "67",
+        "khoan": "67.2",
         "dieu": "67"
       }
     }
@@ -5220,7 +4847,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "67",
+        "khoan": "67.3",
         "dieu": "67"
       }
     }
@@ -5245,7 +4872,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "69",
+        "khoan": "69.1",
         "dieu": "69"
       }
     }
@@ -5258,7 +4885,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "69",
+        "khoan": "69.2",
         "dieu": "69"
       }
     }
@@ -5271,7 +4898,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "69",
+        "khoan": "69.3",
         "dieu": "69"
       }
     }
@@ -5284,7 +4911,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "69",
+        "khoan": "69.4",
         "dieu": "69"
       }
     }
@@ -5297,7 +4924,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "70",
+        "khoan": "70.1",
         "dieu": "70"
       }
     }
@@ -5310,7 +4937,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "70",
+        "khoan": "70.2",
         "dieu": "70"
       }
     }
@@ -5323,7 +4950,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "70",
+        "khoan": "70.3",
         "dieu": "70"
       }
     }
@@ -5348,7 +4975,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "72",
+        "khoan": "72.1",
         "dieu": "72"
       }
     }
@@ -5361,46 +4988,33 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "72",
-        "dieu": "72"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_442",
-    "text": "Điều 72. Phân loại cấm đi lại\n72.3. Cấm toàn bộ sự đi lại, trong đó nguyên nhân dẫn đến phải cấm cũng được chia ra:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "72",
+        "khoan": "72.2",
         "dieu": "72"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_443",
-    "text": "Điều 72. Phân loại cấm đi lại\n72.3.1. Cấm đi lại vì những lý do đường, cầu bị tắc;",
+    "text": "Điều 72. Phân loại cấm đi lại\n72.3. Cấm toàn bộ sự đi lại, trong đó nguyên nhân dẫn đến phải cấm cũng được chia ra:\n72.3.1. Cấm đi lại vì những lý do đường, cầu bị tắc;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "72",
+        "khoan": "72.3.1",
         "dieu": "72"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_444",
-    "text": "Điều 72. Phân loại cấm đi lại\n72.3.2. Cấm đi lại vì những lý do đặc biệt khác",
+    "text": "Điều 72. Phân loại cấm đi lại\n72.3. Cấm toàn bộ sự đi lại, trong đó nguyên nhân dẫn đến phải cấm cũng được chia ra:\n72.3.2. Cấm đi lại vì những lý do đặc biệt khác",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "72",
+        "khoan": "72.3.2",
         "dieu": "72"
       }
     }
@@ -5413,7 +5027,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "73",
+        "khoan": "73.1",
         "dieu": "73"
       }
     }
@@ -5426,7 +5040,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "73",
+        "khoan": "73.2",
         "dieu": "73"
       }
     }
@@ -5439,7 +5053,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "74",
+        "khoan": "74.1",
         "dieu": "74"
       }
     }
@@ -5452,167 +5066,141 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "74",
+        "khoan": "74.2",
         "dieu": "74"
       }
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_449",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "75",
-        "dieu": "75"
-      }
-    }
-  },
-  {
     "id": "41_2024_BGTVT_chunk_450",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.1. Trên những đoạn đường bị sự cố, các loại phương tiện và người đi bộ không thể đi lại được đặt rào chắn và đặt biển số P.101 “Đường cấm” như quy định ở Mục B. 1 Phụ lục B của Quy chuẩn này.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.1. Trên những đoạn đường bị sự cố, các loại phương tiện và người đi bộ không thể đi lại được đặt rào chắn và đặt biển số P.101 “Đường cấm” như quy định ở Mục B. 1 Phụ lục B của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "75",
+        "khoan": "75.1.1",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_451",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.2. Vị trí rào chắn đặt ở vị trí có đường tránh, đường phân luồng cho các loại phương tiện đi lại. Kèm theo rào chắn và biển số P.101, khi cần thiết đặt biển chỉ hướng đi cho các loại phương tiện (biển số I.416, I.417 (a,b,c) quy định ở Mục E.16, và E.17 Phụ lục E của Quy chuẩn này.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.2. Vị trí rào chắn đặt ở vị trí có đường tránh, đường phân luồng cho các loại phương tiện đi lại. Kèm theo rào chắn và biển số P.101, khi cần thiết đặt biển chỉ hướng đi cho các loại phương tiện (biển số I.416, I.417 (a,b,c) quy định ở Mục E.16, và E.17 Phụ lục E của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "75",
+        "khoan": "75.1.2",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_452",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\n75. a) Trên đường chính, trước vị trí phân luồng 100 m, đặt biển chỉ dẫn hướng đi phù hợp cho các loại phương tiện (biển số I.416, I.417 (a,b,c));",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\n75. a) Trên đường chính, trước vị trí phân luồng 100 m, đặt biển chỉ dẫn hướng đi phù hợp cho các loại phương tiện (biển số I.416, I.417 (a,b,c));",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "75",
+        "khoan": "75.1.3",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_453",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\nb) Sau biển chỉ hướng đi 30 m, đặt biển chỉ dẫn “Đường cụt” (biển số I.405c) như quy định ở Mục E.5 Phụ lục E của Quy chuẩn này;",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\nb) Sau biển chỉ hướng đi 30 m, đặt biển chỉ dẫn “Đường cụt” (biển số I.405c) như quy định ở Mục E.5 Phụ lục E của Quy chuẩn này;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "75",
+        "khoan": "75.1.3",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_454",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\nc) Trên hướng đường bị tắc, sau vị trí phân luồng cứ khoảng 300 m đến 500 m lại đặt biển chỉ dẫn “Đường cụt” (biển số I.405c) nhắc lại;",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\nc) Trên hướng đường bị tắc, sau vị trí phân luồng cứ khoảng 300 m đến 500 m lại đặt biển chỉ dẫn “Đường cụt” (biển số I.405c) nhắc lại;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "75",
+        "khoan": "75.1.3",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_455",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\nd) Đến giáp vị trí đường tắc, không cho phương tiện đi tiếp được nữa thì đặt rào chắn và biển số P.101 “Đường cấm” như quy định ở Mục B.1 Phụ lục B của Quy chuẩn này.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.3. Nếu trên hướng đường từ vị trí phân luồng đến vị trí bị tắc vẫn cho phương tiện đi lại thì không đặt rào chắn mà đặt biển như sau:\nd) Đến giáp vị trí đường tắc, không cho phương tiện đi tiếp được nữa thì đặt rào chắn và biển số P.101 “Đường cấm” như quy định ở Mục B.1 Phụ lục B của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "d",
-        "khoan": "75",
+        "khoan": "75.1.3",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_456",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.4. Nếu đường bị tắc không có hướng phân luồng, phương tiện phải chờ đợi một thời gian rồi mới tiếp tục được đi thì đặt hàng rào chắn và đặt biển số P.101 “Đường cấm” như quy định ở Mục B.1 Phụ lục B của Quy chuẩn này.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.4. Nếu đường bị tắc không có hướng phân luồng, phương tiện phải chờ đợi một thời gian rồi mới tiếp tục được đi thì đặt hàng rào chắn và đặt biển số P.101 “Đường cấm” như quy định ở Mục B.1 Phụ lục B của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "75",
+        "khoan": "75.1.4",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_457",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1.5. Vị trí đặt rào chắn cấm đường phải lựa chọn vị trí phương tiện có thể quay đầu được hoặc gần vị trí có dân cư để thuận tiện cho phương tiện chờ đợi đồng thời đặt bảng thông báo về tình hình giao thông và ngày, giờ phương tiện có thể tiếp tục đi lại.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.1. Cấm đi lại do sự cố cầu, đường:\n75.1.5. Vị trí đặt rào chắn cấm đường phải lựa chọn vị trí phương tiện có thể quay đầu được hoặc gần vị trí có dân cư để thuận tiện cho phương tiện chờ đợi đồng thời đặt bảng thông báo về tình hình giao thông và ngày, giờ phương tiện có thể tiếp tục đi lại.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "75",
-        "dieu": "75"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_458",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.2. Cấm đi lại vì những lý do khác:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "75",
+        "khoan": "75.1.5",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_459",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.2.1. Nếu vì những lý do đặc biệt phải cấm đi lại trong thời gian dài thì phải đặt rào chắn và đặt biển số P.101 như quy định ở Mục B.1 Phụ lục B của Quy chuẩn này.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.2. Cấm đi lại vì những lý do khác:\n75.2.1. Nếu vì những lý do đặc biệt phải cấm đi lại trong thời gian dài thì phải đặt rào chắn và đặt biển số P.101 như quy định ở Mục B.1 Phụ lục B của Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "75",
+        "khoan": "75.2.1",
         "dieu": "75"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_460",
-    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.2.2 Nếu cấm đi lại chỉ thi hành đột xuất trong thời gian ngắn thì ngoài việc đặt rào chắn và biển báo đường cấm, khi cần thiết có thể bố trí người thường trực chỉ huy phương tiện trong suốt thời gian cấm.",
+    "text": "Điều 75. Cấm toàn bộ sự đi lại\n75.2. Cấm đi lại vì những lý do khác:\n75.2.2 Nếu cấm đi lại chỉ thi hành đột xuất trong thời gian ngắn thì ngoài việc đặt rào chắn và biển báo đường cấm, khi cần thiết có thể bố trí người thường trực chỉ huy phương tiện trong suốt thời gian cấm.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "75",
+        "khoan": "75.2.2",
         "dieu": "75"
       }
     }
@@ -5637,7 +5225,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "77",
+        "khoan": "77.1",
         "dieu": "77"
       }
     }
@@ -5650,7 +5238,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "77",
+        "khoan": "77.2",
         "dieu": "77"
       }
     }
@@ -5663,7 +5251,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "77",
+        "khoan": "77.3",
         "dieu": "77"
       }
     }
@@ -5676,7 +5264,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "77",
+        "khoan": "77.4",
         "dieu": "77"
       }
     }
@@ -5689,7 +5277,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "77",
+        "khoan": "77.5",
         "dieu": "77"
       }
     }
@@ -5702,46 +5290,33 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "78",
-        "dieu": "78"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_468",
-    "text": "Điều 78. Gương cầu lồi\n78.2. Vị trí đặt gương cầu lồi",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "78",
+        "khoan": "78.1",
         "dieu": "78"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_469",
-    "text": "Điều 78. Gương cầu lồi\n78.2.1. Gương cầu lồi sử dụng ở các vị trí đường cong bán kính nhỏ, bị che khuất tầm nhìn được đặt chủ yếu ở các đường cong ôm núi có tầm nhìn hạn chế.",
+    "text": "Điều 78. Gương cầu lồi\n78.2. Vị trí đặt gương cầu lồi\n78.2.1. Gương cầu lồi sử dụng ở các vị trí đường cong bán kính nhỏ, bị che khuất tầm nhìn được đặt chủ yếu ở các đường cong ôm núi có tầm nhìn hạn chế.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "78",
+        "khoan": "78.2.1",
         "dieu": "78"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_470",
-    "text": "Điều 78. Gương cầu lồi\n78.2.2. Vị trí gương cầu lồi đặt ở sát vai nền đường phía lưng, trên đường phân giác của góc đỉnh đường cong và mép dưới gương cao hơn cao độ vai đường là 1,2 m.",
+    "text": "Điều 78. Gương cầu lồi\n78.2. Vị trí đặt gương cầu lồi\n78.2.2. Vị trí gương cầu lồi đặt ở sát vai nền đường phía lưng, trên đường phân giác của góc đỉnh đường cong và mép dưới gương cao hơn cao độ vai đường là 1,2 m.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "78",
+        "khoan": "78.2.1",
         "dieu": "78"
       }
     }
@@ -5754,7 +5329,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "79",
+        "khoan": "79.1",
         "dieu": "79"
       }
     }
@@ -5767,114 +5342,88 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "79",
-        "dieu": "79"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_473",
-    "text": "Điều 79. Dải phân cách\n79.3. Dải phân cách có hai loại là dải phân cách cố định và dải phân cách di động.",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "79",
+        "khoan": "79.2",
         "dieu": "79"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_474",
-    "text": "Điều 79. Dải phân cách\n79.3.1. Dải phân cách cố định là dải phân cách có vị trí cố định trên phần đường xe chạy. Dải phân cách cố định gồm các loại cơ bản sau:\n79. a) Dải phân cách dạng bó vỉa bên trong đổ đất trồng cây (đối với dải phân cách rộng), có thể sử dụng kết hợp lan can phòng hộ nửa cứng hoặc mềm;",
+    "text": "Điều 79. Dải phân cách\n79.3. Dải phân cách có hai loại là dải phân cách cố định và dải phân cách di động.\n79.3.1. Dải phân cách cố định là dải phân cách có vị trí cố định trên phần đường xe chạy. Dải phân cách cố định gồm các loại cơ bản sau:\na) Dải phân cách dạng bó vỉa bên trong đổ đất trồng cây (đối với dải phân cách rộng), có thể sử dụng kết hợp lan can phòng hộ nửa cứng hoặc mềm;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "a",
-        "khoan": "79",
+        "khoan": "79.3.1",
         "dieu": "79"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_475",
-    "text": "Điều 79. Dải phân cách\n79.3.1. Dải phân cách cố định là dải phân cách có vị trí cố định trên phần đường xe chạy. Dải phân cách cố định gồm các loại cơ bản sau:\nb) Dải phân cách có dạng một dải đất xen kẹp giữa các phần xe chạy, có dạng lõm xuống hoặc tận dụng điều kiện địa hình tự nhiên, có thể sử dụng kết hợp lan can phòng hộ nửa cứng hoặc mềm;",
+    "text": "Điều 79. Dải phân cách\n79.3. Dải phân cách có hai loại là dải phân cách cố định và dải phân cách di động.\n79.3.1. Dải phân cách cố định là dải phân cách có vị trí cố định trên phần đường xe chạy. Dải phân cách cố định gồm các loại cơ bản sau:\nb) Dải phân cách có dạng một dải đất xen kẹp giữa các phần xe chạy, có dạng lõm xuống hoặc tận dụng điều kiện địa hình tự nhiên, có thể sử dụng kết hợp lan can phòng hộ nửa cứng hoặc mềm;",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "b",
-        "khoan": "79",
+        "khoan": "79.3.1",
         "dieu": "79"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_476",
-    "text": "Điều 79. Dải phân cách\n79.3.1. Dải phân cách cố định là dải phân cách có vị trí cố định trên phần đường xe chạy. Dải phân cách cố định gồm các loại cơ bản sau:\nc) Dải phân cách sử dụng lan can phòng hộ cứng xây cố định trên mặt đường có chiều cao trong khoảng 0,3 m - 0,8 m, tối đa là 1,27 m nếu có nhu cầu chắn sáng, độ rộng tùy theo mặt đường rộng hẹp để thiết kế và được gắn tiêu phản quang hoặc được sơn phản quang theo các quy định về bố trí tiêu phản quang và vạch kẻ đường (vạch đứng) quy định trong Quy chuẩn này.",
+    "text": "Điều 79. Dải phân cách\n79.3. Dải phân cách có hai loại là dải phân cách cố định và dải phân cách di động.n79.3.1. Dải phân cách cố định là dải phân cách có vị trí cố định trên phần đường xe chạy. Dải phân cách cố định gồm các loại cơ bản sau:\nc) Dải phân cách sử dụng lan can phòng hộ cứng xây cố định trên mặt đường có chiều cao trong khoảng 0,3 m - 0,8 m, tối đa là 1,27 m nếu có nhu cầu chắn sáng, độ rộng tùy theo mặt đường rộng hẹp để thiết kế và được gắn tiêu phản quang hoặc được sơn phản quang theo các quy định về bố trí tiêu phản quang và vạch kẻ đường (vạch đứng) quy định trong Quy chuẩn này.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
         "diem": "c",
-        "khoan": "79",
+        "khoan": "79.3.1",
         "dieu": "79"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_477",
-    "text": "Điều 79. Dải phân cách\n79.3.2. Dải phân cách di động là các dải phân cách có thể di chuyển theo bề rộng trên mặt đường được tạo bởi các cột (cục) bê tông, nhựa composite bên trong có thể đổ cát hoặc nước cao từ 0,3 m - 0,8 m xếp liền nhau hoặc có các ống thép Ø40 - Ø50 xuyên qua tạo thành hệ thống lan can trên mặt đường.",
+    "text": "Điều 79. Dải phân cách\n79.3. Dải phân cách có hai loại là dải phân cách cố định và dải phân cách di động.n79.3.2. Dải phân cách di động là các dải phân cách có thể di chuyển theo bề rộng trên mặt đường được tạo bởi các cột (cục) bê tông, nhựa composite bên trong có thể đổ cát hoặc nước cao từ 0,3 m - 0,8 m xếp liền nhau hoặc có các ống thép Ø40 - Ø50 xuyên qua tạo thành hệ thống lan can trên mặt đường.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "79",
-        "dieu": "79"
-      }
-    }
-  },
-  {
-    "id": "41_2024_BGTVT_chunk_478",
-    "text": "Điều 79. Dải phân cách\n79.4. Điều kiện đặt dải phân cách cố định và di động:",
-    "metadata": {
-      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
-      "effective_date": "1-1-2025",
-      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
-      "context": {
-        "khoan": "79",
+        "khoan": "79.3.2",
         "dieu": "79"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_479",
-    "text": "Điều 79. Dải phân cách\n79.4.1. Dải phân cách cố định nên sử dụng khi đường có từ 4 làn xe trở lên để phân làn đường đi theo hai hướng riêng biệt.",
+    "text": "Điều 79. Dải phân cách\n79.4. Điều kiện đặt dải phân cách cố định và di động:\n79.4.1. Dải phân cách cố định nên sử dụng khi đường có từ 4 làn xe trở lên để phân làn đường đi theo hai hướng riêng biệt.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "79",
+        "khoan": "79.4.1",
         "dieu": "79"
       }
     }
   },
   {
     "id": "41_2024_BGTVT_chunk_480",
-    "text": "Điều 79. Dải phân cách\n79.4.2. Dải phân cách di động nên dùng ở những nơi mặt đường chỉ đủ 2 hay 3 làn xe, cần chia tạm thời hai chiều hoặc hai làn xe riêng biệt.",
+    "text": "Điều 79. Dải phân cách\n79.4. Điều kiện đặt dải phân cách cố định và di động:\n79.4.2. Dải phân cách di động nên dùng ở những nơi mặt đường chỉ đủ 2 hay 3 làn xe, cần chia tạm thời hai chiều hoặc hai làn xe riêng biệt.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "79",
+        "khoan": "79.4.2",
         "dieu": "79"
       }
     }
@@ -5887,7 +5436,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "80",
+        "khoan": "80.1",
         "dieu": "80"
       }
     }
@@ -5900,7 +5449,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "80",
+        "khoan": "80.2",
         "dieu": "80"
       }
     }
@@ -5913,7 +5462,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "80",
+        "khoan": "80.3",
         "dieu": "80"
       }
     }
@@ -5926,7 +5475,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "81",
+        "khoan": "81.1",
         "dieu": "81"
       }
     }
@@ -5939,7 +5488,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "81",
+        "khoan": "81.2",
         "dieu": "81"
       }
     }
@@ -5952,7 +5501,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "82",
+        "khoan": "82.1",
         "dieu": "82"
       }
     }
@@ -5965,7 +5514,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "82",
+        "khoan": "82.2",
         "dieu": "82"
       }
     }
@@ -5978,7 +5527,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "83",
+        "khoan": "83.1",
         "dieu": "83"
       }
     }
@@ -5991,7 +5540,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "83",
+        "khoan": "83.2",
         "dieu": "83"
       }
     }
@@ -6004,7 +5553,7 @@
       "effective_date": "1-1-2025",
       "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
       "context": {
-        "khoan": "83",
+        "khoan": "83.3",
         "dieu": "83"
       }
     }

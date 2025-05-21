@@ -394,10 +394,9 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     else:
         for i, item in enumerate(relevant_documents):
             doc_content = item.get('doc')
-            if not isinstance(doc_content, dict): continue
             text = doc_content.get('text', '').strip()
             metadata = doc_content.get('metadata', {})
-            if not text: continue
+            if not doc_content or not text: continue
 
             source_name = metadata.get('source', 'N/A')
             context_meta = metadata.get('context', {})
@@ -406,6 +405,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             dieu = context_meta.get('dieu')
             khoan = context_meta.get('khoan')
             diem = context_meta.get('diem')
+
             source_parts = [f"Văn bản: {source_name}"]
             if chuong: source_parts.append(f"Chương {chuong}")
             if muc: source_parts.append(f"Mục {muc}")
@@ -418,9 +418,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             traffic_sign_value = metadata.get('traffic_sign')
             traffic_sign_info_for_llm = ""
             if traffic_sign_value:
-                # Tạo tên hiển thị cho LLM, dù là string hay list
                 if isinstance(traffic_sign_value, list):
-                    # Hiển thị một vài tên file đầu tiên nếu list quá dài
                     display_filenames = ", ".join(traffic_sign_value[:3])
                     if len(traffic_sign_value) > 3:
                         display_filenames += "..."
@@ -457,7 +455,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         "VÀ nguồn đó có ghi chú '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo ...)', "
         "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"
         "    a. Đầu tiên, trình bày **nội dung văn bản** mà bạn trích xuất hoặc diễn giải.\n"
-        "    b. **Ngay sau nội dung văn bản đó**, nếu bạn muốn hoặc cần trích dẫn nguồn chi tiết cho phần văn bản này, hãy viết **trích dẫn nguồn** (ví dụ: `(Theo Điều X, Khoản Y, Văn bản Z)`).\n"
+        "    b. **Ngay sau nội dung văn bản đó**, nếu bạn muốn hoặc cần trích dẫn nguồn chi tiết cho phần văn bản này, hãy viết **trích dẫn nguồn** (ví dụ: `(Theo Điều A, Khoản B, Điểm C, Văn bản D)`).\n"
         "    c. **CUỐI CÙNG, và NGAY SAU trích dẫn nguồn (hoặc ngay sau nội dung văn bản nếu không có trích dẫn nguồn cho đoạn đó)**, bạn PHẢI đặt một placeholder đặc biệt có dạng: `[DISPLAY_TRAFFIC_SIGN_INDEX_{index_nguồn}]`. "
         "`{index_nguồn}` CHÍNH LÀ số thứ tự của 'Nguồn' đó.\n"
         "    * **Ví dụ THỨ TỰ ĐÚNG**: `...nội dung từ Nguồn 3... (Theo Điều A, QCVN XYZ) [DISPLAY_TRAFFIC_SIGN_INDEX_3]`\n"
@@ -465,27 +463,29 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         "    * **TUYỆT ĐỐI KHÔNG** đặt placeholder ảnh trước trích dẫn nguồn của nó. Placeholder ảnh phải là yếu tố cuối cùng liên quan đến khối thông tin của nguồn đó."
     )
     common_requirements = f"""
-    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài luồng được cung cấp.
+    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn kiến thức ngoài luồng.
     2.  **Gom nhóm nguồn và trích dẫn:**
-        * Khi trích dẫn, hãy tham chiếu đến cấu trúc văn bản (Điều, Khoản, Điểm, Chương, Mục, tên Văn bản) một cách rõ ràng nhất có thể dựa trên thông tin `[{source_ref_full}]` đã cung cấp cho mỗi nguồn. Ví dụ: `(Theo Điều X, Khoản Y, Điểm z, Văn bản ABC)`.
+        * Khi trích dẫn, hãy tham chiếu đến cấu trúc văn bản (Chương, Mục, Điều, Khoản, Điểm, tên Văn bản) một cách rõ ràng nhất đã. Ví dụ: `(Theo Chương A, Mục B, Điều X, Khoản Y, Điểm z, Văn bản ABC)`.
+        * Những đoạn cùng cấu trúc Văn bản, Chương, Mục, Điều, Khoản **BẮT BUỘC** nhóm chúng lại với nhau để cho nguồn được gọn gàng và dễ nhìn, cho người dùng.
         * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài dòng.
-        * Sau mỗi ý hoặc nhóm ý chính, **nêu rõ nguồn gốc** của thông tin đó bằng cách trích dẫn như trên.
-    3.  **Trình bày rõ ràng:** Sử dụng gạch đầu dòng (`-`), đánh số (`1., 2.`), **in đậm** (`** **`) cho các nội dung quan trọng như mức phạt, kết luận, hoặc các điểm chính.
-    4.  **Hiểu ngữ nghĩa:** Cố gắng tìm thông tin liên quan ngay cả khi từ ngữ trong câu hỏi không khớp hoàn toàn với từ ngữ trong văn bản (ví dụ: "rượu, bia" có thể liên quan đến "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu giao thông"; "xe máy" có thể là "xe mô tô", "xe gắn máy", "xe hai bánh", v.v.). Hãy dựa vào các quy tắc đã được cung cấp trong prompt tạo query variations nếu có.
+        * Sau mỗi ý hoặc nhóm ý chính, **nêu rõ nguồn gốc** dùng thông tin trong dấu `(...)`.
+    3.  **Trình bày súc tích:** Sử dụng gạch đầu dòng (`-`) nếu cần hoặc đánh số (`1., 2.`), **in đậm** (`** **`) cho các nội dung quan trọng như mức phạt, kết luận, hoặc các điểm chính.
+    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
     5.  **Trường hợp thiếu thông tin:** Nếu ngữ cảnh được cung cấp không chứa thông tin để trả lời câu hỏi, hãy trả lời một cách trung thực, ví dụ: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
-    6.  **Thông tin liên quan (nếu có và phù hợp):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan chặt chẽ đến ý nghĩa của câu hỏi, bạn có thể đề cập sau khi đã thông báo không tìm thấy câu trả lời chính xác. Tuy nhiên, chỉ nên đề cập những thông tin thực sự gần với câu hỏi.
-    7.  **Thứ tự ưu tiên (nếu câu hỏi mang tính so sánh hoặc liệt kê):**
-        - Điểm (ví dụ: Điểm a, Điểm b...)
-        - Khoản (ví dụ: Khoản 1, Khoản 2...)
-        - Điều (ví dụ: Điều 5, Điều 6...)
-        - Mục, Chương, Văn bản.
-    8.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (thường là xe mô tô, xe gắn máy) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.) nếu câu hỏi hoặc ngữ cảnh đề cập.
-    9.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
+    6.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
+        - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
+        - Điểm thứ b trong Điều/Khoản
+        - Điểm thứ c trong Điều/Khoản
+        - Điểm thứ d trong Điều/Khoản
+        - Điểm thứ đ trong Điều/Khoản
+        - ...
+    7.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (xe mô tô, xe gắn máy, ...) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.). Nếu câu hỏi về "xe máy" thì **CHỈ** trả lời "xe máy chuyên dùng" nếu câu hỏi **có đề cập** tới. 
+    8.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
     {placeholder_instruction}
     """
-    full_prompt_template = f"""Bạn là một trợ lý AI chuyên sâu về Luật Giao thông Đường bộ Việt Nam.
+    full_prompt_template = f"""Bạn là một trợ lý chuyên sâu về Luật Giao thông Đường bộ Việt Nam.
     {history_prefix}
-    **Nhiệm vụ:** Dựa vào Lịch sử trò chuyện (nếu có) và thông tin chi tiết trong phần 'Ngữ cảnh được cung cấp' dưới đây, hãy trả lời câu hỏi HIỆN TẠI của người dùng một cách **CHI TIẾT, ĐẦY ĐỦ** và chính xác nhất có thể.
+    **Nhiệm vụ:** Dựa vào Lịch sử trò chuyện gầy đây (nếu có) và thông tin chi tiết trong phần 'Ngữ cảnh được cung cấp' dưới đây, hãy trả lời câu hỏi HIỆN TẠI của người dùng một cách **CHI TIẾT, ĐẦY ĐỦ** và chính xác nhất có thể.
 
     **Ngữ cảnh được cung cấp (Đây là nguồn thông tin duy nhất bạn được phép sử dụng để trả lời các câu hỏi về luật):**
     {context_for_prompt}
@@ -496,7 +496,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     {common_requirements}
     **Câu trả lời của bạn (chi tiết):**
     """
-    brief_prompt_template = f"""Bạn là một trợ lý AI chuyên sâu về Luật Giao thông Đường bộ Việt Nam.
+    brief_prompt_template = f"""Bạn là một trợ lý chuyên sâu về Luật Giao thông Đường bộ Việt Nam.
     {history_prefix}
     **Nhiệm vụ:** Dựa vào Lịch sử trò chuyện (nếu có) và thông tin trong 'Ngữ cảnh được cung cấp', trả lời câu hỏi HIỆN TẠI của người dùng (`{query_text}`) một cách **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm vấn đề.
 
@@ -532,7 +532,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         displayed_sign_filenames = set()
 
         for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", final_answer_display):
-            placeholder_full = match.group(0)
+            # placeholder_full = match.group(0)
             source_idx_one_based = int(match.group(1))
             source_idx_zero_based = source_idx_one_based - 1
 

@@ -296,7 +296,7 @@ if init_ok:
                 message_placeholder.markdown(full_response, unsafe_allow_html=True)
 
             except Exception as e:
-                st.error(f"🐞 Đã xảy ra lỗi: {e}") # Hiển thị lỗi rõ ràng hơn
+                st.error(f"🐞 Đã xảy ra lỗi: {e}") 
                 full_response = f"🐞 Xin lỗi, đã có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại hoặc thay đổi cấu hình."
                 if message_placeholder:
                     message_placeholder.markdown(full_response, unsafe_allow_html=True)

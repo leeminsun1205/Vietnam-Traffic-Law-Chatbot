@@ -450,7 +450,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         history_prefix += "---\n"
 
     placeholder_instruction = (
-        "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
+        "9. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
         "Khi bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
         "VÀ nguồn đó có ghi chú đặc biệt về việc nội dung liên quan đến một hoặc nhiều biển báo (thường bắt đầu bằng cụm từ như '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo...' hoặc '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến các biển báo...)' ), "
         "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"

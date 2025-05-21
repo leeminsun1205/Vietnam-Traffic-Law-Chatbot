@@ -9235,7 +9235,7 @@
         "muc_1": "D.19",
         "phu_luc": "D"
       },
-      "traffic_sign": ["R_E_9a", "R_E_9b", "R_E_9c", "R_E_9d"]
+      "traffic_sign": ["R_E_9a.png", "R_E_9b.png", "R_E_9c.png", "R_E_9d.png"]
     }
   },
   {
@@ -9264,7 +9264,7 @@
         "muc_1": "D.21",
         "phu_luc": "D"
       },
-      "traffic_sign": ["R_E_11a"]
+      "traffic_sign": ["R_E_11a.png"]
     }
   },
   {
@@ -9279,7 +9279,7 @@
         "muc_1": "D.21",
         "phu_luc": "D"
       },
-      "traffic_sign": ["R_E_11b"]
+      "traffic_sign": ["R_E_11b.png"]
     }
   },
   {

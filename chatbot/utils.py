@@ -452,10 +452,10 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     placeholder_instruction = (
         "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
         "Khi bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
-        "VÀ nguồn đó có ghi chú '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo ...)', "
+        "VÀ nguồn đó có ghi chú đặc biệt về việc nội dung liên quan đến một hoặc nhiều biển báo (thường bắt đầu bằng cụm từ như '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo...' hoặc '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến các biển báo...)' ), "
         "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"
         "    a. Đầu tiên, trình bày **nội dung văn bản** mà bạn trích xuất hoặc diễn giải.\n"
-        "    b. **Ngay sau nội dung văn bản đó**, nếu bạn muốn hoặc cần trích dẫn nguồn chi tiết cho phần văn bản này, hãy viết **trích dẫn nguồn** (ví dụ: `(Theo Điều A, Khoản B, Điểm C, Văn bản D)`).\n"
+        "    b. **Ngay sau nội dung văn bản đó**, nếu bạn muốn hoặc cần trích dẫn nguồn chi tiết cho phần văn bản này, hãy viết **trích dẫn nguồn** (ví dụ: `(Theo Chương A, Mục B, Điều X, Khoản Y, Điểm z, Văn bản ABC)`).\n"
         "    c. **CUỐI CÙNG, và NGAY SAU trích dẫn nguồn (hoặc ngay sau nội dung văn bản nếu không có trích dẫn nguồn cho đoạn đó)**, bạn PHẢI đặt một placeholder đặc biệt có dạng: `[DISPLAY_TRAFFIC_SIGN_INDEX_{index_nguồn}]`. "
         "`{index_nguồn}` CHÍNH LÀ số thứ tự của 'Nguồn' đó.\n"
         "    * **Ví dụ THỨ TỰ ĐÚNG**: `...nội dung từ Nguồn 3... (Theo Điều A, QCVN XYZ) [DISPLAY_TRAFFIC_SIGN_INDEX_3]`\n"

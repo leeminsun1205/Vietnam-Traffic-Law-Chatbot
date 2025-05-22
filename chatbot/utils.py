@@ -319,7 +319,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         * Kết hợp thông tin từ nhiều đoạn nếu cần, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài dòng. Nhưng **tuyệt đối không pha trộn thông tin 1 cách tùy tiện gây sai lệch nghiêm trọng thông tin**.
         * Sau mỗi ý hoặc nhóm ý chính, **nêu rõ nguồn gốc** dùng thông tin trong dấu "`(...)`".
     3.  **Trình bày súc tích:** Sử dụng gạch đầu dòng (`-`) nếu cần hoặc đánh số (`1., 2.`), **in đậm** (`** **`) cho các nội dung quan trọng như mức phạt, kết luận, hoặc các điểm chính.
-    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
+    4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ... (xe máy không phải là xe máy chuyên dùng) và từ ngữ giao thông khác).
     5.  **Trường hợp thiếu thông tin:** Nếu ngữ cảnh được cung cấp không chứa thông tin để trả lời câu hỏi, hãy trả lời một cách trung thực, ví dụ: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
     6.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
         - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
@@ -328,7 +328,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - Điểm thứ d trong Điều/Khoản
         - Điểm thứ đ trong Điều/Khoản
         - ...
-    7.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (xe mô tô, xe gắn máy, ...) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.). Nếu câu hỏi về "xe máy" thì **CHỈ** trả lời "xe máy chuyên dùng" nếu câu hỏi **có đề cập** tới. 
+    7.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (xe mô tô, xe gắn máy, ...) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.). Nếu câu hỏi về "xe máy" thì **CHỈ** trả lời "xe mô tô, xe gắn máy". 
     8.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
     {placeholder_instruction}
     """

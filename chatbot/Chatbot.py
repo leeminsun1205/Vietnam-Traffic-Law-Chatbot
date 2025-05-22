@@ -111,17 +111,12 @@ st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
-    # with st.chat_message(message["role"]):
-    #     st.markdown(message["content"])
     with st.chat_message(message["role"]):
-        # st.markdown(message["content"], unsafe_allow_html=True)
         content_to_display = message["content"]
         if message["role"] == "assistant":
             # Lấy relevant_docs từ message, nếu không có thì dùng list rỗng
             docs_for_this_message = message.get("relevant_docs_for_display", [])
-            st.write('START')
             content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message)
-            st.write('END')
         st.markdown(content_to_display, unsafe_allow_html=True)
 
 # --- Khởi tạo hệ thống ---
@@ -257,9 +252,7 @@ if init_ok:
 
                         # Chọn top N docs để rerank
                         docs_to_rerank = retrieved_docs_list[:config.MAX_DOCS_FOR_RERANK]
-                        # Chuyển đổi định dạng đầu vào cho rerank_documents nếu cần
                         # Hàm rerank_documents hiện tại nhận list [{'doc': ..., 'index': ...}]
-                        # Nếu retrieved_docs_list đã đúng định dạng thì không cần chuyển
                         rerank_input = [{'doc': item['doc'], 'index': item['index']} for item in docs_to_rerank]
 
                         reranked_results = utils.rerank_documents(
@@ -285,15 +278,13 @@ if init_ok:
                     answer_mode = st.session_state.answer_mode
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời (chế độ: {answer_mode})...")
                     message_placeholder.markdown(" ".join(processing_log))
-
                     raw_llm_output = utils.generate_answer_with_gemini(
-                        query_text=user_query, # Vẫn dùng câu hỏi gốc của user để LLM trả lời
+                        query_text=user_query,
                         relevant_documents=final_relevant_documents, 
                         gemini_model=selected_gemini_llm,
                         mode=answer_mode,
                         chat_history=recent_chat_history
                     )
-
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Hoàn tất!")
 
                 # Hiển thị log xử lý
@@ -301,10 +292,8 @@ if init_ok:
                     log_content = "\n".join(processing_log)
                     st.markdown(f"```text\n{log_content}\n```")
                 # Hiển thị câu trả lời cuối cùng
-                # message_placeholder.markdown(full_response, unsafe_allow_html=True)
                 content_for_immediate_display = "Xin lỗi, tôi không thể tạo câu trả lời vào lúc này." # Mặc định
                 if raw_llm_output:
-                    # Lấy tài liệu liên quan cho việc render (đảm bảo final_relevant_documents được xử lý đúng nếu relevance_status là 'invalid')
                     docs_for_current_render = []
                     if relevance_status != 'invalid' and 'final_relevant_documents' in locals() and final_relevant_documents:
                         docs_for_current_render = final_relevant_documents
@@ -340,12 +329,3 @@ if init_ok:
 
 elif not init_ok:
     st.error("⚠️ Hệ thống chưa thể khởi động do lỗi tải mô hình hoặc dữ liệu. Vui lòng kiểm tra lại.")
-
-# # Debug: Hiển thị trạng thái cấu hình hiện tại trong session state trên trang Chatbot
-# st.sidebar.subheader("Debug State (Chatbot)")
-# st.sidebar.write(f"Gemini Model: {st.session_state.get('selected_gemini_model', 'N/A')}")
-# st.sidebar.write(f"Answer Mode: {st.session_state.get('answer_mode', 'N/A')}")
-# st.sidebar.write(f"Query Mode: {st.session_state.get('retrieval_query_mode', 'N/A')}")
-# st.sidebar.write(f"Retrieval Method: {st.session_state.get('retrieval_method', 'N/A')}")
-# st.sidebar.write(f"Use Reranker: {st.session_state.get('use_reranker', 'N/A')}")
-# st.sidebar.write(f"Use History LLM1: {st.session_state.get('use_history_for_llm1', 'N/A')}")

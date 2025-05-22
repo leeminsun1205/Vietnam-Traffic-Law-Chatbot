@@ -293,18 +293,12 @@ if init_ok:
                     log_content = "\n".join(processing_log)
                     st.markdown(f"```text\n{log_content}\n```")
                 # Hiển thị câu trả lời cuối cùng
-                content_for_immediate_display = "Xin lỗi, tôi không thể tạo câu trả lời vào lúc này." # Mặc định
                 if raw_llm_output:
-                    docs_for_current_render = []
-                    if relevance_status != 'invalid' and 'final_relevant_documents' in locals() and final_relevant_documents:
-                        docs_for_current_render = final_relevant_documents
-                    elif relevance_status == 'invalid': 
-                        docs_for_current_render = []
-
-                    content_for_immediate_display = utils.render_html_for_assistant_message(raw_llm_output, docs_for_current_render)
-
-                message_placeholder.markdown(content_for_immediate_display, unsafe_allow_html=True)
-                full_response = raw_llm_output
+                    content_for_immediate_display = utils.render_html_for_assistant_message(raw_llm_output, final_relevant_documents)
+                    message_placeholder.markdown(content_for_immediate_display, unsafe_allow_html=True)
+                    full_response = raw_llm_output
+                else:
+                    message_placeholder.markdown(full_response, unsafe_allow_html=True)
 
             except Exception as e:
                 st.error(f"🐞 Đã xảy ra lỗi: {e}") 

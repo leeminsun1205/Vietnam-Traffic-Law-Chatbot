@@ -85,7 +85,8 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
         4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
         5.  Nếu câu hỏi có **liên quan đến phương tiện** mà hỏi 1 cách tổng quát (không chỉ rõ loại xe nào) phải ưu tiên 1 câu có "xe mô tô, xe gắn máy, các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy" và 1 câu có "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
         6.  Nếu câu hỏi chỉ có đề "xe máy" thì phải thay thế bằng "xe mô tô, xe gắn máy", trừ cụm từ "xe máy chuyên dùng".
-        7.  Đối với summarizing_query cũng phải áp dụng đầy đủ các quy tắc 2, 3, 5, 6.
+        7.  Nếu câu hỏi đơn giản để hỏi biển báo thì không cần thêm thông tin.
+        8.  Đối với summarizing_query cũng phải áp dụng đầy đủ các quy tắc 2, 3, 5, 6, 7.
         ```json
         {{
         "relevance": "valid",

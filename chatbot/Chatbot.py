@@ -114,15 +114,15 @@ for message in st.session_state.messages:
     # with st.chat_message(message["role"]):
     #     st.markdown(message["content"])
     with st.chat_message(message["role"]):
-        st.markdown(message["content"], unsafe_allow_html=True)
-        # content_to_display = message["content"]
-        # if message["role"] == "assistant":
-        #     # Lấy relevant_docs từ message, nếu không có thì dùng list rỗng
-        #     docs_for_this_message = message.get("relevant_docs_for_display", [])
-        #     st.write('START')
-        #     content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message)
-        #     st.write('END')
-        # st.markdown(content_to_display, unsafe_allow_html=True)
+        # st.markdown(message["content"], unsafe_allow_html=True)
+        content_to_display = message["content"]
+        if message["role"] == "assistant":
+            # Lấy relevant_docs từ message, nếu không có thì dùng list rỗng
+            docs_for_this_message = message.get("relevant_docs_for_display", [])
+            st.write('START')
+            content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message)
+            st.write('END')
+        st.markdown(content_to_display, unsafe_allow_html=True)
 
 # --- Khởi tạo hệ thống ---
 init_ok = False

@@ -199,7 +199,7 @@ def rerank_documents(query_text, documents_with_indices, reranking_model):
 
 # --- Hàm tải tệp mapping URL ---
 @st.cache_data 
-def load_document_url_mapping(filepath="/kaggle/working/CS431.P22/loader/vanban_url_map.json"):
+def load_document_url_mapping(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         mapping = json.load(f)
         return mapping 
@@ -235,7 +235,7 @@ def extract_and_normalize_document_key(citation_text):
     return None
 
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
-    url_mapping_dict = load_document_url_mapping()
+    url_mapping_dict = load_document_url_mapping(config.MAP_URL_PATH)
     source_details_for_prompt = []
 
     if not relevant_documents:
@@ -378,77 +378,77 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     if relevant_documents and isinstance(relevant_documents, list) and final_answer_display:
         processed_answer_parts = []
         last_idx = 0
-        displayed_sign_filenames = set()
+        # displayed_sign_filenames = set()
 
-        for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", final_answer_display):
-            # placeholder_full = match.group(0)
-            source_idx_one_based = int(match.group(1))
-            source_idx_zero_based = source_idx_one_based - 1
+        # for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", final_answer_display):
+        #     # placeholder_full = match.group(0)
+        #     source_idx_one_based = int(match.group(1))
+        #     source_idx_zero_based = source_idx_one_based - 1
 
-            processed_answer_parts.append(final_answer_display[last_idx:match.start()])
+        #     processed_answer_parts.append(final_answer_display[last_idx:match.start()])
             
-            # --- BẮT ĐẦU THAY ĐỔI LOGIC XỬ LÝ NHIỀU ẢNH ---
-            images_html_for_current_placeholder_list = [] # Lưu HTML cho từng ảnh của placeholder này
+        #     # --- BẮT ĐẦU THAY ĐỔI LOGIC XỬ LÝ NHIỀU ẢNH ---
+        #     images_html_for_current_placeholder_list = [] # Lưu HTML cho từng ảnh của placeholder này
 
-            if 0 <= source_idx_zero_based < len(relevant_documents):
-                doc_item = relevant_documents[source_idx_zero_based]
-                doc_content = doc_item.get('doc')
-                if isinstance(doc_content, dict):
-                    metadata = doc_content.get('metadata', {})
-                    traffic_sign_value = metadata.get('traffic_sign') # Đây có thể là string hoặc list
+        #     if 0 <= source_idx_zero_based < len(relevant_documents):
+        #         doc_item = relevant_documents[source_idx_zero_based]
+        #         doc_content = doc_item.get('doc')
+        #         if isinstance(doc_content, dict):
+        #             metadata = doc_content.get('metadata', {})
+        #             traffic_sign_value = metadata.get('traffic_sign') # Đây có thể là string hoặc list
 
-                    filenames_to_process_for_chunk = []
-                    if isinstance(traffic_sign_value, str):
-                        filenames_to_process_for_chunk = [traffic_sign_value]
-                    elif isinstance(traffic_sign_value, list):
-                        filenames_to_process_for_chunk = traffic_sign_value
+        #             filenames_to_process_for_chunk = []
+        #             if isinstance(traffic_sign_value, str):
+        #                 filenames_to_process_for_chunk = [traffic_sign_value]
+        #             elif isinstance(traffic_sign_value, list):
+        #                 filenames_to_process_for_chunk = traffic_sign_value
                     
-                    for traffic_sign_filename_original in filenames_to_process_for_chunk: # Đổi tên biến để tránh nhầm lẫn
-                        if traffic_sign_filename_original and traffic_sign_filename_original not in displayed_sign_filenames:
-                            image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename_original)
-                            if os.path.exists(image_full_path):
-                                try:
-                                    with open(image_full_path, "rb") as img_file:
-                                        b64_string = base64.b64encode(img_file.read()).decode()
-                                    file_ext = os.path.splitext(traffic_sign_filename_original)[1][1:].lower()
-                                    if not file_ext: file_ext = "png"
+        #             for traffic_sign_filename_original in filenames_to_process_for_chunk: # Đổi tên biến để tránh nhầm lẫn
+        #                 if traffic_sign_filename_original and traffic_sign_filename_original not in displayed_sign_filenames:
+        #                     image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename_original)
+        #                     if os.path.exists(image_full_path):
+        #                         try:
+        #                             with open(image_full_path, "rb") as img_file:
+        #                                 b64_string = base64.b64encode(img_file.read()).decode()
+        #                             file_ext = os.path.splitext(traffic_sign_filename_original)[1][1:].lower()
+        #                             if not file_ext: file_ext = "png"
                                     
-                                    # --- THAY ĐỔI CÁCH HIỂN THỊ TÊN BIỂN BÁO ---
-                                    base_name_no_ext = os.path.splitext(traffic_sign_filename_original)[0]
-                                    display_sign_name = base_name_no_ext.replace("_", ".")
-                                    # ------------------------------------------
+        #                             # --- THAY ĐỔI CÁCH HIỂN THỊ TÊN BIỂN BÁO ---
+        #                             base_name_no_ext = os.path.splitext(traffic_sign_filename_original)[0]
+        #                             display_sign_name = base_name_no_ext.replace("_", ".")
+        #                             # ------------------------------------------
                                     
-                                    single_image_html = (
-                                        f"<div style='flex: 1 0 23%; max-width: 24%; margin: 5px; text-align: center;'>"
-                                        f"<img src='data:image/{file_ext};base64,{b64_string}' "
-                                        f"alt='Biển báo: {display_sign_name}' " # Alt text cũng có thể dùng tên đã xử lý
-                                        f"style='width: 100%; max-width: 150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
-                                        f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{display_sign_name}</p>" # Sử dụng tên đã xử lý
-                                        f"</div>"
-                                    )
-                                    images_html_for_current_placeholder_list.append(single_image_html)
-                                    # Vẫn dùng tên file gốc để kiểm tra trùng lặp
-                                    displayed_sign_filenames.add(traffic_sign_filename_original) 
-                                except Exception as e_img:
-                                    images_html_for_current_placeholder_list.append(f"<div style='color: red; font-style: italic; padding-left: 20px; flex-basis:100%'>[Lỗi hiển thị ảnh: {traffic_sign_filename_original}]</div>")
-                            else:
-                                images_html_for_current_placeholder_list.append(f"<div style='color: orange; font-style: italic; padding-left: 20px; flex-basis:100%'>[Không tìm thấy ảnh: {traffic_sign_filename_original}]</div>")
-                        elif traffic_sign_filename_original in displayed_sign_filenames:
-                             pass
+        #                             single_image_html = (
+        #                                 f"<div style='flex: 1 0 23%; max-width: 24%; margin: 5px; text-align: center;'>"
+        #                                 f"<img src='data:image/{file_ext};base64,{b64_string}' "
+        #                                 f"alt='Biển báo: {display_sign_name}' " # Alt text cũng có thể dùng tên đã xử lý
+        #                                 f"style='width: 100%; max-width: 150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
+        #                                 f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{display_sign_name}</p>" # Sử dụng tên đã xử lý
+        #                                 f"</div>"
+        #                             )
+        #                             images_html_for_current_placeholder_list.append(single_image_html)
+        #                             # Vẫn dùng tên file gốc để kiểm tra trùng lặp
+        #                             displayed_sign_filenames.add(traffic_sign_filename_original) 
+        #                         except Exception as e_img:
+        #                             images_html_for_current_placeholder_list.append(f"<div style='color: red; font-style: italic; padding-left: 20px; flex-basis:100%'>[Lỗi hiển thị ảnh: {traffic_sign_filename_original}]</div>")
+        #                     else:
+        #                         images_html_for_current_placeholder_list.append(f"<div style='color: orange; font-style: italic; padding-left: 20px; flex-basis:100%'>[Không tìm thấy ảnh: {traffic_sign_filename_original}]</div>")
+        #                 elif traffic_sign_filename_original in displayed_sign_filenames:
+        #                      pass
 
-            # Tạo container grid cho các ảnh của placeholder này nếu có ảnh
-            image_markdown_to_insert = ""
-            if images_html_for_current_placeholder_list:
-                image_grid_html_content = "".join(images_html_for_current_placeholder_list)
-                image_markdown_to_insert = (
-                    f"\n<div style='display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; margin-top: 10px; margin-bottom: 10px; padding-left: 15px; border-left: 3px solid #eee;'>"
-                    f"{image_grid_html_content}"
-                    f"</div>\n"
-                )
-            # --- KẾT THÚC THAY ĐỔI LOGIC XỬ LÝ NHIỀU ẢNH ---
+        #     # Tạo container grid cho các ảnh của placeholder này nếu có ảnh
+        #     image_markdown_to_insert = ""
+        #     if images_html_for_current_placeholder_list:
+        #         image_grid_html_content = "".join(images_html_for_current_placeholder_list)
+        #         image_markdown_to_insert = (
+        #             f"\n<div style='display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; margin-top: 10px; margin-bottom: 10px; padding-left: 15px; border-left: 3px solid #eee;'>"
+        #             f"{image_grid_html_content}"
+        #             f"</div>\n"
+        #         )
+        #     # --- KẾT THÚC THAY ĐỔI LOGIC XỬ LÝ NHIỀU ẢNH ---
             
-            processed_answer_parts.append(image_markdown_to_insert)
-            last_idx = match.end()
+        #     processed_answer_parts.append(image_markdown_to_insert)
+        #     last_idx = match.end()
 
         processed_answer_parts.append(final_answer_display[last_idx:])
         final_answer_display = "".join(processed_answer_parts)
@@ -480,6 +480,74 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{urls_string}"
 
     return final_answer_display.strip()
+
+def render_html_for_assistant_message(text_content, relevant_documents):
+    if not relevant_documents or not isinstance(relevant_documents, list) or not text_content:
+        return text_content
+
+    processed_answer_parts = []
+    last_idx = 0
+    displayed_sign_filenames = set()
+
+    for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", text_content):
+        source_idx_one_based = int(match.group(1))
+        source_idx_zero_based = source_idx_one_based - 1
+        processed_answer_parts.append(text_content[last_idx:match.start()])
+
+        images_html_for_current_placeholder_list = []
+        if 0 <= source_idx_zero_based < len(relevant_documents):
+            doc_item = relevant_documents[source_idx_zero_based]
+            doc_content = doc_item.get('doc')
+            if isinstance(doc_content, dict):
+                metadata = doc_content.get('metadata', {})
+                traffic_sign_value = metadata.get('traffic_sign')
+                filenames_to_process_for_chunk = []
+                if isinstance(traffic_sign_value, str):
+                    filenames_to_process_for_chunk = [traffic_sign_value]
+                elif isinstance(traffic_sign_value, list):
+                    filenames_to_process_for_chunk = traffic_sign_value
+
+                for traffic_sign_filename_original in filenames_to_process_for_chunk:
+                    if traffic_sign_filename_original and traffic_sign_filename_original not in displayed_sign_filenames:
+                        image_full_path = os.path.join(config.TRAFFIC_SIGN_IMAGES_ROOT_DIR, traffic_sign_filename_original)
+                        if os.path.exists(image_full_path):
+                            try:
+                                with open(image_full_path, "rb") as img_file:
+                                    b64_string = base64.b64encode(img_file.read()).decode()
+                                file_ext = os.path.splitext(traffic_sign_filename_original)[1][1:].lower()
+                                if not file_ext: file_ext = "png"
+                                base_name_no_ext = os.path.splitext(traffic_sign_filename_original)[0]
+                                display_sign_name = base_name_no_ext.replace("_", ".")
+                                single_image_html = (
+                                    f"<div style='flex: 1 0 23%; max-width: 24%; margin: 5px; text-align: center;'>"
+                                    f"<img src='data:image/{file_ext};base64,{b64_string}' "
+                                    f"alt='Biển báo: {display_sign_name}' "
+                                    f"style='width: 100%; max-width: 150px; height: auto; border: 1px solid #ddd; padding: 2px; border-radius: 4px;'/>"
+                                    f"<p style='font-size: 0.75em; margin-top: 2px; font-style: italic; word-wrap: break-word;'>{display_sign_name}</p>"
+                                    f"</div>"
+                                )
+                                images_html_for_current_placeholder_list.append(single_image_html)
+                                displayed_sign_filenames.add(traffic_sign_filename_original)
+                            except Exception as e_img:
+                                images_html_for_current_placeholder_list.append(f"<div style='color: red; font-style: italic; padding-left: 20px; flex-basis:100%'>[Lỗi hiển thị ảnh: {traffic_sign_filename_original} - {e_img}]</div>")
+                        else:
+                            images_html_for_current_placeholder_list.append(f"<div style='color: orange; font-style: italic; padding-left: 20px; flex-basis:100%'>[Không tìm thấy ảnh: {traffic_sign_filename_original}]</div>")
+                    elif traffic_sign_filename_original in displayed_sign_filenames:
+                         pass
+
+        image_markdown_to_insert = ""
+        if images_html_for_current_placeholder_list:
+            image_grid_html_content = "".join(images_html_for_current_placeholder_list)
+            image_markdown_to_insert = (
+                f"\n<div style='display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; margin-top: 10px; margin-bottom: 10px; padding-left: 15px; border-left: 3px solid #eee;'>"
+                f"{image_grid_html_content}"
+                f"</div>\n"
+            )
+        processed_answer_parts.append(image_markdown_to_insert)
+        last_idx = match.end()
+
+    processed_answer_parts.append(text_content[last_idx:])
+    return "".join(processed_answer_parts)
 
 # --- Các hàm tính toán metrics ---
 

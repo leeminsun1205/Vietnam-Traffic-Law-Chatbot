@@ -27,7 +27,7 @@ if "answer_mode" not in st.session_state:
     st.session_state.answer_mode = 'Ngắn gọn'
 
 if "retrieval_query_mode" not in st.session_state:
-    st.session_state.retrieval_query_mode = 'Tổng quát' 
+    st.session_state.retrieval_query_mode = 'Mở rộng' 
 
 if "retrieval_method" not in st.session_state:
     st.session_state.retrieval_method = 'hybrid'
@@ -61,13 +61,13 @@ with st.sidebar:
 
     retrieval_query_mode_choice = st.radio(
         "Nguồn câu hỏi cho Retrieval:",
-        options=['Đơn giản', 'Tổng quát', 'Sâu'],
+        options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
         key="retrieval_query_mode", 
         horizontal=True,
         help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
-            "**Tổng quát:** Chỉ dùng câu hỏi tóm tắt (do AI tạo).\n"
-            "**Sâu:** Dùng cả câu hỏi gốc và các biến thể (do AI tạo)."
+            "**Mở rộng:** Chỉ dùng câu hỏi mở rộng từ câu hỏi gốc (do AI tạo).\n"
+            "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
         )
     )
 
@@ -114,7 +114,13 @@ for message in st.session_state.messages:
     # with st.chat_message(message["role"]):
     #     st.markdown(message["content"])
     with st.chat_message(message["role"]):
-        st.markdown(message["content"], unsafe_allow_html=True)
+        # st.markdown(message["content"], unsafe_allow_html=True)
+        content_to_display = message["content"]
+        if message["role"] == "assistant":
+            # Lấy relevant_docs từ message, nếu không có thì dùng list rỗng
+            docs_for_this_message = message.get("relevant_docs_for_display", [])
+            content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message)
+        st.markdown(content_to_display, unsafe_allow_html=True)
 
 # --- Khởi tạo hệ thống ---
 init_ok = False
@@ -192,10 +198,10 @@ if init_ok:
                     if retrieval_query_mode == 'Đơn giản':
                         queries_to_search = [user_query]
                         query_source_log = "câu hỏi gốc"
-                    elif retrieval_query_mode == 'Tổng quát':
+                    elif retrieval_query_mode == 'Mở rộng':
                         queries_to_search = [summarizing_q]
                         query_source_log = "câu hỏi tóm tắt"
-                    elif retrieval_query_mode == 'Sâu':
+                    elif retrieval_query_mode == 'Đa dạng':
                         queries_to_search = all_queries # all_queries đã bao gồm user_query
                         query_source_log = f"câu hỏi gốc và {len(all_queries)-1} biến thể"
 
@@ -307,7 +313,12 @@ if init_ok:
                     utils.log_qa_to_json(user_query, full_response)
                 # Đảm bảo tin nhắn của assistant luôn được thêm vào history
                 if full_response: 
-                    st.session_state.messages.append({"role": "assistant", "content": full_response})
+                    # st.session_state.messages.append({"role": "assistant", "content": full_response})
+                    st.session_state.messages.append({
+                        "role": "assistant",
+                        "content": full_response, # Nội dung thô với placeholder
+                        "relevant_docs_for_display": final_relevant_documents # Lưu tài liệu liên quan của lượt này
+                    })
 
 elif not init_ok:
     st.error("⚠️ Hệ thống chưa thể khởi động do lỗi tải mô hình hoặc dữ liệu. Vui lòng kiểm tra lại.")

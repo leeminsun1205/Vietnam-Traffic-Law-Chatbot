@@ -175,7 +175,7 @@ if init_ok:
                     chat_history=history_for_llm1,
                     num_variations=config.NUM_QUERY_VARIATIONS
                 )
-
+                st.write(summarizing_q)
                 # --- Kiểm tra mức độ liên quan ---
                 if relevance_status == 'invalid':
                     if direct_answer and direct_answer.strip():

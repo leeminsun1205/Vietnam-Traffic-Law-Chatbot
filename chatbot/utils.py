@@ -235,156 +235,6 @@ def extract_and_normalize_document_key(citation_text):
         return key
     return None
 
-# --- Generation ---
-# def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
-#     """Tạo câu trả lời cuối cùng bằng Gemini dựa trên context."""
-
-#     url_mapping_dict = load_document_url_mapping()
-#     context_for_prompt = "..."
-#     history_prefix = "..."
-#     context_str_parts = []
-#     source_details_for_prompt = []
-
-#     if not relevant_documents:
-#         context_str_parts.append("Không có thông tin ngữ cảnh nào được cung cấp.")
-#     else:
-#         for i, item in enumerate(relevant_documents):
-#             doc = item.get('doc'); 
-#             text = doc.get('text', '').strip(); 
-#             metadata = doc.get('metadata', {})
-#             if not doc or not text: continue
-
-#             source_name = metadata.get('source', 'N/A'); 
-#             url = metadata.get('url'); 
-#             context_meta = metadata.get('context', {})
-#             chuong = context_meta.get('chuong')
-#             muc = context_meta.get('muc')
-#             dieu = context_meta.get('dieu')
-#             khoan = context_meta.get('khoan')
-#             diem = context_meta.get('diem')
-            
-#             source_parts = [f"Văn bản: {source_name}"]
-#             if chuong: source_parts.append(f"Chương {chuong}")
-#             if muc: source_parts.append(f"Mục {muc}")
-#             if dieu: source_parts.append(f"Điều {dieu}")
-#             if khoan: source_parts.append(f"Khoản {khoan}")
-#             if diem: source_parts.append(f"Điểm {diem}")
-#             source_ref_full = ", ".join(source_parts)
-#             source_details_for_prompt.append(f"Nguồn {i+1}: [{source_ref_full}]\nNội dung: {text}\n---")
-
-#         if not source_details_for_prompt:
-#              context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp."
-#         else:
-#              context_for_prompt = "\n".join(source_details_for_prompt) 
-
-#     # --- Xây dựng chuỗi lịch sử chat gần đây ---
-#     if chat_history: # chat_history là list các dict {"role": "user/assistant", "content": ...}
-#         history_prefix = "**Lịch sử trò chuyện gần đây:**\n"
-#         for msg in chat_history:
-#             # Đảm bảo role và content tồn tại và là string
-#             role = msg.get("role", "unknown").capitalize()
-#             content = msg.get("content", "").strip()
-#             if role and content:
-#                  history_prefix += f"{role}: {content}\n"
-#         history_prefix += "---\n"
-
-#     full_prompt_template = f"""Bạn là trợ lý chuyên về luật giao thông Việt Nam.
-#     {history_prefix}
-#     Nhiệm vụ: Dựa vào Lịch sử trò chuyện gần đây (nếu có) và Ngữ cảnh được cung cấp, trả lời câu hỏi HIỆN TẠI của người dùng (`{query_text}`) một cách **CHI TIẾT** và chính xác. **CHỈ DÙNG** thông tin từ ngữ cảnh pháp lý được cung cấp để trả lời các câu hỏi về luật. Đối với các câu hỏi khác, có thể dựa vào lịch sử trò chuyện.
-
-#     **Ngữ cảnh được cung cấp (Dùng để trả lời câu hỏi về luật):**
-#     {context_for_prompt}
-
-#     **Câu hỏi HIỆN TẠI của người dùng:** {query_text}
-
-#     **Yêu cầu trả lời:**
-#     1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn hay thêm kiến thức ngoài. 
-#     2.  * **Gom nhóm nguồn** hợp lý: Trích dẫn một lần cho cùng một Văn Bản/Chương/Mục/Điều/Khoản/Điểm; trích dẫn Điều chung nếu các Khoản/Điểm khác nhau trong cùng Điều; trích dẫn một lần nếu chỉ dùng một nguồn. Ưu tiên sự súc tích. Phải nêu đầy đủ theo cấu trúc sau: `(Theo Điều 5, Khoản 2, Điểm a, Văn bản: 36/2024/QH15)`.
-#         **Tổng hợp và query_text trích dẫn:**
-#         * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài.
-#         * Sau mỗi ý hoặc nhóm ý, **nêu rõ nguồn gốc** dùng thông tin trong dấu `(...)`.
-#     3.  **Trình bày rõ ràng:** Dùng gạch đầu dòng `-`, số thứ tự `1., 2.`, **in đậm** (`** **`) cho nội dung chính/mức phạt/kết luận.
-#     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
-#     5.  **Thiếu thông tin:** Nếu ngữ cảnh không có thông tin, trả lời: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"
-#     6.  **Thông tin liên quan (nếu có):** Nếu không có câu trả lời trực tiếp nhưng có thông tin liên quan (phải liên quan đến ý nghĩa **chuẩn xác** của câu hỏi), có thể đề cập sau khi báo không tìm thấy câu trả lời chính xác. Nhưng chỉ đề cập những câu gần ý nghĩa nhất.
-#     7.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
-#         - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
-#         - Điểm thứ b trong Điều/Khoản
-#         - Điểm thứ c trong Điều/Khoản
-#         - Điểm thứ d trong Điều/Khoản
-#         - Điểm thứ đ trong Điều/Khoản
-#         - ... 
-#     8.  Cần phân biệt rõ xe máy và xe máy chuyên dùng (Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ). Nếu câu hỏi chỉ nói là xe máy thì câu trả lời phải hiểu là xe máy thông thường, xe hai bánh, xe gắn máy, ...
-#     9.  Phải thể hiện được tính logic từ câu hỏi sang câu trả lời ví dụ câu hỏi yêu cầu cao như so sánh, tính tổng, tình huống, ...
-#     **Trả lời:**
-#     """
-
-#     # Prompt Ngắn Gọn 
-#     brief_prompt_template = f"""Bạn là trợ lý luật giao thông Việt Nam.
-#     {history_prefix}
-#     Nhiệm vụ: Dựa vào Lịch sử trò chuyện (nếu có) và Ngữ cảnh, trả lời câu hỏi HIỆN TẠI (`{query_text}`) **CỰC KỲ NGẮN GỌN**, đi thẳng vào trọng tâm. **CHỈ DÙNG** ngữ cảnh để trả lời về luật.
-
-#     **Ngữ cảnh (Dùng để trả lời câu hỏi về luật):**
-#     {context_for_prompt}
-
-#     **Câu hỏi HIỆN TẠI:** {query_text}
-
-#     **Yêu cầu trả lời NGẮN GỌN:**
-#     1.  **Chỉ dùng ngữ cảnh.** 
-#     2.  **Súc tích:** Trả lời trực tiếp, dùng gạch đầu dòng (-) nếu cần. **In đậm** điểm chính/mức phạt.
-#     3.  **Trích dẫn tối thiểu:** Chỉ nêu nguồn chính yếu nếu thực sự cần. Phải nêu đầy đủ theo cấu trúc sau `(Theo Đ.5, K.2, Điểm a, Văn bản: 36/2024/QH15)`.
-#     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
-#     5.  **Thiếu thông tin:** Nếu không có, nói: "**Không tìm thấy thông tin phù hợp.**"
-#     6.  Thứ tự ưu tiên khi câu hỏi mang tính so sánh là:
-#         - Điểm thứ a trong Điều/Khoản (ưu tiên cao nhất)
-#         - Điểm thứ b trong Điều/Khoản
-#         - Điểm thứ c trong Điều/Khoản
-#         - Điểm thứ d trong Điều/Khoản
-#         - Điểm thứ đ trong Điều/Khoản
-#         - ...
-#     7.  Cần phân biệt rõ xe máy và xe máy chuyên dùng (Xe máy chuyên dùng gồm xe máy thi công, xe máy nông nghiệp, lâm nghiệp và các loại xe đặc chủng khác sử dụng vào mục đích quốc phòng, an ninh có tham gia giao thông đường bộ). Nếu câu hỏi chỉ nói là xe máy thì câu trả lời phải hiểu là xe máy thông thường, xe hai bánh, xe gắn máy, ...
-#     8.  Phải thể hiện được tính logic từ câu hỏi sang câu trả lời ví dụ câu hỏi yêu cầu cao như so sánh, tính tổng, tình huống, ...
-#     **Trả lời NGẮN GỌN:**
-#     """
-
-#     # --- Chọn Prompt dựa trên chế độ ---
-#     if mode == 'Ngắn gọn':
-#         prompt = brief_prompt_template
-#     else: 
-#         prompt = full_prompt_template
-
-#     # --- Gọi API và xử lý kết quả ---
-#     final_answer_display = "Lỗi khi tạo câu trả lời từ Gemini."
-#     try:
-#         if not gemini_model: raise ValueError("...")
-#         response = gemini_model.generate_content(prompt)
-#         if response.parts:
-#             final_answer_display = response.text
-#         else: final_answer_display = "..."
-#     except Exception as e:
-#         final_answer_display = f"Lỗi: {e}"
-
-#     # --- Bước 3 & 4: Phân tích trích dẫn và Tra cứu URL từ mapping ---
-#     found_urls = set()
-    
-#     citations_found = re.findall(r'\((.*?)\)', final_answer_display)
-#     for citation in citations_found:
-#         # Trích xuất và chuẩn hóa khóa
-#         doc_key = extract_and_normalize_document_key(citation)
-#         if doc_key:
-#             url = url_mapping_dict.get(doc_key) 
-#             if url:
-#                 found_urls.add(url)
-
-#     # --- Nối chuỗi URL vào câu trả lời (nếu tìm thấy) ---
-#     if found_urls:
-#         sorted_urls = sorted(list(found_urls))
-#         urls_string = "\n".join(f"- [{url}]({url})" for url in sorted_urls)
-#         final_answer_display += f"\n\n**Nguồn:**\n{urls_string}"
-
-#     return final_answer_display
-# --- Generation (Phần chính cần sửa) ---
-
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     url_mapping_dict = load_document_url_mapping()
     source_details_for_prompt = []
@@ -452,7 +302,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     placeholder_instruction = (
         "9. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
         "Khi bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
-        "VÀ nguồn đó có ghi chú đặc biệt về việc nội dung liên quan đến một hoặc nhiều biển báo (thường bắt đầu bằng cụm từ như '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến biển báo...' hoặc '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến các biển báo...)' ), "
+        "VÀ nguồn đó có ghi chú đặc biệt về việc nội dung liên quan đến một hoặc nhiều biển báo (thường bắt đầu bằng cụm từ như '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến (các) biển báo...'), "
         "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"
         "    a. Đầu tiên, trình bày **nội dung văn bản** mà bạn trích xuất hoặc diễn giải.\n"
         "    b. **Ngay sau nội dung văn bản đó**, nếu bạn muốn hoặc cần trích dẫn nguồn chi tiết cho phần văn bản này, hãy viết **trích dẫn nguồn** (ví dụ: `(Theo Chương A, Mục B, Điều X, Khoản Y, Điểm z, Văn bản ABC)`).\n"
@@ -465,10 +315,10 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     common_requirements = f"""
     1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn kiến thức ngoài luồng.
     2.  **Gom nhóm nguồn và trích dẫn:**
-        * Khi trích dẫn, hãy tham chiếu đến cấu trúc văn bản (Chương, Mục, Điều, Khoản, Điểm, tên Văn bản) một cách rõ ràng nhất đã. Ví dụ: `(Theo Chương A, Mục B, Điều X, Khoản Y, Điểm z, Văn bản ABC)`.
-        * Những đoạn cùng cấu trúc Văn bản, Chương, Mục, Điều, Khoản **BẮT BUỘC** nhóm chúng lại với nhau để cho nguồn được gọn gàng và dễ nhìn, cho người dùng.
-        * Kết hợp thông tin từ nhiều đoạn nếu cần, đảm bảo không **bỏ sót** hoặc **dư thừa** thông tin, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài dòng.
-        * Sau mỗi ý hoặc nhóm ý chính, **nêu rõ nguồn gốc** dùng thông tin trong dấu `(...)`.
+        * Khi trích dẫn, hãy tham chiếu đến cấu trúc văn bản (Điều, Khoản, Điểm, tên Văn bản) một cách rõ ràng nhất đã. Ví dụ: `(Theo Điều X, Khoản Y, Điểm z, Văn bản ABC)`.
+        * Những đoạn cùng cấu trúc nguồn (Văn bản, Điều, Khoản) **BẮT BUỘC** nhóm nguồn lại với nhau để gọn gàng và dễ nhìn cho người dùng.
+        * Kết hợp thông tin từ nhiều đoạn nếu cần, **diễn đạt lại mạch lạc**, tránh lặp lại nguyên văn dài dòng. Nhưng **tuyệt đối không pha trộn thông tin 1 cách tùy tiện gây sai lệch nghiêm trọng thông tin**.
+        * Sau mỗi ý hoặc nhóm ý chính, **nêu rõ nguồn gốc** dùng thông tin trong dấu "`(...)`".
     3.  **Trình bày súc tích:** Sử dụng gạch đầu dòng (`-`) nếu cần hoặc đánh số (`1., 2.`), **in đậm** (`** **`) cho các nội dung quan trọng như mức phạt, kết luận, hoặc các điểm chính.
     4.  **Hiểu ngữ nghĩa:** Tìm thông tin liên quan ngay cả khi từ ngữ không khớp hoàn toàn (ví dụ: "rượu, bia" sẽ liên quan tới "nồng độ cồn"; "đèn đỏ", "đèn vàng" là "đèn tín hiệu", "xe máy" vs "xe mô tô/gắn máy/xe hai bánh", ...và từ ngữ giao thông khác).
     5.  **Trường hợp thiếu thông tin:** Nếu ngữ cảnh được cung cấp không chứa thông tin để trả lời câu hỏi, hãy trả lời một cách trung thực, ví dụ: "**Dựa trên thông tin được cung cấp, tôi không tìm thấy nội dung phù hợp để trả lời câu hỏi này.**"

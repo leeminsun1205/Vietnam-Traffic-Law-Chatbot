@@ -148,6 +148,7 @@ if init_ok:
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
+            raw_llm_output = ""
             processing_log = []
             try:
                 start_time = time.time()

@@ -299,7 +299,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         history_prefix += "---\n"
 
     placeholder_instruction = (
-        "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
+        "11. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
         "Khi bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
         "VÀ nguồn đó có ghi chú đặc biệt về việc nội dung liên quan đến một hoặc nhiều biển báo (thường bắt đầu bằng cụm từ như '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến (các) biển báo...'), "
         "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"
@@ -331,6 +331,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     7.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (xe mô tô, xe gắn máy, ...) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.). Nếu câu hỏi về "xe máy" thì **CHỈ** trả lời "xe mô tô, xe gắn máy". 
     8.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
     9.  **Trả lời trọng tâm**: Đảm bảo câu trả lời **đủ để giải đáp cho câu hỏi**, không cần trả lời lan man, thông tin không liên quan, trừ khi thật sự cần thiết, nhất là các câu hỏi về phương tiện, biển báo. Với các phương tiện, thực thể nằm sau từ "trừ" thì tức là không có tác dụng vi phạm cho điều luật đó.
+    10. Kiểm tra lại cú pháp Markdown của câu trả lời trước khi hoàn thành.
     {placeholder_instruction}
     """
     full_prompt_template = f"""Bạn là một trợ lý chuyên sâu về Luật Giao thông Đường bộ Việt Nam.

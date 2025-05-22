@@ -375,9 +375,9 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     except Exception as e:
         final_answer_display = f"Đã xảy ra sự cố khi xử lý yêu cầu của bạn. Chi tiết lỗi: {str(e)[:200]}..."
 
-    if relevant_documents and isinstance(relevant_documents, list) and final_answer_display:
-        processed_answer_parts = []
-        last_idx = 0
+    # if relevant_documents and isinstance(relevant_documents, list) and final_answer_display:
+    #     processed_answer_parts = []
+    #     last_idx = 0
         # displayed_sign_filenames = set()
 
         # for match in re.finditer(r"\[DISPLAY_TRAFFIC_SIGN_INDEX_(\d+)]", final_answer_display):
@@ -450,8 +450,8 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         #     processed_answer_parts.append(image_markdown_to_insert)
         #     last_idx = match.end()
 
-        processed_answer_parts.append(final_answer_display[last_idx:])
-        final_answer_display = "".join(processed_answer_parts)
+        # processed_answer_parts.append(final_answer_display[last_idx:])
+        # final_answer_display = "".join(processed_answer_parts)
 
     found_urls = set()
     citations_found = re.findall(r'\((?:[Tt]heo\s)?([^)]+?)\)', final_answer_display)
@@ -484,7 +484,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 def render_html_for_assistant_message(text_content, relevant_documents):
     if not relevant_documents or not isinstance(relevant_documents, list) or not text_content:
         return text_content
-
+    st.write('START')
     processed_answer_parts = []
     last_idx = 0
     displayed_sign_filenames = set()

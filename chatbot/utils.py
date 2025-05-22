@@ -484,7 +484,6 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 def render_html_for_assistant_message(text_content, relevant_documents):
     if not relevant_documents or not isinstance(relevant_documents, list) or not text_content:
         return text_content
-    st.write('START')
     processed_answer_parts = []
     last_idx = 0
     displayed_sign_filenames = set()

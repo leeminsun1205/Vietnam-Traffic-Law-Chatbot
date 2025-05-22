@@ -116,6 +116,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         # st.markdown(message["content"], unsafe_allow_html=True)
         content_to_display = message["content"]
+        st.write('START')
         if message["role"] == "assistant":
             # Lấy relevant_docs từ message, nếu không có thì dùng list rỗng
             docs_for_this_message = message.get("relevant_docs_for_display", [])

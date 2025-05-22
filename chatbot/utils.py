@@ -69,11 +69,11 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
     **Bước 2: Tạo Phản hồi JSON**
     Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạng sau:
 
-    * **Nếu câu hỏi KHÔNG liên quan:** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
+    * **Nếu câu hỏi KHÔNG liên quan hoặc có thông tin MƠ HỒ:** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
         ```json
         {{
         "relevance": "invalid",
-        "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan hoặc chuỗi rỗng]",
+        "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan, hoặc câu hỏi ngược lại người dùng nhằm xác minh chi tiết hơn ý đồ của người dùng muốn hỏi hoặc chuỗi rỗng]",
         "variations": [],
         "summarizing_query": ""
         }}
@@ -299,7 +299,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         history_prefix += "---\n"
 
     placeholder_instruction = (
-        "9. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
+        "10. **QUAN TRỌNG - HIỂN THỊ BIỂN BÁO VÀ TRÍCH DẪN NGUỒN**: "
         "Khi bạn sử dụng thông tin từ một 'Nguồn' (được đánh số thứ tự 1, 2, 3,... trong phần 'Ngữ cảnh được cung cấp') "
         "VÀ nguồn đó có ghi chú đặc biệt về việc nội dung liên quan đến một hoặc nhiều biển báo (thường bắt đầu bằng cụm từ như '(LƯU Ý QUAN TRỌNG: Nội dung này có liên quan đến (các) biển báo...'), "
         "hãy tuân theo THỨ TỰ sau cho mỗi phần thông tin bạn lấy từ nguồn đó:\n"
@@ -330,6 +330,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         - ...
     7.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (xe mô tô, xe gắn máy, ...) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.). Nếu câu hỏi về "xe máy" thì **CHỈ** trả lời "xe mô tô, xe gắn máy". 
     8.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
+    9.  **Trả lời trọng tâm**: Đảm bảo câu trả lời **đủ để giải đáp cho câu hỏi**, không cần trả lời lan man, thông tin không liên quan, trừ khi thật sự cần thiết, nhất là các câu hỏi về phương tiện, biển báo.
     {placeholder_instruction}
     """
     full_prompt_template = f"""Bạn là một trợ lý chuyên sâu về Luật Giao thông Đường bộ Việt Nam.

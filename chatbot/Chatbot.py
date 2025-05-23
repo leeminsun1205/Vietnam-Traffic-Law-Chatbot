@@ -293,7 +293,7 @@ if init_ok:
                         # Chọn top N docs để rerank
                         docs_to_rerank = retrieved_docs_list[:config.MAX_DOCS_FOR_RERANK]
                         rerank_input = [{'doc': item['doc'], 'index': item['index']} for item in docs_to_rerank]
-                        st.write(current_reranker_model.model_name)
+                        st.write(current_reranker_model)
                         reranked_results = rerank_documents(
                             query_for_reranking,
                             rerank_input, # Đảm bảo đúng định dạng đầu vào

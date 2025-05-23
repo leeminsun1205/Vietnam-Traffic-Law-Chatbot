@@ -28,7 +28,7 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
     distances, indices = vector_db.search(query_embedding, k=actual_k)
     # search trả về 2D arrays, lấy phần tử đầu tiên
     return distances, indices
-class HybridRetriever:
+class Retriever:
     """Kết hợp Vector Search (Dense), BM25 Search (Sparse), hoặc cả hai (Hybrid)."""
     def __init__(self, vector_db, bm25_save_path):
         self.vector_db = vector_db

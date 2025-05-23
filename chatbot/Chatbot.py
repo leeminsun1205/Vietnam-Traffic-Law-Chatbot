@@ -2,20 +2,21 @@
 import streamlit as st
 import time
 import config
-import utils
-import data_loader
+import utils 
+from model_loader import load_embedding_model, load_gemini_model, load_reranker_model
+from data_loader import load_or_create_rag_components
+from reranker import rerank_documents
+from generation import generate_answer_with_gemini
 
 # @st.cache_resource
 def cached_load_or_create_components(_embedding_model):
-    vector_db, hybrid_retriever = data_loader.load_or_create_rag_components(_embedding_model)
+    vector_db, hybrid_retriever = load_or_create_rag_components(_embedding_model)
     return vector_db, hybrid_retriever
 
 # --- CẤU HÌNH TRANG STREAMLIT ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
 
 # --- Khởi tạo Session State cho Lịch sử Chat và Cấu hình ---
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
 
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
@@ -122,8 +123,8 @@ for message in st.session_state.messages:
 # --- Khởi tạo hệ thống ---
 init_ok = False
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
-    embedding_model = utils.load_embedding_model(config.embedding_model_name)
-    reranking_model = utils.load_reranker_model(config.reranking_model_name)
+    embedding_model = load_embedding_model(config.embedding_model_name)
+    reranking_model = load_reranker_model(config.reranking_model_name)
     models_loaded = all([embedding_model, reranking_model])
     vector_db, hybrid_retriever = cached_load_or_create_components(embedding_model)
     retriever_ready = hybrid_retriever is not None
@@ -157,7 +158,7 @@ if init_ok:
 
                 # --- Tải model Gemini đã chọn ---
                 selected_model_name = st.session_state.selected_gemini_model
-                selected_gemini_llm = utils.load_gemini_model(selected_model_name)
+                selected_gemini_llm = load_gemini_model(selected_model_name)
                 if not selected_gemini_llm:
                      raise ValueError(f"Không thể tải model Gemini: {selected_model_name}")
                 processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.")
@@ -256,7 +257,7 @@ if init_ok:
                         # Hàm rerank_documents hiện tại nhận list [{'doc': ..., 'index': ...}]
                         rerank_input = [{'doc': item['doc'], 'index': item['index']} for item in docs_to_rerank]
 
-                        reranked_results = utils.rerank_documents(
+                        reranked_results = rerank_documents(
                             query_for_reranking,
                             rerank_input, # Đảm bảo đúng định dạng đầu vào
                             reranking_model
@@ -279,7 +280,7 @@ if init_ok:
                     answer_mode = st.session_state.answer_mode
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Tổng hợp câu trả lời (chế độ: {answer_mode})...")
                     message_placeholder.markdown(" ".join(processing_log))
-                    raw_llm_output = utils.generate_answer_with_gemini(
+                    raw_llm_output = generate_answer_with_gemini(
                         query_text=user_query,
                         relevant_documents=final_relevant_documents, 
                         gemini_model=selected_gemini_llm,

@@ -8948,8 +8948,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_737",
-    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định). Riêng biển số R.412e “Làn đường dành cho xe buýt”, nếu vạch sơn phân làn dành cho xe buýt có dạng nét đứt, các xe khác có thể đi vào làn xe này nhưng phải ưu tiên cho xe buýt (phải nhường đường, chuyển sang làn khác để không ảnh hưởng đến việc vận hành của xe buýt); trường hợp vạch sơn phân làn dành cho xe buýt là nét liền, các phương tiện khác không được đi vào làn đường dành cho xe buýt.\n- Biển số R.412a \"Làn đường dành cho xe ôtô khách\": làn đường dành riêng cho ô tô khách (kể cả ô tô buýt). Trong trường hợp cần phân làn các loại xe khách theo số chỗ ngồi thì ghi số chỗ ngồi cho phép của xe khách lên thân xe trong hình vẽ của biển (Ví dụ: “< 16c”. Khi báo hiệu làn đường dành riêng cho xe buýt nhanh, bổ sung thêm cụm từ “BRT” trên biển số R.412a.\n- Biển số R.412b \"Làn đường dành cho xe ô tô con\".\n- Biển số R.412c \"Làn đường dành cho xe ô tô tải\". Trong trường hợp cần phân làn các loại xe tải theo khối lượng chuyên chở cho phép thì ghi trị số khối lượng chuyên chở cho phép của xe tải lên thân xe trong hình vẽ của biển (Ví dụ: “<3,5t”).\n- Biển số R.412d \"Làn đường dành cho xe máy\": làn đường dành riêng cho xe máy và xe gắn máy.\n- Biển số R.412e “Làn đường dành cho xe buýt”.\n- Biển số R.412f “Làn đường dành cho xe ô tô”: làn đường dành cho các loại xe ô tô.\n- Biển số R.412g “Làn đường dành cho xe máy và xe đạp”: làn đường dành riêng cho xe máy (kể cả xe gắn máy) và xe đạp (kể cả các loại xe thô sơ khác).\n- Biển số R.412h “Làn đường dành cho xe đạp”: làn đường dành riêng cho xe đạp (kể cả các loại xe thô sơ khác).",
+    "id": "41_2024_BGTVT_chunk_737a",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412a \"Làn đường dành cho xe ôtô khách\": làn đường dành riêng cho ô tô khách (kể cả ô tô buýt). Trong trường hợp cần phân làn các loại xe khách theo số chỗ ngồi thì ghi số chỗ ngồi cho phép của xe khách lên thân xe trong hình vẽ của biển (Ví dụ: “< 16c”). Khi báo hiệu làn đường dành riêng cho xe buýt nhanh, bổ sung thêm cụm từ “BRT” trên biển số R.412a.",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -8959,7 +8959,112 @@
         "muc_1": "D.14",
         "phu_luc": "D"
       },
-      "traffic_sign": ["R_412a.png", "R_412b.png", "R_412c.png", "R_412d.png", "R_412e.png", "R_412f.png", "R_412g.png", "R_412h.png"]
+      "traffic_sign": ["R_412a.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737b",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412b \"Làn đường dành cho xe ô tô con\". ",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412b.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737c",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412c \"Làn đường dành cho xe ô tô tải\". Trong trường hợp cần phân làn các loại xe tải theo khối lượng chuyên chở cho phép thì ghi trị số khối lượng chuyên chở cho phép của xe tải lên thân xe trong hình vẽ của biển (Ví dụ: “<3,5t”). ",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412c.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737d",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định). - Biển số R.412d \"Làn đường dành cho xe máy\": làn đường dành riêng cho xe máy và xe gắn máy.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412d.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737e",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412e “Làn đường dành cho xe buýt”.",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412e.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737f",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412f “Làn đường dành cho xe ô tô”: làn đường dành cho các loại xe ô tô. ",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412f.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737g",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412g “Làn đường dành cho xe máy và xe đạp”: làn đường dành riêng cho xe máy (kể cả xe gắn máy) và xe đạp (kể cả các loại xe thô sơ khác). ",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412g.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_737h",
+    "text": "Phụ lục D\nD.14  Biển số R.412 (a,b,c,d,e,f,g,h) \"Làn đường dành riêng cho từng loại xe hoặc nhóm xe\"\na) Để báo hiệu cho người tham gia giao thông biết có làn đường dành riêng cho từng loại xe hoặc nhóm xe riêng biệt, đặt biển số R.412 (a,b,c,d,e,f,g,h). Biển được đặt phía trên làn xe, ở đầu đường theo chiều xe chạy. Tùy loại phương tiện, nhóm phương tiện cần quy định mà bố trí hình vẽ, biểu tượng các phương tiện tương ứng và mũi tên trên biển cho phù hợp và đảm bảo mỹ quan. Các loại xe khác không được đi vào làn đường có đặt biển này (trừ các xe được quyền ưu tiên theo quy định): - Biển số R.412h “Làn đường dành cho xe đạp”: làn đường dành riêng cho xe đạp (kể cả các loại xe thô sơ khác). ",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "diem": "a",
+        "muc_1": "D.14",
+        "phu_luc": "D"
+      },
+      "traffic_sign": ["R_412h.png"]
     }
   },
   {
@@ -10938,8 +11043,8 @@
     }
   },
   {
-    "id": "41_2024_BGTVT_chunk_852",
-    "text": "Phụ lục F\nF.12. Biển số S.510a “Chú ý đường trơn có băng tuyết” và Biển số S.510b “Chú ý đường sắt”\nĐể cảnh báo đường trơn, có tuyết trong những ngày trời có tuyết, đặt biển phụ số S.510a “Chú ý đường trơn có băng tuyết”. Để cảnh báo khi rẽ vào đường nhánh sẽ có giao cắt với đường sắt (khoảng cách giữa đường sắt với đoạn đường đặt biển dưới 100 m), đặt biển phụ số S.510b “Chú ý đường sắt”. Biển hình chữ nhật nền đỏ, chữ và viền màu trắng, hình vẽ màu đen.",
+    "id": "41_2024_BGTVT_chunk_852a",
+    "text": "Phụ lục F\nF.12. Biển số S.510a “Chú ý đường trơn có băng tuyết”\nĐể cảnh báo đường trơn, có tuyết trong những ngày trời có tuyết, đặt biển phụ số S.510a “Chú ý đường trơn có băng tuyết”",
     "metadata": {
       "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
       "effective_date": "1-1-2025",
@@ -10948,7 +11053,21 @@
         "muc_1": "F.12",
         "phu_luc": "F"
       },
-      "traffic_sign": ["S_510a.png", "S_510b.png"]
+      "traffic_sign": ["S_510a.png"]
+    }
+  },
+  {
+    "id": "41_2024_BGTVT_chunk_852b",
+    "text": "Phụ lục F\nF.12. Biển số S.510b “Chú ý đường sắt”\nĐể cảnh báo khi rẽ vào đường nhánh sẽ có giao cắt với đường sắt (khoảng cách giữa đường sắt với đoạn đường đặt biển dưới 100 m), đặt biển phụ số S.510b “Chú ý đường sắt”",
+    "metadata": {
+      "source": "Quy chuẩn kỹ thuật số 41_2024_BGTVT",
+      "effective_date": "1-1-2025",
+      "url": "https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html",
+      "context": {
+        "muc_1": "F.12",
+        "phu_luc": "F"
+      },
+      "traffic_sign": ["S_510b.png"]
     }
   },
   {

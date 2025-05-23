@@ -9,7 +9,7 @@ AVAILABLE_RERANKER_MODELS = [
     'namdp-ptit/ViRanker',
     'BAAI/bge-reranker-v2-m3'
 ]
-reranking_model_name = 'namdp-ptit/ViRanker' 
+DEFAULT_RERANKER_MODEL = 'namdp-ptit/ViRanker'
 
 # --- Danh sách các mô hình Gemini có sẵn ---
 AVAILABLE_GEMINI_MODELS = [

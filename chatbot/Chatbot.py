@@ -140,6 +140,8 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     vector_db, hybrid_retriever = cached_load_or_create_components(embedding_model)
     retriever_ready = hybrid_retriever is not None
 
+    status_label = "✅ Hệ thống đã sẵn sàng!"
+    status_state = "complete"
     init_ok = True
 
     if not models_loaded: 

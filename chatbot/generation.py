@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 from utils import load_document_url_mapping, extract_and_normalize_document_key
 import config
+import re
 
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     url_mapping_dict = load_document_url_mapping(config.MAP_URL_PATH)

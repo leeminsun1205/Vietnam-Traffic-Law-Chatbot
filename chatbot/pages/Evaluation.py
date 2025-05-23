@@ -36,15 +36,15 @@ def run_retrieval_evaluation(
     progress_bar = st.progress(0)
     status_text = st.empty()
     total_items = len(eval_data)
-    # queries_per_batch = 15 # Cân nhắc nếu API Gemini có rate limit
-    # wait_time_seconds = 60
+    queries_per_batch = 15 # Cân nhắc nếu API Gemini có rate limit
+    wait_time_seconds = 60
 
     for i, item in enumerate(eval_data):
-        # if i > 0 and i % queries_per_batch == 0:
-        #     pause_msg = f"Đã xử lý {i}/{total_items} queries. Tạm dừng {wait_time_seconds} giây..."
-        #     status_text.text(pause_msg)
-        #     time.sleep(wait_time_seconds)
-        #     status_text.text(f"Tiếp tục xử lý query {i+1}/{total_items}...")
+        if i > 0 and i % queries_per_batch == 0:
+            pause_msg = f"Đã xử lý {i}/{total_items} queries. Tạm dừng {wait_time_seconds} giây..."
+            status_text.text(pause_msg)
+            time.sleep(wait_time_seconds)
+            status_text.text(f"Tiếp tục xử lý query {i+1}/{total_items}...")
 
         query_id = item.get("query_id"); original_query = item.get("query")
         relevant_chunk_ids = set(item.get("relevant_chunk_ids", []))

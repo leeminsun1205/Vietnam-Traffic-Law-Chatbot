@@ -384,29 +384,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
 
     collected_citations = {} 
     citations_found_in_llm_text = re.findall(r'\((?:[Tt]heo\s)?([^)]+?)\)', final_answer_display)
-    # for citation_text in citations_found:
-    #     if '<' in citation_text and '>' in citation_text:
-    #         continue
-    #     doc_key = extract_and_normalize_document_key(citation_text)
-    #     if doc_key:
-    #         url = url_mapping_dict.get(doc_key)
-    #         if url:
-    #             found_urls.add(url)
-    # if found_urls:
-    #     sorted_urls = sorted(list(found_urls))
-    #     urls_display_list = []
-    #     for url in sorted_urls:
-    #         display_name = url
-    #         try:
-    #             from urllib.parse import urlparse
-    #             parsed_url = urlparse(url)
-    #             display_name = parsed_url.netloc + parsed_url.path
-    #             if display_name.endswith('/'): display_name = display_name[:-1]
-    #         except ImportError:
-    #             pass
-    #         urls_display_list.append(f"- [{display_name}]({url})")
-    #     urls_string = "\n".join(urls_display_list)
-    #     final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{urls_string}"
+
     for citation_text_from_llm in citations_found_in_llm_text:
         if '<' in citation_text_from_llm and '>' in citation_text_from_llm: 
             continue
@@ -457,7 +435,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         
         markdown_links_list = [f"- [{item['name']}]({item['url']})" for item in link_display_items]
         markdown_links_string = "\n".join(markdown_links_list)
-        final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{markdown_links_string}"
+        final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản pháp luật):**\n{markdown_links_string}"
 
     return final_answer_display.strip()
 

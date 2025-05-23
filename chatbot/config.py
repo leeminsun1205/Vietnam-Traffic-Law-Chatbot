@@ -2,7 +2,13 @@
 import os
 
 # --- Cấu hình Mô hình ---
-embedding_model_name = 'truro7/vn-law-embedding' 
+AVAILABLE_EMBEDDING_MODELS = [
+    'truro7/vn-law-embedding',
+    'BAAI/bge-m3',
+    'intfloat/multilingual-e5-large'
+]
+DEFAULT_EMBEDDING_MODEL = 'truro7/vn-law-embedding'
+
 # embedding_model_name = 'dangvantuan/vietnamese-document-embedding'
 AVAILABLE_RERANKER_MODELS = [
     'Không sử dụng',  # Lựa chọn không dùng reranker
@@ -56,3 +62,7 @@ VIETNAMESE_STOP_WORDS = {
     'rồi', 'sau', 'sẽ', 'so', 'tại', 'theo', 'thì', 'trên', 
     'trước', 'từ', 'từng', 'và', 'vẫn', 'vào', 'vậy', 'vì', 'với', 'vừa'
 }
+
+def get_rag_data_prefix(embedding_model_name: str) -> str:
+    model_name_slug = embedding_model_name.replace('/', '_').replace('-', '_')
+    return os.path.join(SAVED_DATA_DIR, f'legal_rag_data_{model_name_slug}')

@@ -9,9 +9,10 @@ from reranker import rerank_documents
 from generation import generate_answer_with_gemini
 
 # @st.cache_resource
-def cached_load_or_create_components(_embedding_model):
-    vector_db, hybrid_retriever = load_or_create_rag_components(_embedding_model)
-    return vector_db, hybrid_retriever
+def cached_load_or_create_components(embedding_model_name: str, _embedding_model_object):
+    current_rag_data_prefix = config.get_rag_data_prefix(embedding_model_name)
+    vector_db, retriever = load_or_create_rag_components(_embedding_model_object, current_rag_data_prefix)
+    return vector_db, retriever
 
 # --- CẤU HÌNH TRANG STREAMLIT ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
@@ -20,6 +21,9 @@ st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sid
 
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
+
+if "selected_embedding_model" not in st.session_state:
+    st.session_state.selected_embedding_model = config.DEFAULT_EMBEDDING_MODEL
 
 if "selected_gemini_model" not in st.session_state:
     st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL
@@ -41,6 +45,14 @@ with st.sidebar:
     st.title("Tùy chọn")
 
     st.header("Mô hình & Trả lời")
+
+    selected_embedding_model_name = st.selectbox(
+        "Chọn mô hình Embedding:",
+        options=config.AVAILABLE_EMBEDDING_MODELS,
+        index=config.AVAILABLE_EMBEDDING_MODELS.index(st.session_state.selected_embedding_model),
+        key="selected_embedding_model",
+        help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
+    )
 
     selected_model = st.selectbox(
         "Chọn mô hình Gemini:",
@@ -114,7 +126,12 @@ if reranker_status_display == 'Không sử dụng':
 else:
     # Lấy tên model ngắn gọn hơn để hiển thị nếu cần
     reranker_status_display = reranker_status_display.split('/')[-1]
-st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status_display}`")
+st.caption(
+    f"Embedding: `{st.session_state.selected_embedding_model.split('/')[-1]}` | "
+    f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | "
+    f"Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | "
+    f"Reranker: `{reranker_status_display}`"
+)
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -131,10 +148,10 @@ init_ok = False
 reranking_model_loaded = None
 
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
-    embedding_model = load_embedding_model(config.embedding_model_name)
-    models_loaded = all([embedding_model])
-    vector_db, hybrid_retriever = cached_load_or_create_components(embedding_model)
-    retriever_ready = hybrid_retriever is not None
+    embedding_model_object = load_embedding_model(st.session_state.selected_embedding_model)
+    models_loaded = all([embedding_model_object])
+    vector_db, retriever = cached_load_or_create_components(st.session_state.selected_embedding_model, embedding_model_object)
+    retriever_ready = retriever is not None
 
     status_label = "✅ Hệ thống đã sẵn sàng!"
     status_state = "complete"
@@ -148,11 +165,6 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
         status_label = "⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!"
         status_state = "error"
         init_ok = False
-    # elif st.session_state.selected_reranker_model != 'Không sử dụng' and not reranking_model_loaded:
-    #     status_label = f"⚠️ Lỗi tải Reranker model ({st.session_state.selected_reranker_model}). Reranking sẽ bị tắt."
-    #     status_state = "warning" # Có thể coi là warning, hệ thống vẫn chạy được nhưng không có rerank
-    #     # init_ok vẫn có thể là True, nhưng reranking_model_loaded sẽ là None
-    #     init_ok = False
 
     if init_ok:
         status.update(label=status_label, state=status_state, expanded=False)
@@ -255,9 +267,9 @@ if init_ok:
         
                     for q_idx, current_query in enumerate(queries_to_search):
                         # Gọi phương thức search mới của retriever
-                        search_results = hybrid_retriever.search(
+                        search_results = retriever.search(
                             current_query,
-                            embedding_model,
+                            embedding_model_object,
                             method=retrieval_method,
                             k=config.VECTOR_K_PER_QUERY # Lấy nhiều hơn để có đủ cho rerank/fusion
                         )

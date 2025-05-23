@@ -13,7 +13,7 @@ def load_embedding_model(model_name):
         st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
         return None
 
-# @st.cache_resource
+@st.cache_resource
 def load_reranker_model(model_name):
     if not model_name or model_name == 'Không sử dụng':
         return None

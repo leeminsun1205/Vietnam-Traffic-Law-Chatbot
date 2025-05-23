@@ -132,10 +132,6 @@ reranking_model_loaded = None
 
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     embedding_model = load_embedding_model(config.embedding_model_name)
-    if st.session_state.selected_reranker_model != 'Không sử dụng':
-        reranking_model_loaded = load_reranker_model(st.session_state.selected_reranker_model)
-    else:
-        reranking_model_loaded = None
     models_loaded = all([embedding_model])
     vector_db, hybrid_retriever = cached_load_or_create_components(embedding_model)
     retriever_ready = hybrid_retriever is not None
@@ -152,11 +148,11 @@ with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
         status_label = "⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!"
         status_state = "error"
         init_ok = False
-    elif st.session_state.selected_reranker_model != 'Không sử dụng' and not reranking_model_loaded:
-        status_label = f"⚠️ Lỗi tải Reranker model ({st.session_state.selected_reranker_model}). Reranking sẽ bị tắt."
-        status_state = "warning" # Có thể coi là warning, hệ thống vẫn chạy được nhưng không có rerank
-        # init_ok vẫn có thể là True, nhưng reranking_model_loaded sẽ là None
-        init_ok = False
+    # elif st.session_state.selected_reranker_model != 'Không sử dụng' and not reranking_model_loaded:
+    #     status_label = f"⚠️ Lỗi tải Reranker model ({st.session_state.selected_reranker_model}). Reranking sẽ bị tắt."
+    #     status_state = "warning" # Có thể coi là warning, hệ thống vẫn chạy được nhưng không có rerank
+    #     # init_ok vẫn có thể là True, nhưng reranking_model_loaded sẽ là None
+    #     init_ok = False
 
     if init_ok:
         status.update(label=status_label, state=status_state, expanded=False)
@@ -184,7 +180,11 @@ if init_ok:
                 start_time = time.time()
                 processing_log.append(f"[{time.time() - start_time:.2f}s] Bắt đầu xử lý...")
                 message_placeholder.markdown(" ".join(processing_log) + "⏳")
-
+                # --- Tải reranker đã chọn
+                if st.session_state.selected_reranker_model != 'Không sử dụng':
+                    reranking_model_loaded = load_reranker_model(st.session_state.selected_reranker_model)
+                else:
+                    reranking_model_loaded = None
                 # --- Tải model Gemini đã chọn ---
                 selected_model_name = st.session_state.selected_gemini_model
                 selected_gemini_llm = load_gemini_model(selected_model_name)

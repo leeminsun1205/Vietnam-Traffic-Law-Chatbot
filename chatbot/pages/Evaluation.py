@@ -8,8 +8,6 @@ from datetime import datetime
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import config # Đã cập nhật
-# import utils # Sửa lại import này
-# import data_loader # Sửa lại import này
 from model_loader import load_embedding_model, load_reranker_model, load_gemini_model # Import trực tiếp
 from data_loader import load_or_create_rag_components # Import trực tiếp
 from reranker import rerank_documents

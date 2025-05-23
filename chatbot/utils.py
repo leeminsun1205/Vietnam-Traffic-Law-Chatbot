@@ -237,6 +237,7 @@ def extract_and_normalize_document_key(citation_text):
 def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mode='Đầy đủ', chat_history=None):
     url_mapping_dict = load_document_url_mapping(config.MAP_URL_PATH)
     source_details_for_prompt = []
+    key_to_original_source_name_map = {}
 
     if not relevant_documents:
         context_for_prompt = "Không có thông tin ngữ cảnh nào được cung cấp."
@@ -245,9 +246,12 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             doc_content = item.get('doc')
             text = doc_content.get('text', '').strip()
             metadata = doc_content.get('metadata', {})
+            source_name_from_metadata = metadata.get('source', 'N/A')
+            normalized_key_from_meta = extract_and_normalize_document_key(source_name_from_metadata)
+            if normalized_key_from_meta and normalized_key_from_meta not in key_to_original_source_name_map:
+                key_to_original_source_name_map[normalized_key_from_meta] = source_name_from_metadata
             if not doc_content or not text: continue
 
-            source_name = metadata.get('source', 'N/A')
             context_meta = metadata.get('context', {})
             chuong = context_meta.get('chuong')
             muc = context_meta.get('muc')
@@ -255,7 +259,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
             khoan = context_meta.get('khoan')
             diem = context_meta.get('diem')
 
-            source_parts = [f"Văn bản: {source_name}"]
+            source_parts = [f"Văn bản: {source_name_from_metadata}"]
             if chuong: source_parts.append(f"Chương {chuong}")
             if muc: source_parts.append(f"Mục {muc}")
             if dieu: source_parts.append(f"Điều {dieu}")
@@ -377,31 +381,82 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     except Exception as e:
         final_answer_display = f"Đã xảy ra sự cố khi xử lý yêu cầu của bạn. Chi tiết lỗi: {str(e)[:200]}..."
 
-    found_urls = set()
-    citations_found = re.findall(r'\((?:[Tt]heo\s)?([^)]+?)\)', final_answer_display)
-    for citation_text in citations_found:
-        if '<' in citation_text and '>' in citation_text:
+    collected_citations = {} 
+    citations_found_in_llm_text = re.findall(r'\((?:[Tt]heo\s)?([^)]+?)\)', final_answer_display)
+    # for citation_text in citations_found:
+    #     if '<' in citation_text and '>' in citation_text:
+    #         continue
+    #     doc_key = extract_and_normalize_document_key(citation_text)
+    #     if doc_key:
+    #         url = url_mapping_dict.get(doc_key)
+    #         if url:
+    #             found_urls.add(url)
+    # if found_urls:
+    #     sorted_urls = sorted(list(found_urls))
+    #     urls_display_list = []
+    #     for url in sorted_urls:
+    #         display_name = url
+    #         try:
+    #             from urllib.parse import urlparse
+    #             parsed_url = urlparse(url)
+    #             display_name = parsed_url.netloc + parsed_url.path
+    #             if display_name.endswith('/'): display_name = display_name[:-1]
+    #         except ImportError:
+    #             pass
+    #         urls_display_list.append(f"- [{display_name}]({url})")
+    #     urls_string = "\n".join(urls_display_list)
+    #     final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{urls_string}"
+    for citation_text_from_llm in citations_found_in_llm_text:
+        if '<' in citation_text_from_llm and '>' in citation_text_from_llm: 
             continue
-        doc_key = extract_and_normalize_document_key(citation_text)
-        if doc_key:
-            url = url_mapping_dict.get(doc_key)
-            if url:
-                found_urls.add(url)
-    if found_urls:
-        sorted_urls = sorted(list(found_urls))
-        urls_display_list = []
-        for url in sorted_urls:
-            display_name = url
-            try:
-                from urllib.parse import urlparse
-                parsed_url = urlparse(url)
-                display_name = parsed_url.netloc + parsed_url.path
-                if display_name.endswith('/'): display_name = display_name[:-1]
-            except ImportError:
-                pass
-            urls_display_list.append(f"- [{display_name}]({url})")
-        urls_string = "\n".join(urls_display_list)
-        final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{urls_string}"
+        
+        doc_key_from_citation = extract_and_normalize_document_key(citation_text_from_llm)
+        
+        if doc_key_from_citation:
+            url_from_mapping = url_mapping_dict.get(doc_key_from_citation)
+            if url_from_mapping:
+                current_name_for_link = None
+                source_is_from_metadata = False
+
+                if doc_key_from_citation in key_to_original_source_name_map:
+                    raw_metadata_source_name = key_to_original_source_name_map[doc_key_from_citation]
+                    if raw_metadata_source_name and raw_metadata_source_name.strip():
+                        current_name_for_link = raw_metadata_source_name.replace("_", "/")
+                        source_is_from_metadata = True
+                
+                if not current_name_for_link:
+                    formatted_doc_key = doc_key_from_citation.replace("_", "/")
+                    if formatted_doc_key and formatted_doc_key.strip():
+                        current_name_for_link = formatted_doc_key
+                
+                if current_name_for_link: 
+                    existing_entry = collected_citations.get(url_from_mapping)
+                    if not existing_entry or \
+                       (source_is_from_metadata and not existing_entry['is_metadata_source']) or \
+                       (not existing_entry['name'] and current_name_for_link): 
+                        collected_citations[url_from_mapping] = {
+                            'name': current_name_for_link,
+                            'is_metadata_source': source_is_from_metadata
+                        }
+    
+    if collected_citations:
+        link_display_items = []
+        for url_key, data_val in collected_citations.items():
+            name_to_display_in_link = data_val['name']
+            if not name_to_display_in_link or not name_to_display_in_link.strip():
+                parsed_url_obj = urlparse(url_key)
+                name_to_display_in_link = parsed_url_obj.netloc + parsed_url_obj.path
+                if name_to_display_in_link.endswith('/'): 
+                    name_to_display_in_link = name_to_display_in_link[:-1]
+                if not name_to_display_in_link.strip(): 
+                    name_to_display_in_link = url_key
+            link_display_items.append({'url': url_key, 'name': name_to_display_in_link})
+        
+        link_display_items.sort(key=lambda item: item['name'])
+        
+        markdown_links_list = [f"- [{item['name']}]({item['url']})" for item in link_display_items]
+        markdown_links_string = "\n".join(markdown_links_list)
+        final_answer_display += f"\n\n**Nguồn tham khảo (Văn bản gốc):**\n{markdown_links_string}"
 
     return final_answer_display.strip()
 

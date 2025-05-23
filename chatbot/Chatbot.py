@@ -245,7 +245,6 @@ if init_ok:
 
                     # --- Lấy cấu hình retrieval và rerank ---
                     retrieval_method = st.session_state.retrieval_method
-                    use_reranker = st.session_state.use_reranker
 
                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Bắt đầu Retrieval (Nguồn: {query_source_log}, Phương thức: {retrieval_method})...")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
@@ -285,7 +284,7 @@ if init_ok:
                     rerank_time = 0.0
                     rerank_start_time = time.time()
 
-                    if use_reranker and num_unique_docs > 0:
+                    if use_reranker_flag and num_unique_docs > 0:
                         # Lấy query phù hợp để rerank (thường là câu tóm tắt hoặc câu gốc)
                         query_for_reranking = summarizing_q if summarizing_q else user_query
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {min(num_unique_docs, config.MAX_DOCS_FOR_RERANK)} tài liệu bằng '{st.session_state.selected_reranker_model}'...")

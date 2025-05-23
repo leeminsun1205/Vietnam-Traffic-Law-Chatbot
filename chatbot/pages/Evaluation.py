@@ -12,8 +12,9 @@ import config # Đã cập nhật
 # import data_loader # Sửa lại import này
 from model_loader import load_embedding_model, load_reranker_model, load_gemini_model # Import trực tiếp
 from data_loader import load_or_create_rag_components # Import trực tiếp
+from reranker import rerank_documents
 from utils import (
-    generate_query_variations, rerank_documents,
+    generate_query_variations,
     precision_at_k, recall_at_k, f1_at_k, mrr_at_k, ndcg_at_k,
     calculate_average_metrics
 )

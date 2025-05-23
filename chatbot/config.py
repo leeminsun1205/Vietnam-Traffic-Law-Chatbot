@@ -4,6 +4,11 @@ import os
 # --- Cấu hình Mô hình ---
 embedding_model_name = 'truro7/vn-law-embedding' 
 # embedding_model_name = 'dangvantuan/vietnamese-document-embedding'
+AVAILABLE_RERANKER_MODELS = [
+    'Không sử dụng',  # Lựa chọn không dùng reranker
+    'namdp-ptit/ViRanker',
+    'BAAI/bge-reranker-v2-m3'
+]
 reranking_model_name = 'namdp-ptit/ViRanker' 
 
 # --- Danh sách các mô hình Gemini có sẵn ---

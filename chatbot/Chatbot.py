@@ -33,8 +33,8 @@ if "retrieval_query_mode" not in st.session_state:
 if "retrieval_method" not in st.session_state:
     st.session_state.retrieval_method = 'hybrid'
 
-if "use_reranker" not in st.session_state:
-    st.session_state.use_reranker = True 
+if "selected_reranker_model" not in st.session_state:
+    st.session_state.selected_reranker_model = config.DEFAULT_RERANKER_MODEL
 
 # --- Sidebar ---
 with st.sidebar:
@@ -85,11 +85,12 @@ with st.sidebar:
         )
     )
 
-    use_rerank_toggle = st.toggle(
-        "Sử dụng Reranker",
-        key="use_reranker",
-        value=st.session_state.use_reranker,
-        help="Bật để sử dụng mô hình CrossEncoder xếp hạng lại kết quả tìm kiếm (tăng độ chính xác nhưng chậm hơn)."
+    selected_reranker = st.selectbox(
+        "Chọn mô hình Reranker:",
+        options=config.AVAILABLE_RERANKER_MODELS,
+        index=config.AVAILABLE_RERANKER_MODELS.index(st.session_state.selected_reranker_model),
+        key="selected_reranker_model",
+        help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. Chọn 'Không sử dụng' để tắt."
     )
 
     st.markdown("---") 
@@ -107,8 +108,13 @@ st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
 st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về Luật giao thông đường bộ Việt Nam.")
 
 # --- Cập nhật Caption hiển thị cấu hình ---
-reranker_status = "Bật" if st.session_state.use_reranker else "Tắt"
-st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status}`")
+reranker_status_display = st.session_state.selected_reranker_model
+if reranker_status_display == 'Không sử dụng':
+    reranker_status_display = "Tắt"
+else:
+    # Lấy tên model ngắn gọn hơn để hiển thị nếu cần
+    reranker_status_display = reranker_status_display.split('/')[-1]
+st.caption(f"Mô hình: `{st.session_state.selected_gemini_model}` | Trả lời: `{st.session_state.answer_mode}` | Nguồn Query: `{st.session_state.retrieval_query_mode}` | Retrieval: `{st.session_state.retrieval_method}` | Reranker: `{reranker_status_display}`")
 
 # --- Hiển thị Lịch sử Chat ---
 for message in st.session_state.messages:
@@ -122,20 +128,38 @@ for message in st.session_state.messages:
 
 # --- Khởi tạo hệ thống ---
 init_ok = False
+reranking_model_loaded = None
+
 with st.status("Đang khởi tạo hệ thống...", expanded=True) as status:
     embedding_model = load_embedding_model(config.embedding_model_name)
-    reranking_model = load_reranker_model(config.reranking_model_name)
-    models_loaded = all([embedding_model, reranking_model])
+    if st.session_state.selected_reranker_model != 'Không sử dụng':
+        reranking_model_loaded = load_reranker_model(st.session_state.selected_reranker_model)
+    else:
+        reranking_model_loaded = None
+    models_loaded = all([embedding_model])
     vector_db, hybrid_retriever = cached_load_or_create_components(embedding_model)
     retriever_ready = hybrid_retriever is not None
 
-    if not models_loaded:
-         status.update(label="⚠️ Lỗi tải Embedding hoặc Reranker model!", state="error", expanded=True)
+    init_ok = True
+
+    if not models_loaded: 
+        status_label = "⚠️ Lỗi tải Embedding model!"
+        status_state = "error"
+        init_ok = False
     elif not retriever_ready:
-        status.update(label="⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!", state="error", expanded=True)
+        status_label = "⚠️ Lỗi khởi tạo VectorDB hoặc Retriever!"
+        status_state = "error"
+        init_ok = False
+    elif st.session_state.selected_reranker_model != 'Không sử dụng' and not reranking_model_loaded:
+        status_label = f"⚠️ Lỗi tải Reranker model ({st.session_state.selected_reranker_model}). Reranking sẽ bị tắt."
+        status_state = "warning" # Có thể coi là warning, hệ thống vẫn chạy được nhưng không có rerank
+        # init_ok vẫn có thể là True, nhưng reranking_model_loaded sẽ là None
+        init_ok = False
+
+    if init_ok:
+        status.update(label=status_label, state=status_state, expanded=False)
     else:
-        status.update(label="✅ Hệ thống đã sẵn sàng!", state="complete", expanded=False)
-        init_ok = True
+        status.update(label=status_label, state=status_state, expanded=True)
 
 # --- Input và Xử lý ---
 if init_ok:
@@ -151,6 +175,9 @@ if init_ok:
             full_response = ""
             raw_llm_output = ""
             processing_log = []
+            final_relevant_documents = [] 
+            relevance_status = 'valid'
+
             try:
                 start_time = time.time()
                 processing_log.append(f"[{time.time() - start_time:.2f}s] Bắt đầu xử lý...")
@@ -162,6 +189,16 @@ if init_ok:
                 if not selected_gemini_llm:
                      raise ValueError(f"Không thể tải model Gemini: {selected_model_name}")
                 processing_log.append(f"[{time.time() - start_time:.2f}s]: Model '{selected_model_name}' đã sẵn sàng.")
+                message_placeholder.markdown(" ".join(processing_log) + "⏳")
+
+                # Lấy reranker model đã tải (có thể là None)
+                current_reranker_model = reranking_model_loaded
+                use_reranker_flag = current_reranker_model is not None and st.session_state.selected_reranker_model != 'Không sử dụng'
+
+                if use_reranker_flag:
+                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Reranker model '{st.session_state.selected_reranker_model}' đã sẵn sàng.")
+                else:
+                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Reranker không được sử dụng hoặc không tải được.")
                 message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                 history_for_llm1 = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1]
@@ -249,18 +286,17 @@ if init_ok:
                     if use_reranker and num_unique_docs > 0:
                         # Lấy query phù hợp để rerank (thường là câu tóm tắt hoặc câu gốc)
                         query_for_reranking = summarizing_q if summarizing_q else user_query
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {min(num_unique_docs, config.MAX_DOCS_FOR_RERANK)} tài liệu...")
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {min(num_unique_docs, config.MAX_DOCS_FOR_RERANK)} tài liệu bằng '{st.session_state.selected_reranker_model}'...")
                         message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                         # Chọn top N docs để rerank
                         docs_to_rerank = retrieved_docs_list[:config.MAX_DOCS_FOR_RERANK]
-                        # Hàm rerank_documents hiện tại nhận list [{'doc': ..., 'index': ...}]
                         rerank_input = [{'doc': item['doc'], 'index': item['index']} for item in docs_to_rerank]
 
                         reranked_results = rerank_documents(
                             query_for_reranking,
                             rerank_input, # Đảm bảo đúng định dạng đầu vào
-                            reranking_model
+                            current_reranker_model
                         )
                         # Lấy top K kết quả cuối cùng sau rerank
                         final_relevant_documents = reranked_results[:config.FINAL_NUM_RESULTS_AFTER_RERANK]

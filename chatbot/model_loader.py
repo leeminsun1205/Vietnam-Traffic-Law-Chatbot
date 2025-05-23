@@ -4,7 +4,7 @@ from kaggle_secrets import UserSecretsClient
 import streamlit as st
 
 # --- Model Loading Functions ---
-@st.cache_resource
+# @st.cache_resource
 def load_embedding_model(model_name):
     try:
         model = SentenceTransformer(model_name, trust_remote_code=True)
@@ -13,8 +13,10 @@ def load_embedding_model(model_name):
         st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
         return None
 
-@st.cache_resource
+# @st.cache_resource
 def load_reranker_model(model_name):
+    if not model_name or model_name == 'Không sử dụng':
+        return None
     try:
         model = CrossEncoder(model_name)
         return model

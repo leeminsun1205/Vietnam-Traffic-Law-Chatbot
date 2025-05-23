@@ -64,16 +64,16 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
     **Câu hỏi HIỆN TẠI:** "{original_query}"
 
     **Bước 1: Phân loại Mức độ Liên quan**
-    Xác định câu hỏi có liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, đăng ký xe,...).
+    Xác định câu hỏi có bị mơ hồ hoặc liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, phương tiện,...).
 
     **Bước 2: Tạo Phản hồi JSON**
     Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạng sau:
 
-    * **Nếu câu hỏi KHÔNG liên quan hoặc có thông tin MƠ HỒ:** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
+    * **Nếu câu hỏi KHÔNG liên quan hoặc có thông tin MƠ HỒ (ngữ nghĩa quá ngắn gọn để hiểu hoặc gây khó  hiểu):** Hãy tạo một câu trả lời **ngắn gọn, trực tiếp** phù hợp với câu hỏi đó (ví dụ: nếu hỏi "Bạn là ai?", trả lời "Tôi là chatbot về Luật GTĐB Việt Nam."). Đặt câu trả lời này vào trường `invalid_answer`. Nếu không thể tạo câu trả lời phù hợp, để trống trường này.
         ```json
         {{
         "relevance": "invalid",
-        "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan, hoặc câu hỏi ngược lại người dùng nhằm xác minh chi tiết hơn ý đồ của người dùng muốn hỏi hoặc chuỗi rỗng]",
+        "invalid_answer": "[Câu trả lời trực tiếp cho câu hỏi không liên quan, hoặc câu hỏi ngược lại ( có thể dựa vào lịch sử để gợi ý nếu có) người dùng nhằm xác minh chi tiết hơn ý đồ của người dùng muốn hỏi]",
         "variations": [],
         "summarizing_query": ""
         }}
@@ -82,10 +82,9 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
         1.  Tạo {num_variations} biến thể câu hỏi (ưu tiên từ khóa luật, phương tiện, từ đồng nghĩa).
         2.  Tạo MỘT câu hỏi tổng hợp bao quát (summarizing_query), câu hỏi này phải đảm bảo chứa tất cả các keyword của câu hỏi gốc (để tránh làm sai lệch quá nhiều).
         3.  Ưu tiên biến thể chứa "không tuân thủ, không chấp hành" nếu hỏi về lỗi, vi phạm.
-        4.  Nếu gặp các câu hỏi về "vượt đèn đỏ/đèn vàng" thì tất cả biến thể chuyển thành "không chấp hành hiệu lệnh của đèn tín hiệu".
-        5.  Nếu câu hỏi có **liên quan đến phương tiện** mà hỏi 1 cách tổng quát (không chỉ rõ loại xe nào) phải ưu tiên 1 câu có "xe mô tô, xe gắn máy, các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy" và 1 câu có "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
-        6.  Nếu câu hỏi chỉ có đề "xe máy" thì phải thay thế bằng "xe mô tô, xe gắn máy", trừ cụm từ "xe máy chuyên dùng".
-        8.  Đối với summarizing_query cũng phải áp dụng đầy đủ các quy tắc 2, 3, 5, 6.
+        4.  Nếu câu hỏi có **liên quan đến phương tiện** mà hỏi 1 cách tổng quát (không chỉ rõ loại xe nào) phải ưu tiên 1 câu có "xe mô tô, xe gắn máy, các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy" và 1 câu có "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
+        5.  Nếu câu hỏi chứa từ "xe máy" thì phải thay thế bằng "xe mô tô, xe gắn máy", ngoại trừ cụm từ "xe máy chuyên dùng".
+        6.  Đối với summarizing_query cũng phải áp dụng đầy đủ các quy tắc 2, 3, 4, 5.
         ```json
         {{
         "relevance": "valid",

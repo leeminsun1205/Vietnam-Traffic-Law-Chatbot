@@ -14,11 +14,11 @@ def cached_load_or_create_components(_embedding_model):
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
 
 # --- Khởi tạo Session State cho Lịch sử Chat và Cấu hình ---
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
 # if "messages" not in st.session_state:
-#     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
+#     st.session_state.messages = []
+
+if "messages" not in st.session_state:
+    st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
 
 if "selected_gemini_model" not in st.session_state:
     st.session_state.selected_gemini_model = config.DEFAULT_GEMINI_MODEL

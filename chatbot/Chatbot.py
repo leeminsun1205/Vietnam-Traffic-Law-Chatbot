@@ -98,7 +98,7 @@ with st.sidebar:
         "Chọn chế độ trả lời:", 
         options=['Ngắn gọn', 'Đầy đủ'],
         index=['Ngắn gọn', 'Đầy đủ'].index(current_answer_mode),
-        # key="answer_mode", 
+        key="answer_mode", 
         horizontal=True, 
         help="Mức độ chi tiết của câu trả lời."
     )
@@ -111,7 +111,7 @@ with st.sidebar:
         "Nguồn câu hỏi cho Retrieval:", 
         options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
         index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode),
-        # key="retrieval_query_mode", 
+        key="retrieval_query_mode", 
         horizontal=True, 
         help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
@@ -119,15 +119,15 @@ with st.sidebar:
             "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
         )
     )
-    if retrieval_query_mode_choice != st.session_state.retrieval_query_mode:
-        st.session_state.retrieval_query_mode = retrieval_query_mode_choice
-        st.rerun()
+    # if retrieval_query_mode_choice != st.session_state.retrieval_query_mode:
+    #     st.session_state.retrieval_query_mode = retrieval_query_mode_choice
+    #     st.rerun()
 
     retrieval_method_choice = st.radio(
         "Phương thức Retrieval:", 
         options=['Dense', 'Sparse', 'Hybrid'],
         index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method),
-        # key="retrieval_method", 
+        key="retrieval_method", 
         horizontal=True, 
         help=(
             "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
@@ -135,9 +135,10 @@ with st.sidebar:
             "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
         )
     )
-    if retrieval_method_choice != st.session_state.retrieval_method:
-            st.session_state.retrieval_method = retrieval_method_choice
-            st.rerun()
+    st.write(retrieval_method_choice)
+    # if retrieval_method_choice != st.session_state.retrieval_method:
+    #         st.session_state.retrieval_method = retrieval_method_choice
+    #         st.rerun()
 
     st.markdown("---")
     st.header("Quản lý Hội thoại")

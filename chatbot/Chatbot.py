@@ -37,9 +37,9 @@ if "app_loaded_reranker_models" not in st.session_state:
 if "app_rag_components_per_embedding_model" not in st.session_state:
     st.session_state.app_rag_components_per_embedding_model = {}
 
-# --- Sidebar ---
+# --- Sidebar cho trang Chatbot---
 with st.sidebar:
-    st.title("Tùy chọn")
+    st.title("Tùy chọn Cấu hình")
     st.header("Mô hình")
 
     current_embedding_name_sb = st.session_state.selected_embedding_model_name
@@ -62,10 +62,6 @@ with st.sidebar:
         key = "selected_embedding_model_name",
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
-    # Cập nhật session state nếu có thay đổi từ UI
-    # if selected_embedding_model_name_ui != st.session_state.selected_embedding_model_name:
-    #     st.session_state.selected_embedding_model_name = selected_embedding_model_name_ui
-    #     st.rerun() 
 
     # Selectbox cho Gemini Model
     selected_gemini_model_name_ui = st.selectbox(
@@ -76,9 +72,6 @@ with st.sidebar:
         key = "selected_gemini_model_name",
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
-    # if selected_gemini_model_name_ui != st.session_state.selected_gemini_model_name:
-    #     st.session_state.selected_gemini_model_name = selected_gemini_model_name_ui
-    #     st.rerun()
 
     # Selectbox cho Reranker Model
     available_loaded_reranker_names = list(st.session_state.get("app_loaded_reranker_models", {}).keys())
@@ -92,9 +85,6 @@ with st.sidebar:
         key = "selected_reranker_model_name",
         help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt. Các mô hình đã được tải trước."
     )
-    # if selected_reranker_model_name_ui != st.session_state.selected_reranker_model_name:
-    #     st.session_state.selected_reranker_model_name = selected_reranker_model_name_ui
-    #     st.rerun() 
 
     # Mode radio
     answer_mode_choice = st.radio(
@@ -105,13 +95,10 @@ with st.sidebar:
         horizontal=True, 
         help="Mức độ chi tiết của câu trả lời."
     )
-    # if answer_mode_choice != st.session_state.answer_mode:
-    #     st.session_state.answer_mode = answer_mode_choice
-    #     st.rerun()
 
     st.header("Cấu hình truy vấn")
     retrieval_query_mode_choice = st.radio(
-        "Nguồn câu hỏi cho Retrieval:", 
+        "Nguồn câu hỏi cho truy vấn:", 
         options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
         index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode),
         key="retrieval_query_mode", 
@@ -122,12 +109,9 @@ with st.sidebar:
             "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
         )
     )
-    # if retrieval_query_mode_choice != st.session_state.retrieval_query_mode:
-    #     st.session_state.retrieval_query_mode = retrieval_query_mode_choice
-    #     st.rerun()
 
     retrieval_method_choice = st.radio(
-        "Phương thức Retrieval:", 
+        "Phương thức truy vấn:", 
         options=['Dense', 'Sparse', 'Hybrid'],
         index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method),
         key="retrieval_method", 
@@ -138,10 +122,6 @@ with st.sidebar:
             "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
         )
     )
-    st.write(retrieval_method_choice)
-    # if retrieval_method_choice != st.session_state.retrieval_method:
-    #         st.session_state.retrieval_method = retrieval_method_choice
-    #         st.rerun()
 
     st.markdown("---")
     st.header("Quản lý Hội thoại")
@@ -187,7 +167,6 @@ if "app_resources_initialized" not in st.session_state:
 if not st.session_state.app_resources_initialized:
     with st.spinner("Đang khởi tạo toàn bộ hệ thống và các mô hình... Quá trình này có thể mất vài phút."):
         # Khởi tạo toàn bộ models và RAG components
-        # Hàm này sẽ cập nhật st.status bên trong nó.
         system_fully_ready = initialize_app_resources()
         st.session_state.app_resources_initialized = system_fully_ready # Lưu trạng thái khởi tạo
 
@@ -199,6 +178,7 @@ if st.session_state.app_resources_initialized:
     current_selected_embedding_name_main = st.session_state.selected_embedding_model_name
     current_selected_reranker_name_main = st.session_state.selected_reranker_model_name
     current_selected_gemini_name_main = st.session_state.selected_gemini_model_name
+
     # Lấy embedding model
     active_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(current_selected_embedding_name_main)
 
@@ -389,7 +369,7 @@ if st.session_state.app_resources_initialized:
                         else:
                             assistant_message_main["relevant_docs_for_display"] = []
                         st.session_state.messages.append(assistant_message_main)
-    else: # proceed_with_chat is False
+    else:
         st.error("⚠️ Chatbot không thể hoạt động do thiếu các thành phần model cần thiết. Vui lòng kiểm tra thông báo lỗi ở trên.")
 
 elif not st.session_state.app_resources_initialized:

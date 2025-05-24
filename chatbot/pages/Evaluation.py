@@ -6,14 +6,9 @@ import json
 import os
 from datetime import datetime
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # Thêm thư mục gốc vào sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import config
-from model_loader import (
-    load_all_embedding_models,
-    load_all_reranker_models,
-    load_gemini_model
-)
-from data_loader import load_or_create_rag_components
+from model_loader import load_gemini_model, initialize_evaluation_page_resources
 from reranker import rerank_documents
 from utils import (
     generate_query_variations,
@@ -314,51 +309,6 @@ if "eval_pg_loaded_reranker_models" not in st.session_state:
 if "eval_pg_rag_components_per_embedding_model" not in st.session_state:
     st.session_state.eval_pg_rag_components_per_embedding_model = {}
 
-# --- ĐỊNH NGHĨA HÀM BỊ THIẾU ---
-def initialize_evaluation_page_resources():
-    """Tải và chuẩn bị tài nguyên cho trang đánh giá."""
-    eval_init_successful = True
-    # 1. Tải tất cả embedding models (nếu chưa có trong session)
-    if not st.session_state.eval_pg_loaded_embedding_models:
-        with st.status("Đang tải Embedding Models (Đánh giá)...", expanded=True) as emb_s:
-            st.session_state.eval_pg_loaded_embedding_models = load_all_embedding_models()
-            if not st.session_state.eval_pg_loaded_embedding_models:
-                emb_s.update(label="Lỗi tải Embedding Models (Đánh giá)!", state="error")
-                eval_init_successful = False
-            else:
-                emb_s.update(label=f"Tải xong {len(st.session_state.eval_pg_loaded_embedding_models)} Embedding Model(s) (Đánh giá).", state="complete")
-
-    # 2. Tải tất cả reranker models (nếu chưa có trong session)
-    if not st.session_state.eval_pg_loaded_reranker_models:
-        with st.status("Đang tải Reranker Models (Đánh giá)...", expanded=True) as rer_s:
-            st.session_state.eval_pg_loaded_reranker_models = load_all_reranker_models()
-            rer_count = len([m for m_name, m in st.session_state.eval_pg_loaded_reranker_models.items() if m is not None and m_name != 'Không sử dụng'])
-            rer_s.update(label=f"Tải xong {rer_count} Reranker Model(s) (Đánh giá).", state="complete")
-
-
-    # 3. Chuẩn bị RAG components cho từng embedding model đã tải thành công
-    if eval_init_successful and st.session_state.eval_pg_loaded_embedding_models:
-        for model_n, emb_obj in st.session_state.eval_pg_loaded_embedding_models.items():
-            if model_n not in st.session_state.eval_pg_rag_components_per_embedding_model: # Chỉ tạo nếu chưa có
-                with st.status(f"Chuẩn bị RAG cho '{model_n.split('/')[-1]}' (Đánh giá)...", expanded=True) as rag_s:
-                    rag_prefix = config.get_rag_data_prefix(model_n)
-                    try:
-                        v_db, retr = load_or_create_rag_components(emb_obj, rag_prefix)
-                        if v_db and retr:
-                            st.session_state.eval_pg_rag_components_per_embedding_model[model_n] = (v_db, retr)
-                            rag_s.update(label=f"RAG cho '{model_n.split('/')[-1]}' (Đánh giá) sẵn sàng.", state="complete")
-                        else:
-                            rag_s.update(label=f"Lỗi RAG cho '{model_n.split('/')[-1]}' (Đánh giá).", state="error")
-                            eval_init_successful = False; break # Dừng nếu có lỗi RAG
-                    except Exception as e_rag_init:
-                        rag_s.update(label=f"Exception RAG cho '{model_n.split('/')[-1]}' (Đánh giá): {e_rag_init}", state="error")
-                        eval_init_successful = False; break # Dừng nếu có lỗi RAG
-    elif not st.session_state.eval_pg_loaded_embedding_models: # Nếu không tải được embedding model nào
-        eval_init_successful = False
-    return eval_init_successful
-# --- KẾT THÚC ĐỊNH NGHĨA HÀM ---
-
-
 # --- Sidebar cho Trang Đánh giá ---
 with st.sidebar:
     st.title("Tùy chọn Đánh giá")
@@ -367,47 +317,55 @@ with st.sidebar:
     current_eval_emb_name_sb = st.session_state.eval_pg_selected_embedding_model_name
     current_eval_gem_name_sb = st.session_state.eval_pg_selected_gemini_model_name
     current_eval_rer_name_sb = st.session_state.eval_pg_selected_reranker_model_name
+    current_eval_pg_retrieval_query_mode_sidebar = st.sesssion_state.eval_pg_retrieval_query_mode_sidebar
+    current_eval_pg_retrieval_method_sidebar = st.session_state.eval_pg_retrieval_method_sidebar
 
+    # Model selectbox
+    # Selectbox cho Embedding Model
     eval_pg_avail_emb_names = list(st.session_state.get("eval_pg_loaded_embedding_models", {}).keys())
-    if not eval_pg_avail_emb_names: eval_pg_avail_emb_names = config.AVAILABLE_EMBEDDING_MODELS
-
+    if not eval_pg_avail_emb_names: 
+        eval_pg_avail_emb_names = config.AVAILABLE_EMBEDDING_MODELS
     eval_sel_emb_name_ui = st.selectbox(
-        "Chọn mô hình Embedding (Đánh giá):", options=eval_pg_avail_emb_names,
-        index=eval_pg_avail_emb_names.index(current_eval_emb_name_sb) if current_eval_emb_name_sb in eval_pg_avail_emb_names else 0,
-        key="eval_pg_emb_select_sidebar", help="Chọn embedding model đã tải trước cho đánh giá."
+        "Chọn mô hình Embedding (Đánh giá):", 
+        options=eval_pg_avail_emb_names,
+        index=eval_pg_avail_emb_names.index(current_eval_emb_name_sb) 
+            if current_eval_emb_name_sb in eval_pg_avail_emb_names else 0,
+        key="eval_pg_emb_select_sidebar", 
+        help="Chọn embedding model đã tải trước cho đánh giá."
     )
-    if eval_sel_emb_name_ui != st.session_state.eval_pg_selected_embedding_model_name:
-        st.session_state.eval_pg_selected_embedding_model_name = eval_sel_emb_name_ui
-        st.rerun()
 
     eval_sel_gem_name_ui = st.selectbox(
-        "Chọn mô hình Gemini (Đánh giá Query Variations):", options=config.AVAILABLE_GEMINI_MODELS,
-        index=config.AVAILABLE_GEMINI_MODELS.index(current_eval_gem_name_sb) if current_eval_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0,
-        key="eval_pg_gem_select_sidebar", help="Chọn Gemini model cho đánh giá."
+        "Chọn mô hình Gemini (Đánh giá Query Variations):", 
+        options=config.AVAILABLE_GEMINI_MODELS,
+        index=config.AVAILABLE_GEMINI_MODELS.index(current_eval_gem_name_sb) 
+            if current_eval_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0,
+        key="eval_pg_gem_select_sidebar", 
+        help="Chọn Gemini model cho đánh giá."
     )
-    if eval_sel_gem_name_ui != st.session_state.eval_pg_selected_gemini_model_name:
-        st.session_state.eval_pg_selected_gemini_model_name = eval_sel_gem_name_ui
-        st.rerun()
 
     eval_pg_avail_rer_names = list(st.session_state.get("eval_pg_loaded_reranker_models", {}).keys())
-    if not eval_pg_avail_rer_names: eval_pg_avail_rer_names = config.AVAILABLE_RERANKER_MODELS
-
+    if not eval_pg_avail_rer_names: 
+        eval_pg_avail_rer_names = config.AVAILABLE_RERANKER_MODELS
     eval_sel_rer_name_ui = st.selectbox(
-        "Chọn mô hình Reranker (Đánh giá):", options=eval_pg_avail_rer_names,
-        index=eval_pg_avail_rer_names.index(current_eval_rer_name_sb) if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0,
-        key="eval_pg_rer_select_sidebar", help="Chọn reranker model đã tải trước. 'Không sử dụng' để tắt."
+        "Chọn mô hình Reranker (Đánh giá):", 
+        options=eval_pg_avail_rer_names,
+        index=eval_pg_avail_rer_names.index(current_eval_rer_name_sb) 
+            if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0,
+        key="eval_pg_rer_select_sidebar", 
+        help="Chọn reranker model đã tải trước. 'Không sử dụng' để tắt."
     )
-    if eval_sel_rer_name_ui != st.session_state.eval_pg_selected_reranker_model_name:
-        st.session_state.eval_pg_selected_reranker_model_name = eval_sel_rer_name_ui
-        st.rerun()
 
-    st.header("Cấu hình Retrieval (Đánh giá)")
-    st.radio("Nguồn câu hỏi:", options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
-             index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(st.session_state.eval_pg_retrieval_query_mode),
-             key="eval_pg_retrieval_query_mode_sidebar", horizontal=True)
-    st.radio("Phương thức Retrieval:", options=['Dense', 'Sparse', 'Hybrid'],
-             index=['Dense', 'Sparse', 'Hybrid'].index(st.session_state.eval_pg_retrieval_method),
-             key="eval_pg_retrieval_method_sidebar", horizontal=True)
+    st.header("Cấu hình truy vấn")
+    st.radio("Nguồn câu hỏi:", 
+             options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
+             index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_eval_pg_retrieval_query_mode_sidebar),
+             key="eval_pg_retrieval_query_mode_sidebar", 
+             horizontal=True)
+    st.radio("Phương thức truy vấn:", 
+             options=['Dense', 'Sparse', 'Hybrid'],
+             index=['Dense', 'Sparse', 'Hybrid'].index(current_eval_pg_retrieval_method_sidebar),
+             key="eval_pg_retrieval_method_sidebar", 
+             horizontal=True)
 
 # --- Khởi tạo tài nguyên cho trang Đánh giá ---
 eval_page_status_placeholder = st.empty()

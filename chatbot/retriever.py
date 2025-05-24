@@ -136,7 +136,7 @@ class Retriever:
             st.write('Dense')
             st.write(vec_indices_list)
             st.write('Sparse')
-            st.write(st.write(vec_indices_list))
+            st.write(bm25_indices_list)
             fused_indices = []
             fused_scores_dict = {}
             if rank_lists_to_fuse:

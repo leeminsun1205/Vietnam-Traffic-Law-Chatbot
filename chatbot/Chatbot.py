@@ -59,12 +59,13 @@ with st.sidebar:
         options=available_loaded_embedding_names,
         index=available_loaded_embedding_names.index(current_embedding_name_sb)
             if current_embedding_name_sb in available_loaded_embedding_names else 0,
+        key = "selected_embedding_model_name",
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
     # Cập nhật session state nếu có thay đổi từ UI
-    if selected_embedding_model_name_ui != st.session_state.selected_embedding_model_name:
-        st.session_state.selected_embedding_model_name = selected_embedding_model_name_ui
-        st.rerun() 
+    # if selected_embedding_model_name_ui != st.session_state.selected_embedding_model_name:
+    #     st.session_state.selected_embedding_model_name = selected_embedding_model_name_ui
+    #     st.rerun() 
 
     # Selectbox cho Gemini Model
     selected_gemini_model_name_ui = st.selectbox(
@@ -72,11 +73,12 @@ with st.sidebar:
         options=config.AVAILABLE_GEMINI_MODELS, 
         index=config.AVAILABLE_GEMINI_MODELS.index(current_gemini_name_sb) 
             if current_gemini_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
+        key = "selected_gemini_model_name",
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
-    if selected_gemini_model_name_ui != st.session_state.selected_gemini_model_name:
-        st.session_state.selected_gemini_model_name = selected_gemini_model_name_ui
-        st.rerun()
+    # if selected_gemini_model_name_ui != st.session_state.selected_gemini_model_name:
+    #     st.session_state.selected_gemini_model_name = selected_gemini_model_name_ui
+    #     st.rerun()
 
     # Selectbox cho Reranker Model
     available_loaded_reranker_names = list(st.session_state.get("app_loaded_reranker_models", {}).keys())
@@ -87,11 +89,12 @@ with st.sidebar:
         options=available_loaded_reranker_names,
         index=available_loaded_reranker_names.index(current_reranker_name_sb)
             if current_reranker_name_sb in available_loaded_reranker_names else 0,
+        key = "selected_reranker_model_name",
         help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt. Các mô hình đã được tải trước."
     )
-    if selected_reranker_model_name_ui != st.session_state.selected_reranker_model_name:
-        st.session_state.selected_reranker_model_name = selected_reranker_model_name_ui
-        st.rerun() 
+    # if selected_reranker_model_name_ui != st.session_state.selected_reranker_model_name:
+    #     st.session_state.selected_reranker_model_name = selected_reranker_model_name_ui
+    #     st.rerun() 
 
     # Mode radio
     answer_mode_choice = st.radio(

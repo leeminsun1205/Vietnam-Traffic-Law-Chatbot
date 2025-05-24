@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 from kaggle_secrets import UserSecretsClient
 import streamlit as st
 import config # Import config để lấy danh sách model
-
+from data_loader import load_or_create_rag_components
 # --- Model Loading Functions ---
 
 @st.cache_resource
@@ -107,3 +107,56 @@ def load_gemini_model(model_name: str):
     else:
         # Thông báo lỗi đã được đưa ra ở trên nếu không tìm thấy key
         return None
+    
+def initialize_app_resources():
+    """
+    Tải tất cả embedding models, reranker models,
+    và khởi tạo RAG components cho mỗi embedding model.
+    """
+    initialization_successful = True
+
+    # 1. Tải tất cả embedding models (nếu chưa có trong session)
+    if not st.session_state.app_loaded_embedding_models:
+        with st.status("Đang tải các Embedding Models...", expanded=True) as emb_status:
+            st.session_state.app_loaded_embedding_models = load_all_embedding_models() #
+            if st.session_state.app_loaded_embedding_models:
+                emb_status.update(label=f"Đã tải {len(st.session_state.app_loaded_embedding_models)} Embedding Model(s).", state="complete")
+            else:
+                emb_status.update(label="Lỗi: Không tải được Embedding Model nào!", state="error")
+                initialization_successful = False
+
+    # 2. Tải tất cả reranker models (nếu chưa có trong session)
+    if not st.session_state.app_loaded_reranker_models:
+        with st.status("Đang tải các Reranker Models...", expanded=True) as rer_status:
+            st.session_state.app_loaded_reranker_models = load_all_reranker_models() #
+            if st.session_state.app_loaded_reranker_models: # Luôn có key 'Không sử dụng'
+                rer_count = len([m for m_name, m in st.session_state.app_loaded_reranker_models.items() if m is not None and m_name != 'Không sử dụng'])
+                rer_status.update(label=f"Đã tải {rer_count} Reranker Model(s) (và tùy chọn 'Không sử dụng').", state="complete")
+            else: # Trường hợp này gần như không xảy ra nếu config.AVAILABLE_RERANKER_MODELS không rỗng
+                rer_status.update(label="Cảnh báo: Không có Reranker model nào được tải.", state="warning")
+
+
+    # 3. Chuẩn bị RAG components cho từng embedding model đã tải thành công
+    if initialization_successful and st.session_state.app_loaded_embedding_models:
+        for model_name, emb_model_obj in st.session_state.app_loaded_embedding_models.items():
+            if model_name not in st.session_state.app_rag_components_per_embedding_model:
+                with st.status(f"Đang chuẩn bị RAG cho: {model_name.split('/')[-1]}...", expanded=True) as rag_status:
+                    current_rag_data_prefix = config.get_rag_data_prefix(model_name) #
+                    try:
+                        # emb_model_obj đã được tải và cache ở trên
+                        vector_db, retriever = load_or_create_rag_components(emb_model_obj, current_rag_data_prefix) #
+                        if vector_db and retriever:
+                            st.session_state.app_rag_components_per_embedding_model[model_name] = (vector_db, retriever)
+                            rag_status.update(label=f"RAG cho '{model_name.split('/')[-1]}' đã sẵn sàng.", state="complete")
+                        else:
+                            rag_status.update(label=f"Lỗi tạo RAG cho '{model_name.split('/')[-1]}'.", state="error")
+                            initialization_successful = False # Nếu một RAG không được, coi như lỗi
+                            break # Dừng nếu có lỗi
+                    except Exception as e:
+                        rag_status.update(label=f"Exception khi tạo RAG cho '{model_name.split('/')[-1]}': {e}", state="error")
+                        initialization_successful = False
+                        break # Dừng nếu có lỗi
+    elif not st.session_state.app_loaded_embedding_models: # Nếu không có embedding model nào được tải
+        initialization_successful = False
+
+    return initialization_successful

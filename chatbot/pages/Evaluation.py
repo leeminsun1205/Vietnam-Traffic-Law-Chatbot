@@ -94,7 +94,7 @@ def run_retrieval_evaluation(
     results_list = []
     k_values_metrics = [3, 5, 10]
 
-    retrieval_query_mode_eval = eval_config_params.get('retrieval_query_mode', 'Tổng quát')
+    retrieval_query_mode_eval = eval_config_params.get('retrieval_query_mode', 'Mở rộng')
     retrieval_method_eval = eval_config_params.get('retrieval_method', 'hybrid')
     selected_reranker_name_eval_run = eval_config_params.get('selected_reranker_model_name', 'Không sử dụng')
     use_reranker_eval_run = reranking_model_object_for_eval is not None and selected_reranker_name_eval_run != 'Không sử dụng'
@@ -183,8 +183,8 @@ def run_retrieval_evaluation(
             else:
                 queries_to_search_eval_run = []
                 if retrieval_query_mode_eval == 'Đơn giản': queries_to_search_eval_run = [original_query_eval]
-                elif retrieval_query_mode_eval == 'Tổng quát': queries_to_search_eval_run = [summarizing_q_q_eval] if summarizing_q_q_eval else [original_query_eval]
-                elif retrieval_query_mode_eval == 'Sâu': queries_to_search_eval_run = all_queries_q_eval if all_queries_q_eval else [original_query_eval]
+                elif retrieval_query_mode_eval == 'Mở rộng': queries_to_search_eval_run = [summarizing_q_q_eval] if summarizing_q_q_eval else [original_query_eval]
+                elif retrieval_query_mode_eval == 'Đa dạng': queries_to_search_eval_run = all_queries_q_eval if all_queries_q_eval else [original_query_eval]
 
                 collected_docs_data_eval_run = {}
                 search_start_eval_q_run = time.time()
@@ -284,7 +284,7 @@ if "eval_pg_selected_gemini_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL
 if "eval_pg_selected_reranker_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL
-if "eval_pg_retrieval_query_mode" not in st.session_state: st.session_state.eval_pg_retrieval_query_mode = 'Tổng quát'
+if "eval_pg_retrieval_query_mode" not in st.session_state: st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
 if "eval_pg_retrieval_method" not in st.session_state: st.session_state.eval_pg_retrieval_method = 'hybrid'
 if 'eval_pg_data' not in st.session_state: st.session_state.eval_pg_data = None
 if 'eval_pg_results_df' not in st.session_state: st.session_state.eval_pg_results_df = None
@@ -402,8 +402,8 @@ with st.sidebar:
         st.rerun()
 
     st.header("Cấu hình Retrieval (Đánh giá)")
-    st.radio("Nguồn câu hỏi:", options=['Đơn giản', 'Tổng quát', 'Sâu'],
-             index=['Đơn giản', 'Tổng quát', 'Sâu'].index(st.session_state.eval_pg_retrieval_query_mode),
+    st.radio("Nguồn câu hỏi:", options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
+             index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(st.session_state.eval_pg_retrieval_query_mode),
              key="eval_pg_retrieval_query_mode_sidebar", horizontal=True)
     st.radio("Phương thức Retrieval:", options=['dense', 'sparse', 'hybrid'],
              index=['dense', 'sparse', 'hybrid'].index(st.session_state.eval_pg_retrieval_method),

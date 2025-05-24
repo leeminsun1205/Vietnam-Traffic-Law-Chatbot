@@ -200,7 +200,7 @@ if st.session_state.app_resources_initialized:
     current_selected_embedding_name_main = st.session_state.selected_embedding_model_name
     current_selected_reranker_name_main = st.session_state.selected_reranker_model_name
     current_selected_gemini_name_main = st.session_state.selected_gemini_model_name
-
+    st.write(current_selected_embedding_name_main, current_selected_reranker_name_main, current_selected_gemini_name_main)
     # Lấy embedding model object đã tải từ session_state
     active_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(current_selected_embedding_name_main)
 

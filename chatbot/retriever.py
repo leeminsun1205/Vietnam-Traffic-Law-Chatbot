@@ -135,7 +135,6 @@ class Retriever:
                 rank_lists_to_fuse_with_weights.append((vec_indices_list, config.DENSE_WEIGHT_FOR_HYBRID))
             if bm25_indices_list: 
                 rank_lists_to_fuse_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_FOR_HYBRID))
-            st.write(config.DENSE_WEIGHT_FOR_HYBRID, config.SPARSE_WEIGHT_FOR_HYBRID)
             fused_indices = []
             fused_scores_dict = {}
             if rank_lists_to_fuse_with_weights:
@@ -163,7 +162,6 @@ class Retriever:
                      rank_ = rank + 1
                      score_contribution = weight * (1 / (rank_ + rrf_k_constant))
                      fused_scores[doc_index] = fused_scores.get(doc_index, 0) + score_contribution
-        st.write(config.RRF_K)
         sorted_indices = sorted(fused_scores, key=fused_scores.get, reverse=True)
         return sorted_indices, fused_scores
 

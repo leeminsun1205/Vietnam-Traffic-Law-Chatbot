@@ -6,7 +6,6 @@ AVAILABLE_EMBEDDING_MODELS = [
     'truro7/vn-law-embedding',
     'BAAI/bge-m3',
     'intfloat/multilingual-e5-large',
-    'dangvantuan/vietnamese-embedding'
 ]
 DEFAULT_EMBEDDING_MODEL = 'truro7/vn-law-embedding'
 

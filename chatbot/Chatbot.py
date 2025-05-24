@@ -98,7 +98,7 @@ with st.sidebar:
         "Chọn chế độ trả lời:", 
         options=['Ngắn gọn', 'Đầy đủ'],
         index=['Ngắn gọn', 'Đầy đủ'].index(current_answer_mode),
-        key="answer_mode", 
+        # key="answer_mode", 
         horizontal=True, 
         help="Mức độ chi tiết của câu trả lời."
     )
@@ -107,7 +107,7 @@ with st.sidebar:
         "Nguồn câu hỏi cho Retrieval:", 
         options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
         index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode),
-        key="retrieval_query_mode", 
+        # key="retrieval_query_mode", 
         horizontal=True, 
         help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
@@ -119,7 +119,7 @@ with st.sidebar:
         "Phương thức Retrieval:", 
         options=['Dense', 'Sparse', 'Hybrid'],
         index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method),
-        key="retrieval_method", 
+        # key="retrieval_method", 
         horizontal=True, 
         help=(
             "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"

@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer, CrossEncoder
 from kaggle_secrets import UserSecretsClient
 import streamlit as st
 import os
-import config # Import config để lấy danh sách model
+import config 
 from data_loader import load_or_create_rag_components
 # --- Model Loading Functions ---
 
@@ -73,7 +73,6 @@ def load_all_reranker_models() -> dict:
             continue
         with st.spinner(f"Đang tải Reranker model: {model_name}..."):
             model = load_single_reranker_model(model_name) # Gọi hàm đã cache
-            # model có thể là None nếu có lỗi, hoặc nếu model_name là 'Không sử dụng'
             loaded_models[model_name] = model # Lưu cả None nếu không tải được hoặc là 'Không sử dụng'
             if model:
                 st.success(f"Tải thành công Reranker model: {model_name.split('/')[-1]}")
@@ -119,7 +118,7 @@ def initialize_app_resources():
     # 1. Tải tất cả embedding models (nếu chưa có trong session)
     if not st.session_state.app_loaded_embedding_models:
         with st.status("Đang tải các Embedding Models...", expanded=True) as emb_status:
-            st.session_state.app_loaded_embedding_models = load_all_embedding_models() #
+            st.session_state.app_loaded_embedding_models = load_all_embedding_models() 
             if st.session_state.app_loaded_embedding_models:
                 emb_status.update(label=f"Đã tải {len(st.session_state.app_loaded_embedding_models)} Embedding Model(s).", state="complete")
             else:
@@ -129,7 +128,7 @@ def initialize_app_resources():
     # 2. Tải tất cả reranker models (nếu chưa có trong session)
     if not st.session_state.app_loaded_reranker_models:
         with st.status("Đang tải các Reranker Models...", expanded=True) as rer_status:
-            st.session_state.app_loaded_reranker_models = load_all_reranker_models() #
+            st.session_state.app_loaded_reranker_models = load_all_reranker_models() 
             if st.session_state.app_loaded_reranker_models: # Luôn có key 'Không sử dụng'
                 rer_count = len([m for m_name, m in st.session_state.app_loaded_reranker_models.items() if m is not None and m_name != 'Không sử dụng'])
                 rer_status.update(label=f"Đã tải {rer_count} Reranker Model(s) (và tùy chọn 'Không sử dụng').", state="complete")

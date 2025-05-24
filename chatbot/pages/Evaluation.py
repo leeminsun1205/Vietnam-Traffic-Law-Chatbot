@@ -186,7 +186,6 @@ def run_retrieval_evaluation(
                     queries_to_search_eval_run = [summarizing_q_q_eval] if summarizing_q_q_eval else [original_query_eval]
                 elif retrieval_query_mode_eval == 'Đa dạng': 
                     queries_to_search_eval_run = all_queries_q_eval if all_queries_q_eval else [original_query_eval]
-                st.write(queries_to_search_eval_run)
                 collected_docs_data_eval_run = {}
                 search_start_eval_q_run = time.time()
                 for q_var_eval_run in queries_to_search_eval_run:
@@ -197,6 +196,7 @@ def run_retrieval_evaluation(
                         method=retrieval_method_eval,
                         k=config.VECTOR_K_PER_QUERY
                     )
+                    
                     for res_item_eval_run in search_results_eval_run:
                         doc_idx_eval_run = res_item_eval_run.get('index')
                         if isinstance(doc_idx_eval_run, int) and doc_idx_eval_run >= 0 and doc_idx_eval_run not in collected_docs_data_eval_run:

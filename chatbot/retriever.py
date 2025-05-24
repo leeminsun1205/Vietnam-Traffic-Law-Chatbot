@@ -81,7 +81,7 @@ class Retriever:
         if not query_text: return []
         results = []
         indices_set = set() 
-
+        st.write("AHHAH")
         if method == 'Dense':
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             if indices is not None and len(indices) > 0:

@@ -5,7 +5,8 @@ import os
 AVAILABLE_EMBEDDING_MODELS = [
     'truro7/vn-law-embedding',
     'BAAI/bge-m3',
-    'intfloat/multilingual-e5-large'
+    'intfloat/multilingual-e5-large',
+    'dangvantuan/vietnamese-embedding'
 ]
 DEFAULT_EMBEDDING_MODEL = 'truro7/vn-law-embedding'
 
@@ -13,7 +14,8 @@ DEFAULT_EMBEDDING_MODEL = 'truro7/vn-law-embedding'
 AVAILABLE_RERANKER_MODELS = [
     'Không sử dụng',  # Lựa chọn không dùng reranker
     'namdp-ptit/ViRanker',
-    'BAAI/bge-reranker-v2-m3'
+    'BAAI/bge-reranker-v2-m3',
+    'thanhtantran/Vietnamese_Reranker'
 ]
 DEFAULT_RERANKER_MODEL = 'namdp-ptit/ViRanker'
 

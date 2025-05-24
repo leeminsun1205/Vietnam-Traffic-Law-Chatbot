@@ -27,7 +27,7 @@ def generate_and_collect_variations_only(eval_data: list, gemini_model_object, n
     status_text_var_only = st.empty()
     total_items_var_only = len(eval_data)
     queries_per_batch_var_only = 15
-    wait_time_seconds_var_only = 60
+    wait_time_seconds_var_only = 61
 
     if not gemini_model_object:
         st.error("Lỗi: Gemini model không được cung cấp cho việc sinh biến thể.")

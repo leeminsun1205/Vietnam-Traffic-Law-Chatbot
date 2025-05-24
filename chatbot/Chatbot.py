@@ -195,24 +195,22 @@ if not st.session_state.app_resources_initialized:
 if st.session_state.app_resources_initialized:
     app_init_status_placeholder.success("✅ Hệ thống và tất cả mô hình đã sẵn sàng!")
 
-    # Lấy các đối tượng model và RAG components CẦN THIẾT cho lần chạy hiện tại
-    # dựa trên lựa chọn của người dùng trong session_state
+    # Lấy các đối tượng model và RAG components.
     current_selected_embedding_name_main = st.session_state.selected_embedding_model_name
     current_selected_reranker_name_main = st.session_state.selected_reranker_model_name
     current_selected_gemini_name_main = st.session_state.selected_gemini_model_name
-    st.write(current_selected_embedding_name_main, current_selected_reranker_name_main, current_selected_gemini_name_main)
-    # Lấy embedding model object đã tải từ session_state
+    # Lấy embedding model
     active_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(current_selected_embedding_name_main)
 
     # Lấy RAG components (vector_db, retriever) cho embedding model hiện tại
     active_rag_components_main = st.session_state.app_rag_components_per_embedding_model.get(current_selected_embedding_name_main)
     active_retriever_main = active_rag_components_main[1] if active_rag_components_main else None
 
-    # Lấy reranker model object đã tải (có thể là None)
+    # Lấy reranker model object đã tải
     active_reranker_model_object_main = st.session_state.app_loaded_reranker_models.get(current_selected_reranker_name_main)
 
     # Tải (hoặc lấy từ cache của Streamlit) Gemini model được chọn
-    active_gemini_llm_main = load_gemini_model(current_selected_gemini_name_main) #
+    active_gemini_llm_main = load_gemini_model(current_selected_gemini_name_main)
 
     # --- Kiểm tra lại các active components ---
     proceed_with_chat = True

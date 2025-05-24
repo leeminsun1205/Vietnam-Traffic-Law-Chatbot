@@ -76,12 +76,12 @@ class Retriever:
             return []
 
 
-    def search(self, query_text, embedding_model, method='hybrid', k=20):
+    def search(self, query_text, embedding_model, method='Hybrid', k=20):
         if not query_text: return []
         results = []
         indices_set = set() 
 
-        if method == 'dense':
+        if method == 'Dense':
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             if indices is not None and len(indices) > 0:
                 for i, idx in enumerate(indices):
@@ -95,7 +95,7 @@ class Retriever:
                 # Sắp xếp theo distance tăng dần (score nhỏ hơn là tốt hơn)
                 results.sort(key=lambda x: x['score'])
 
-        elif method == 'sparse':
+        elif method == 'Sparse':
             if self.bm25:
                 tokenized_query = self._tokenize_vi(query_text)
                 if tokenized_query:    
@@ -111,7 +111,7 @@ class Retriever:
                             })
                             indices_set.add(idx)
 
-        elif method == 'hybrid':
+        elif method == 'Hybrid':
             # --- 1. Vector Search (Dense) ---
             _, vec_indices = retrieve_relevant_chunks(
                 query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY
@@ -139,7 +139,7 @@ class Retriever:
             fused_scores_dict = {}
             if rank_lists_to_fuse:
                 fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Dùng RRF_K từ config
-            elif vec_indices_list: # Fallback: Nếu chỉ có kết quả dense
+            elif vec_indices_list: # Fallback: Nếu chỉ có kết quả Dense
                  fused_indices = vec_indices_list
                  # Tạo dict score giả dựa trên rank (score cao hơn cho rank thấp hơn)
                  fused_scores_dict = {idx: 1.0 / (rank + 1) for rank, idx in enumerate(fused_indices)}

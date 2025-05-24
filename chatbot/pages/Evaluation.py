@@ -268,9 +268,9 @@ def run_retrieval_evaluation(
     return pd.DataFrame(results_list)
 
 # --- Trang Streamlit cho Đánh giá ---
-st.set_page_config(page_title="Đánh giá Retrieval", layout="wide", initial_sidebar_state="auto")
+st.set_page_config(page_title="Đánh giá Truy vấn", layout="wide", initial_sidebar_state="auto")
 
-# --- Khởi tạo Session State cho trang Đánh giá ---
+# Khởi tạo session state cho mô hình
 if "eval_pg_selected_embedding_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_embedding_model_name = config.DEFAULT_EMBEDDING_MODEL
 if "eval_pg_selected_gemini_model_name" not in st.session_state:
@@ -278,6 +278,7 @@ if "eval_pg_selected_gemini_model_name" not in st.session_state:
 if "eval_pg_selected_reranker_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL
 
+# Khởi tạo session state cho chế độ
 if "eval_pg_retrieval_query_mode" not in st.session_state: 
     st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
 if "eval_pg_retrieval_method" not in st.session_state: 
@@ -316,7 +317,7 @@ if "eval_pg_loaded_reranker_models" not in st.session_state:
 if "eval_pg_rag_components_per_embedding_model" not in st.session_state:
     st.session_state.eval_pg_rag_components_per_embedding_model = {}
 
-# --- Sidebar cho Trang Đánh giá ---
+# --- Sidebar cho trang Đánh giá ---
 with st.sidebar:
     st.title("Tùy chọn Đánh giá")
     st.header("Mô hình")
@@ -328,52 +329,70 @@ with st.sidebar:
     current_eval_pg_retrieval_method_sidebar = st.session_state.eval_pg_retrieval_method
 
     # Model selectbox
-    # Selectbox cho Embedding Model
     eval_pg_avail_emb_names = list(st.session_state.get("eval_pg_loaded_embedding_models", {}).keys())
     if not eval_pg_avail_emb_names: 
         eval_pg_avail_emb_names = config.AVAILABLE_EMBEDDING_MODELS
+    # Selectbox cho Embedding Model
     eval_sel_emb_name_ui = st.selectbox(
         "Chọn mô hình Embedding (Đánh giá):", 
         options=eval_pg_avail_emb_names,
+        key="eval_pg_selected_embedding_model_name",
         index=eval_pg_avail_emb_names.index(current_eval_emb_name_sb) 
-            if current_eval_emb_name_sb in eval_pg_avail_emb_names else 0,
-        key="eval_pg_selected_embedding_model_name", 
-        help="Chọn embedding model đã tải trước cho đánh giá."
+            if current_eval_emb_name_sb in eval_pg_avail_emb_names else 0, 
+        help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
 
+    # Selectbox cho Gemini Model
     eval_sel_gem_name_ui = st.selectbox(
         "Chọn mô hình Gemini (Đánh giá Query Variations):", 
         options=config.AVAILABLE_GEMINI_MODELS,
+        key="eval_pg_selected_gemini_model_name",
         index=config.AVAILABLE_GEMINI_MODELS.index(current_eval_gem_name_sb) 
-            if current_eval_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0,
-        key="eval_pg_selected_gemini_model_name", 
-        help="Chọn Gemini model cho đánh giá."
+            if current_eval_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
+        help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
 
     eval_pg_avail_rer_names = list(st.session_state.get("eval_pg_loaded_reranker_models", {}).keys())
     if not eval_pg_avail_rer_names: 
         eval_pg_avail_rer_names = config.AVAILABLE_RERANKER_MODELS
+    # Selectbox cho Reranker Model
     eval_sel_rer_name_ui = st.selectbox(
         "Chọn mô hình Reranker (Đánh giá):", 
         options=eval_pg_avail_rer_names,
+        key="eval_pg_selected_reranker_model_name",
         index=eval_pg_avail_rer_names.index(current_eval_rer_name_sb) 
-            if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0,
-        key="eval_pg_selected_reranker_model_name", 
-        help="Chọn reranker model đã tải trước. 'Không sử dụng' để tắt."
+            if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0, 
+        help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt."
     )
 
+    # Mode radio
     st.header("Cấu hình truy vấn")
-    st.radio("Nguồn câu hỏi:", 
-             options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
-             index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_eval_pg_retrieval_query_mode_sidebar),
-             key="eval_pg_retrieval_query_mode", 
-             horizontal=True)
-    st.radio("Phương thức truy vấn:", 
-             options=['Dense', 'Sparse', 'Hybrid'],
-             index=['Dense', 'Sparse', 'Hybrid'].index(current_eval_pg_retrieval_method_sidebar),
-             key="eval_pg_retrieval_method", 
-             horizontal=True)
+    eval_pg_retrieval_query_mode_choice = st.radio(
+        "Nguồn câu hỏi cho truy vấn:", 
+        options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
+        key="eval_pg_retrieval_query_mode",
+        index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_eval_pg_retrieval_query_mode_sidebar), 
+        horizontal=True,
+        help=(
+            "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
+            "**Mở rộng:** Chỉ dùng câu hỏi mở rộng từ câu hỏi gốc (do AI tạo).\n"
+            "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
+        )
+    )
+    eval_pg_retrieval_method_choice = st.radio(
+        "Phương thức truy vấn:", 
+        options=['Dense', 'Sparse', 'Hybrid'],
+        key="eval_pg_retrieval_method", 
+        index=['Dense', 'Sparse', 'Hybrid'].index(current_eval_pg_retrieval_method_sidebar),
+        horizontal=True,
+        help=(
+            "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
+            "**Sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
+            "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
+        )
+    )
 
+# --- Giao diện chính của Ứng dụng ---
 st.title("📊 Đánh giá Hệ thống Retrieval")
 st.markdown("Trang này cho phép bạn chạy đánh giá hiệu suất của hệ thống retrieval và reranking với các mô hình đã được tải trước, cùng tùy chọn quản lý biến thể câu hỏi.")
 
@@ -387,8 +406,9 @@ if not st.session_state.eval_page_resources_initialized:
         eval_resources_ready = initialize_evaluation_page_resources()
         st.session_state.eval_page_resources_initialized = eval_resources_ready
 
+# Kiểm tra sau khi đã khởi tạo
 if st.session_state.eval_page_resources_initialized:
-    eval_page_status_placeholder.success("✅ Tài nguyên trang Đánh giá đã sẵn sàng!")
+    eval_page_status_placeholder.success("✅ Hệ thống và tất cả mô hình đã sẵn sàng!")
 
     eval_pg_active_emb_name = st.session_state.eval_pg_selected_embedding_model_name
     eval_pg_active_rer_name = st.session_state.eval_pg_selected_reranker_model_name
@@ -418,11 +438,12 @@ if st.session_state.eval_page_resources_initialized:
             can_run_evaluation_flow = False
 
     if can_run_evaluation_flow:
+        # --- Cập nhật Caption hiển thị cấu hình ---
         st.caption(
-            f"Đánh giá với: Embedding: `{eval_pg_active_emb_name.split('/')[-1]}` | "
-            f"Gemini: `{eval_pg_active_gem_name}` | "
-            f"Query Mode: `{st.session_state.eval_pg_retrieval_query_mode}` | "
-            f"Retrieval: `{st.session_state.eval_pg_retrieval_method}` | "
+            f"Embedding: `{eval_pg_active_emb_name.split('/')[-1]}` | "
+            f"Mô hình: `{eval_pg_active_gem_name}` | "
+            f"Nguồn câu hỏi: `{st.session_state.eval_pg_retrieval_query_mode}` | "
+            f"Loại truy vấn: `{st.session_state.eval_pg_retrieval_method}` | "
             f"Reranker: `{eval_pg_active_rer_name.split('/')[-1] if eval_pg_active_rer_name != 'Không sử dụng' else 'Tắt'}` | "
             f"Chế độ Biến thể: `{st.session_state.eval_pg_variation_mode.split('(')[0].strip()}`"
         )
@@ -439,7 +460,7 @@ if st.session_state.eval_page_resources_initialized:
         st.session_state.eval_pg_variation_mode = st.radio(
             "Chế độ xử lý biến thể câu hỏi:",
             options=variation_mode_options_list,
-            key="eval_pg_variation_mode_radio_selector_main", # Key khác với sidebar
+            key="eval_pg_variation_mode_radio_selector_main", 
             index=current_variation_mode_index,
             horizontal=False,
             help=(
@@ -592,19 +613,15 @@ if st.session_state.eval_page_resources_initialized:
                                         newly_generated_vars_from_run[row["query_id"]] = {
                                             "original_query": row["query"],
                                             "relevance_status": "valid" if row["status"] == "evaluated" or row["status"] == "skipped_irrelevant" else "error_generating_variations", # Cần cách tốt hơn để lấy relevance gốc
-                                            "direct_answer_if_invalid": "", # Không có thông tin này từ df
+                                            "direct_answer_if_invalid": "", 
                                             "all_queries": [row["query"]] + [f"var_{j}" for j in range(int(row.get("num_variations_generated",0)))], # Cần cách lấy all_queries thật sự
                                             "summarizing_query": row.get("summarizing_query", row["query"]),
                                             "llm_model_used_for_generation": row.get("llm_model_for_variation", eval_pg_active_gem_name)
                                         }
-                                # Cách tốt nhất vẫn là dùng nút "Chỉ sinh và lưu" để có file chuẩn.
-                                # Hoặc sửa run_retrieval_evaluation để trả về dict các biến thể nếu nó tự sinh.
-                                # Hiện tại, logic này chỉ là ví dụ và có thể không chính xác hoàn toàn.
+
                                 if newly_generated_vars_from_run:
                                      st.session_state.eval_pg_generated_variations_for_saving = newly_generated_vars_from_run
                                      st.info("Các biến thể được tạo mới trong quá trình đánh giá đã được chuẩn bị để tải xuống (kết quả có thể khác với nút 'Chỉ Sinh và Lưu' do tối ưu).")
-
-
                             st.rerun()
 
             if st.session_state.get("eval_pg_generated_variations_for_saving"):
@@ -626,7 +643,6 @@ if st.session_state.eval_page_resources_initialized:
 
             if st.session_state.eval_pg_run_completed and st.session_state.eval_pg_results_df is not None:
                 st.subheader("Kết quả Đánh giá Chi tiết")
-                # ... (Phần hiển thị kết quả giữ nguyên)
                 detailed_results_df_display_pg = st.session_state.eval_pg_results_df
                 last_config_run_display_pg = st.session_state.eval_pg_last_config_run
 
@@ -738,7 +754,7 @@ if st.session_state.eval_page_resources_initialized:
                 time.sleep(1)
                 st.rerun()
     else:
-        st.warning("⚠️ Không thể tiến hành do thiếu các thành phần model cần thiết. Vui lòng kiểm tra thông báo lỗi ở trên và cấu hình trong sidebar.")
+        st.warning("⚠️ Không thể tiến hành do thiếu các thành phần cần thiết. Vui lòng kiểm tra thông báo lỗi ở trên và cấu hình trong sidebar.")
 
 elif not st.session_state.eval_page_resources_initialized:
     eval_page_status_placeholder.error("⚠️ Tài nguyên trang Đánh giá CHƯA SẴN SÀNG. Lỗi trong quá trình tải model hoặc tạo RAG. Vui lòng kiểm tra log chi tiết hoặc làm mới trang.")

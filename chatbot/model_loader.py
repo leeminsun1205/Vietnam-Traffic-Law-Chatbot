@@ -3,6 +3,7 @@ import google.generativeai as genai
 from sentence_transformers import SentenceTransformer, CrossEncoder
 from kaggle_secrets import UserSecretsClient
 import streamlit as st
+import os
 import config # Import config để lấy danh sách model
 from data_loader import load_or_create_rag_components
 # --- Model Loading Functions ---

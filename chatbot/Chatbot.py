@@ -14,21 +14,22 @@ st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sid
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
 
-# Lưu tên model được chọn
+# Model selection
 if "selected_embedding_model_name" not in st.session_state:
     st.session_state.selected_embedding_model_name = config.DEFAULT_EMBEDDING_MODEL 
 if "selected_gemini_model_name" not in st.session_state:
     st.session_state.selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL 
 if "selected_reranker_model_name" not in st.session_state:
     st.session_state.selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL 
-
-# Các cấu hình khác
-if "answer_mode" not in st.session_state: st.session_state.answer_mode = 'Ngắn gọn'
-if "retrieval_query_mode" not in st.session_state: st.session_state.retrieval_query_mode = 'Mở rộng'
-if "retrieval_method" not in st.session_state: st.session_state.retrieval_method = 'hybrid'
+# Mode selection
+if "answer_mode" not in st.session_state: 
+    st.session_state.answer_mode = 'Ngắn gọn'
+if "retrieval_query_mode" not in st.session_state: 
+    st.session_state.retrieval_query_mode = 'Mở rộng'
+if "retrieval_method" not in st.session_state: 
+    st.session_state.retrieval_method = 'Hybrid'
 
 # --- Tải trước TOÀN BỘ models và RAG components ---
-
 if "app_loaded_embedding_models" not in st.session_state:
     st.session_state.app_loaded_embedding_models = {}
 if "app_loaded_reranker_models" not in st.session_state:
@@ -41,50 +42,46 @@ with st.sidebar:
     st.title("Tùy chọn")
     st.header("Mô hình")
 
-    # Lấy tên model hiện tại từ session_state để đảm bảo selectbox hiển thị đúng
     current_embedding_name_sb = st.session_state.selected_embedding_model_name
     current_gemini_name_sb = st.session_state.selected_gemini_model_name
     current_reranker_name_sb = st.session_state.selected_reranker_model_name
+    current_answer_mode = st.session_state.answer_mode
+    current_retrieval_query_mode = st.session_state.retrieval_query_mode
+    current_retrieval_method = st.session_state.retrieval_method
 
+    # Model selectbox
     # Selectbox cho Embedding Model
-    # options nên là danh sách các key từ các model đã tải thành công, nếu muốn an toàn hơn
-    # Hoặc dùng trực tiếp từ config nếu tin rằng tất cả sẽ được tải
     available_loaded_embedding_names = list(st.session_state.get("app_loaded_embedding_models", {}).keys())
-    if not available_loaded_embedding_names: # Fallback nếu chưa có gì được tải
-        available_loaded_embedding_names = config.AVAILABLE_EMBEDDING_MODELS #
-
+    if not available_loaded_embedding_names:
+        available_loaded_embedding_names = config.AVAILABLE_EMBEDDING_MODELS 
     selected_embedding_model_name_ui = st.selectbox(
         "Chọn mô hình Embedding:",
         options=available_loaded_embedding_names,
         index=available_loaded_embedding_names.index(current_embedding_name_sb)
             if current_embedding_name_sb in available_loaded_embedding_names else 0,
-        help="Chọn mô hình để vector hóa tài liệu và câu hỏi. Các mô hình đã được tải trước."
+        help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
     # Cập nhật session state nếu có thay đổi từ UI
     if selected_embedding_model_name_ui != st.session_state.selected_embedding_model_name:
         st.session_state.selected_embedding_model_name = selected_embedding_model_name_ui
-        st.rerun() # Rerun để cập nhật caption và logic lấy retriever
+        st.rerun() 
 
     # Selectbox cho Gemini Model
     selected_gemini_model_name_ui = st.selectbox(
         "Chọn mô hình Gemini:",
-        options=config.AVAILABLE_GEMINI_MODELS, #
-        index=config.AVAILABLE_GEMINI_MODELS.index(current_gemini_name_sb) #
-            if current_gemini_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, #
+        options=config.AVAILABLE_GEMINI_MODELS, 
+        index=config.AVAILABLE_GEMINI_MODELS.index(current_gemini_name_sb) 
+            if current_gemini_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
     if selected_gemini_model_name_ui != st.session_state.selected_gemini_model_name:
         st.session_state.selected_gemini_model_name = selected_gemini_model_name_ui
-        # Gemini model được tải on-demand (có cache) nên không cần rerun ngay,
-        # trừ khi bạn muốn cập nhật caption ngay lập tức.
         st.rerun()
-
 
     # Selectbox cho Reranker Model
     available_loaded_reranker_names = list(st.session_state.get("app_loaded_reranker_models", {}).keys())
     if not available_loaded_reranker_names: # Fallback
-        available_loaded_reranker_names = config.AVAILABLE_RERANKER_MODELS #
-
+        available_loaded_reranker_names = config.AVAILABLE_RERANKER_MODELS 
     selected_reranker_model_name_ui = st.selectbox(
         "Chọn mô hình Reranker:",
         options=available_loaded_reranker_names,
@@ -94,29 +91,40 @@ with st.sidebar:
     )
     if selected_reranker_model_name_ui != st.session_state.selected_reranker_model_name:
         st.session_state.selected_reranker_model_name = selected_reranker_model_name_ui
-        st.rerun() # Rerun để cập nhật caption
+        st.rerun() 
 
-    # ... (các radio buttons và nút xóa lịch sử giữ nguyên) ...
+    # Mode radio
     answer_mode_choice = st.radio(
-        "Chọn chế độ trả lời:", options=['Ngắn gọn', 'Đầy đủ'],
-        key="answer_mode", horizontal=True, help="Mức độ chi tiết của câu trả lời."
+        "Chọn chế độ trả lời:", 
+        options=['Ngắn gọn', 'Đầy đủ'],
+        index=['Ngắn gọn', 'Đầy đủ'].index(current_retrieval_method),
+        key="answer_mode", 
+        horizontal=True, 
+        help="Mức độ chi tiết của câu trả lời."
     )
     st.header("Cấu hình truy vấn")
     retrieval_query_mode_choice = st.radio(
-        "Nguồn câu hỏi cho Retrieval:", options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
-        key="retrieval_query_mode", horizontal=True, help=(
+        "Nguồn câu hỏi cho Retrieval:", 
+        options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
+        index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode),
+        key="retrieval_query_mode", 
+        horizontal=True, 
+        help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
             "**Mở rộng:** Chỉ dùng câu hỏi mở rộng từ câu hỏi gốc (do AI tạo).\n"
             "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
         )
     )
     retrieval_method_choice = st.radio(
-        "Phương thức Retrieval:", options=['dense', 'sparse', 'hybrid'],
-        index=['dense', 'sparse', 'hybrid'].index(st.session_state.retrieval_method),
-        key="retrieval_method", horizontal=True, help=(
-            "**dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
-            "**sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
-            "**hybrid:** Kết hợp cả dense và sparse (cân bằng, có thể tốt nhất)."
+        "Phương thức Retrieval:", 
+        options=['Dense', 'Sparse', 'Hybrid'],
+        index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method),
+        key="retrieval_method", 
+        horizontal=True, 
+        help=(
+            "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
+            "**Sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
+            "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
         )
     )
     st.markdown("---")
@@ -289,7 +297,7 @@ if st.session_state.app_resources_initialized:
                         message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                         retrieved_docs_list_main = list(collected_docs_data_main.values())
-                        sort_reverse_main = (retrieval_method_main != 'dense')
+                        sort_reverse_main = (retrieval_method_main != 'Dense')
                         retrieved_docs_list_main.sort(key=lambda x: x.get('score', 0 if sort_reverse_main else float('inf')), reverse=sort_reverse_main)
 
                         reranked_documents_for_llm_main = []

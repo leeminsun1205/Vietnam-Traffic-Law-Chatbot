@@ -179,7 +179,6 @@ for message in st.session_state.messages:
             content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message) #
         st.markdown(content_to_display, unsafe_allow_html=True)
 
-
 # --- Khởi tạo hệ thống một lần ---
 app_init_status_placeholder = st.empty() # Placeholder để hiển thị trạng thái cuối cùng
 if "app_resources_initialized" not in st.session_state:
@@ -242,7 +241,7 @@ if st.session_state.app_resources_initialized:
                 processing_log = []
                 final_relevant_documents_for_display_main = []
                 relevance_status = 'valid'
-
+                st.write('START')
                 try:
                     start_time = time.time()
                     processing_log.append(f"[{time.time() - start_time:.2f}s] Bắt đầu xử lý với: "

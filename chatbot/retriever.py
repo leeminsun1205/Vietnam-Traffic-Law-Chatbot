@@ -40,7 +40,7 @@ class Retriever:
 
         # Khởi tạo hoặc tải BM25
         if not self.load_bm25(self.bm25_index_path):
-            if self.document_texts: # Chỉ khởi tạo nếu có text
+            if self.document_texts: 
                 self._initialize_bm25()
                 if self.bm25:
                     self.save_bm25(self.bm25_index_path)
@@ -130,43 +130,39 @@ class Retriever:
                     bm25_indices_list = [int(index) for _, index in bm25_scored_indices[:config.VECTOR_K_PER_QUERY]]
 
             # --- 3. Rank Fusion (RRF) ---
-            rank_lists_to_fuse = []
-            if vec_indices_list: rank_lists_to_fuse.append(vec_indices_list)
-            if bm25_indices_list: rank_lists_to_fuse.append(bm25_indices_list)
-            st.write('Dense')
-            st.write(vec_indices_list)
-            st.write('Sparse')
-            st.write(bm25_indices_list)
+            rank_lists_to_fuse_with_weights = []
+            if vec_indices_list: 
+                rank_lists_to_fuse_with_weights.append((vec_indices_list, config.DENSE_WEIGHT_FOR_HYBRID))
+            if bm25_indices_list: 
+                rank_lists_to_fuse_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_FOR_HYBRID))
+        
             fused_indices = []
             fused_scores_dict = {}
-            if rank_lists_to_fuse:
-                fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Dùng RRF_K từ config
-            elif vec_indices_list: 
-                 fused_indices = vec_indices_list
-                 # Tạo dict score giả dựa trên rank (score cao hơn cho rank thấp hơn)
-                 fused_scores_dict = {idx: 1.0 / (rank + 1) for rank, idx in enumerate(fused_indices)}
-            st.write(fused_indices, fused_scores_dict)
+            if rank_lists_to_fuse_with_weights:
+                fused_indices, fused_scores_dict = self._rank_fusion_indices(
+                    rank_lists_to_fuse_with_weights,
+                    rrf_k_constant=config.RRF_K 
+                )
             # --- 4. Get Top K Documents ---
             for rank, idx in enumerate(fused_indices):
-                 # Lấy top K kết quả cuối cùng
                 if len(results) >= k: break
-                # Đảm bảo idx hợp lệ và chưa được thêm
                 if isinstance(idx, (int, np.integer)) and 0 <= idx < len(self.documents) and idx not in indices_set:
-                    score = fused_scores_dict.get(idx, 1.0 / (rank + 1 + config.RRF_K)) # Lấy score RRF hoặc rank-based
+                    score = fused_scores_dict.get(idx, 0.0) 
                     results.append({'doc': self.documents[idx], 'score': float(score), 'index': int(idx)})
                     indices_set.add(idx)
 
         else: return []
         return results 
 
-    def _rank_fusion_indices(self, rank_lists, k=60):
+    def _rank_fusion_indices(self, rank_lists_with_weights, rrf_k_constant=config.RRF_K):
         """Thực hiện RRF để kết hợp các danh sách rank."""
         fused_scores = {}
-        for rank_list in rank_lists:
+        for rank_list, weight in rank_lists_with_weights:
             for rank, doc_index in enumerate(rank_list):
                  if isinstance(doc_index, (int, np.integer)):
                      rank_ = rank + 1
-                     fused_scores[doc_index] = fused_scores.get(doc_index, 0) + (1 / (rank_ + k))
+                     score_contribution = weight * (1 / (rank_ + rrf_k_constant))
+                     fused_scores[doc_index] = fused_scores.get(doc_index, 0) + score_contribution
 
         sorted_indices = sorted(fused_scores, key=fused_scores.get, reverse=True)
         return sorted_indices, fused_scores
@@ -183,7 +179,6 @@ class Retriever:
             try:
                 with open(filepath, 'rb') as f:
                     self.bm25 = pickle.load(f)
-                 # Kiểm tra xem object load được có phương thức cần thiết không
                 if not hasattr(self.bm25, 'get_scores'):
                     self.bm25 = None
                     return False

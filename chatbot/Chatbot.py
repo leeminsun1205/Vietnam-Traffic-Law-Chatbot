@@ -119,7 +119,7 @@ with st.sidebar:
         "Phương thức Retrieval:", 
         options=['Dense', 'Sparse', 'Hybrid'],
         index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method),
-        # key="retrieval_method", 
+        key="retrieval_method", 
         horizontal=True, 
         help=(
             "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"

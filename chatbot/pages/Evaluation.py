@@ -76,7 +76,7 @@ def generate_and_collect_variations_only(eval_data: list, gemini_model_object, n
     status_text_var_only.success(f"Hoàn thành sinh biến thể cho {total_items_var_only} câu hỏi!")
     return collected_variations_output
 
-# --- Hàm chạy đánh giá chính, được sửa đổi ---
+# --- Hàm chạy đánh giá chính ---
 def run_retrieval_evaluation(
     eval_data: list,
     retriever_instance_for_eval,
@@ -138,8 +138,11 @@ def run_retrieval_evaluation(
             'num_retrieved_before_rerank': 0, 'num_retrieved_after_rerank': 0, 'error_message': ''
         }
         for k_val_m in k_values_metrics:
-            query_metrics_dict[f'precision@{k_val_m}'] = 0.0; query_metrics_dict[f'recall@{k_val_m}'] = 0.0
-            query_metrics_dict[f'f1@{k_val_m}'] = 0.0; query_metrics_dict[f'mrr@{k_val_m}'] = 0.0; query_metrics_dict[f'ndcg@{k_val_m}'] = 0.0
+            query_metrics_dict[f'precision@{k_val_m}'] = 0.0
+            query_metrics_dict[f'recall@{k_val_m}'] = 0.0
+            query_metrics_dict[f'f1@{k_val_m}'] = 0.0
+            query_metrics_dict[f'mrr@{k_val_m}'] = 0.0
+            query_metrics_dict[f'ndcg@{k_val_m}'] = 0.0
 
         try:
             var_start_processing_time = time.time()
@@ -177,10 +180,13 @@ def run_retrieval_evaluation(
                 query_metrics_dict["status"] = "skipped_irrelevant" if relevance_status_q_eval == 'invalid' else "skipped_variation_error"
             else:
                 queries_to_search_eval_run = []
-                if retrieval_query_mode_eval == 'Đơn giản': queries_to_search_eval_run = [original_query_eval]
-                elif retrieval_query_mode_eval == 'Mở rộng': queries_to_search_eval_run = [summarizing_q_q_eval] if summarizing_q_q_eval else [original_query_eval]
-                elif retrieval_query_mode_eval == 'Đa dạng': queries_to_search_eval_run = all_queries_q_eval if all_queries_q_eval else [original_query_eval]
-
+                if retrieval_query_mode_eval == 'Đơn giản': 
+                    queries_to_search_eval_run = [original_query_eval]
+                elif retrieval_query_mode_eval == 'Mở rộng': 
+                    queries_to_search_eval_run = [summarizing_q_q_eval] if summarizing_q_q_eval else [original_query_eval]
+                elif retrieval_query_mode_eval == 'Đa dạng': 
+                    queries_to_search_eval_run = all_queries_q_eval if all_queries_q_eval else [original_query_eval]
+                st.write(queries_to_search_eval_run)
                 collected_docs_data_eval_run = {}
                 search_start_eval_q_run = time.time()
                 for q_var_eval_run in queries_to_search_eval_run:

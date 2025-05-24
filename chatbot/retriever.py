@@ -114,6 +114,7 @@ class Retriever:
 
         elif method == 'Hybrid':
             # --- 1. Vector Search (Dense) ---
+            st.write('START')
             _, vec_indices = retrieve_relevant_chunks(
                 query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY
             )

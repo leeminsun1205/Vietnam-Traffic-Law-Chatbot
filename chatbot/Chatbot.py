@@ -97,7 +97,7 @@ with st.sidebar:
     answer_mode_choice = st.radio(
         "Chọn chế độ trả lời:", 
         options=['Ngắn gọn', 'Đầy đủ'],
-        index=['Ngắn gọn', 'Đầy đủ'].index(current_retrieval_method),
+        index=['Ngắn gọn', 'Đầy đủ'].index(current_answer_mode),
         key="answer_mode", 
         horizontal=True, 
         help="Mức độ chi tiết của câu trả lời."

@@ -102,6 +102,10 @@ with st.sidebar:
         horizontal=True, 
         help="Mức độ chi tiết của câu trả lời."
     )
+    if answer_mode_choice != st.session_state.answer_mode:
+        st.session_state.answer_mode = answer_mode_choice
+        st.rerun()
+
     st.header("Cấu hình truy vấn")
     retrieval_query_mode_choice = st.radio(
         "Nguồn câu hỏi cho Retrieval:", 
@@ -115,11 +119,15 @@ with st.sidebar:
             "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
         )
     )
+    if retrieval_query_mode_choice != st.session_state.retrieval_query_mode:
+        st.session_state.retrieval_query_mode = retrieval_query_mode_choice
+        st.rerun()
+
     retrieval_method_choice = st.radio(
         "Phương thức Retrieval:", 
         options=['Dense', 'Sparse', 'Hybrid'],
         index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method),
-        key="retrieval_method", 
+        # key="retrieval_method", 
         horizontal=True, 
         help=(
             "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
@@ -127,6 +135,10 @@ with st.sidebar:
             "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
         )
     )
+    if retrieval_method_choice != st.session_state.retrieval_method:
+            st.session_state.retrieval_method = retrieval_method_choice
+            st.rerun()
+
     st.markdown("---")
     st.header("Quản lý Hội thoại")
     if st.button("⚠️ Xóa Lịch Sử Chat"):

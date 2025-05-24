@@ -102,9 +102,9 @@ with st.sidebar:
         horizontal=True, 
         help="Mức độ chi tiết của câu trả lời."
     )
-    if answer_mode_choice != st.session_state.answer_mode:
-        st.session_state.answer_mode = answer_mode_choice
-        st.rerun()
+    # if answer_mode_choice != st.session_state.answer_mode:
+    #     st.session_state.answer_mode = answer_mode_choice
+    #     st.rerun()
 
     st.header("Cấu hình truy vấn")
     retrieval_query_mode_choice = st.radio(

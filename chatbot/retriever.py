@@ -81,7 +81,6 @@ class Retriever:
         if not query_text: return []
         results = []
         indices_set = set() 
-        st.write("AHHAH")
         if method == 'Dense':
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             if indices is not None and len(indices) > 0:
@@ -114,14 +113,12 @@ class Retriever:
 
         elif method == 'Hybrid':
             # --- 1. Vector Search (Dense) ---
-            st.write('START')
             _, vec_indices = retrieve_relevant_chunks(
                 query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY
             )
             vec_indices_list = []
             if vec_indices is not None and len(vec_indices) > 0:
                 vec_indices_list = [int(i) for i in vec_indices.flatten().tolist() if isinstance(i, (int, np.integer))]
-            st.write(vec_indices_list)
             # --- 2. BM25 Search (Sparse) ---
             bm25_indices_list = []
             if self.bm25:
@@ -136,16 +133,19 @@ class Retriever:
             rank_lists_to_fuse = []
             if vec_indices_list: rank_lists_to_fuse.append(vec_indices_list)
             if bm25_indices_list: rank_lists_to_fuse.append(bm25_indices_list)
-
+            st.write('Dense')
+            st.write(vec_indices_list)
+            st.write('Sparse')
+            st.write(st.write(vec_indices_list))
             fused_indices = []
             fused_scores_dict = {}
             if rank_lists_to_fuse:
                 fused_indices, fused_scores_dict = self._rank_fusion_indices(rank_lists_to_fuse, k=config.RRF_K) # Dùng RRF_K từ config
-            elif vec_indices_list: # Fallback: Nếu chỉ có kết quả Dense
+            elif vec_indices_list: 
                  fused_indices = vec_indices_list
                  # Tạo dict score giả dựa trên rank (score cao hơn cho rank thấp hơn)
                  fused_scores_dict = {idx: 1.0 / (rank + 1) for rank, idx in enumerate(fused_indices)}
-
+            st.write(fused_indices, fused_scores_dict)
             # --- 4. Get Top K Documents ---
             for rank, idx in enumerate(fused_indices):
                  # Lấy top K kết quả cuối cùng

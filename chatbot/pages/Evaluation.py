@@ -279,8 +279,10 @@ if "eval_pg_selected_gemini_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL
 if "eval_pg_selected_reranker_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL
+
 if "eval_pg_retrieval_query_mode" not in st.session_state: st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
 if "eval_pg_retrieval_method" not in st.session_state: st.session_state.eval_pg_retrieval_method = 'Hybrid'
+
 if 'eval_pg_data' not in st.session_state: st.session_state.eval_pg_data = None
 if 'eval_pg_results_df' not in st.session_state: st.session_state.eval_pg_results_df = None
 if 'eval_pg_run_completed' not in st.session_state: st.session_state.eval_pg_run_completed = False
@@ -288,7 +290,6 @@ if 'eval_pg_uploaded_filename' not in st.session_state: st.session_state.eval_pg
 if "eval_pg_upload_counter" not in st.session_state: st.session_state.eval_pg_upload_counter = 0
 if 'eval_pg_last_config_run' not in st.session_state: st.session_state.eval_pg_last_config_run = {}
 
-# Session state cho tính năng mới
 if "eval_pg_variation_mode" not in st.session_state:
     st.session_state.eval_pg_variation_mode = "Tạo mới từ LLM"
 if "eval_pg_save_newly_generated_variations_cb" not in st.session_state:
@@ -317,8 +318,8 @@ with st.sidebar:
     current_eval_emb_name_sb = st.session_state.eval_pg_selected_embedding_model_name
     current_eval_gem_name_sb = st.session_state.eval_pg_selected_gemini_model_name
     current_eval_rer_name_sb = st.session_state.eval_pg_selected_reranker_model_name
-    current_eval_pg_retrieval_query_mode_sidebar = st.session_state.eval_pg_retrieval_query_mode_sidebar
-    current_eval_pg_retrieval_method_sidebar = st.session_state.eval_pg_retrieval_method_sidebar
+    current_eval_pg_retrieval_query_mode_sidebar = st.session_state.eval_pg_retrieval_query_mode
+    current_eval_pg_retrieval_method_sidebar = st.session_state.eval_pg_retrieval_method
 
     # Model selectbox
     # Selectbox cho Embedding Model

@@ -317,7 +317,7 @@ with st.sidebar:
     current_eval_emb_name_sb = st.session_state.eval_pg_selected_embedding_model_name
     current_eval_gem_name_sb = st.session_state.eval_pg_selected_gemini_model_name
     current_eval_rer_name_sb = st.session_state.eval_pg_selected_reranker_model_name
-    current_eval_pg_retrieval_query_mode_sidebar = st.sesssion_state.eval_pg_retrieval_query_mode_sidebar
+    current_eval_pg_retrieval_query_mode_sidebar = st.session_state.eval_pg_retrieval_query_mode_sidebar
     current_eval_pg_retrieval_method_sidebar = st.session_state.eval_pg_retrieval_method_sidebar
 
     # Model selectbox

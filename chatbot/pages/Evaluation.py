@@ -268,9 +268,7 @@ def run_retrieval_evaluation(
     return pd.DataFrame(results_list)
 
 # --- Trang Streamlit cho Đánh giá ---
-st.set_page_config(page_title="Đánh giá Retrieval", layout="wide")
-st.title("📊 Đánh giá Hệ thống Retrieval")
-st.markdown("Trang này cho phép bạn chạy đánh giá hiệu suất của hệ thống retrieval và reranking với các mô hình đã được tải trước, cùng tùy chọn quản lý biến thể câu hỏi.")
+st.set_page_config(page_title="Đánh giá Retrieval", layout="wide", initial_sidebar_state="auto")
 
 # --- Khởi tạo Session State cho trang Đánh giá ---
 if "eval_pg_selected_embedding_model_name" not in st.session_state:
@@ -375,6 +373,9 @@ with st.sidebar:
              index=['Dense', 'Sparse', 'Hybrid'].index(current_eval_pg_retrieval_method_sidebar),
              key="eval_pg_retrieval_method", 
              horizontal=True)
+
+st.title("📊 Đánh giá Hệ thống Retrieval")
+st.markdown("Trang này cho phép bạn chạy đánh giá hiệu suất của hệ thống retrieval và reranking với các mô hình đã được tải trước, cùng tùy chọn quản lý biến thể câu hỏi.")
 
 # --- Khởi tạo tài nguyên cho trang Đánh giá ---
 eval_page_status_placeholder = st.empty()

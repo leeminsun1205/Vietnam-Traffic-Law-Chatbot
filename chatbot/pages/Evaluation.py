@@ -99,7 +99,10 @@ def run_retrieval_evaluation(
     status_text_area_eval = st.empty()
     total_items_eval = len(eval_data)
     queries_per_batch_eval = 15
-    wait_time_seconds_eval = 60
+    if variation_mode_run == "Sử dụng file biến thể đã tải lên":
+        wait_time_seconds_eval = 0
+    else:
+        wait_time_seconds_eval = 60
 
     for i, item_eval in enumerate(eval_data):
         if i > 0 and i % queries_per_batch_eval == 0:
@@ -196,7 +199,7 @@ def run_retrieval_evaluation(
                         method=retrieval_method_eval,
                         k=config.VECTOR_K_PER_QUERY
                     )
-                    
+
                     for res_item_eval_run in search_results_eval_run:
                         doc_idx_eval_run = res_item_eval_run.get('index')
                         if isinstance(doc_idx_eval_run, int) and doc_idx_eval_run >= 0 and doc_idx_eval_run not in collected_docs_data_eval_run:

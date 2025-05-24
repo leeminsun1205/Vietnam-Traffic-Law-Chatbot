@@ -280,25 +280,33 @@ if "eval_pg_selected_gemini_model_name" not in st.session_state:
 if "eval_pg_selected_reranker_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL
 
-if "eval_pg_retrieval_query_mode" not in st.session_state: st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
-if "eval_pg_retrieval_method" not in st.session_state: st.session_state.eval_pg_retrieval_method = 'Hybrid'
+if "eval_pg_retrieval_query_mode" not in st.session_state: 
+    st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
+if "eval_pg_retrieval_method" not in st.session_state: 
+    st.session_state.eval_pg_retrieval_method = 'Hybrid'
 
-if 'eval_pg_data' not in st.session_state: st.session_state.eval_pg_data = None
-if 'eval_pg_results_df' not in st.session_state: st.session_state.eval_pg_results_df = None
-if 'eval_pg_run_completed' not in st.session_state: st.session_state.eval_pg_run_completed = False
-if 'eval_pg_uploaded_filename' not in st.session_state: st.session_state.eval_pg_uploaded_filename = None
-if "eval_pg_upload_counter" not in st.session_state: st.session_state.eval_pg_upload_counter = 0
-if 'eval_pg_last_config_run' not in st.session_state: st.session_state.eval_pg_last_config_run = {}
+if 'eval_pg_data' not in st.session_state: 
+    st.session_state.eval_pg_data = None
+if 'eval_pg_results_df' not in st.session_state: 
+    st.session_state.eval_pg_results_df = None
+if 'eval_pg_run_completed' not in st.session_state: 
+    st.session_state.eval_pg_run_completed = False
+if 'eval_pg_uploaded_filename' not in st.session_state: 
+    st.session_state.eval_pg_uploaded_filename = None
+if "eval_pg_upload_counter" not in st.session_state: 
+    st.session_state.eval_pg_upload_counter = 0
+if 'eval_pg_last_config_run' not in st.session_state: 
+    st.session_state.eval_pg_last_config_run = {}
 
 if "eval_pg_variation_mode" not in st.session_state:
     st.session_state.eval_pg_variation_mode = "Tạo mới từ LLM"
 if "eval_pg_save_newly_generated_variations_cb" not in st.session_state:
     st.session_state.eval_pg_save_newly_generated_variations_cb = False
-if "eval_pg_uploaded_variations_file_obj_name" not in st.session_state: # Lưu tên file biến thể đã upload
+if "eval_pg_uploaded_variations_file_obj_name" not in st.session_state: 
     st.session_state.eval_pg_uploaded_variations_file_obj_name = None
-if "eval_pg_variations_data_from_file" not in st.session_state: # Dữ liệu biến thể đã parse từ file
+if "eval_pg_variations_data_from_file" not in st.session_state: 
     st.session_state.eval_pg_variations_data_from_file = None
-if "eval_pg_generated_variations_for_saving" not in st.session_state: # Lưu các biến thể vừa tạo để tải xuống
+if "eval_pg_generated_variations_for_saving" not in st.session_state: 
     st.session_state.eval_pg_generated_variations_for_saving = None
 
 
@@ -331,7 +339,7 @@ with st.sidebar:
         options=eval_pg_avail_emb_names,
         index=eval_pg_avail_emb_names.index(current_eval_emb_name_sb) 
             if current_eval_emb_name_sb in eval_pg_avail_emb_names else 0,
-        key="eval_pg_emb_select_sidebar", 
+        key="eval_pg_selected_embedding_model_name", 
         help="Chọn embedding model đã tải trước cho đánh giá."
     )
 
@@ -340,7 +348,7 @@ with st.sidebar:
         options=config.AVAILABLE_GEMINI_MODELS,
         index=config.AVAILABLE_GEMINI_MODELS.index(current_eval_gem_name_sb) 
             if current_eval_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0,
-        key="eval_pg_gem_select_sidebar", 
+        key="eval_pg_selected_gemini_model_name", 
         help="Chọn Gemini model cho đánh giá."
     )
 
@@ -352,7 +360,7 @@ with st.sidebar:
         options=eval_pg_avail_rer_names,
         index=eval_pg_avail_rer_names.index(current_eval_rer_name_sb) 
             if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0,
-        key="eval_pg_rer_select_sidebar", 
+        key="eval_pg_selected_reranker_model_name", 
         help="Chọn reranker model đã tải trước. 'Không sử dụng' để tắt."
     )
 
@@ -360,12 +368,12 @@ with st.sidebar:
     st.radio("Nguồn câu hỏi:", 
              options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
              index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_eval_pg_retrieval_query_mode_sidebar),
-             key="eval_pg_retrieval_query_mode_sidebar", 
+             key="eval_pg_retrieval_query_mode", 
              horizontal=True)
     st.radio("Phương thức truy vấn:", 
              options=['Dense', 'Sparse', 'Hybrid'],
              index=['Dense', 'Sparse', 'Hybrid'].index(current_eval_pg_retrieval_method_sidebar),
-             key="eval_pg_retrieval_method_sidebar", 
+             key="eval_pg_retrieval_method", 
              horizontal=True)
 
 # --- Khởi tạo tài nguyên cho trang Đánh giá ---

@@ -4,6 +4,7 @@ import os
 import numpy as np
 import pickle
 import config
+import streamlit as st
 from rank_bm25 import BM25Okapi
 from pyvi import ViTokenizer
 from config import VIETNAMESE_STOP_WORDS
@@ -119,7 +120,7 @@ class Retriever:
             vec_indices_list = []
             if vec_indices is not None and len(vec_indices) > 0:
                 vec_indices_list = [int(i) for i in vec_indices.flatten().tolist() if isinstance(i, (int, np.integer))]
-
+            st.write(vec_indices_list)
             # --- 2. BM25 Search (Sparse) ---
             bm25_indices_list = []
             if self.bm25:

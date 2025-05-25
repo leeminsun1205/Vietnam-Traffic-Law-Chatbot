@@ -29,7 +29,7 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
     **Câu hỏi HIỆN TẠI:** "{original_query}"
 
     **Bước 1: Phân loại Mức độ Liên quan**
-    Xác định câu hỏi có bị mơ hồ hoặc liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, phương tiện,...).
+    Xác định câu hỏi có bị mơ hồ hoặc liên quan trực tiếp đến Luật GTĐB Việt Nam không (quy tắc, biển báo, phạt, giấy phép, phương tiện,...) (chấp nhận các câu hỏi về đường sắt nhưng khuyến nghị không có nhiều thông tin).
 
     **Bước 2: Tạo Phản hồi JSON**
     Dựa vào Bước 1, tạo phản hồi JSON **CHÍNH XÁC** theo định dạng sau:

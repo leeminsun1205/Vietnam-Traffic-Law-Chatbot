@@ -541,6 +541,7 @@ if st.session_state.eval_page_resources_initialized:
             if st.session_state.eval_pg_hybrid_component_mode == "2 Dense + 1 Sparse" and st.session_state.get("eval_pg_selected_secondary_embedding_model_name"):
                 eval_pg_active_secondary_emb_name = st.session_state.eval_pg_selected_secondary_embedding_model_name
                 caption_eval_text += f" | Embedding Phụ: `{eval_pg_active_secondary_emb_name.split('/')[-1]}`"
+        st.caption(caption_eval_text) 
 
         st.subheader("Cấu hình Biến thể Câu hỏi (Query Variations)")
         variation_mode_options_list = [

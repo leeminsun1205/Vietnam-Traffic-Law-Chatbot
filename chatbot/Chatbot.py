@@ -8,7 +8,7 @@ from model_loader import load_gemini_model, initialize_app_resources
 from reranker import rerank_documents 
 from generation import generate_answer_with_gemini 
 
-# --- Trang Streamlit cho chatbot ---
+# --- Trang Streamlit cho Chatbot ---
 st.set_page_config(page_title="Chatbot Luật GTĐB", layout="wide", initial_sidebar_state="auto")
 
 # --- Khởi tạo session state ---
@@ -16,21 +16,21 @@ if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Chào bạn, tôi là chatbot Luật Giao thông Đường bộ. Bạn cần hỗ trợ gì?"}]
 
 # Khởi tạo session state cho mô hình 
-if "selected_embedding_model_name" not in st.session_state:
-    st.session_state.selected_embedding_model_name = config.DEFAULT_EMBEDDING_MODEL 
-if "selected_secondary_embedding_model_name" not in st.session_state:
+if "selected_emb_name" not in st.session_state:
+    st.session_state.selected_emb_name = config.DEFAULT_EMBEDDING_MODEL 
+if "selected_secondary_emb_name" not in st.session_state:
     secondary_default = None
     for model_name in config.AVAILABLE_EMBEDDING_MODELS:
         if model_name != config.DEFAULT_EMBEDDING_MODEL:
             secondary_default = model_name
             break
-    st.session_state.selected_secondary_embedding_model_name = secondary_default if secondary_default else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
+    st.session_state.selected_secondary_emb_name = secondary_default if secondary_default else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
 if "hybrid_component_mode" not in st.session_state:
     st.session_state.hybrid_component_mode = "2 Dense + 1 Sparse"
 if "selected_gemini_model_name" not in st.session_state:
     st.session_state.selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL 
-if "selected_reranker_model_name" not in st.session_state:
-    st.session_state.selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL 
+if "selected_reranker_name" not in st.session_state:
+    st.session_state.selected_reranker_name = config.DEFAULT_RERANKER_MODEL 
 
 # Khởi tạo session state cho chế độ
 if "answer_mode" not in st.session_state: 
@@ -52,14 +52,14 @@ if "app_rag_components_per_embedding_model" not in st.session_state:
 with st.sidebar:
     st.title("Tùy chọn Cấu hình")
 
-    current_embedding_name_sb = st.session_state.selected_embedding_model_name
-    current_secondary_embedding_name_sb = st.session_state.selected_secondary_embedding_model_name
-    current_gemini_name_sb = st.session_state.selected_gemini_model_name
-    current_reranker_name_sb = st.session_state.selected_reranker_model_name
+    current_emb_name_sb = st.session_state.selected_emb_name
+    current_secondary_emb_name_sb = st.session_state.selected_secondary_emb_name
+    current_hybrid_component_mode = st.session_state.hybrid_component_mode
+    current_gem_name_sb = st.session_state.selected_gemini_model_name
+    current_reranker_name_sb = st.session_state.selected_reranker_name
     current_answer_mode = st.session_state.answer_mode
     current_retrieval_query_mode = st.session_state.retrieval_query_mode
     current_retrieval_method = st.session_state.retrieval_method
-    current_hybrid_component_mode = st.session_state.hybrid_component_mode
 
     # Mode radio
     answer_mode_choice = st.radio(
@@ -112,51 +112,49 @@ with st.sidebar:
     st.header("Mô hình")
 
     # Model selectbox
-    available_loaded_embedding_names = list(st.session_state.get("app_loaded_embedding_models", {}).keys())
-    if not available_loaded_embedding_names:
-        available_loaded_embedding_names = config.AVAILABLE_EMBEDDING_MODELS 
+    avail_emb_names = list(st.session_state.get("app_loaded_embedding_models", {}).keys())
+    if not avail_emb_names:
+        avail_emb_names = config.AVAILABLE_EMBEDDING_MODELS 
     # Selectbox cho Embedding Model
-    selected_embedding_model_name_ui = st.selectbox(
+    selected_emb_name_ui = st.selectbox(
         "Chọn mô hình Embedding:",
-        options=available_loaded_embedding_names,
-        key = "selected_embedding_model_name",
-        index=available_loaded_embedding_names.index(current_embedding_name_sb)
-            if current_embedding_name_sb in available_loaded_embedding_names else 0,
+        options=avail_emb_names,
+        key = "selected_emb_name",
+        index=avail_emb_names.index(current_emb_name_sb)
+            if current_emb_name_sb in avail_emb_names else 0,
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
     
-    if current_retrieval_method == 'Kết hợp' and st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse": # Cập nhật điều kiện hiển thị
+    if current_retrieval_method == 'Kết hợp' and st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse": 
         options_for_secondary = [
-            name for name in available_loaded_embedding_names 
-            if name != st.session_state.selected_embedding_model_name
+            name for name in avail_emb_names 
+            if name != st.session_state.selected_emb_name
         ]
 
-        current_secondary_val = st.session_state.selected_secondary_embedding_model_name
+        current_secondary_val = st.session_state.selected_secondary_emb_name
         
         if not options_for_secondary: 
             st.warning("Cần ít nhất 2 embedding models khác nhau để sử dụng chế độ Hybrid 2-Dense.")
-            st.session_state.selected_secondary_embedding_model_name = None
-        elif current_secondary_val == st.session_state.selected_embedding_model_name or \
-           current_secondary_val not in options_for_secondary:
-            st.session_state.selected_secondary_embedding_model_name = options_for_secondary[0]
+            st.session_state.selected_secondary_emb_name = None
+        elif current_secondary_val == st.session_state.selected_emb_name or current_secondary_val not in options_for_secondary:
+            st.session_state.selected_secondary_emb_name = options_for_secondary[0]
             current_secondary_val = options_for_secondary[0]
-            # st.experimental_rerun() 
 
         idx_secondary = 0
         if current_secondary_val and options_for_secondary:
             try:
                 idx_secondary = options_for_secondary.index(current_secondary_val)
             except ValueError: 
-                st.session_state.selected_secondary_embedding_model_name = options_for_secondary[0]
+                st.session_state.selected_secondary_emb_name = options_for_secondary[0]
                 idx_secondary = 0
         elif not options_for_secondary:
-             st.session_state.selected_secondary_embedding_model_name = None 
+             st.session_state.selected_secondary_emb_name = None 
 
         if options_for_secondary: 
-            selected_secondary_embedding_model_name_ui = st.selectbox(
+            selected_secondary_emb_name_ui = st.selectbox(
                 "Chọn mô hình Embedding Phụ (cho Hybrid 2-Dense):",
                 options=options_for_secondary,
-                key="selected_secondary_embedding_model_name",
+                key="selected_secondary_emb_name",
                 index=idx_secondary,
                 help="Chọn mô hình embedding thứ hai. Danh sách này đã loại trừ mô hình Embedding Chính."
             )
@@ -166,21 +164,21 @@ with st.sidebar:
         "Chọn mô hình Gemini:",
         options=config.AVAILABLE_GEMINI_MODELS, 
         key = "selected_gemini_model_name",
-        index=config.AVAILABLE_GEMINI_MODELS.index(current_gemini_name_sb) 
-            if current_gemini_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
+        index=config.AVAILABLE_GEMINI_MODELS.index(current_gem_name_sb) 
+            if current_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
 
-    available_loaded_reranker_names = list(st.session_state.get("app_loaded_reranker_models", {}).keys())
-    if not available_loaded_reranker_names: 
-        available_loaded_reranker_names = config.AVAILABLE_RERANKER_MODELS 
+    avail_reranker_names = list(st.session_state.get("app_loaded_reranker_models", {}).keys())
+    if not avail_reranker_names: 
+        avail_reranker_names = config.AVAILABLE_RERANKER_MODELS 
     # Selectbox cho Reranker Model
-    selected_reranker_model_name_ui = st.selectbox(
+    selected_reranker_name_ui = st.selectbox(
         "Chọn mô hình Reranker:",
-        options=available_loaded_reranker_names,
-        key = "selected_reranker_model_name",
-        index=available_loaded_reranker_names.index(current_reranker_name_sb)
-            if current_reranker_name_sb in available_loaded_reranker_names else 0,
+        options=avail_reranker_names,
+        key = "selected_reranker_name",
+        index=avail_reranker_names.index(current_reranker_name_sb)
+            if current_reranker_name_sb in avail_reranker_names else 0,
         help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt."
     )
 
@@ -197,34 +195,6 @@ with st.sidebar:
 st.title("⚖️ Chatbot Hỏi Đáp Luật Giao Thông Đường Bộ VN")
 st.caption(f"Dựa trên các văn bản Luật, Nghị Định, Thông tư về Luật giao thông đường bộ Việt Nam.")
 
-# --- Cập nhật Caption hiển thị cấu hình ---
-reranker_status_display_main = st.session_state.selected_reranker_model_name
-if reranker_status_display_main == 'Không sử dụng':
-    reranker_status_display_main = "Tắt"
-else:
-    reranker_status_display_main = reranker_status_display_main.split('/')[-1]
-
-caption_text = (
-    f"Embedding Chính: `{st.session_state.selected_embedding_model_name.split('/')[-1]}` | "
-    f"Mô hình: `{st.session_state.selected_gemini_model_name}` | Trả lời: `{st.session_state.answer_mode}` | "
-    f"Nguồn câu hỏi: `{st.session_state.retrieval_query_mode}` | Loại truy vấn: `{st.session_state.retrieval_method}` | "
-    f"Reranker: `{reranker_status_display_main}`"
-)
-if st.session_state.retrieval_method == 'Kết hợp':
-    caption_text += f" | Cấu hình Hybrid: `{st.session_state.hybrid_component_mode}`"
-    if st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse" and st.session_state.selected_secondary_embedding_model_name:
-        caption_text += f" | Embedding Phụ: `{st.session_state.selected_secondary_embedding_model_name.split('/')[-1]}`"
-st.caption(caption_text)
-
-# --- Hiển thị Lịch sử Chat ---
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        content_to_display = message["content"]
-        if message["role"] == "assistant":
-            docs_for_this_message = message.get("relevant_docs_for_display", [])
-            content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message) #
-        st.markdown(content_to_display, unsafe_allow_html=True)
-
 # --- Khởi tạo tài nguyên cho trang Chatbot ---
 app_init_status_placeholder = st.empty() 
 if "app_resources_initialized" not in st.session_state:
@@ -239,30 +209,58 @@ if not st.session_state.app_resources_initialized:
 if st.session_state.app_resources_initialized:
     app_init_status_placeholder.success("✅ Hệ thống và tất cả mô hình đã sẵn sàng!")
 
-    current_selected_embedding_name_main = st.session_state.selected_embedding_model_name
-    current_selected_reranker_name_main = st.session_state.selected_reranker_model_name
-    current_selected_gemini_name_main = st.session_state.selected_gemini_model_name
+    current_selected_emb_name = st.session_state.selected_emb_name
+    current_selected_reranker_name = st.session_state.selected_reranker_name
+    current_selected_gem_name = st.session_state.selected_gemini_model_name
 
-    active_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(current_selected_embedding_name_main)
-    active_rag_components_main = st.session_state.app_rag_components_per_embedding_model.get(current_selected_embedding_name_main)
-    active_retriever_main = active_rag_components_main[1] if active_rag_components_main else None
-    active_reranker_model_object_main = st.session_state.app_loaded_reranker_models.get(current_selected_reranker_name_main)
-    active_gemini_llm_main = load_gemini_model(current_selected_gemini_name_main)
+    active_emb_obj = st.session_state.app_loaded_embedding_models.get(current_selected_emb_name)
+    active_rag_comps = st.session_state.app_rag_components_per_embedding_model.get(current_selected_emb_name)
+    active_retriever = active_rag_comps[1] if active_rag_comps else None
+    active_reranker_obj = st.session_state.app_loaded_reranker_models.get(current_selected_reranker_name)
+    active_gem_obj = load_gemini_model(current_selected_gem_name)
 
     # --- Kiểm tra lại các active components ---
     proceed_with_chat = True
-    if not active_embedding_model_object_main:
-        st.error(f"Lỗi nghiêm trọng: Không tìm thấy Embedding model '{current_selected_embedding_name_main.split('/')[-1]}' đã tải.")
+    if not active_emb_obj:
+        st.error(f"Lỗi nghiêm trọng: Không tìm thấy Embedding model '{current_selected_emb_name.split('/')[-1]}' đã tải.")
         proceed_with_chat = False
-    if not active_retriever_main:
-        st.error(f"Lỗi nghiêm trọng: Không tìm thấy Retriever cho '{current_selected_embedding_name_main.split('/')[-1]}'.")
+    if not active_retriever:
+        st.error(f"Lỗi nghiêm trọng: Không tìm thấy Retriever cho '{current_selected_emb_name.split('/')[-1]}'.")
         proceed_with_chat = False
-    if not active_gemini_llm_main:
-        st.error(f"Lỗi nghiêm trọng: Không tải được Gemini model '{current_selected_gemini_name_main}'.")
+    if not active_gem_obj:
+        st.error(f"Lỗi nghiêm trọng: Không tải được Gemini model '{current_selected_gem_name}'.")
         proceed_with_chat = False
 
     # --- Input và Xử lý ---
     if proceed_with_chat:
+        # --- Cập nhật Caption hiển thị cấu hình ---
+        reranker_status_display_main = st.session_state.selected_reranker_name
+        if reranker_status_display_main == 'Không sử dụng':
+            reranker_status_display_main = "Tắt"
+        else:
+            reranker_status_display_main = reranker_status_display_main.split('/')[-1]
+
+        caption_text = (
+            f"Embedding Chính: `{st.session_state.selected_emb_name.split('/')[-1]}` | "
+            f"Mô hình: `{st.session_state.selected_gemini_model_name}` | Trả lời: `{st.session_state.answer_mode}` | "
+            f"Nguồn câu hỏi: `{st.session_state.retrieval_query_mode}` | Loại truy vấn: `{st.session_state.retrieval_method}` | "
+            f"Reranker: `{reranker_status_display_main}`"
+        )
+        if st.session_state.retrieval_method == 'Kết hợp':
+            caption_text += f" | Cấu hình Hybrid: `{st.session_state.hybrid_component_mode}`"
+            if st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse" and st.session_state.selected_secondary_emb_name:
+                caption_text += f" | Embedding Phụ: `{st.session_state.selected_secondary_emb_name.split('/')[-1]}`"
+        st.caption(caption_text)
+
+        # --- Hiển thị Lịch sử Chat ---
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                content_to_display = message["content"]
+                if message["role"] == "assistant":
+                    docs_for_this_message = message.get("relevant_docs_for_display", [])
+                    content_to_display = utils.render_html_for_assistant_message(content_to_display, docs_for_this_message) #
+                st.markdown(content_to_display, unsafe_allow_html=True)
+
         if user_query := st.chat_input("Nhập câu hỏi của bạn về Luật GTĐB..."):
             st.session_state.messages.append({"role": "user", "content": user_query})
             with st.chat_message("user"):
@@ -279,10 +277,10 @@ if st.session_state.app_resources_initialized:
                     processing_log.append(f"[{time.time() - start_time:.2f}s] Bắt đầu xử lý...")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
-                    use_reranker_flag_main = active_reranker_model_object_main is not None and current_selected_reranker_name_main != 'Không sử dụng'
+                    use_reranker_flag_main = active_reranker_obj is not None and current_selected_reranker_name != 'Không sử dụng'
 
                     if use_reranker_flag_main:
-                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Reranker '{current_selected_reranker_name_main.split('/')[-1]}' đang hoạt động.")
+                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Reranker '{current_selected_reranker_name.split('/')[-1]}' đang hoạt động.")
                     else:
                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Reranker không được sử dụng.")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
@@ -296,7 +294,7 @@ if st.session_state.app_resources_initialized:
                     secondary_vector_db_main = None
 
                     if st.session_state.retrieval_method == 'Kết hợp':
-                        selected_secondary_emb_name = st.session_state.get("selected_secondary_embedding_model_name")
+                        selected_secondary_emb_name = st.session_state.get("selected_secondary_emb_name")
                         if use_two_dense_hybrid_from_session: 
                             if selected_secondary_emb_name: # selected_secondary_emb_name đã được lấy ở trên
                                 secondary_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(selected_secondary_emb_name)
@@ -305,8 +303,8 @@ if st.session_state.app_resources_initialized:
                                     secondary_vector_db_main = secondary_rag_components[0]
 
                                 if secondary_embedding_model_object_main and secondary_vector_db_main:
-                                    if secondary_embedding_model_object_main != active_embedding_model_object_main or \
-                                    (secondary_embedding_model_object_main == active_embedding_model_object_main and selected_secondary_emb_name != st.session_state.selected_embedding_model_name): # Đảm bảo khác biệt thực sự
+                                    if secondary_embedding_model_object_main != active_emb_obj or \
+                                    (secondary_embedding_model_object_main == active_emb_obj and selected_secondary_emb_name != st.session_state.selected_emb_name): # Đảm bảo khác biệt thực sự
                                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ: {selected_secondary_emb_name.split('/')[-1]}.")
                                     else:
                                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Embedding Phụ giống Embedding Chính. Chuyển sang Hybrid mode (1-Dense).")
@@ -322,7 +320,7 @@ if st.session_state.app_resources_initialized:
 
                     relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                         original_query=user_query,
-                        gemini_model=active_gemini_llm_main,
+                        gemini_model=active_gem_obj,
                         chat_history=history_for_llm1_main,
                         num_variations=config.NUM_QUERY_VARIATIONS 
                     )
@@ -355,9 +353,9 @@ if st.session_state.app_resources_initialized:
                         for q_variant in queries_to_search_main:
                             if not q_variant: continue
                             
-                            search_results = active_retriever_main.search(
+                            search_results = active_retriever.search(
                                 q_variant,
-                                active_embedding_model_object_main,
+                                active_emb_obj,
                                 method=st.session_state.retrieval_method,
                                 k=config.VECTOR_K_PER_QUERY if st.session_state.retrieval_method != 'Kết hợp' else config.HYBRID_K_PER_QUERY,
                                 secondary_embedding_model=secondary_embedding_model_object_main if use_two_dense_hybrid_from_session else None,
@@ -384,7 +382,7 @@ if st.session_state.app_resources_initialized:
                         if use_reranker_flag_main and num_unique_docs_main > 0:
                             rerank_start_time = time.time()
                             query_for_reranking_main = summarizing_q if summarizing_q else user_query
-                            processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {min(num_unique_docs_main, config.MAX_DOCS_FOR_RERANK)} tài liệu bằng '{current_selected_reranker_name_main.split('/')[-1]}'...") #
+                            processing_log.append(f"[{time.time() - start_time:.2f}s]: Xếp hạng lại {min(num_unique_docs_main, config.MAX_DOCS_FOR_RERANK)} tài liệu bằng '{current_selected_reranker_name.split('/')[-1]}'...") #
                             message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                             docs_to_rerank_input_main = retrieved_docs_list_main[:config.MAX_DOCS_FOR_RERANK] #
@@ -393,7 +391,7 @@ if st.session_state.app_resources_initialized:
                             reranked_results_list_main = rerank_documents( #
                                 query_for_reranking_main,
                                 rerank_input_formatted_main,
-                                active_reranker_model_object_main
+                                active_reranker_obj
                             )
                             reranked_documents_for_llm_main = reranked_results_list_main[:config.FINAL_NUM_RESULTS_AFTER_RERANK] #
                             rerank_time = time.time() - rerank_start_time
@@ -420,7 +418,7 @@ if st.session_state.app_resources_initialized:
                         raw_llm_output = generate_answer_with_gemini( 
                             query_text=user_query,
                             relevant_documents=reranked_documents_for_llm_main,
-                            gemini_model=active_gemini_llm_main,
+                            gemini_model=active_gem_obj,
                             mode=answer_mode_main,
                             chat_history=recent_chat_history_main
                         )

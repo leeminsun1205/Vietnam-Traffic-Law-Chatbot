@@ -91,7 +91,7 @@ def run_retrieval_evaluation(
 
     retrieval_query_mode_eval = eval_config_params.get('retrieval_query_mode', 'Mở rộng')
     retrieval_method_eval = eval_config_params.get('retrieval_method', 'Kết hợp')
-    hybrid_component_mode_eval = eval_config_params.get('eval_pg_hybrid_component_mode', '2 Dense + 1 Sparse')
+    hybrid_component_mode_eval = eval_config_params.get('eval_hybrid_component_mode', '2 Dense + 1 Sparse')
     selected_reranker_name_eval_run = eval_config_params.get('selected_reranker_model_name', 'Không sử dụng')
     use_reranker_eval_run = reranking_model_object_for_eval is not None and selected_reranker_name_eval_run != 'Không sử dụng'
     variation_mode_run = eval_config_params.get('variation_mode_used', "Luôn sinh mới (qua LLM)")
@@ -195,31 +195,31 @@ def run_retrieval_evaluation(
             
                 for q_var_eval_run in queries_to_search_eval_run:
                     if not q_var_eval_run: continue
-                    use_two_dense_eval_hybrid_runtime = (st.session_state.eval_pg_hybrid_component_mode == "2 Dense + 1 Sparse") 
-                    eval_pg_secondary_emb_obj_runtime = None
-                    eval_pg_secondary_vector_db_runtime = None
+                    use_two_dense_eval_hybrid_runtime = (st.session_state.eval_hybrid_component_mode == "2 Dense + 1 Sparse") 
+                    eval_secondary_emb_obj_runtime = None
+                    eval_secondary_vector_db_runtime = None
                     if retrieval_method_eval == 'Kết hợp': # Điều kiện mới
-                        eval_pg_selected_secondary_emb_name_runtime = eval_config_params.get("secondary_embedding_model_name")
+                        eval_selected_secondary_emb_name_runtime = eval_config_params.get("secondary_embedding_model_name")
                         if use_two_dense_eval_hybrid_runtime:
-                            if eval_pg_selected_secondary_emb_name_runtime:
-                                eval_pg_secondary_emb_obj_runtime = st.session_state.eval_pg_loaded_embedding_models.get(eval_pg_selected_secondary_emb_name_runtime)
-                                secondary_rag_comps_eval_runtime = st.session_state.eval_pg_rag_components_per_embedding_model.get(eval_pg_selected_secondary_emb_name_runtime)
+                            if eval_selected_secondary_emb_name_runtime:
+                                eval_secondary_emb_obj_runtime = st.session_state.eval_loaded_embedding_models.get(eval_selected_secondary_emb_name_runtime)
+                                secondary_rag_comps_eval_runtime = st.session_state.eval_rag_components_per_embedding_model.get(eval_selected_secondary_emb_name_runtime)
                                 if secondary_rag_comps_eval_runtime:
-                                    eval_pg_secondary_vector_db_runtime = secondary_rag_comps_eval_runtime[0]
+                                    eval_secondary_vector_db_runtime = secondary_rag_comps_eval_runtime[0]
 
-                                if not (eval_pg_secondary_emb_obj_runtime and eval_pg_secondary_vector_db_runtime and eval_pg_secondary_emb_obj_runtime != embedding_model_object_for_eval):
+                                if not (eval_secondary_emb_obj_runtime and eval_secondary_vector_db_runtime and eval_secondary_emb_obj_runtime != embedding_model_object_for_eval):
                                     use_two_dense_eval_hybrid_runtime = False 
                                 else:
                                     use_two_dense_eval_hybrid_runtime = True
-                    st.write(eval_pg_secondary_emb_obj_runtime, eval_pg_secondary_emb_obj_runtime)
+                    st.write(eval_secondary_emb_obj_runtime, eval_secondary_emb_obj_runtime)
 
                     search_results_eval_run = retriever_instance_for_eval.search(
                         q_var_eval_run,
                         embedding_model_object_for_eval, 
                         method=retrieval_method_eval,
                         k=config.VECTOR_K_PER_QUERY if retrieval_method_eval != 'Kết hợp' else config.HYBRID_K_PER_QUERY,
-                        secondary_embedding_model=eval_pg_secondary_emb_obj_runtime if use_two_dense_eval_hybrid_runtime else None,
-                        secondary_vector_db=eval_pg_secondary_vector_db_runtime if use_two_dense_eval_hybrid_runtime else None,
+                        secondary_embedding_model=eval_secondary_emb_obj_runtime if use_two_dense_eval_hybrid_runtime else None,
+                        secondary_vector_db=eval_secondary_vector_db_runtime if use_two_dense_eval_hybrid_runtime else None,
                         use_two_dense_if_hybrid=use_two_dense_eval_hybrid_runtime 
                     )
 
@@ -303,80 +303,81 @@ def run_retrieval_evaluation(
 st.set_page_config(page_title="Đánh giá Truy vấn", layout="wide", initial_sidebar_state="auto")
 
 # Khởi tạo session state cho mô hình
-if "eval_pg_selected_embedding_model_name" not in st.session_state:
-    st.session_state.eval_pg_selected_embedding_model_name = config.DEFAULT_EMBEDDING_MODEL
-if "eval_pg_selected_secondary_embedding_model_name" not in st.session_state:
+if "eval_selected_emb_name" not in st.session_state:
+    st.session_state.eval_selected_emb_name = config.DEFAULT_EMBEDDING_MODEL
+if "eval_selected_secondary_emb_name" not in st.session_state:
     secondary_default_eval = None
     for model_name in config.AVAILABLE_EMBEDDING_MODELS:
         if model_name != config.DEFAULT_EMBEDDING_MODEL:
             secondary_default_eval = model_name
             break
-    st.session_state.eval_pg_selected_secondary_embedding_model_name = secondary_default_eval if secondary_default_eval else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
-if "eval_pg_hybrid_component_mode" not in st.session_state:
-    st.session_state.eval_pg_hybrid_component_mode = "2 Dense + 1 Sparse"
-if "eval_pg_selected_gemini_model_name" not in st.session_state:
-    st.session_state.eval_pg_selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL
-if "eval_pg_selected_reranker_model_name" not in st.session_state:
-    st.session_state.eval_pg_selected_reranker_model_name = config.DEFAULT_RERANKER_MODEL
+    st.session_state.eval_selected_secondary_emb_name = secondary_default_eval if secondary_default_eval else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
+if "eval_hybrid_component_mode" not in st.session_state:
+    st.session_state.eval_hybrid_component_mode = "2 Dense + 1 Sparse"
+if "eval_selected_gemini_model_name" not in st.session_state:
+    st.session_state.eval_selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL
+if "eval_selected_reranker_mname" not in st.session_state:
+    st.session_state.eval_selected_reranker_mname = config.DEFAULT_RERANKER_MODEL
 
 # Khởi tạo session state cho chế độ
-if "eval_pg_retrieval_query_mode" not in st.session_state: 
-    st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
-if "eval_pg_retrieval_method" not in st.session_state: 
-    st.session_state.eval_pg_retrieval_method = 'Kết hợp'
+if "eval_retrieval_query_mode" not in st.session_state: 
+    st.session_state.eval_retrieval_query_mode = 'Mở rộng'
+if "eval_retrieval_method" not in st.session_state: 
+    st.session_state.eval_retrieval_method = 'Kết hợp'
 
-if 'eval_pg_data' not in st.session_state: 
-    st.session_state.eval_pg_data = None
-if 'eval_pg_results_df' not in st.session_state: 
-    st.session_state.eval_pg_results_df = None
-if 'eval_pg_run_completed' not in st.session_state: 
-    st.session_state.eval_pg_run_completed = False
-if 'eval_pg_uploaded_filename' not in st.session_state: 
-    st.session_state.eval_pg_uploaded_filename = None
-if "eval_pg_upload_counter" not in st.session_state: 
-    st.session_state.eval_pg_upload_counter = 0
-if 'eval_pg_last_config_run' not in st.session_state: 
-    st.session_state.eval_pg_last_config_run = {}
+if 'eval_data' not in st.session_state: 
+    st.session_state.eval_data = None
+if 'eval_results_df' not in st.session_state: 
+    st.session_state.eval_results_df = None
+if 'eval_run_completed' not in st.session_state: 
+    st.session_state.eval_run_completed = False
+if 'eval_uploaded_filename' not in st.session_state: 
+    st.session_state.eval_uploaded_filename = None
+if "eval_upload_counter" not in st.session_state: 
+    st.session_state.eval_upload_counter = 0
+if 'eval_last_config_run' not in st.session_state: 
+    st.session_state.eval_last_config_run = {}
 
-if "eval_pg_variation_mode" not in st.session_state:
-    st.session_state.eval_pg_variation_mode = "Tạo mới từ LLM"
-if "eval_pg_save_newly_generated_variations_cb" not in st.session_state:
-    st.session_state.eval_pg_save_newly_generated_variations_cb = False
-if "eval_pg_uploaded_variations_file_obj_name" not in st.session_state: 
-    st.session_state.eval_pg_uploaded_variations_file_obj_name = None
-if "eval_pg_variations_data_from_file" not in st.session_state: 
-    st.session_state.eval_pg_variations_data_from_file = None
-if "eval_pg_generated_variations_for_saving" not in st.session_state: 
-    st.session_state.eval_pg_generated_variations_for_saving = None
+if "eval_variation_mode" not in st.session_state:
+    st.session_state.eval_variation_mode = "Tạo mới từ LLM"
+if "eval_save_newly_generated_variations_cb" not in st.session_state:
+    st.session_state.eval_save_newly_generated_variations_cb = False
+if "eval_uploaded_variations_file_obj_name" not in st.session_state: 
+    st.session_state.eval_uploaded_variations_file_obj_name = None
+if "eval_variations_data_from_file" not in st.session_state: 
+    st.session_state.eval_variations_data_from_file = None
+if "eval_generated_variations_for_saving" not in st.session_state: 
+    st.session_state.eval_generated_variations_for_saving = None
 
 
 # --- Tải trước Models và RAG cho Trang Đánh giá ---
-if "eval_pg_loaded_embedding_models" not in st.session_state:
-    st.session_state.eval_pg_loaded_embedding_models = {}
-if "eval_pg_loaded_reranker_models" not in st.session_state:
-    st.session_state.eval_pg_loaded_reranker_models = {}
-if "eval_pg_rag_components_per_embedding_model" not in st.session_state:
-    st.session_state.eval_pg_rag_components_per_embedding_model = {}
+if "eval_loaded_embedding_models" not in st.session_state:
+    st.session_state.eval_loaded_embedding_models = {}
+if "eval_loaded_reranker_models" not in st.session_state:
+    st.session_state.eval_loaded_reranker_models = {}
+if "eval_rag_components_per_embedding_model" not in st.session_state:
+    st.session_state.eval_rag_components_per_embedding_model = {}
 
 # --- Sidebar cho trang Đánh giá ---
 with st.sidebar:
     st.title("Tùy chọn Đánh giá")
 
-    current_eval_emb_name_sb = st.session_state.eval_pg_selected_embedding_model_name
-    current_eval_secondary_emb_name_sb = st.session_state.eval_pg_selected_secondary_embedding_model_name
-    current_eval_hybrid_component_mode_sidebar = st.session_state.eval_pg_hybrid_component_mode
-    current_eval_gem_name_sb = st.session_state.eval_pg_selected_gemini_model_name
-    current_eval_rer_name_sb = st.session_state.eval_pg_selected_reranker_model_name
-    current_eval_pg_retrieval_query_mode_sidebar = st.session_state.eval_pg_retrieval_query_mode
-    current_eval_pg_retrieval_method_sidebar = st.session_state.eval_pg_retrieval_method
+    current_eval_emb_name_sb = st.session_state.eval_selected_emb_name
+    current_eval_secondary_emb_name_sb = st.session_state.eval_selected_secondary_emb_name
+    current_eval_hybrid_component_mode = st.session_state.eval_hybrid_component_mode
+    current_eval_gem_name_sb = st.session_state.eval_selected_gemini_model_name
+    current_eval_reranker_name_sb = st.session_state.eval_selected_reranker_mname
+    current_eval_retrieval_query_mode = st.session_state.eval_retrieval_query_mode
+    current_eval_retrieval_method = st.session_state.eval_retrieval_method
     
     # Mode radio
     st.header("Cấu hình truy vấn")
-    eval_pg_retrieval_query_mode_choice = st.radio(
+
+    eval_retrieval_query_mode_choice = st.radio(
         "Nguồn câu hỏi cho truy vấn:", 
         options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
-        key="eval_pg_retrieval_query_mode",
-        index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_eval_pg_retrieval_query_mode_sidebar), 
+        key="eval_retrieval_query_mode",
+        index=['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_eval_retrieval_query_mode), 
         horizontal=True,
         help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
@@ -384,12 +385,12 @@ with st.sidebar:
             "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
         )
     )
-
-    eval_pg_retrieval_method_choice = st.radio(
+    
+    eval_retrieval_method_choice = st.radio(
         "Phương thức truy vấn:", 
         options=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'],
-        key="eval_pg_retrieval_method", 
-        index=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'].index(current_eval_pg_retrieval_method_sidebar),
+        key="eval_retrieval_method", 
+        index=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'].index(current_eval_retrieval_method),
         horizontal=True,
         help=(
             "**Ngữ nghĩa:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
@@ -397,65 +398,63 @@ with st.sidebar:
             "**Kết hợp:** Kết hợp cả Ngữ nghĩa và Từ khóa (cân bằng, có thể tốt nhất)."
         )
     )
-
-    if current_eval_pg_retrieval_method_sidebar == 'Kết hợp':
+    
+    if current_eval_retrieval_method == 'Kết hợp':
         eval_hybrid_component_mode_choice = st.radio(
             "Cấu hình thành phần Hybrid (Đánh giá):",
             options=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"],
-            key="eval_pg_hybrid_component_mode",
-            index=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"].index(current_eval_hybrid_component_mode_sidebar),
+            key="eval_hybrid_component_mode",
+            index=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"].index(current_eval_hybrid_component_mode),
             horizontal=True,
             help="Chọn số lượng Dense encoders sử dụng trong phương thức Kết hợp cho đánh giá."
         )
-    
+
     st.header("Mô hình")
 
     # Model selectbox
-    eval_pg_avail_emb_names = list(st.session_state.get("eval_pg_loaded_embedding_models", {}).keys())
-    if not eval_pg_avail_emb_names: 
-        eval_pg_avail_emb_names = config.AVAILABLE_EMBEDDING_MODELS
+    eval_avail_emb_names = list(st.session_state.get("eval_loaded_embedding_models", {}).keys())
+    if not eval_avail_emb_names: 
+        eval_avail_emb_names = config.AVAILABLE_EMBEDDING_MODELS
     # Selectbox cho Embedding Model
-    eval_sel_emb_name_ui = st.selectbox(
+    eval_selected_emb_name_ui = st.selectbox(
         "Chọn mô hình Embedding (Đánh giá):", 
-        options=eval_pg_avail_emb_names,
-        key="eval_pg_selected_embedding_model_name",
-        index=eval_pg_avail_emb_names.index(current_eval_emb_name_sb) 
-            if current_eval_emb_name_sb in eval_pg_avail_emb_names else 0, 
+        options=eval_avail_emb_names,
+        key="eval_selected_emb_name",
+        index=eval_avail_emb_names.index(current_eval_emb_name_sb) 
+            if current_eval_emb_name_sb in eval_avail_emb_names else 0, 
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
 
-    if current_eval_pg_retrieval_method_sidebar == 'Kết hợp' and st.session_state.eval_pg_hybrid_component_mode == "2 Dense + 1 Sparse": # Cập nhật điều kiện
+    if current_eval_retrieval_method == 'Kết hợp' and st.session_state.eval_hybrid_component_mode == "2 Dense + 1 Sparse": # Cập nhật điều kiện
         options_for_secondary_eval = [
-            name for name in eval_pg_avail_emb_names 
-            if name != st.session_state.eval_pg_selected_embedding_model_name
+            name for name in eval_avail_emb_names 
+            if name != st.session_state.eval_selected_emb_name
         ]
         
-        current_eval_secondary_emb_name_sb_val = st.session_state.eval_pg_selected_secondary_embedding_model_name
+        current_eval_secondary_val = st.session_state.eval_selected_secondary_emb_name
 
         if not options_for_secondary_eval:
             st.warning("Cần ít nhất 2 embedding models khác nhau cho chế độ Hybrid 2-Dense (Đánh giá).")
-            st.session_state.eval_pg_selected_secondary_embedding_model_name = None
-        elif current_eval_secondary_emb_name_sb_val == st.session_state.eval_pg_selected_embedding_model_name or \
-             current_eval_secondary_emb_name_sb_val not in options_for_secondary_eval:
-            st.session_state.eval_pg_selected_secondary_embedding_model_name = options_for_secondary_eval[0]
-            current_eval_secondary_emb_name_sb_val = options_for_secondary_eval[0]
+            st.session_state.eval_selected_secondary_emb_name = None
+        elif current_eval_secondary_val == st.session_state.eval_selected_emb_name or current_eval_secondary_val not in options_for_secondary_eval:
+            st.session_state.eval_selected_secondary_emb_name = options_for_secondary_eval[0]
+            current_eval_secondary_val = options_for_secondary_eval[0]
 
         idx_secondary_eval = 0
-        if current_eval_secondary_emb_name_sb_val and options_for_secondary_eval:
+        if current_eval_secondary_val and options_for_secondary_eval:
             try:
-                idx_secondary_eval = options_for_secondary_eval.index(current_eval_secondary_emb_name_sb_val)
+                idx_secondary_eval = options_for_secondary_eval.index(current_eval_secondary_val)
             except ValueError:
-                st.session_state.eval_pg_selected_secondary_embedding_model_name = options_for_secondary_eval[0]
+                st.session_state.eval_selected_secondary_emb_name = options_for_secondary_eval[0]
                 idx_secondary_eval = 0
         elif not options_for_secondary_eval:
-            st.session_state.eval_pg_selected_secondary_embedding_model_name = None
-
+            st.session_state.eval_selected_secondary_emb_name = None
 
         if options_for_secondary_eval:
             eval_sel_secondary_emb_name_ui = st.selectbox(
                 "Chọn mô hình Embedding Phụ (Đánh giá Hybrid 2-Dense):",
                 options=options_for_secondary_eval,
-                key="eval_pg_selected_secondary_embedding_model_name",
+                key="eval_selected_secondary_emb_name",
                 index=idx_secondary_eval,
                 help="Chọn mô hình embedding thứ hai. Danh sách này đã loại trừ mô hình Embedding Chính (Đánh giá)."
             )
@@ -464,86 +463,85 @@ with st.sidebar:
     eval_sel_gem_name_ui = st.selectbox(
         "Chọn mô hình Gemini (Đánh giá):", 
         options=config.AVAILABLE_GEMINI_MODELS,
-        key="eval_pg_selected_gemini_model_name",
+        key="eval_selected_gemini_model_name",
         index=config.AVAILABLE_GEMINI_MODELS.index(current_eval_gem_name_sb) 
             if current_eval_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
     )
 
-    eval_pg_avail_rer_names = list(st.session_state.get("eval_pg_loaded_reranker_models", {}).keys())
-    if not eval_pg_avail_rer_names: 
-        eval_pg_avail_rer_names = config.AVAILABLE_RERANKER_MODELS
+    eval_avail_reranker_names = list(st.session_state.get("eval_loaded_reranker_models", {}).keys())
+    if not eval_avail_reranker_names: 
+        eval_avail_reranker_names = config.AVAILABLE_RERANKER_MODELS
     # Selectbox cho Reranker Model
-    eval_sel_rer_name_ui = st.selectbox(
+    eval_selelected_reranker_name_ui = st.selectbox(
         "Chọn mô hình Reranker (Đánh giá):", 
-        options=eval_pg_avail_rer_names,
-        key="eval_pg_selected_reranker_model_name",
-        index=eval_pg_avail_rer_names.index(current_eval_rer_name_sb) 
-            if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0, 
+        options=eval_avail_reranker_names,
+        key="eval_selected_reranker_mname",
+        index=eval_avail_reranker_names.index(current_eval_reranker_name_sb) 
+            if current_eval_reranker_name_sb in eval_avail_reranker_names else 0, 
         help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt."
     )
-
 
 # --- Giao diện chính của Ứng dụng ---
 st.title("📊 Đánh giá Hệ thống Retrieval")
 st.markdown("Trang này cho phép bạn chạy đánh giá hiệu suất của hệ thống retrieval và reranking với các mô hình đã được tải trước, cùng tùy chọn quản lý biến thể câu hỏi.")
 
 # --- Khởi tạo tài nguyên cho trang Đánh giá ---
-eval_page_status_placeholder = st.empty()
-if "eval_page_resources_initialized" not in st.session_state:
-    st.session_state.eval_page_resources_initialized = False
+eval_init_status_placeholder = st.empty()
+if "eval_resources_initialized" not in st.session_state:
+    st.session_state.eval_resources_initialized = False
 
-if not st.session_state.eval_page_resources_initialized:
+if not st.session_state.eval_resources_initialized:
     with st.spinner("Đang khởi tạo tài nguyên cho trang Đánh giá..."):
         eval_resources_ready = initialize_evaluation_page_resources()
-        st.session_state.eval_page_resources_initialized = eval_resources_ready
+        st.session_state.eval_resources_initialized = eval_resources_ready
 
 # Kiểm tra sau khi đã khởi tạo
-if st.session_state.eval_page_resources_initialized:
-    eval_page_status_placeholder.success("✅ Hệ thống và tất cả mô hình đã sẵn sàng!")
+if st.session_state.eval_resources_initialized:
+    eval_init_status_placeholder.success("✅ Hệ thống và tất cả mô hình đã sẵn sàng!")
 
-    eval_pg_active_emb_name = st.session_state.eval_pg_selected_embedding_model_name
-    eval_pg_active_rer_name = st.session_state.eval_pg_selected_reranker_model_name
-    eval_pg_active_gem_name = st.session_state.eval_pg_selected_gemini_model_name
+    current_eval_selected_emb_name = st.session_state.eval_selected_emb_name
+    current_eval_selected_reranker_name = st.session_state.eval_selected_reranker_mname
+    current_eval_selected_gem_name = st.session_state.eval_selected_gemini_model_name
 
-    eval_pg_active_emb_obj = st.session_state.eval_pg_loaded_embedding_models.get(eval_pg_active_emb_name)
-    eval_pg_active_rag_comps = st.session_state.eval_pg_rag_components_per_embedding_model.get(eval_pg_active_emb_name)
-    eval_pg_active_retriever = eval_pg_active_rag_comps[1] if eval_pg_active_rag_comps else None
-    eval_pg_active_rer_obj = st.session_state.eval_pg_loaded_reranker_models.get(eval_pg_active_rer_name)
-    eval_pg_active_gem_obj = load_gemini_model(eval_pg_active_gem_name)
+    eval_active_emb_obj = st.session_state.eval_loaded_embedding_models.get(current_eval_selected_emb_name)
+    eval_active_rag_comps = st.session_state.eval_rag_components_per_embedding_model.get(current_eval_selected_emb_name)
+    eval_active_retriever = eval_active_rag_comps[1] if eval_active_rag_comps else None
+    eval_active_reranker_obj = st.session_state.eval_loaded_reranker_models.get(current_eval_selected_reranker_name)
+    eval_active_gem_obj = load_gemini_model(current_eval_selected_gem_name)
 
     can_run_evaluation_flow = True
-    if st.session_state.eval_pg_variation_mode == "Sử dụng file biến thể đã tải lên":
-        if not st.session_state.get("eval_pg_variations_data_from_file"):
+    if st.session_state.eval_variation_mode == "Sử dụng file biến thể đã tải lên":
+        if not st.session_state.get("eval_variations_data_from_file"):
             pass
-    elif st.session_state.eval_pg_variation_mode == "Tạo mới từ LLM" or st.session_state.eval_pg_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
-        if not eval_pg_active_gem_obj:
-            st.error(f"Lỗi: Gemini model '{eval_pg_active_gem_name}' chưa tải được. Cần thiết để tạo biến thể mới.")
+    elif st.session_state.eval_variation_mode == "Tạo mới từ LLM" or st.session_state.eval_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
+        if not eval_active_gem_obj:
+            st.error(f"Lỗi: Gemini model '{eval_selected_gem_name}' chưa tải được. Cần thiết để tạo biến thể mới.")
             can_run_evaluation_flow = False
 
-    if st.session_state.eval_pg_variation_mode != "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
-        if not eval_pg_active_emb_obj:
-            st.error(f"Lỗi: Embedding model '{eval_pg_active_emb_name.split('/')[-1]}' (Đánh giá) chưa tải.")
+    if st.session_state.eval_variation_mode != "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
+        if not eval_active_emb_obj:
+            st.error(f"Lỗi: Embedding model '{eval_selected_emb_name.split('/')[-1]}' (Đánh giá) chưa tải.")
             can_run_evaluation_flow = False
-        if not eval_pg_active_retriever:
-            st.error(f"Lỗi: Retriever cho '{eval_pg_active_emb_name.split('/')[-1]}' (Đánh giá) chưa sẵn sàng.")
+        if not eval_active_retriever:
+            st.error(f"Lỗi: Retriever cho '{eval_selected_emb_name.split('/')[-1]}' (Đánh giá) chưa sẵn sàng.")
             can_run_evaluation_flow = False
 
     if can_run_evaluation_flow:
         # --- Cập nhật Caption hiển thị cấu hình ---
         caption_eval_text = (
-            f"Embedding Chính: `{eval_pg_active_emb_name.split('/')[-1]}` | "
-            f"Mô hình Gemini: `{eval_pg_active_gem_name.split('/')[-1]}` | "
-            f"Nguồn câu hỏi: `{st.session_state.eval_pg_retrieval_query_mode}` | "
-            f"Loại truy vấn: `{st.session_state.eval_pg_retrieval_method}` | "
-            f"Reranker: `{eval_pg_active_rer_name.split('/')[-1] if eval_pg_active_rer_name != 'Không sử dụng' else 'Tắt'}` | "
-            f"Chế độ Biến thể: `{st.session_state.eval_pg_variation_mode.split('(')[0].strip()}`"
+            f"Embedding Chính: `{eval_selected_emb_name.split('/')[-1]}` | "
+            f"Mô hình Gemini: `{eval_selected_gem_name.split('/')[-1]}` | "
+            f"Nguồn câu hỏi: `{st.session_state.eval_retrieval_query_mode}` | "
+            f"Loại truy vấn: `{st.session_state.eval_retrieval_method}` | "
+            f"Reranker: `{eval_selected_reranker_name.split('/')[-1] if eval_selected_reranker_name != 'Không sử dụng' else 'Tắt'}` | "
+            f"Chế độ Biến thể: `{st.session_state.eval_variation_mode.split('(')[0].strip()}`"
         )
-        if st.session_state.eval_pg_retrieval_method == 'Kết hợp':
-            caption_eval_text += f" | Cấu hình Hybrid: `{st.session_state.eval_pg_hybrid_component_mode}`"
-            if st.session_state.eval_pg_hybrid_component_mode == "2 Dense + 1 Sparse" and st.session_state.get("eval_pg_selected_secondary_embedding_model_name"):
-                eval_pg_active_secondary_emb_name = st.session_state.eval_pg_selected_secondary_embedding_model_name
-                caption_eval_text += f" | Embedding Phụ: `{eval_pg_active_secondary_emb_name.split('/')[-1]}`"
+        if st.session_state.eval_retrieval_method == 'Kết hợp':
+            caption_eval_text += f" | Cấu hình Hybrid: `{st.session_state.eval_hybrid_component_mode}`"
+            if st.session_state.eval_hybrid_component_mode == "2 Dense + 1 Sparse" and st.session_state.get("eval_selected_secondary_emb_name"):
+                eval_active_secondary_emb_name = st.session_state.eval_selected_secondary_emb_name
+                caption_eval_text += f" | Embedding Phụ: `{eval_active_secondary_emb_name.split('/')[-1]}`"
         st.caption(caption_eval_text) 
 
         st.subheader("Cấu hình Biến thể Câu hỏi (Query Variations)")
@@ -552,13 +550,13 @@ if st.session_state.eval_page_resources_initialized:
             "Chỉ sinh và lưu biến thể (không chạy đánh giá)",
             "Sử dụng file biến thể đã tải lên"
         ]
-        current_variation_mode_index = variation_mode_options_list.index(st.session_state.eval_pg_variation_mode) \
-            if st.session_state.eval_pg_variation_mode in variation_mode_options_list else 0
+        current_variation_mode_index = variation_mode_options_list.index(st.session_state.eval_variation_mode) \
+            if st.session_state.eval_variation_mode in variation_mode_options_list else 0
 
-        st.session_state.eval_pg_variation_mode = st.radio(
+        st.session_state.eval_variation_mode = st.radio(
             "Chế độ xử lý biến thể câu hỏi:",
             options=variation_mode_options_list,
-            key="eval_pg_variation_mode_radio_selector_main", 
+            key="eval_variation_mode_radio_selector_main", 
             index=current_variation_mode_index,
             horizontal=False,
             help=(
@@ -567,85 +565,85 @@ if st.session_state.eval_page_resources_initialized:
                 "- **Sử dụng file biến thể đã tải lên:** Tải lên file JSON biến thể đã lưu. Hệ thống sẽ dùng các biến thể từ file này thay vì gọi LLM."
             )
         )
-        if st.session_state.eval_pg_variation_mode == "Tạo mới từ LLM":
+        if st.session_state.eval_variation_mode == "Tạo mới từ LLM":
             st.checkbox(
                 "Lưu các biến thể câu hỏi được tạo ra file JSON (nếu chạy đánh giá retrieval)?",
-                key="eval_pg_save_newly_generated_variations_cb_main",
+                key="eval_save_newly_generated_variations_cb_main",
                 help="Nếu chọn và chạy đánh giá retrieval, các biến thể mới sinh sẽ được chuẩn bị để tải về."
             )
-        elif st.session_state.eval_pg_variation_mode == "Sử dụng file biến thể đã tải lên":
-            eval_pg_uploaded_variations_file_widget_main = st.file_uploader(
+        elif st.session_state.eval_variation_mode == "Sử dụng file biến thể đã tải lên":
+            eval_uploaded_variations_file_widget_main = st.file_uploader(
                 "Tải lên file JSON chứa biến thể câu hỏi đã lưu:",
                 type=["json"],
-                key="eval_pg_var_file_uploader_widget_main",
+                key="eval_var_file_uploader_widget_main",
                 accept_multiple_files=False
             )
-            if eval_pg_uploaded_variations_file_widget_main is not None:
-                if st.session_state.get("eval_pg_uploaded_variations_file_obj_name") != eval_pg_uploaded_variations_file_widget_main.name:
+            if eval_uploaded_variations_file_widget_main is not None:
+                if st.session_state.get("eval_uploaded_variations_file_obj_name") != eval_uploaded_variations_file_widget_main.name:
                     try:
-                        variations_data_from_uploaded_file_main = json.loads(eval_pg_uploaded_variations_file_widget_main.getvalue().decode('utf-8'))
+                        variations_data_from_uploaded_file_main = json.loads(eval_uploaded_variations_file_widget_main.getvalue().decode('utf-8'))
                         if not isinstance(variations_data_from_uploaded_file_main, dict) or \
                            not all(isinstance(item_v_main, dict) and "all_queries" in item_v_main for item_v_main in variations_data_from_uploaded_file_main.values()):
                             st.error("File biến thể không đúng định dạng. Cần một JSON object với query_id làm key, và mỗi value chứa 'all_queries'.")
-                            st.session_state.eval_pg_variations_data_from_file = None
+                            st.session_state.eval_variations_data_from_file = None
                         else:
-                            st.session_state.eval_pg_variations_data_from_file = variations_data_from_uploaded_file_main
-                            st.session_state.eval_pg_uploaded_variations_file_obj_name = eval_pg_uploaded_variations_file_widget_main.name
-                            st.success(f"Đã tải và xử lý file biến thể: {eval_pg_uploaded_variations_file_widget_main.name} ({len(variations_data_from_uploaded_file_main)} query_ids).")
+                            st.session_state.eval_variations_data_from_file = variations_data_from_uploaded_file_main
+                            st.session_state.eval_uploaded_variations_file_obj_name = eval_uploaded_variations_file_widget_main.name
+                            st.success(f"Đã tải và xử lý file biến thể: {eval_uploaded_variations_file_widget_main.name} ({len(variations_data_from_uploaded_file_main)} query_ids).")
                     except Exception as e_var_json_upload_main:
                         st.error(f"Lỗi xử lý file JSON biến thể: {e_var_json_upload_main}")
-                        st.session_state.eval_pg_variations_data_from_file = None
-            elif st.session_state.get("eval_pg_variations_data_from_file"):
-                 st.info(f"Đang sử dụng file biến thể đã tải: {st.session_state.get('eval_pg_uploaded_variations_file_obj_name')}")
+                        st.session_state.eval_variations_data_from_file = None
+            elif st.session_state.get("eval_variations_data_from_file"):
+                 st.info(f"Đang sử dụng file biến thể đã tải: {st.session_state.get('eval_uploaded_variations_file_obj_name')}")
 
-        uploader_key_eval_pg_main_uploader = f"eval_pg_main_file_uploader_main_{st.session_state.eval_pg_upload_counter}"
+        uploader_key_eval_main_uploader = f"eval_main_file_uploader_main_{st.session_state.eval_upload_counter}"
         st.subheader("Tải Lên File Đánh giá Gốc (.json)")
-        uploaded_file_eval_pg_main_uploader = st.file_uploader(
+        uploaded_file_eval_main_uploader = st.file_uploader(
             "Chọn file JSON chứa dữ liệu đánh giá gốc (queries, relevant_ids)...",
             type=["json"],
-            key=uploader_key_eval_pg_main_uploader
+            key=uploader_key_eval_main_uploader
         )
-        if uploaded_file_eval_pg_main_uploader is not None:
-            if uploaded_file_eval_pg_main_uploader.name != st.session_state.eval_pg_uploaded_filename:
+        if uploaded_file_eval_main_uploader is not None:
+            if uploaded_file_eval_main_uploader.name != st.session_state.eval_uploaded_filename:
                 try:
-                    eval_data_list_pg_main_data = json.loads(uploaded_file_eval_pg_main_uploader.getvalue().decode('utf-8'))
+                    eval_data_list_pg_main_data = json.loads(uploaded_file_eval_main_uploader.getvalue().decode('utf-8'))
                     if not isinstance(eval_data_list_pg_main_data, list) or \
                        (len(eval_data_list_pg_main_data) > 0 and not all(isinstance(item_e_main, dict) and "query" in item_e_main and "query_id" in item_e_main for item_e_main in eval_data_list_pg_main_data)):
                         st.error("File đánh giá gốc không đúng định dạng. Cần một danh sách các object, mỗi object phải có 'query' và 'query_id'.")
-                        st.session_state.eval_pg_data = None
+                        st.session_state.eval_data = None
                     else:
-                        st.session_state.eval_pg_data = eval_data_list_pg_main_data
-                        st.session_state.eval_pg_uploaded_filename = uploaded_file_eval_pg_main_uploader.name
-                        st.session_state.eval_pg_run_completed = False
-                        st.session_state.eval_pg_results_df = None
-                        st.session_state.eval_pg_last_config_run = {}
-                        st.session_state.eval_pg_generated_variations_for_saving = None
-                        st.success(f"Đã tải file đánh giá gốc '{uploaded_file_eval_pg_main_uploader.name}' ({len(eval_data_list_pg_main_data)} câu hỏi).")
+                        st.session_state.eval_data = eval_data_list_pg_main_data
+                        st.session_state.eval_uploaded_filename = uploaded_file_eval_main_uploader.name
+                        st.session_state.eval_run_completed = False
+                        st.session_state.eval_results_df = None
+                        st.session_state.eval_last_config_run = {}
+                        st.session_state.eval_generated_variations_for_saving = None
+                        st.success(f"Đã tải file đánh giá gốc '{uploaded_file_eval_main_uploader.name}' ({len(eval_data_list_pg_main_data)} câu hỏi).")
                 except Exception as e_json_main_data:
                     st.error(f"Lỗi xử lý file JSON đánh giá gốc: {e_json_main_data}")
-                    st.session_state.eval_pg_data = None; st.session_state.eval_pg_uploaded_filename = None
+                    st.session_state.eval_data = None; st.session_state.eval_uploaded_filename = None
 
-        if st.session_state.eval_pg_data is not None:
-            st.info(f"Sẵn sàng xử lý với dữ liệu từ: **{st.session_state.eval_pg_uploaded_filename}** ({len(st.session_state.eval_pg_data)} câu hỏi).")
-            if st.checkbox("Hiển thị dữ liệu mẫu (5 dòng đầu)", key="eval_pg_show_preview_main_cb"):
-                st.dataframe(pd.DataFrame(st.session_state.eval_pg_data).head())
+        if st.session_state.eval_data is not None:
+            st.info(f"Sẵn sàng xử lý với dữ liệu từ: **{st.session_state.eval_uploaded_filename}** ({len(st.session_state.eval_data)} câu hỏi).")
+            if st.checkbox("Hiển thị dữ liệu mẫu (5 dòng đầu)", key="eval_show_preview_main_cb"):
+                st.dataframe(pd.DataFrame(st.session_state.eval_data).head())
 
             # --- Nút thực thi ---
             cols_buttons = st.columns(2)
             with cols_buttons[0]:
-                if st.session_state.eval_pg_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
-                    if st.button("📝 Bắt đầu: Chỉ Sinh và Lưu Biến thể", key="eval_pg_generate_variations_only_main_btn", use_container_width=True):
-                        if not eval_pg_active_gem_obj:
+                if st.session_state.eval_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
+                    if st.button("📝 Bắt đầu: Chỉ Sinh và Lưu Biến thể", key="eval_generate_variations_only_main_btn", use_container_width=True):
+                        if not eval_active_gem_obj:
                             st.error("Lỗi: Cần có Gemini model để thực hiện thao tác này.")
                         else:
                             with st.spinner("⏳ Đang sinh biến thể cho tất cả các câu hỏi..."):
                                 generated_data_main = generate_and_collect_variations_only(
-                                    eval_data=st.session_state.eval_pg_data,
-                                    gemini_model_object=eval_pg_active_gem_obj,
+                                    eval_data=st.session_state.eval_data,
+                                    gemini_model_object=eval_active_gem_obj,
                                     num_variations=config.NUM_QUERY_VARIATIONS
                                 )
                                 if generated_data_main:
-                                    st.session_state.eval_pg_generated_variations_for_saving = generated_data_main
+                                    st.session_state.eval_generated_variations_for_saving = generated_data_main
                                 else:
                                     st.error("Không thể sinh biến thể. Vui lòng kiểm tra log.")
                                 # Nút download sẽ xuất hiện ở dưới sau khi rerun hoặc tự động
@@ -653,59 +651,59 @@ if st.session_state.eval_page_resources_initialized:
             with cols_buttons[1]:
                 run_eval_button_text_main = "🚀 Bắt đầu Đánh giá Retrieval & Metrics"
                 disable_run_eval_button = False
-                if st.session_state.eval_pg_variation_mode == "Sử dụng file biến thể đã tải lên":
-                    if not st.session_state.get("eval_pg_variations_data_from_file"):
+                if st.session_state.eval_variation_mode == "Sử dụng file biến thể đã tải lên":
+                    if not st.session_state.get("eval_variations_data_from_file"):
                         run_eval_button_text_main = "⚠️ Vui lòng tải file biến thể"
                         disable_run_eval_button = True
-                elif st.session_state.eval_pg_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
+                elif st.session_state.eval_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
                      disable_run_eval_button = True # Không cho chạy retrieval ở chế độ này
 
-                if st.button(run_eval_button_text_main, key="eval_pg_start_full_eval_main_btn", disabled=disable_run_eval_button, use_container_width=True):
+                if st.button(run_eval_button_text_main, key="eval_start_full_eval_main_btn", disabled=disable_run_eval_button, use_container_width=True):
                     proceed_run_main = True
                     variations_to_pass_to_run_main = None
-                    if st.session_state.eval_pg_variation_mode == "Sử dụng file biến thể đã tải lên":
-                        if not st.session_state.get("eval_pg_variations_data_from_file"):
+                    if st.session_state.eval_variation_mode == "Sử dụng file biến thể đã tải lên":
+                        if not st.session_state.get("eval_variations_data_from_file"):
                             st.error("Bạn đã chọn 'Sử dụng file biến thể đã tải lên' nhưng chưa tải file hoặc file không hợp lệ.")
                             proceed_run_main = False
                         else:
-                            variations_to_pass_to_run_main = st.session_state.eval_pg_variations_data_from_file
-                    elif st.session_state.eval_pg_variation_mode == "Tạo mới từ LLM":
-                        if not eval_pg_active_gem_obj:
+                            variations_to_pass_to_run_main = st.session_state.eval_variations_data_from_file
+                    elif st.session_state.eval_variation_mode == "Tạo mới từ LLM":
+                        if not eval_active_gem_obj:
                             st.error("Bạn đã chọn 'Tạo mới từ LLM' nhưng Gemini model chưa sẵn sàng.")
                             proceed_run_main = False
 
                     if proceed_run_main and can_run_evaluation_flow:
                         eval_config_for_this_run_pg_main_run = {
-                            'embedding_model_name': eval_pg_active_emb_name,
-                            'retrieval_query_mode': st.session_state.eval_pg_retrieval_query_mode,
-                            'retrieval_method': st.session_state.eval_pg_retrieval_method,
-                            'selected_reranker_model_name': eval_pg_active_rer_name,
-                            'gemini_model_name': eval_pg_active_gem_name,
-                            'variation_mode_used': st.session_state.eval_pg_variation_mode,
+                            'embedding_model_name': eval_selected_emb_name,
+                            'retrieval_query_mode': st.session_state.eval_retrieval_query_mode,
+                            'retrieval_method': st.session_state.eval_retrieval_method,
+                            'selected_reranker_model_name': eval_selected_reranker_name,
+                            'gemini_model_name': eval_selected_gem_name,
+                            'variation_mode_used': st.session_state.eval_variation_mode,
                         }
-                        if st.session_state.eval_pg_retrieval_method == 'Kết hợp':
-                            eval_config_for_this_run_pg_main_run['hybrid_component_mode'] = st.session_state.eval_pg_hybrid_component_mode 
-                            if st.session_state.eval_pg_hybrid_component_mode == "2 Dense + 1 Sparse":
-                                eval_config_for_this_run_pg_main_run['secondary_embedding_model_name'] = st.session_state.get("eval_pg_selected_secondary_embedding_model_name")
+                        if st.session_state.eval_retrieval_method == 'Kết hợp':
+                            eval_config_for_this_run_pg_main_run['hybrid_component_mode'] = st.session_state.eval_hybrid_component_mode 
+                            if st.session_state.eval_hybrid_component_mode == "2 Dense + 1 Sparse":
+                                eval_config_for_this_run_pg_main_run['secondary_embedding_model_name'] = st.session_state.get("eval_selected_secondary_emb_name")
 
                         with st.spinner("⏳ Đang chạy đánh giá Retrieval & Metrics..."):
                             start_eval_time_pg_main_run = time.time()
                             results_df_output_pg_main_run = run_retrieval_evaluation(
-                                eval_data=st.session_state.eval_pg_data,
-                                retriever_instance_for_eval=eval_pg_active_retriever,
-                                embedding_model_object_for_eval=eval_pg_active_emb_obj,
-                                reranking_model_object_for_eval=eval_pg_active_rer_obj,
-                                gemini_model_object_for_eval=eval_pg_active_gem_obj,
-                                eval_config_params=st.session_state.eval_pg_last_config_run,
+                                eval_data=st.session_state.eval_data,
+                                retriever_instance_for_eval=eval_active_retriever,
+                                embedding_model_object_for_eval=eval_active_emb_obj,
+                                reranking_model_object_for_eval=eval_active_reranker_obj,
+                                gemini_model_object_for_eval=eval_active_gem_obj,
+                                eval_config_params=st.session_state.eval_last_config_run,
                                 preloaded_query_variations=variations_to_pass_to_run_main
                             )
                             total_eval_time_pg_main_run = time.time() - start_eval_time_pg_main_run
                             st.success(f"Hoàn thành đánh giá Retrieval & Metrics sau {total_eval_time_pg_main_run:.2f} giây.")
-                            st.session_state.eval_pg_results_df = results_df_output_pg_main_run
-                            st.session_state.eval_pg_run_completed = True
+                            st.session_state.eval_results_df = results_df_output_pg_main_run
+                            st.session_state.eval_run_completed = True
 
-                            if st.session_state.eval_pg_variation_mode == "Tạo mới từ LLM" and \
-                               st.session_state.get("eval_pg_save_newly_generated_variations_cb_main", False) and \
+                            if st.session_state.eval_variation_mode == "Tạo mới từ LLM" and \
+                               st.session_state.get("eval_save_newly_generated_variations_cb_main", False) and \
                                results_df_output_pg_main_run is not None and not results_df_output_pg_main_run.empty:
                                 # Thu thập lại các biến thể từ kết quả đánh giá nếu cần lưu
                                 newly_generated_vars_from_run = {}
@@ -717,20 +715,20 @@ if st.session_state.eval_page_resources_initialized:
                                             "direct_answer_if_invalid": "", 
                                             "all_queries": [row["query"]] + [f"var_{j}" for j in range(int(row.get("num_variations_generated",0)))], # Cần cách lấy all_queries thật sự
                                             "summarizing_query": row.get("summarizing_query", row["query"]),
-                                            "llm_model_used_for_generation": row.get("llm_model_for_variation", eval_pg_active_gem_name)
+                                            "llm_model_used_for_generation": row.get("llm_model_for_variation", eval_selected_gem_name)
                                         }
 
                                 if newly_generated_vars_from_run:
-                                     st.session_state.eval_pg_generated_variations_for_saving = newly_generated_vars_from_run
+                                     st.session_state.eval_generated_variations_for_saving = newly_generated_vars_from_run
                                      st.info("Các biến thể được tạo mới trong quá trình đánh giá đã được chuẩn bị để tải xuống (kết quả có thể khác với nút 'Chỉ Sinh và Lưu' do tối ưu).")
                             st.rerun()
 
-            if st.session_state.get("eval_pg_generated_variations_for_saving"):
+            if st.session_state.get("eval_generated_variations_for_saving"):
                 try:
-                    variations_json_to_save_main = json.dumps(st.session_state.eval_pg_generated_variations_for_saving, indent=2, ensure_ascii=False)
+                    variations_json_to_save_main = json.dumps(st.session_state.eval_generated_variations_for_saving, indent=2, ensure_ascii=False)
                     ts_var_save_main = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    gem_name_var_save_main = st.session_state.eval_pg_selected_gemini_model_name.split('/')[-1].replace('.','-')[:15]
-                    original_eval_file_name_base = os.path.splitext(st.session_state.eval_pg_uploaded_filename)[0] if st.session_state.eval_pg_uploaded_filename else "unknown_eval_data"
+                    gem_name_var_save_main = st.session_state.eval_selected_gemini_model_name.split('/')[-1].replace('.','-')[:15]
+                    original_eval_file_name_base = os.path.splitext(st.session_state.eval_uploaded_filename)[0] if st.session_state.eval_uploaded_filename else "unknown_eval_data"
                     var_fname_save_main = f"{original_eval_file_name_base}_variations_{gem_name_var_save_main}_{ts_var_save_main}.json"
                     st.download_button(
                         label="📥 Tải về File Biến thể Câu hỏi Đã Tạo (.json)",
@@ -742,10 +740,10 @@ if st.session_state.eval_page_resources_initialized:
                 except Exception as e_dl_gen_var_main:
                     st.error(f"Lỗi khi chuẩn bị file biến thể đã tạo để tải xuống: {e_dl_gen_var_main}")
 
-            if st.session_state.eval_pg_run_completed and st.session_state.eval_pg_results_df is not None:
+            if st.session_state.eval_run_completed and st.session_state.eval_results_df is not None:
                 st.subheader("Kết quả Đánh giá Chi tiết")
-                detailed_results_df_display_pg = st.session_state.eval_pg_results_df
-                last_config_run_display_pg = st.session_state.eval_pg_last_config_run
+                detailed_results_df_display_pg = st.session_state.eval_results_df
+                last_config_run_display_pg = st.session_state.eval_last_config_run
 
                 st.markdown("**Cấu hình đã sử dụng cho lần chạy cuối:**")
                 cfg_cols_pg = st.columns(6)
@@ -762,11 +760,11 @@ if st.session_state.eval_page_resources_initialized:
                 cfg_cols_pg[5].metric("Variation Mode", var_mode_cfg_disp)
 
 
-                avg_metrics_res_pg, num_eval_pg, num_skip_err_pg = calculate_average_metrics(detailed_results_df_display_pg)
+                avg_metrics_res_pg, num_eval, num_skip_err_pg = calculate_average_metrics(detailed_results_df_display_pg)
 
                 st.metric("Tổng số Queries trong File", len(detailed_results_df_display_pg))
                 col_rc1_pg, col_rc2_pg = st.columns(2)
-                col_rc1_pg.metric("Queries Đánh giá Hợp lệ", num_eval_pg)
+                col_rc1_pg.metric("Queries Đánh giá Hợp lệ", num_eval)
                 col_rc2_pg.metric("Queries Bỏ qua / Lỗi Runtime", num_skip_err_pg)
 
                 if avg_metrics_res_pg:
@@ -795,7 +793,7 @@ if st.session_state.eval_page_resources_initialized:
 
 
                 with st.expander("Xem Kết quả Chi tiết từng Query (Raw Data)"):
-                    display_cols_eval_pg_results = [
+                    display_cols_eval_results = [
                         'query_id', 'query', 'status', 'error_message',
                         'embedding_model_name', 'retrieval_query_mode','retrieval_method', 'selected_reranker_model',
                         'variation_mode_run', 'variation_source', 'llm_model_for_variation',
@@ -807,8 +805,8 @@ if st.session_state.eval_page_resources_initialized:
                         'num_docs_reranked', 'num_retrieved_after_rerank',
                         'summarizing_query', 'retrieved_ids', 'relevant_ids'
                     ]
-                    existing_display_cols_eval_pg_results = [col for col in display_cols_eval_pg_results if col in detailed_results_df_display_pg.columns]
-                    st.dataframe(detailed_results_df_display_pg[existing_display_cols_eval_pg_results])
+                    existing_display_cols_eval_results = [col for col in display_cols_eval_results if col in detailed_results_df_display_pg.columns]
+                    st.dataframe(detailed_results_df_display_pg[existing_display_cols_eval_results])
 
                 st.subheader("Lưu Kết quả Đánh giá Retrieval")
                 try:
@@ -832,30 +830,30 @@ if st.session_state.eval_page_resources_initialized:
 
                     dl_col1_pg_main_save, dl_col2_pg_main_save = st.columns(2)
                     with dl_col1_pg_main_save:
-                        st.download_button("💾 Tải về Kết quả Đánh giá (JSON)", results_json_pg_main_save, fname_json_pg_main_save, "application/json", key="dl_json_eval_pg_main_save_btn")
+                        st.download_button("💾 Tải về Kết quả Đánh giá (JSON)", results_json_pg_main_save, fname_json_pg_main_save, "application/json", key="dl_json_eval_main_save_btn")
                     with dl_col2_pg_main_save:
-                        st.download_button("💾 Tải về Kết quả Đánh giá (CSV)", results_csv_pg_main_save, fname_csv_pg_main_save, "text/csv", key="dl_csv_eval_pg_main_save_btn")
+                        st.download_button("💾 Tải về Kết quả Đánh giá (CSV)", results_csv_pg_main_save, fname_csv_pg_main_save, "text/csv", key="dl_csv_eval_main_save_btn")
                 except Exception as e_file_dl_main_save:
                     st.error(f"Lỗi khi chuẩn bị file kết quả đánh giá: {e_file_dl_main_save}")
 
 
             st.markdown("---")
             st.subheader("Quản lý Trạng thái Đánh giá")
-            if st.button("Xóa File Đã Tải và Kết Quả Hiện Tại", key="eval_pg_clear_state_button_main_clear"):
-                st.session_state.eval_pg_data = None
-                st.session_state.eval_pg_upload_counter += 1
-                st.session_state.eval_pg_run_completed = False
-                st.session_state.eval_pg_results_df = None
-                st.session_state.eval_pg_last_config_run = {}
-                st.session_state.eval_pg_uploaded_filename = None
-                st.session_state.eval_pg_variations_data_from_file = None
-                st.session_state.eval_pg_uploaded_variations_file_obj_name = None
-                st.session_state.eval_pg_generated_variations_for_saving = None
+            if st.button("Xóa File Đã Tải và Kết Quả Hiện Tại", key="eval_clear_state_button_main_clear"):
+                st.session_state.eval_data = None
+                st.session_state.eval_upload_counter += 1
+                st.session_state.eval_run_completed = False
+                st.session_state.eval_results_df = None
+                st.session_state.eval_last_config_run = {}
+                st.session_state.eval_uploaded_filename = None
+                st.session_state.eval_variations_data_from_file = None
+                st.session_state.eval_uploaded_variations_file_obj_name = None
+                st.session_state.eval_generated_variations_for_saving = None
                 st.success("Đã xóa trạng thái đánh giá hiện tại.")
                 time.sleep(1)
                 st.rerun()
     else:
         st.warning("⚠️ Không thể tiến hành do thiếu các thành phần cần thiết. Vui lòng kiểm tra thông báo lỗi ở trên và cấu hình trong sidebar.")
 
-elif not st.session_state.eval_page_resources_initialized:
-    eval_page_status_placeholder.error("⚠️ Tài nguyên trang Đánh giá CHƯA SẴN SÀNG. Lỗi trong quá trình tải model hoặc tạo RAG. Vui lòng kiểm tra log chi tiết hoặc làm mới trang.")
+elif not st.session_state.eval_resources_initialized:
+    eval_init_status_placeholder.error("⚠️ Tài nguyên trang Đánh giá CHƯA SẴN SÀNG. Lỗi trong quá trình tải model hoặc tạo RAG. Vui lòng kiểm tra log chi tiết hoặc làm mới trang.")

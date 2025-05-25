@@ -123,10 +123,7 @@ class Retriever:
 
             # --- 2. Secondary Dense Search (Dense 2) - nếu được kích hoạt và cung cấp đủ tham số ---
             vec2_indices_list = []
-            run_secondary_dense = (config.HYBRID_MODE == "2_dense_1_sparse" and
-                                   secondary_embedding_model is not None and
-                                   secondary_vector_db is not None)
-            if run_secondary_dense:
+            if use_two_dense_if_hybrid and secondary_embedding_model is not None and secondary_vector_db is not None:
                 _, vec2_indices_np = retrieve_relevant_chunks(
                     query_text, secondary_embedding_model, secondary_vector_db, k=config.HYBRID_K_PER_QUERY
                 )

@@ -282,7 +282,7 @@ if st.session_state.app_resources_initialized:
 
                         reranked_documents_for_llm_main = []
                         rerank_time = 0.0
-
+                        st.write('D')
                         if use_reranker_flag_main and num_unique_docs_main > 0:
                             rerank_start_time = time.time()
                             query_for_reranking_main = summarizing_q if summarizing_q else user_query

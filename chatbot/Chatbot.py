@@ -237,11 +237,11 @@ if st.session_state.app_resources_initialized:
 
         caption_text = (
             f"Embedding Chính: `{current_selected_emb_name.split('/')[-1]}` | "
-            f"Mô hình: `{current_selected_gem_name}` |"
+            f"Mô hình: `{current_selected_gem_name}` | "
             f"Trả lời: `{current_answer_mode}` | "
-            f"Nguồn câu hỏi: `{current_retrieval_query_mode}` |"
+            f"Nguồn câu hỏi: `{current_retrieval_query_mode}` | "
             f"Loại truy vấn: `{current_retrieval_method}` | "
-            f"Reranker: `{current_selected_reranker_name.split('/')[-1] if current_selected_reranker_name != 'Không sử dụng' else 'Tắt'}` | "
+            f"Reranker: `{current_selected_reranker_name.split('/')[-1] if current_selected_reranker_name != 'Không sử dụng' else 'Tắt'}`"
         )
         if st.session_state.retrieval_method == 'Kết hợp':
             caption_text += f" | Cấu hình Hybrid: `{st.session_state.hybrid_component_mode}`"

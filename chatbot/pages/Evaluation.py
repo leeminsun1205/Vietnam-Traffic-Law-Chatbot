@@ -535,7 +535,7 @@ if st.session_state.eval_resources_initialized:
             f"Mô hình Gemini: `{current_eval_selected_gem_name.split('/')[-1]}` | "
             f"Nguồn câu hỏi: `{current_eval_retrieval_query_mode}` | "
             f"Loại truy vấn: `{current_eval_retrieval_method}` | "
-            f"Reranker: `{current_eval_selected_reranker_name.split('/')[-1] if current_eval_selected_reranker_name != 'Không sử dụng' else 'Tắt'}` | "
+            f"Reranker: `{current_eval_selected_reranker_name.split('/')[-1] if current_eval_selected_reranker_name != 'Không sử dụng' else 'Tắt'}`"
             f"Chế độ Biến thể: `{st.session_state.eval_variation_mode.split('(')[0].strip()}`"
         )
         if st.session_state.eval_retrieval_method == 'Kết hợp':

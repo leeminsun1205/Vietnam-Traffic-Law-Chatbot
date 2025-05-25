@@ -51,7 +51,6 @@ if "app_rag_components_per_embedding_model" not in st.session_state:
 # --- Sidebar cho trang Chatbot---
 with st.sidebar:
     st.title("Tùy chọn Cấu hình")
-    st.header("Mô hình")
 
     current_embedding_name_sb = st.session_state.selected_embedding_model_name
     current_secondary_embedding_name_sb = st.session_state.selected_secondary_embedding_model_name
@@ -61,6 +60,56 @@ with st.sidebar:
     current_retrieval_query_mode = st.session_state.retrieval_query_mode
     current_retrieval_method = st.session_state.retrieval_method
     current_hybrid_component_mode = st.session_state.hybrid_component_mode
+
+    # Mode radio
+    answer_mode_choice = st.radio(
+        "Chọn chế độ trả lời:", 
+        options=['Ngắn gọn', 'Đầy đủ'],
+        key="answer_mode", 
+        index=['Ngắn gọn', 'Đầy đủ'].index(current_answer_mode),
+        horizontal=True, 
+        help="Mức độ chi tiết của câu trả lời."
+    )
+
+    st.header("Cấu hình truy vấn")
+    
+    retrieval_query_mode_choice = st.radio(
+        "Nguồn câu hỏi cho truy vấn:", 
+        options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
+        key="retrieval_query_mode",
+        index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode), 
+        horizontal=True, 
+        help=(
+            "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
+            "**Mở rộng:** Chỉ dùng câu hỏi mở rộng từ câu hỏi gốc (do AI tạo).\n"
+            "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
+        )
+    )
+
+    retrieval_method_choice = st.radio(
+        "Phương thức truy vấn:", 
+        options=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'],
+        key="retrieval_method",
+        index=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'].index(current_retrieval_method), 
+        horizontal=True, 
+        help=(
+            "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
+            "**Sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
+            "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
+        )
+    )
+
+    if current_retrieval_method == 'Kết hợp':
+        hybrid_component_mode_choice = st.radio(
+            "Cấu hình thành phần Hybrid:",
+            options=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"],
+            key="hybrid_component_mode",
+            index=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"].index(current_hybrid_component_mode),
+            horizontal=True,
+            help="Chọn số lượng Dense encoders sử dụng trong phương thức Kết hợp."
+        )
+
+    st.header("Mô hình")
 
     # Model selectbox
     available_loaded_embedding_names = list(st.session_state.get("app_loaded_embedding_models", {}).keys())
@@ -134,53 +183,6 @@ with st.sidebar:
             if current_reranker_name_sb in available_loaded_reranker_names else 0,
         help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt."
     )
-
-    # Mode radio
-    answer_mode_choice = st.radio(
-        "Chọn chế độ trả lời:", 
-        options=['Ngắn gọn', 'Đầy đủ'],
-        key="answer_mode", 
-        index=['Ngắn gọn', 'Đầy đủ'].index(current_answer_mode),
-        horizontal=True, 
-        help="Mức độ chi tiết của câu trả lời."
-    )
-
-    st.header("Cấu hình truy vấn")
-    retrieval_query_mode_choice = st.radio(
-        "Nguồn câu hỏi cho truy vấn:", 
-        options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
-        key="retrieval_query_mode",
-        index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode), 
-        horizontal=True, 
-        help=(
-            "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"
-            "**Mở rộng:** Chỉ dùng câu hỏi mở rộng từ câu hỏi gốc (do AI tạo).\n"
-            "**Đa dạng:** Dùng cả câu hỏi gốc và các biến thể từ câu hỏi gốc(do AI tạo)."
-        )
-    )
-
-    retrieval_method_choice = st.radio(
-        "Phương thức truy vấn:", 
-        options=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'],
-        key="retrieval_method",
-        index=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'].index(current_retrieval_method), 
-        horizontal=True, 
-        help=(
-            "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
-            "**Sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
-            "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
-        )
-    )
-
-    if current_retrieval_method == 'Kết hợp':
-        hybrid_component_mode_choice = st.radio(
-            "Cấu hình thành phần Hybrid:",
-            options=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"],
-            key="hybrid_component_mode",
-            index=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"].index(current_hybrid_component_mode),
-            horizontal=True,
-            help="Chọn số lượng Dense encoders sử dụng trong phương thức Kết hợp."
-        )
 
     st.markdown("---")
     st.header("Quản lý Hội thoại")

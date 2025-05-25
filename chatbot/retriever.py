@@ -76,7 +76,6 @@ class Retriever:
         except Exception as e:
             return []
 
-
     def search(self, query_text,
                primary_embedding_model, # Model cho dense retriever chính
                method='Kết hợp', k=20,

@@ -22,7 +22,7 @@ def load_single_embedding_model(model_name: str):
         st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
         return None
 
-# @st.cache_resource
+@st.cache_resource
 def load_all_embedding_models() -> dict:
     """
     Tải tất cả các embedding model từ config.AVAILABLE_EMBEDDING_MODELS.
@@ -58,7 +58,7 @@ def load_single_reranker_model(model_name: str):
         st.error(f"Lỗi tải Reranker Model ({model_name}): {e}")
         return None
 
-# @st.cache_resource
+@st.cache_resource
 def load_all_reranker_models() -> dict:
     """
     Tải tất cả các reranker model từ config.AVAILABLE_RERANKER_MODELS.

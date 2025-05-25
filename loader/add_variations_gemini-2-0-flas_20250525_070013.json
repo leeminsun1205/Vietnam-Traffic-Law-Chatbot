@@ -1,0 +1,68 @@
+{
+  "eval_115": {
+    "original_query": "Người mất năng lực hành vi dân sự cần phải làm gì khi tham gia giao thông",
+    "relevance_status": "valid",
+    "direct_answer_if_invalid": "",
+    "all_queries": [
+      "Người mất năng lực hành vi dân sự cần phải làm gì khi tham gia giao thông",
+      "Điều kiện để người mất năng lực hành vi dân sự được phép điều khiển phương tiện giao thông là gì?",
+      "Người mất năng lực hành vi dân sự vi phạm luật giao thông đường bộ thì bị xử lý như thế nào?",
+      "Quy định của pháp luật về việc người mất năng lực hành vi dân sự tham gia giao thông?",
+      "Người mất năng lực hành vi dân sự có được phép tham gia giao thông không?"
+    ],
+    "summarizing_query": "Người mất năng lực hành vi dân sự cần tuân thủ những quy định gì khi tham gia giao thông đường bộ?",
+    "llm_model_used_for_generation": "models/gemini-2.0-flash"
+  },
+  "eval_127": {
+    "original_query": "Đường ngang là gì",
+    "relevance_status": "valid",
+    "direct_answer_if_invalid": "",
+    "all_queries": [
+      "Đường ngang giao cắt với đường sắt là gì?",
+      "Đường ngang nguy hiểm là gì?",
+      "Quy định về đường ngang?",
+      "Đường ngang là gì",
+      "Các loại đường ngang thường gặp?"
+    ],
+    "summarizing_query": "Đường ngang là gì và có những đặc điểm nào?",
+    "llm_model_used_for_generation": "models/gemini-2.0-flash"
+  },
+  "eval_130": {
+    "original_query": "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt",
+    "relevance_status": "invalid",
+    "direct_answer_if_invalid": "Bạn có thể cho biết rõ hơn loại phương tiện giao thông đường sắt nào bạn đang muốn hỏi đến không?",
+    "all_queries": [
+      "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt"
+    ],
+    "summarizing_query": "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt",
+    "llm_model_used_for_generation": "models/gemini-2.0-flash"
+  },
+  "eval_134": {
+    "original_query": "Khi điều khiển phương tiện giao thông đường sắt mà gây tai nạn ảnh hưởng về tài sản thì bị phạt như thế nào",
+    "relevance_status": "valid",
+    "direct_answer_if_invalid": "",
+    "all_queries": [
+      "Khi điều khiển phương tiện giao thông đường sắt mà gây tai nạn ảnh hưởng về tài sản thì bị phạt như thế nào",
+      "Điều khiển phương tiện giao thông đường sắt không tuân thủ quy định gây tai nạn ảnh hưởng tài sản bị xử phạt ra sao?",
+      "Người điều khiển phương tiện giao thông đường sắt gây tai nạn làm hư hỏng tài sản của người khác thì bị phạt như thế nào?",
+      "Quy định xử phạt đối với người điều khiển phương tiện giao thông đường sắt gây tai nạn thiệt hại tài sản như thế nào?",
+      "Mức phạt khi điều khiển phương tiện giao thông đường sắt gây tai nạn làm ảnh hưởng đến tài sản là bao nhiêu?"
+    ],
+    "summarizing_query": "Điều khiển phương tiện giao thông đường sắt gây tai nạn ảnh hưởng đến tài sản bị xử phạt như thế nào?",
+    "llm_model_used_for_generation": "models/gemini-2.0-flash"
+  },
+  "eval_135": {
+    "original_query": "Khi tàu không có đủ trang thiết bị hoặc trang thiết bị không hoạt động thì bị phạt như thế nào",
+    "relevance_status": "valid",
+    "direct_answer_if_invalid": "",
+    "all_queries": [
+      "Quy định về xử phạt vi phạm đối với tàu đường sắt không tuân thủ quy định về trang thiết bị hoặc trang thiết bị không hoạt động?",
+      "Mức phạt cho tàu đường sắt khi không có đủ trang thiết bị an toàn hoặc thiết bị an toàn bị hỏng là bao nhiêu?",
+      "Khi tàu không có đủ trang thiết bị hoặc trang thiết bị không hoạt động thì bị phạt như thế nào",
+      "Tàu đường sắt vi phạm quy định về trang thiết bị hoặc trang thiết bị không hoạt động thì phải chịu trách nhiệm pháp lý như thế nào?",
+      "Tàu đường sắt không có đủ trang thiết bị hoặc trang thiết bị không hoạt động thì bị xử phạt như thế nào theo Luật Giao thông Đường bộ?"
+    ],
+    "summarizing_query": "Tàu đường sắt không có đủ trang thiết bị hoặc trang thiết bị không hoạt động thì bị xử phạt vi phạm hành chính như thế nào theo Luật Giao thông Đường bộ?",
+    "llm_model_used_for_generation": "models/gemini-2.0-flash"
+  }
+}

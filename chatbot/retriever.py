@@ -15,7 +15,7 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
     if not query_text or embedding_model is None or vector_db is None or vector_db.index is None or vector_db.index.ntotal == 0:
         return np.array([]), np.array([]) # Trả về mảng rỗng
     
-    query_embedding = embedding_model.encode(query_text, convert_to_numpy=True, show_progress_bar=True).astype('float32')
+    query_embedding = embedding_model.encode(query_text, convert_to_numpy=True, show_progress_bar=False).astype('float32')
 
     if query_embedding.ndim == 1:
         query_embedding = np.expand_dims(query_embedding, axis=0)

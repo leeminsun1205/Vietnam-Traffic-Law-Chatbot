@@ -272,7 +272,6 @@ if st.session_state.app_resources_initialized:
                                     use_two_dense_hybrid = True
                                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ: {selected_secondary_emb_name.split('/')[-1]}.")
                                 elif secondary_embedding_model_object_main == active_embedding_model_object_main and selected_secondary_emb_name != st.session_state.selected_embedding_model_name:
-                                     # Trường hợp tên khác nhau nhưng trỏ về cùng model (ít xảy ra với SentenceTransformer)
                                      use_two_dense_hybrid = True
                                      processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ (cùng model chính nhưng tên khác): {selected_secondary_emb_name.split('/')[-1]}.")
                                 else: # Nếu model phụ giống hệt model chính, không chạy 2 dense

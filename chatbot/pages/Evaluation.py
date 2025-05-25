@@ -191,14 +191,41 @@ def run_retrieval_evaluation(
                     queries_to_search_eval_run = all_queries_q_eval if all_queries_q_eval else [original_query_eval]
                 collected_docs_data_eval_run = {}
                 search_start_eval_q_run = time.time()
+            
                 for q_var_eval_run in queries_to_search_eval_run:
                     if not q_var_eval_run: continue
-                    search_results_eval_run = retriever_instance_for_eval.search(
-                        q_var_eval_run,
-                        embedding_model_object_for_eval,
-                        method=retrieval_method_eval,
-                        k=config.VECTOR_K_PER_QUERY
-                    )
+                    use_two_dense_eval_hybrid = False
+                    eval_pg_secondary_emb_obj_runtime = None
+                    eval_pg_secondary_vector_db_runtime = None
+                    if retrieval_method_eval == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse":
+                        eval_pg_selected_secondary_emb_name_runtime = eval_config_params.get("secondary_embedding_model_name") # Cần thêm vào eval_config_params
+                        if eval_pg_selected_secondary_emb_name_runtime:
+                            eval_pg_secondary_emb_obj_runtime = st.session_state.eval_pg_loaded_embedding_models.get(eval_pg_selected_secondary_emb_name_runtime)
+                            secondary_rag_comps_eval_runtime = st.session_state.eval_pg_rag_components_per_embedding_model.get(eval_pg_selected_secondary_emb_name_runtime)
+                            if secondary_rag_comps_eval_runtime:
+                                eval_pg_secondary_vector_db_runtime = secondary_rag_comps_eval_runtime[0]
+
+                            if not (eval_pg_secondary_emb_obj_runtime and eval_pg_secondary_vector_db_runtime and eval_pg_secondary_emb_obj_runtime != embedding_model_object_for_eval):
+                                use_two_dense_eval_hybrid = False # Fallback nếu có vấn đề
+                            else:
+                                use_two_dense_eval_hybrid = True
+                    search_results_eval_run = []
+                    if use_two_dense_eval_hybrid: # Đã bao gồm retrieval_method_eval == 'Kết hợp'
+                        search_results_eval_run = retriever_instance_for_eval.search(
+                            q_var_eval_run,
+                            embedding_model_object_for_eval, # Primary
+                            method='Kết hợp',
+                            k=config.HYBRID_K_PER_QUERY,
+                            secondary_embedding_model=eval_pg_secondary_emb_obj_runtime,
+                            secondary_vector_db=eval_pg_secondary_vector_db_runtime
+                        )
+                    else:
+                        search_results_eval_run = retriever_instance_for_eval.search(
+                            q_var_eval_run,
+                            embedding_model_object_for_eval,
+                            method=retrieval_method_eval,
+                            k=config.VECTOR_K_PER_QUERY if retrieval_method_eval != 'Kết hợp' else config.HYBRID_K_PER_QUERY
+                        )
 
                     for res_item_eval_run in search_results_eval_run:
                         doc_idx_eval_run = res_item_eval_run.get('index')
@@ -282,6 +309,13 @@ st.set_page_config(page_title="Đánh giá Truy vấn", layout="wide", initial_s
 # Khởi tạo session state cho mô hình
 if "eval_pg_selected_embedding_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_embedding_model_name = config.DEFAULT_EMBEDDING_MODEL
+if "eval_pg_selected_secondary_embedding_model_name" not in st.session_state:
+    secondary_default_eval = None
+    for model_name in config.AVAILABLE_EMBEDDING_MODELS:
+        if model_name != config.DEFAULT_EMBEDDING_MODEL:
+            secondary_default_eval = model_name
+            break
+    st.session_state.eval_pg_selected_secondary_embedding_model_name = secondary_default_eval if secondary_default_eval else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
 if "eval_pg_selected_gemini_model_name" not in st.session_state:
     st.session_state.eval_pg_selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL
 if "eval_pg_selected_reranker_model_name" not in st.session_state:
@@ -332,6 +366,7 @@ with st.sidebar:
     st.header("Mô hình")
 
     current_eval_emb_name_sb = st.session_state.eval_pg_selected_embedding_model_name
+    current_eval_secondary_emb_name_sb = st.session_state.eval_pg_selected_secondary_embedding_model_name
     current_eval_gem_name_sb = st.session_state.eval_pg_selected_gemini_model_name
     current_eval_rer_name_sb = st.session_state.eval_pg_selected_reranker_model_name
     current_eval_pg_retrieval_query_mode_sidebar = st.session_state.eval_pg_retrieval_query_mode
@@ -351,9 +386,27 @@ with st.sidebar:
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
 
+    if current_eval_pg_retrieval_method_sidebar == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse":
+        options_for_secondary_eval = [name for name in eval_pg_avail_emb_names]
+
+        idx_secondary_eval = 0
+        if current_eval_secondary_emb_name_sb in options_for_secondary_eval:
+            idx_secondary_eval = options_for_secondary_eval.index(current_eval_secondary_emb_name_sb)
+        elif options_for_secondary_eval: # Nếu không có, chọn cái đầu tiên
+             st.session_state.eval_pg_selected_secondary_embedding_model_name = options_for_secondary_eval[0]
+
+
+        eval_sel_secondary_emb_name_ui = st.selectbox(
+            "Chọn mô hình Embedding Phụ (Đánh giá Hybrid 2-Dense):",
+            options=options_for_secondary_eval,
+            key="eval_pg_selected_secondary_embedding_model_name",
+            index=idx_secondary_eval,
+            help="Chọn mô hình embedding thứ hai cho phương thức truy vấn Kết hợp (2 Dense + 1 Sparse) trong đánh giá."
+        )
+
     # Selectbox cho Gemini Model
     eval_sel_gem_name_ui = st.selectbox(
-        "Chọn mô hình Gemini (Đánh giá Query Variations):", 
+        "Chọn mô hình Gemini (Đánh giá):", 
         options=config.AVAILABLE_GEMINI_MODELS,
         key="eval_pg_selected_gemini_model_name",
         index=config.AVAILABLE_GEMINI_MODELS.index(current_eval_gem_name_sb) 
@@ -373,7 +426,7 @@ with st.sidebar:
             if current_eval_rer_name_sb in eval_pg_avail_rer_names else 0, 
         help="Chọn mô hình để xếp hạng lại kết quả tìm kiếm. 'Không sử dụng' để tắt."
     )
-
+    
     # Mode radio
     st.header("Cấu hình truy vấn")
     eval_pg_retrieval_query_mode_choice = st.radio(
@@ -448,14 +501,18 @@ if st.session_state.eval_page_resources_initialized:
 
     if can_run_evaluation_flow:
         # --- Cập nhật Caption hiển thị cấu hình ---
-        st.caption(
-            f"Embedding: `{eval_pg_active_emb_name.split('/')[-1]}` | "
-            f"Mô hình: `{eval_pg_active_gem_name}` | "
+        caption_eval_text = (
+            f"Embedding Chính: `{eval_pg_active_emb_name.split('/')[-1]}` | "
+            f"Mô hình Gemini: `{eval_pg_active_gem_name.split('/')[-1]}` | "
             f"Nguồn câu hỏi: `{st.session_state.eval_pg_retrieval_query_mode}` | "
             f"Loại truy vấn: `{st.session_state.eval_pg_retrieval_method}` | "
             f"Reranker: `{eval_pg_active_rer_name.split('/')[-1] if eval_pg_active_rer_name != 'Không sử dụng' else 'Tắt'}` | "
             f"Chế độ Biến thể: `{st.session_state.eval_pg_variation_mode.split('(')[0].strip()}`"
         )
+        if st.session_state.eval_pg_retrieval_method == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse" and st.session_state.get("eval_pg_selected_secondary_embedding_model_name"):
+            eval_pg_active_secondary_emb_name = st.session_state.eval_pg_selected_secondary_embedding_model_name
+            caption_eval_text += f" | Embedding Phụ: `{eval_pg_active_secondary_emb_name.split('/')[-1]}`"
+        st.caption(caption_eval_text) 
 
         st.subheader("Cấu hình Biến thể Câu hỏi (Query Variations)")
         variation_mode_options_list = [
@@ -594,6 +651,8 @@ if st.session_state.eval_page_resources_initialized:
                             'gemini_model_name': eval_pg_active_gem_name,
                             'variation_mode_used': st.session_state.eval_pg_variation_mode,
                         }
+                        if st.session_state.eval_pg_retrieval_method == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse":
+                            eval_config_for_this_run_pg_main_run['secondary_embedding_model_name'] = st.session_state.get("eval_pg_selected_secondary_embedding_model_name")
                         st.session_state.eval_pg_last_config_run = eval_config_for_this_run_pg_main_run.copy()
 
                         with st.spinner("⏳ Đang chạy đánh giá Retrieval & Metrics..."):

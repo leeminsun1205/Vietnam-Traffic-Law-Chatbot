@@ -516,25 +516,25 @@ if st.session_state.eval_resources_initialized:
             pass
     elif st.session_state.eval_variation_mode == "Tạo mới từ LLM" or st.session_state.eval_variation_mode == "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
         if not eval_active_gem_obj:
-            st.error(f"Lỗi: Gemini model '{eval_selected_gem_name}' chưa tải được. Cần thiết để tạo biến thể mới.")
+            st.error(f"Lỗi: Gemini model '{current_eval_selected_gem_name}' chưa tải được. Cần thiết để tạo biến thể mới.")
             can_run_evaluation_flow = False
 
     if st.session_state.eval_variation_mode != "Chỉ sinh và lưu biến thể (không chạy đánh giá)":
         if not eval_active_emb_obj:
-            st.error(f"Lỗi: Embedding model '{eval_selected_emb_name.split('/')[-1]}' (Đánh giá) chưa tải.")
+            st.error(f"Lỗi: Embedding model '{current_eval_selected_emb_name.split('/')[-1]}' (Đánh giá) chưa tải.")
             can_run_evaluation_flow = False
         if not eval_active_retriever:
-            st.error(f"Lỗi: Retriever cho '{eval_selected_emb_name.split('/')[-1]}' (Đánh giá) chưa sẵn sàng.")
+            st.error(f"Lỗi: Retriever cho '{current_eval_selected_emb_name.split('/')[-1]}' (Đánh giá) chưa sẵn sàng.")
             can_run_evaluation_flow = False
 
     if can_run_evaluation_flow:
         # --- Cập nhật Caption hiển thị cấu hình ---
         caption_eval_text = (
-            f"Embedding Chính: `{eval_selected_emb_name.split('/')[-1]}` | "
-            f"Mô hình Gemini: `{eval_selected_gem_name.split('/')[-1]}` | "
-            f"Nguồn câu hỏi: `{st.session_state.eval_retrieval_query_mode}` | "
-            f"Loại truy vấn: `{st.session_state.eval_retrieval_method}` | "
-            f"Reranker: `{eval_selected_reranker_name.split('/')[-1] if eval_selected_reranker_name != 'Không sử dụng' else 'Tắt'}` | "
+            f"Embedding Chính: `{current_eval_selected_emb_name.split('/')[-1]}` | "
+            f"Mô hình Gemini: `{current_eval_selected_gem_name.split('/')[-1]}` | "
+            f"Nguồn câu hỏi: `{current_eval_retrieval_query_mode}` | "
+            f"Loại truy vấn: `{current_eval_retrieval_method}` | "
+            f"Reranker: `{current_eval_selected_reranker_name.split('/')[-1] if current_eval_selected_reranker_name != 'Không sử dụng' else 'Tắt'}` | "
             f"Chế độ Biến thể: `{st.session_state.eval_variation_mode.split('(')[0].strip()}`"
         )
         if st.session_state.eval_retrieval_method == 'Kết hợp':

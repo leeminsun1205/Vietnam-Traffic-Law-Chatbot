@@ -27,8 +27,8 @@ if "selected_secondary_emb_name" not in st.session_state:
     st.session_state.selected_secondary_emb_name = secondary_default if secondary_default else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
 if "hybrid_component_mode" not in st.session_state:
     st.session_state.hybrid_component_mode = "2 Dense + 1 Sparse"
-if "selected_gemini_model_name" not in st.session_state:
-    st.session_state.selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL 
+if "selected_gem_name" not in st.session_state:
+    st.session_state.selected_gem_name = config.DEFAULT_GEMINI_MODEL 
 if "selected_reranker_name" not in st.session_state:
     st.session_state.selected_reranker_name = config.DEFAULT_RERANKER_MODEL 
 
@@ -55,7 +55,7 @@ with st.sidebar:
     current_emb_name_sb = st.session_state.selected_emb_name
     current_secondary_emb_name_sb = st.session_state.selected_secondary_emb_name
     current_hybrid_component_mode = st.session_state.hybrid_component_mode
-    current_gem_name_sb = st.session_state.selected_gemini_model_name
+    current_gem_name_sb = st.session_state.selected_gem_name
     current_reranker_name_sb = st.session_state.selected_reranker_name
     current_answer_mode = st.session_state.answer_mode
     current_retrieval_query_mode = st.session_state.retrieval_query_mode
@@ -160,10 +160,10 @@ with st.sidebar:
             )
 
     # Selectbox cho Gemini Model
-    selected_gemini_model_name_ui = st.selectbox(
+    selected_gem_name_ui = st.selectbox(
         "Chọn mô hình Gemini:",
         options=config.AVAILABLE_GEMINI_MODELS, 
-        key = "selected_gemini_model_name",
+        key = "selected_gem_name",
         index=config.AVAILABLE_GEMINI_MODELS.index(current_gem_name_sb) 
             if current_gem_name_sb in config.AVAILABLE_GEMINI_MODELS else 0, 
         help="Chọn mô hình ngôn ngữ lớn để xử lý yêu cầu."
@@ -211,7 +211,7 @@ if st.session_state.app_resources_initialized:
 
     current_selected_emb_name = st.session_state.selected_emb_name
     current_selected_reranker_name = st.session_state.selected_reranker_name
-    current_selected_gem_name = st.session_state.selected_gemini_model_name
+    current_selected_gem_name = st.session_state.selected_gem_name
 
     active_emb_obj = st.session_state.app_loaded_embedding_models.get(current_selected_emb_name)
     active_rag_comps = st.session_state.app_rag_components_per_embedding_model.get(current_selected_emb_name)
@@ -234,17 +234,14 @@ if st.session_state.app_resources_initialized:
     # --- Input và Xử lý ---
     if proceed_with_chat:
         # --- Cập nhật Caption hiển thị cấu hình ---
-        reranker_status_display_main = st.session_state.selected_reranker_name
-        if reranker_status_display_main == 'Không sử dụng':
-            reranker_status_display_main = "Tắt"
-        else:
-            reranker_status_display_main = reranker_status_display_main.split('/')[-1]
 
         caption_text = (
-            f"Embedding Chính: `{st.session_state.selected_emb_name.split('/')[-1]}` | "
-            f"Mô hình: `{st.session_state.selected_gemini_model_name}` | Trả lời: `{st.session_state.answer_mode}` | "
-            f"Nguồn câu hỏi: `{st.session_state.retrieval_query_mode}` | Loại truy vấn: `{st.session_state.retrieval_method}` | "
-            f"Reranker: `{reranker_status_display_main}`"
+            f"Embedding Chính: `{current_selected_emb_name.split('/')[-1]}` | "
+            f"Mô hình: `{current_selected_gem_name}` |"
+            f"Trả lời: `{current_answer_mode}` | "
+            f"Nguồn câu hỏi: `{current_retrieval_query_mode}` |"
+            f"Loại truy vấn: `{current_retrieval_method}` | "
+            f"Reranker: `{current_selected_reranker_name.split('/')[-1] if current_selected_reranker_name != 'Không sử dụng' else 'Tắt'}` | "
         )
         if st.session_state.retrieval_method == 'Kết hợp':
             caption_text += f" | Cấu hình Hybrid: `{st.session_state.hybrid_component_mode}`"

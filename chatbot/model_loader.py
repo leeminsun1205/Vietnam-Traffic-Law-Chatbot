@@ -165,26 +165,26 @@ def initialize_evaluation_page_resources():
     """Tải và chuẩn bị tài nguyên cho trang đánh giá."""
     eval_init_successful = True
     # 1. Tải tất cả embedding models (nếu chưa có trong session)
-    if not st.session_state.eval_pg_loaded_embedding_models:
+    if not st.session_state.eval_loaded_embedding_models:
         with st.status("Đang tải Embedding Models (Đánh giá)...", expanded=True) as emb_s:
-            st.session_state.eval_pg_loaded_embedding_models = load_all_embedding_models()
-            if not st.session_state.eval_pg_loaded_embedding_models:
+            st.session_state.eval_loaded_embedding_models = load_all_embedding_models()
+            if not st.session_state.eval_loaded_embedding_models:
                 emb_s.update(label="Lỗi tải Embedding Models (Đánh giá)!", state="error")
                 eval_init_successful = False
             else:
-                emb_s.update(label=f"Tải xong {len(st.session_state.eval_pg_loaded_embedding_models)} Embedding Model(s) (Đánh giá).", state="complete")
+                emb_s.update(label=f"Tải xong {len(st.session_state.eval_loaded_embedding_models)} Embedding Model(s) (Đánh giá).", state="complete")
 
     # 2. Tải tất cả reranker models (nếu chưa có trong session)
-    if not st.session_state.eval_pg_loaded_reranker_models:
+    if not st.session_state.eval_loaded_reranker_models:
         with st.status("Đang tải Reranker Models (Đánh giá)...", expanded=True) as rer_s:
-            st.session_state.eval_pg_loaded_reranker_models = load_all_reranker_models()
-            rer_count = len([m for m_name, m in st.session_state.eval_pg_loaded_reranker_models.items() if m is not None and m_name != 'Không sử dụng'])
+            st.session_state.eval_loaded_reranker_models = load_all_reranker_models()
+            rer_count = len([m for m_name, m in st.session_state.eval_loaded_reranker_models.items() if m is not None and m_name != 'Không sử dụng'])
             rer_s.update(label=f"Tải xong {rer_count} Reranker Model(s) (Đánh giá).", state="complete")
 
 
     # 3. Chuẩn bị RAG components cho từng embedding model đã tải thành công
-    if eval_init_successful and st.session_state.eval_pg_loaded_embedding_models:
-        for model_n, emb_obj in st.session_state.eval_pg_loaded_embedding_models.items():
+    if eval_init_successful and st.session_state.eval_loaded_embedding_models:
+        for model_n, emb_obj in st.session_state.eval_loaded_embedding_models.items():
             if model_n not in st.session_state.eval_pg_rag_components_per_embedding_model: # Chỉ tạo nếu chưa có
                 with st.status(f"Chuẩn bị RAG cho '{model_n.split('/')[-1]}' (Đánh giá)...", expanded=True) as rag_s:
                     rag_prefix = config.get_rag_data_prefix(model_n)
@@ -199,6 +199,6 @@ def initialize_evaluation_page_resources():
                     except Exception as e_rag_init:
                         rag_s.update(label=f"Exception RAG cho '{model_n.split('/')[-1]}' (Đánh giá): {e_rag_init}", state="error")
                         eval_init_successful = False; break 
-    elif not st.session_state.eval_pg_loaded_embedding_models: 
+    elif not st.session_state.eval_loaded_embedding_models: 
         eval_init_successful = False
     return eval_init_successful

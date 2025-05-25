@@ -25,6 +25,8 @@ if "selected_secondary_embedding_model_name" not in st.session_state:
             secondary_default = model_name
             break
     st.session_state.selected_secondary_embedding_model_name = secondary_default if secondary_default else (config.AVAILABLE_EMBEDDING_MODELS[1] if len(config.AVAILABLE_EMBEDDING_MODELS) > 1 else config.DEFAULT_EMBEDDING_MODEL)
+if "hybrid_component_mode" not in st.session_state:
+    st.session_state.hybrid_component_mode = "2 Dense + 1 Sparse"
 if "selected_gemini_model_name" not in st.session_state:
     st.session_state.selected_gemini_model_name = config.DEFAULT_GEMINI_MODEL 
 if "selected_reranker_model_name" not in st.session_state:
@@ -58,6 +60,7 @@ with st.sidebar:
     current_answer_mode = st.session_state.answer_mode
     current_retrieval_query_mode = st.session_state.retrieval_query_mode
     current_retrieval_method = st.session_state.retrieval_method
+    current_hybrid_component_mode = st.session_state.hybrid_component_mode
 
     # Model selectbox
     available_loaded_embedding_names = list(st.session_state.get("app_loaded_embedding_models", {}).keys())
@@ -149,6 +152,16 @@ with st.sidebar:
             "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
         )
     )
+
+    if current_retrieval_method == 'Kết hợp':
+        hybrid_component_mode_choice = st.radio(
+            "Cấu hình thành phần Hybrid:",
+            options=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"],
+            key="hybrid_component_mode",
+            index=["1 Dense + 1 Sparse", "2 Dense + 1 Sparse"].index(current_hybrid_component_mode),
+            horizontal=True,
+            help="Chọn số lượng Dense encoders sử dụng trong phương thức Kết hợp."
+        )
 
     st.markdown("---")
     st.header("Quản lý Hội thoại")
@@ -255,32 +268,35 @@ if st.session_state.app_resources_initialized:
                     processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi \"{user_query}\"...")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
-                    use_two_dense_hybrid = False
+                    use_two_dense_hybrid_from_session = (st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse")
                     secondary_embedding_model_object_main = None
                     secondary_vector_db_main = None
 
-                    if st.session_state.retrieval_method == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse":
+                    if st.session_state.retrieval_method == 'Kết hợp':
                         selected_secondary_emb_name = st.session_state.get("selected_secondary_embedding_model_name")
-                        if selected_secondary_emb_name:
-                            secondary_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(selected_secondary_emb_name)
-                            secondary_rag_components = st.session_state.app_rag_components_per_embedding_model.get(selected_secondary_emb_name)
-                            if secondary_rag_components:
-                                secondary_vector_db_main = secondary_rag_components[0] # VectorDB là phần tử đầu tiên
+                        if use_two_dense_hybrid_from_session: # Điều kiện mới
+                            if selected_secondary_emb_name: # selected_secondary_emb_name đã được lấy ở trên
+                                secondary_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(selected_secondary_emb_name)
+                                secondary_rag_components = st.session_state.app_rag_components_per_embedding_model.get(selected_secondary_emb_name)
+                                if secondary_rag_components:
+                                    secondary_vector_db_main = secondary_rag_components[0]
 
-                            if secondary_embedding_model_object_main and secondary_vector_db_main:
-                                if secondary_embedding_model_object_main != active_embedding_model_object_main : # Đảm bảo không dùng cùng một object cho cả 2 dense nếu tên khác nhau
-                                    use_two_dense_hybrid = True
-                                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ: {selected_secondary_emb_name.split('/')[-1]}.")
-                                elif secondary_embedding_model_object_main == active_embedding_model_object_main and selected_secondary_emb_name != st.session_state.selected_embedding_model_name:
-                                     use_two_dense_hybrid = True
-                                     processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ (cùng model chính nhưng tên khác): {selected_secondary_emb_name.split('/')[-1]}.")
-                                else: # Nếu model phụ giống hệt model chính, không chạy 2 dense
-                                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Embedding Phụ giống Embedding Chính. Chạy Hybrid mode (1-Dense).")
-
+                                if secondary_embedding_model_object_main and secondary_vector_db_main:
+                                    if secondary_embedding_model_object_main != active_embedding_model_object_main or \
+                                    (secondary_embedding_model_object_main == active_embedding_model_object_main and selected_secondary_emb_name != st.session_state.selected_embedding_model_name): # Đảm bảo khác biệt thực sự
+                                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ: {selected_secondary_emb_name.split('/')[-1]}.")
+                                        # Để use_two_dense_hybrid_from_session giữ nguyên là True
+                                    else:
+                                        processing_log.append(f"[{time.time() - start_time:.2f}s]: Embedding Phụ giống Embedding Chính. Chuyển sang Hybrid mode (1-Dense).")
+                                        use_two_dense_hybrid_from_session = False # Ghi đè nếu không hợp lệ
+                                else:
+                                    processing_log.append(f"[{time.time() - start_time:.2f}s]: Không tìm thấy component cho Embedding Phụ. Chuyển sang Hybrid mode (1-Dense).")
+                                    use_two_dense_hybrid_from_session = False # Ghi đè
                             else:
-                                processing_log.append(f"[{time.time() - start_time:.2f}s]: Không tìm thấy component cho Embedding Phụ. Chạy Hybrid mode (1-Dense).")
-                        else:
-                            processing_log.append(f"[{time.time() - start_time:.2f}s]: Chưa chọn Embedding Phụ. Chạy Hybrid mode (1-Dense).")
+                                processing_log.append(f"[{time.time() - start_time:.2f}s]: Chưa chọn Embedding Phụ cho chế độ 2-Dense. Chuyển sang Hybrid mode (1-Dense).")
+                                use_two_dense_hybrid_from_session = False # Ghi đè
+                        else: # Trường hợp "1 Dense + 1 Sparse" được chọn
+                            processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (1-Dense) đã được chọn.")
 
                     relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                         original_query=user_query,
@@ -317,23 +333,16 @@ if st.session_state.app_resources_initialized:
                         for q_variant in queries_to_search_main:
                             if not q_variant: continue
                             
-                            search_results = []
-                            if use_two_dense_hybrid: 
-                                search_results = active_retriever_main.search(
-                                    q_variant,
-                                    active_embedding_model_object_main,
-                                    method='Kết hợp', # Luôn là Kết hợp ở đây
-                                    k=config.HYBRID_K_PER_QUERY,
-                                    secondary_embedding_model=secondary_embedding_model_object_main,
-                                    secondary_vector_db=secondary_vector_db_main
-                                )
-                            else: 
-                                search_results = active_retriever_main.search(
-                                    q_variant,
-                                    active_embedding_model_object_main,
-                                    method=st.session_state.retrieval_method, # Original method
-                                    k=config.VECTOR_K_PER_QUERY if st.session_state.retrieval_method != 'Kết hợp' else config.HYBRID_K_PER_QUERY
-                                )
+                            search_results = active_retriever_main.search(
+                                q_variant,
+                                active_embedding_model_object_main,
+                                method=st.session_state.retrieval_method,
+                                k=config.VECTOR_K_PER_QUERY if st.session_state.retrieval_method != 'Kết hợp' else config.HYBRID_K_PER_QUERY,
+                                secondary_embedding_model=secondary_embedding_model_object_main if use_two_dense_hybrid_from_session else None,
+                                secondary_vector_db=secondary_vector_db_main if use_two_dense_hybrid_from_session else None,
+                                use_two_dense_if_hybrid=use_two_dense_hybrid_from_session
+                            )
+
                             for item_res in search_results:
                                 doc_idx = item_res['index']
                                 if doc_idx not in collected_docs_data_main:

@@ -76,22 +76,41 @@ with st.sidebar:
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
     
-    if current_retrieval_method == 'Kết hợp' and st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse":
-        options_for_secondary = [name for name in available_loaded_embedding_names] 
+    if current_retrieval_method == 'Kết hợp' and st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse": # Cập nhật điều kiện hiển thị
+        options_for_secondary = [
+            name for name in available_loaded_embedding_names 
+            if name != st.session_state.selected_embedding_model_name
+        ]
+
+        current_secondary_val = st.session_state.selected_secondary_embedding_model_name
+        
+        if not options_for_secondary: 
+            st.warning("Cần ít nhất 2 embedding models khác nhau để sử dụng chế độ Hybrid 2-Dense.")
+            st.session_state.selected_secondary_embedding_model_name = None
+        elif current_secondary_val == st.session_state.selected_embedding_model_name or \
+           current_secondary_val not in options_for_secondary:
+            st.session_state.selected_secondary_embedding_model_name = options_for_secondary[0]
+            current_secondary_val = options_for_secondary[0]
+            # st.experimental_rerun() 
 
         idx_secondary = 0
-        if current_secondary_embedding_name_sb in options_for_secondary:
-            idx_secondary = options_for_secondary.index(current_secondary_embedding_name_sb)
-        elif options_for_secondary: # Nếu không có, chọn cái đầu tiên
-             st.session_state.selected_secondary_embedding_model_name = options_for_secondary[0]
+        if current_secondary_val and options_for_secondary:
+            try:
+                idx_secondary = options_for_secondary.index(current_secondary_val)
+            except ValueError: 
+                st.session_state.selected_secondary_embedding_model_name = options_for_secondary[0]
+                idx_secondary = 0
+        elif not options_for_secondary:
+             st.session_state.selected_secondary_embedding_model_name = None 
 
-        selected_secondary_embedding_model_name_ui = st.selectbox(
-            "Chọn mô hình Embedding Phụ (cho Hybrid 2-Dense):",
-            options=options_for_secondary,
-            key="selected_secondary_embedding_model_name",
-            index=idx_secondary,
-            help="Chọn mô hình embedding thứ hai cho phương thức truy vấn Kết hợp (2 Dense + 1 Sparse). Sẽ được sử dụng nếu 'Phương thức truy vấn' là 'Kết hợp' và cấu hình hệ thống cho phép."
-        )
+        if options_for_secondary: 
+            selected_secondary_embedding_model_name_ui = st.selectbox(
+                "Chọn mô hình Embedding Phụ (cho Hybrid 2-Dense):",
+                options=options_for_secondary,
+                key="selected_secondary_embedding_model_name",
+                index=idx_secondary,
+                help="Chọn mô hình embedding thứ hai. Danh sách này đã loại trừ mô hình Embedding Chính."
+            )
 
     # Selectbox cho Gemini Model
     selected_gemini_model_name_ui = st.selectbox(

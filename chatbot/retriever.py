@@ -74,7 +74,7 @@ class Retriever:
         except Exception as e:
             return []
 
-    def search(self, query_text, primary_embedding_model, method='Kết hợp', k=20, secondary_embedding_model=None, secondary_vector_db=None):
+    def search(self, query_text, primary_embedding_model, method='Kết hợp', k=20, secondary_embedding_model=None, secondary_vector_db=None, use_two_dense_if_hybrid=False):
         if not query_text: return []
         results = []
         indices_set = set()
@@ -144,14 +144,14 @@ class Retriever:
                     bm25_indices_list = [int(idx) for _, idx in bm25_scored_indices[:config.HYBRID_K_PER_QUERY]]
 
             # --- Gán trọng số và thêm vào danh sách để fuse ---
-            if run_secondary_dense: # Chế độ 2 dense + 1 sparse
+            if use_two_dense_if_hybrid and secondary_embedding_model and secondary_vector_db: # Chế độ 2 dense + 1 sparse
                 if vec1_indices_list:
                     rank_lists_with_weights.append((vec1_indices_list, config.DENSE1_WEIGHT_HYBRID_3COMP))
-                if vec2_indices_list:
+                if vec2_indices_list: # Chỉ thêm nếu vec2 thực sự được chạy và có kết quả
                     rank_lists_with_weights.append((vec2_indices_list, config.DENSE2_WEIGHT_HYBRID_3COMP))
                 if bm25_indices_list:
                     rank_lists_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_HYBRID_3COMP))
-            else: # Chế độ 1 dense + 1 sparse (mặc định)
+            else: # Chế độ 1 dense + 1 sparse
                 if vec1_indices_list:
                     rank_lists_with_weights.append((vec1_indices_list, config.DENSE_WEIGHT_HYBRID_2COMP))
                 if bm25_indices_list:

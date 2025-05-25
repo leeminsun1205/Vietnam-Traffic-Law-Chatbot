@@ -210,14 +210,16 @@ def run_retrieval_evaluation(
                                 use_two_dense_eval_hybrid_runtime = False 
                             else:
                                 use_two_dense_eval_hybrid_runtime = True
+                    st.write(q_var_eval_run, embedding_model_object_for_eval, retrieval_method_eval)
+                    st.write(use_two_dense_eval_hybrid_runtime)
                     search_results_eval_run = retriever_instance_for_eval.search(
                         q_var_eval_run,
-                        embedding_model_object_for_eval, # Primary
+                        embedding_model_object_for_eval, 
                         method=retrieval_method_eval,
                         k=config.VECTOR_K_PER_QUERY if retrieval_method_eval != 'Kết hợp' else config.HYBRID_K_PER_QUERY,
                         secondary_embedding_model=eval_pg_secondary_emb_obj_runtime if use_two_dense_eval_hybrid_runtime else None,
                         secondary_vector_db=eval_pg_secondary_vector_db_runtime if use_two_dense_eval_hybrid_runtime else None,
-                        use_two_dense_if_hybrid=use_two_dense_eval_hybrid_runtime # Truyền tham số mới
+                        use_two_dense_if_hybrid=use_two_dense_eval_hybrid_runtime 
                     )
 
                     for res_item_eval_run in search_results_eval_run:

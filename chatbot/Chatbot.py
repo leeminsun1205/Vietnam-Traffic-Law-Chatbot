@@ -258,7 +258,7 @@ if st.session_state.app_resources_initialized:
 
                         collected_docs_data_main = {}
                         retrieval_start_time = time.time()
-                        st.write(C)
+                        st.write('C')
                         for q_variant in queries_to_search_main:
                             if not q_variant: continue
                             search_results = active_retriever_main.search( 

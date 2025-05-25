@@ -8,7 +8,7 @@ import config
 from data_loader import load_or_create_rag_components
 # --- Model Loading Functions ---
 
-@st.cache_resource
+# @st.cache_resource
 def load_single_embedding_model(model_name: str):
     """
     Tải một embedding model cụ thể.
@@ -22,7 +22,7 @@ def load_single_embedding_model(model_name: str):
         st.error(f"Lỗi tải Embedding Model ({model_name}): {e}")
         return None
 
-@st.cache_resource
+# @st.cache_resource
 def load_all_embedding_models() -> dict:
     """
     Tải tất cả các embedding model từ config.AVAILABLE_EMBEDDING_MODELS.
@@ -42,7 +42,7 @@ def load_all_embedding_models() -> dict:
         st.error("Không có Embedding model nào được tải thành công!")
     return loaded_models
 
-@st.cache_resource
+# @st.cache_resource
 def load_single_reranker_model(model_name: str):
     """
     Tải một reranker model cụ thể.
@@ -58,7 +58,7 @@ def load_single_reranker_model(model_name: str):
         st.error(f"Lỗi tải Reranker Model ({model_name}): {e}")
         return None
 
-@st.cache_resource
+# @st.cache_resource
 def load_all_reranker_models() -> dict:
     """
     Tải tất cả các reranker model từ config.AVAILABLE_RERANKER_MODELS.
@@ -80,7 +80,7 @@ def load_all_reranker_models() -> dict:
                 st.warning(f"Không tải được Reranker model: {model_name} (hoặc đã chọn 'Không sử dụng').")
     return loaded_models
 
-@st.cache_resource
+# @st.cache_resource
 def load_gemini_model(model_name: str):
     """
     Tải một Gemini model cụ thể. Được cache.

@@ -90,7 +90,7 @@ def run_retrieval_evaluation(
     k_values_metrics = [3, 5, 10]
 
     retrieval_query_mode_eval = eval_config_params.get('retrieval_query_mode', 'Mở rộng')
-    retrieval_method_eval = eval_config_params.get('retrieval_method', 'Hybrid')
+    retrieval_method_eval = eval_config_params.get('retrieval_method', 'Kết hợp')
     selected_reranker_name_eval_run = eval_config_params.get('selected_reranker_model_name', 'Không sử dụng')
     use_reranker_eval_run = reranking_model_object_for_eval is not None and selected_reranker_name_eval_run != 'Không sử dụng'
     variation_mode_run = eval_config_params.get('variation_mode_used', "Luôn sinh mới (qua LLM)")
@@ -208,7 +208,7 @@ def run_retrieval_evaluation(
                 query_metrics_dict["num_unique_docs_found"] = len(collected_docs_data_eval_run)
 
                 retrieved_docs_list_eval_run = list(collected_docs_data_eval_run.values())
-                sort_reverse_eval_run = (retrieval_method_eval != 'Dense')
+                sort_reverse_eval_run = (retrieval_method_eval != 'Ngữ nghĩa')
                 retrieved_docs_list_eval_run.sort(key=lambda x: x.get('score', 0 if sort_reverse_eval_run else float('inf')), reverse=sort_reverse_eval_run)
                 query_metrics_dict["num_retrieved_before_rerank"] = len(retrieved_docs_list_eval_run)
 
@@ -291,7 +291,7 @@ if "eval_pg_selected_reranker_model_name" not in st.session_state:
 if "eval_pg_retrieval_query_mode" not in st.session_state: 
     st.session_state.eval_pg_retrieval_query_mode = 'Mở rộng'
 if "eval_pg_retrieval_method" not in st.session_state: 
-    st.session_state.eval_pg_retrieval_method = 'Hybrid'
+    st.session_state.eval_pg_retrieval_method = 'Kết hợp'
 
 if 'eval_pg_data' not in st.session_state: 
     st.session_state.eval_pg_data = None
@@ -390,14 +390,14 @@ with st.sidebar:
     )
     eval_pg_retrieval_method_choice = st.radio(
         "Phương thức truy vấn:", 
-        options=['Dense', 'Sparse', 'Hybrid'],
+        options=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'],
         key="eval_pg_retrieval_method", 
-        index=['Dense', 'Sparse', 'Hybrid'].index(current_eval_pg_retrieval_method_sidebar),
+        index=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'].index(current_eval_pg_retrieval_method_sidebar),
         horizontal=True,
         help=(
-            "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
-            "**Sparse:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
-            "**Hybrid:** Kết hợp cả Dense và Sparse (cân bằng, có thể tốt nhất)."
+            "**Ngữ nghĩa:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
+            "**Từ khóa:** Tìm kiếm dựa trên từ khóa (BM25) (nhanh, chính xác từ khóa).\n"
+            "**Kết hợp:** Kết hợp cả Ngữ nghĩa và Từ khóa (cân bằng, có thể tốt nhất)."
         )
     )
 

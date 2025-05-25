@@ -29,7 +29,7 @@ if "answer_mode" not in st.session_state:
 if "retrieval_query_mode" not in st.session_state: 
     st.session_state.retrieval_query_mode = 'Mở rộng'
 if "retrieval_method" not in st.session_state: 
-    st.session_state.retrieval_method = 'Hybrid'
+    st.session_state.retrieval_method = 'Kết hợp'
 
 # Tải trước TOÀN BỘ models và RAG components 
 if "app_loaded_embedding_models" not in st.session_state:
@@ -114,9 +114,9 @@ with st.sidebar:
 
     retrieval_method_choice = st.radio(
         "Phương thức truy vấn:", 
-        options=['Dense', 'Sparse', 'Hybrid'],
+        options=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'],
         key="retrieval_method",
-        index=['Dense', 'Sparse', 'Hybrid'].index(current_retrieval_method), 
+        index=['Ngữ nghĩa', 'Từ khóa', 'Kết hợp'].index(current_retrieval_method), 
         horizontal=True, 
         help=(
             "**Dense:** Tìm kiếm dựa trên vector ngữ nghĩa (nhanh, hiểu ngữ cảnh).\n"
@@ -277,7 +277,7 @@ if st.session_state.app_resources_initialized:
                         message_placeholder.markdown(" ".join(processing_log) + "⏳")
 
                         retrieved_docs_list_main = list(collected_docs_data_main.values())
-                        sort_reverse_main = (retrieval_method_main != 'Dense')
+                        sort_reverse_main = (retrieval_method_main != 'Ngữ nghĩa')
                         retrieved_docs_list_main.sort(key=lambda x: x.get('score', 0 if sort_reverse_main else float('inf')), reverse=sort_reverse_main)
 
                         reranked_documents_for_llm_main = []

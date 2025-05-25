@@ -77,11 +77,11 @@ class Retriever:
             return []
 
 
-    def search(self, query_text, embedding_model, method='Hybrid', k=20):
+    def search(self, query_text, embedding_model, method='Kết hợp', k=20):
         if not query_text: return []
         results = []
         indices_set = set() 
-        if method == 'Dense':
+        if method == 'Ngữ nghĩa':
             distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
             if indices is not None and len(indices) > 0:
                 for i, idx in enumerate(indices):
@@ -95,7 +95,7 @@ class Retriever:
                 # Sắp xếp theo distance tăng dần (score nhỏ hơn là tốt hơn)
                 results.sort(key=lambda x: x['score'])
 
-        elif method == 'Sparse':
+        elif method == 'Từ khóa':
             if self.bm25:
                 tokenized_query = self._tokenize_vi(query_text)
                 if tokenized_query:    
@@ -111,7 +111,7 @@ class Retriever:
                             })
                             indices_set.add(idx)
 
-        elif method == 'Hybrid':
+        elif method == 'Kết hợp':
             # --- 1. Vector Search (Dense) ---
             _, vec_indices = retrieve_relevant_chunks(
                 query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY

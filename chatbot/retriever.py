@@ -92,6 +92,7 @@ class Retriever:
                         })
                         indices_set.add(idx)
                 results.sort(key=lambda x: x['score']) # Sắp xếp theo distance tăng dần
+            st.write('D')
 
         elif method == 'Từ khóa':
             if self.bm25:
@@ -109,7 +110,7 @@ class Retriever:
                                 'index': idx
                             })
                             indices_set.add(idx)
-
+            st.write('S')
         elif method == 'Kết hợp':
             rank_lists_with_weights = []
 
@@ -154,7 +155,7 @@ class Retriever:
                     rank_lists_with_weights.append((vec1_indices_list, config.DENSE_WEIGHT_HYBRID_2COMP))
                 if bm25_indices_list:
                     rank_lists_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_HYBRID_2COMP))
-
+                st.write('AAAA')
             # --- 4. Rank Fusion (RRF) ---
             fused_indices = []
             fused_scores_dict = {}

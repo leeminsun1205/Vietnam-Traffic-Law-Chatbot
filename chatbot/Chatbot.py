@@ -189,8 +189,10 @@ caption_text = (
     f"Nguồn câu hỏi: `{st.session_state.retrieval_query_mode}` | Loại truy vấn: `{st.session_state.retrieval_method}` | "
     f"Reranker: `{reranker_status_display_main}`"
 )
-if st.session_state.retrieval_method == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse" and st.session_state.selected_secondary_embedding_model_name:
-    caption_text += f" | Embedding Phụ: `{st.session_state.selected_secondary_embedding_model_name.split('/')[-1]}`"
+if st.session_state.retrieval_method == 'Kết hợp':
+    caption_text += f" | Cấu hình Hybrid: `{st.session_state.hybrid_component_mode}`"
+    if st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse" and st.session_state.selected_secondary_embedding_model_name:
+        caption_text += f" | Embedding Phụ: `{st.session_state.selected_secondary_embedding_model_name.split('/')[-1]}`"
 st.caption(caption_text)
 
 # --- Hiển thị Lịch sử Chat ---

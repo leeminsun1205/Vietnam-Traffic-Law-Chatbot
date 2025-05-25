@@ -91,7 +91,7 @@ def run_retrieval_evaluation(
 
     retrieval_query_mode_eval = eval_config_params.get('retrieval_query_mode', 'Mở rộng')
     retrieval_method_eval = eval_config_params.get('retrieval_method', 'Kết hợp')
-    hybrid_component_mode_eval = eval_config_params.get('eval_hybrid_component_mode', '2 Dense + 1 Sparse')
+    hybrid_component_mode_eval = eval_config_params.get('hybrid_component_mode', '2 Dense + 1 Sparse')
     selected_reranker_name_eval_run = eval_config_params.get('selected_reranker_model_name', 'Không sử dụng')
     use_reranker_eval_run = reranking_model_object_for_eval is not None and selected_reranker_name_eval_run != 'Không sử dụng'
     variation_mode_run = eval_config_params.get('variation_mode_used', "Luôn sinh mới (qua LLM)")
@@ -195,7 +195,7 @@ def run_retrieval_evaluation(
             
                 for q_var_eval_run in queries_to_search_eval_run:
                     if not q_var_eval_run: continue
-                    use_two_dense_eval_hybrid_runtime = (st.session_state.eval_hybrid_component_mode == "2 Dense + 1 Sparse") 
+                    use_two_dense_eval_hybrid_runtime = (st.session_state.hybrid_component_mode_eval == "2 Dense + 1 Sparse") 
                     eval_secondary_emb_obj_runtime = None
                     eval_secondary_vector_db_runtime = None
                     if retrieval_method_eval == 'Kết hợp': # Điều kiện mới
@@ -674,11 +674,11 @@ if st.session_state.eval_resources_initialized:
 
                     if proceed_run_main and can_run_evaluation_flow:
                         eval_config_for_this_run_pg_main_run = {
-                            'embedding_model_name': eval_selected_emb_name,
-                            'retrieval_query_mode': st.session_state.eval_retrieval_query_mode,
-                            'retrieval_method': st.session_state.eval_retrieval_method,
-                            'selected_reranker_model_name': eval_selected_reranker_name,
-                            'gemini_model_name': eval_selected_gem_name,
+                            'embedding_model_name': current_eval_selected_emb_name,
+                            'retrieval_query_mode': current_eval_retrieval_query_mode,
+                            'retrieval_method': current_eval_retrieval_method,
+                            'selected_reranker_model_name': current_eval_selected_reranker_name,
+                            'gemini_model_name': current_eval_selected_gem_name,
                             'variation_mode_used': st.session_state.eval_variation_mode,
                         }
                         if st.session_state.eval_retrieval_method == 'Kết hợp':

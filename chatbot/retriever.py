@@ -77,49 +77,72 @@ class Retriever:
             return []
 
 
-    def search(self, query_text, embedding_model, method='Kết hợp', k=20):
+    def search(self, query_text,
+               primary_embedding_model, # Model cho dense retriever chính
+               method='Kết hợp', k=20,
+               # Tham số cho dense retriever phụ (nếu dùng)
+               secondary_embedding_model=None,
+               secondary_vector_db=None
+              ):
         if not query_text: return []
         results = []
-        indices_set = set() 
+        indices_set = set()
+
         if method == 'Ngữ nghĩa':
-            distances, indices = retrieve_relevant_chunks(query_text, embedding_model, self.vector_db, k=k)
+            distances, indices = retrieve_relevant_chunks(query_text, primary_embedding_model, self.primary_vector_db, k=k)
             if indices is not None and len(indices) > 0:
-                for i, idx in enumerate(indices):
-                    if isinstance(idx, (int, np.integer)) and 0 <= idx < len(self.documents) and idx not in indices_set:
+                for i, idx_val in enumerate(indices):
+                    idx = int(idx_val) # Đảm bảo idx là int
+                    if 0 <= idx < len(self.documents) and idx not in indices_set:
                         results.append({
                             'doc': self.documents[idx],
-                            'score': float(distances[i]), 
-                            'index': int(idx)
+                            'score': float(distances[i]), # L2 distance, nhỏ hơn là tốt hơn
+                            'index': idx
                         })
                         indices_set.add(idx)
-                # Sắp xếp theo distance tăng dần (score nhỏ hơn là tốt hơn)
-                results.sort(key=lambda x: x['score'])
+                results.sort(key=lambda x: x['score']) # Sắp xếp theo distance tăng dần
 
         elif method == 'Từ khóa':
             if self.bm25:
                 tokenized_query = self._tokenize_vi(query_text)
-                if tokenized_query:    
+                if tokenized_query:
                     bm25_scores = self.bm25.get_scores(tokenized_query)
                     bm25_scored_indices = [(bm25_scores[i], i) for i in range(len(bm25_scores)) if bm25_scores[i] > 0]
-                    bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
-                    for score, idx in bm25_scored_indices[:k]:
-                        if idx not in indices_set: 
+                    bm25_scored_indices.sort(key=lambda x: x[0], reverse=True) # BM25 score, lớn hơn là tốt hơn
+                    for score, idx_val in bm25_scored_indices[:k]:
+                        idx = int(idx_val)
+                        if idx not in indices_set:
                             results.append({
                                 'doc': self.documents[idx],
-                                'score': float(score), 
-                                'index': int(idx)
+                                'score': float(score),
+                                'index': idx
                             })
                             indices_set.add(idx)
 
         elif method == 'Kết hợp':
-            # --- 1. Vector Search (Dense) ---
-            _, vec_indices = retrieve_relevant_chunks(
-                query_text, embedding_model, self.vector_db, k=config.VECTOR_K_PER_QUERY
+            rank_lists_with_weights = []
+
+            # --- 1. Primary Dense Search (Dense 1) ---
+            _, vec1_indices_np = retrieve_relevant_chunks(
+                query_text, primary_embedding_model, self.primary_vector_db, k=config.HYBRID_K_PER_QUERY
             )
-            vec_indices_list = []
-            if vec_indices is not None and len(vec_indices) > 0:
-                vec_indices_list = [int(i) for i in vec_indices.flatten().tolist() if isinstance(i, (int, np.integer))]
-            # --- 2. BM25 Search (Sparse) ---
+            vec1_indices_list = []
+            if vec1_indices_np is not None and len(vec1_indices_np) > 0:
+                vec1_indices_list = [int(i) for i in vec1_indices_np.flatten().tolist() if isinstance(i, (int, np.integer))]
+
+            # --- 2. Secondary Dense Search (Dense 2) - nếu được kích hoạt và cung cấp đủ tham số ---
+            vec2_indices_list = []
+            run_secondary_dense = (config.HYBRID_MODE == "2_dense_1_sparse" and
+                                   secondary_embedding_model is not None and
+                                   secondary_vector_db is not None)
+            if run_secondary_dense:
+                _, vec2_indices_np = retrieve_relevant_chunks(
+                    query_text, secondary_embedding_model, secondary_vector_db, k=config.HYBRID_K_PER_QUERY
+                )
+                if vec2_indices_np is not None and len(vec2_indices_np) > 0:
+                    vec2_indices_list = [int(i) for i in vec2_indices_np.flatten().tolist() if isinstance(i, (int, np.integer))]
+
+            # --- 3. BM25 Search (Sparse) ---
             bm25_indices_list = []
             if self.bm25:
                 tokenized_query = self._tokenize_vi(query_text)
@@ -127,31 +150,44 @@ class Retriever:
                     bm25_scores = self.bm25.get_scores(tokenized_query)
                     bm25_scored_indices = [(bm25_scores[i], i) for i in range(len(bm25_scores)) if bm25_scores[i] > 0]
                     bm25_scored_indices.sort(key=lambda x: x[0], reverse=True)
-                    bm25_indices_list = [int(index) for _, index in bm25_scored_indices[:config.VECTOR_K_PER_QUERY]]
+                    bm25_indices_list = [int(idx) for _, idx in bm25_scored_indices[:config.HYBRID_K_PER_QUERY]]
 
-            # --- 3. Rank Fusion (RRF) ---
-            rank_lists_to_fuse_with_weights = []
-            if vec_indices_list: 
-                rank_lists_to_fuse_with_weights.append((vec_indices_list, config.DENSE_WEIGHT_FOR_HYBRID))
-            if bm25_indices_list: 
-                rank_lists_to_fuse_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_FOR_HYBRID))
+            # --- Gán trọng số và thêm vào danh sách để fuse ---
+            if run_secondary_dense: # Chế độ 2 dense + 1 sparse
+                if vec1_indices_list:
+                    rank_lists_with_weights.append((vec1_indices_list, config.DENSE1_WEIGHT_HYBRID_3COMP))
+                if vec2_indices_list:
+                    rank_lists_with_weights.append((vec2_indices_list, config.DENSE2_WEIGHT_HYBRID_3COMP))
+                if bm25_indices_list:
+                    rank_lists_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_HYBRID_3COMP))
+            else: # Chế độ 1 dense + 1 sparse (mặc định)
+                if vec1_indices_list:
+                    rank_lists_with_weights.append((vec1_indices_list, config.DENSE_WEIGHT_HYBRID_2COMP))
+                if bm25_indices_list:
+                    rank_lists_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_HYBRID_2COMP))
+
+            # --- 4. Rank Fusion (RRF) ---
             fused_indices = []
             fused_scores_dict = {}
-            if rank_lists_to_fuse_with_weights:
+            if rank_lists_with_weights:
                 fused_indices, fused_scores_dict = self._rank_fusion_indices(
-                    rank_lists_to_fuse_with_weights,
-                    rrf_k_constant=config.RRF_K 
+                    rank_lists_with_weights,
+                    rrf_k_constant=config.RRF_K
                 )
-            # --- 4. Get Top K Documents ---
-            for rank, idx in enumerate(fused_indices):
-                if len(results) >= k: break
-                if isinstance(idx, (int, np.integer)) and 0 <= idx < len(self.documents) and idx not in indices_set:
-                    score = fused_scores_dict.get(idx, 0.0) 
-                    results.append({'doc': self.documents[idx], 'score': float(score), 'index': int(idx)})
-                    indices_set.add(idx)
 
-        else: return []
-        return results 
+            # --- 5. Lấy Top K Documents từ kết quả RRF ---
+            # Score từ RRF, lớn hơn là tốt hơn
+            for rank, idx_val in enumerate(fused_indices):
+                idx = int(idx_val)
+                if len(results) >= k: break
+                if 0 <= idx < len(self.documents) and idx not in indices_set:
+                    score = fused_scores_dict.get(idx, 0.0)
+                    results.append({'doc': self.documents[idx], 'score': float(score), 'index': idx})
+                    indices_set.add(idx)
+        else:
+            # print(f"Phương thức truy vấn không hợp lệ: {method}")
+            return []
+        return results
 
     def _rank_fusion_indices(self, rank_lists_with_weights, rrf_k_constant=config.RRF_K):
         """Thực hiện RRF để kết hợp các danh sách rank."""

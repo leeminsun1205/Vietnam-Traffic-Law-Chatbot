@@ -8,6 +8,7 @@ AVAILABLE_EMBEDDING_MODELS = [
     'intfloat/multilingual-e5-large',
 ]
 DEFAULT_EMBEDDING_MODEL = 'truro7/vn-law-embedding'
+DEFAULT_SECONDARY_EMBEDDING_MODEL = 'BAAI/bge-m3'
 
 AVAILABLE_RERANKER_MODELS = [
     'Không sử dụng',  # Lựa chọn không dùng reranker
@@ -51,6 +52,11 @@ FINAL_NUM_RESULTS_AFTER_RERANK = 15
 RRF_K = 10 
 DENSE_WEIGHT_FOR_HYBRID = 0.7  
 SPARSE_WEIGHT_FOR_HYBRID = 0.3
+# Trọng số cho chế độ hybrid 2 dense + 1 sparse (phải cộng lại bằng 1)
+DENSE1_WEIGHT_HYBRID_3COMP = 0.40
+DENSE2_WEIGHT_HYBRID_3COMP = 0.35
+SPARSE_WEIGHT_HYBRID_3COMP = 0.25
+HYBRID_MODE = "2_dense_1_sparse"
 
 # --- Danh sách Stop Words ---
 VIETNAMESE_STOP_WORDS = {

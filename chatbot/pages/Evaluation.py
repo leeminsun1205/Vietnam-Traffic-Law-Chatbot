@@ -210,8 +210,8 @@ def run_retrieval_evaluation(
                                 use_two_dense_eval_hybrid_runtime = False 
                             else:
                                 use_two_dense_eval_hybrid_runtime = True
-                    st.write(q_var_eval_run, embedding_model_object_for_eval, retrieval_method_eval)
-                    st.write(use_two_dense_eval_hybrid_runtime)
+                    st.write(eval_pg_secondary_emb_obj_runtime, eval_pg_secondary_emb_obj_runtime)
+
                     search_results_eval_run = retriever_instance_for_eval.search(
                         q_var_eval_run,
                         embedding_model_object_for_eval, 

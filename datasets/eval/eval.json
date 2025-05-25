@@ -2623,5 +2623,50 @@
       "168_2024_NĐ-CP_chunk_535",
       "168_2024_NĐ-CP_chunk_539_3"
     ]
+  },
+  {
+    "query_id": "eval_296",
+    "query": "Tài xế xe ô tô mở cửa xe không quan sát, gây tai nạn cho người đi đường có bị xử phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_128_5q",
+      "168_2024_NĐ-CP_chunk_143_10b_5q"
+    ]
+  },
+  {
+    "query_id": "eval_297",
+    "query": "Xe khách xếp hành lý không đảm bảo an toàn có bị xử phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_454",
+      "168_2024_NĐ-CP_chunk_462",
+      "168_2024_NĐ-CP_chunk_482_5b"
+    ]
+  },
+  {
+    "query_id": "eval_298",
+    "query": "Tài xế xe tải vận chuyển chất gây ô nhiễm môi trường nhưng không có giấy phép sẽ bị xử phạt như thế nào?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_537",
+      "168_2024_NĐ-CP_chunk_538_4",
+      "168_2024_NĐ-CP_chunk_540_5"
+    ]
+  },
+  {
+    "query_id": "eval_299",
+    "query": "Xe khách chạy trên cao tốc không giữ khoảng cách an toàn với xe phía trước có bị phạt không?",
+    "relevant_chunk_ids": [
+      "168_2024_NĐ-CP_chunk_102",
+      "168_2024_NĐ-CP_chunk_140_5d",
+      "168_2024_NĐ-CP_chunk_128_5d",
+      "168_2024_NĐ-CP_chunk_143_10b_5d"
+    ]
+  },
+  {
+    "query_id": "eval_300",
+    "query": "Xe máy có được phép lưu thông trên đường cao tốc không? Nếu vi phạm sẽ bị xử phạt như thế nào?",
+    "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_216",
+      "168_2024_NĐ-CP_chunk_188",
+      "168_2024_NĐ-CP_chunk_214_7b"
+    ]
   }
 ]

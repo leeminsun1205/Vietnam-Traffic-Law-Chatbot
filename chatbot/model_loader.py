@@ -185,13 +185,13 @@ def initialize_evaluation_page_resources():
     # 3. Chuẩn bị RAG components cho từng embedding model đã tải thành công
     if eval_init_successful and st.session_state.eval_loaded_embedding_models:
         for model_n, emb_obj in st.session_state.eval_loaded_embedding_models.items():
-            if model_n not in st.session_state.eval_pg_rag_components_per_embedding_model: # Chỉ tạo nếu chưa có
+            if model_n not in st.session_state.eval_rag_components_per_embedding_model: # Chỉ tạo nếu chưa có
                 with st.status(f"Chuẩn bị RAG cho '{model_n.split('/')[-1]}' (Đánh giá)...", expanded=True) as rag_s:
                     rag_prefix = config.get_rag_data_prefix(model_n)
                     try:
                         v_db, retr = load_or_create_rag_components(emb_obj, rag_prefix)
                         if v_db and retr:
-                            st.session_state.eval_pg_rag_components_per_embedding_model[model_n] = (v_db, retr)
+                            st.session_state.eval_rag_components_per_embedding_model[model_n] = (v_db, retr)
                             rag_s.update(label=f"RAG cho '{model_n.split('/')[-1]}' (Đánh giá) sẵn sàng.", state="complete")
                         else:
                             rag_s.update(label=f"Lỗi RAG cho '{model_n.split('/')[-1]}' (Đánh giá).", state="error")

@@ -32,7 +32,7 @@ def retrieve_relevant_chunks(query_text, embedding_model, vector_db, k=5):
 class Retriever:
     """Kết hợp Vector Search (Dense), BM25 Search (Sparse), hoặc cả hai (Hybrid)."""
     def __init__(self, vector_db, bm25_save_path):
-        self.vector_db = vector_db
+        self.primary_vector_db = vector_db
         self.documents = getattr(vector_db, 'documents', [])
         self.document_texts = [doc.get('text', '') if isinstance(doc, dict) else '' for doc in self.documents]
         self.bm25_index_path = bm25_save_path
@@ -65,10 +65,8 @@ class Retriever:
             text_lower = text.lower()
             tokenized_text = ViTokenizer.tokenize(text_lower)
             word_tokens = tokenized_text.split()
-
             final_tokens = []
             for token in word_tokens:
-                # Giữ lại dấu gạch dưới, loại bỏ các ký tự đặc biệt khác
                 cleaned_token = re.sub(r'[^\w\s_]', '', token, flags=re.UNICODE).strip()
                 if cleaned_token and cleaned_token not in VIETNAMESE_STOP_WORDS:
                     final_tokens.append(cleaned_token)
@@ -76,13 +74,7 @@ class Retriever:
         except Exception as e:
             return []
 
-    def search(self, query_text,
-               primary_embedding_model, # Model cho dense retriever chính
-               method='Kết hợp', k=20,
-               # Tham số cho dense retriever phụ (nếu dùng)
-               secondary_embedding_model=None,
-               secondary_vector_db=None
-              ):
+    def search(self, query_text, primary_embedding_model, method='Kết hợp', k=20, secondary_embedding_model=None, secondary_vector_db=None):
         if not query_text: return []
         results = []
         indices_set = set()
@@ -91,7 +83,7 @@ class Retriever:
             distances, indices = retrieve_relevant_chunks(query_text, primary_embedding_model, self.primary_vector_db, k=k)
             if indices is not None and len(indices) > 0:
                 for i, idx_val in enumerate(indices):
-                    idx = int(idx_val) # Đảm bảo idx là int
+                    idx = int(idx_val) 
                     if 0 <= idx < len(self.documents) and idx not in indices_set:
                         results.append({
                             'doc': self.documents[idx],

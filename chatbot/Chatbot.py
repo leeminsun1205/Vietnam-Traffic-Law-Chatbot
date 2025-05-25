@@ -170,12 +170,6 @@ if reranker_status_display_main == 'Không sử dụng':
 else:
     reranker_status_display_main = reranker_status_display_main.split('/')[-1]
 
-# st.caption(
-#     f"Embedding: `{st.session_state.selected_embedding_model_name.split('/')[-1]}` | "
-#     f"Mô hình: `{st.session_state.selected_gemini_model_name}` | Trả lời: `{st.session_state.answer_mode}` | "
-#     f"Nguồn câu hỏi: `{st.session_state.retrieval_query_mode}` | Loại truy vấn: `{st.session_state.retrieval_method}` | "
-#     f"Reranker: `{reranker_status_display_main}`"
-# )
 caption_text = (
     f"Embedding Chính: `{st.session_state.selected_embedding_model_name.split('/')[-1]}` | "
     f"Mô hình: `{st.session_state.selected_gemini_model_name}` | Trả lời: `{st.session_state.answer_mode}` | "
@@ -324,14 +318,8 @@ if st.session_state.app_resources_initialized:
                         for q_variant in queries_to_search_main:
                             if not q_variant: continue
                             
-                            # search_results = active_retriever_main.search( 
-                            #     q_variant,
-                            #     active_embedding_model_object_main,
-                            #     method=retrieval_method_main,
-                            #     k=config.VECTOR_K_PER_QUERY 
-                            # )
                             search_results = []
-                            if use_two_dense_hybrid: # Đã bao gồm st.session_state.retrieval_method == 'Kết hợp'
+                            if use_two_dense_hybrid: 
                                 search_results = active_retriever_main.search(
                                     q_variant,
                                     active_embedding_model_object_main,
@@ -340,7 +328,7 @@ if st.session_state.app_resources_initialized:
                                     secondary_embedding_model=secondary_embedding_model_object_main,
                                     secondary_vector_db=secondary_vector_db_main
                                 )
-                            else: # Các trường hợp còn lại (Ngữ nghĩa, Từ khóa, hoặc Hybrid 1-dense)
+                            else: 
                                 search_results = active_retriever_main.search(
                                     q_variant,
                                     active_embedding_model_object_main,

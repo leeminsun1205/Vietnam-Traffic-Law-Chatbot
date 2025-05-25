@@ -203,7 +203,7 @@ if st.session_state.app_resources_initialized:
             st.session_state.messages.append({"role": "user", "content": user_query})
             with st.chat_message("user"):
                 st.markdown(user_query)
-
+            st.write('Write')
             with st.chat_message("assistant"):
                 message_placeholder = st.empty()
                 full_response = ""

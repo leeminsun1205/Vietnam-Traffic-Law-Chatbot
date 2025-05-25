@@ -687,7 +687,7 @@ if st.session_state.eval_resources_initialized:
                             if st.session_state.eval_hybrid_component_mode == "2 Dense + 1 Sparse":
                                 eval_config_for_this_run_pg_main_run['secondary_embedding_model_name'] = st.session_state.get("eval_selected_secondary_emb_name")
                                 st.write(eval_config_for_this_run_pg_main_run['secondary_embedding_model_name'])
-
+                        st.write(st.session_state.eval_last_config_run)
                         with st.spinner("⏳ Đang chạy đánh giá Retrieval & Metrics..."):
                             start_eval_time_pg_main_run = time.time()
                             results_df_output_pg_main_run = run_retrieval_evaluation(

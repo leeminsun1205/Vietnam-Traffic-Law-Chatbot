@@ -195,21 +195,22 @@ def run_retrieval_evaluation(
             
                 for q_var_eval_run in queries_to_search_eval_run:
                     if not q_var_eval_run: continue
-                    use_two_dense_eval_hybrid_runtime = False 
+                    use_two_dense_eval_hybrid_runtime = (st.session_state.hybrid_component_mode_eval == "2 Dense + 1 Sparse") 
                     eval_pg_secondary_emb_obj_runtime = None
                     eval_pg_secondary_vector_db_runtime = None
-                    if retrieval_method_eval == 'Kết hợp' and hybrid_component_mode_eval == "2 Dense + 1 Sparse": # Điều kiện mới
+                    if retrieval_method_eval == 'Kết hợp': # Điều kiện mới
                         eval_pg_selected_secondary_emb_name_runtime = eval_config_params.get("secondary_embedding_model_name")
-                        if eval_pg_selected_secondary_emb_name_runtime:
-                            eval_pg_secondary_emb_obj_runtime = st.session_state.eval_pg_loaded_embedding_models.get(eval_pg_selected_secondary_emb_name_runtime)
-                            secondary_rag_comps_eval_runtime = st.session_state.eval_pg_rag_components_per_embedding_model.get(eval_pg_selected_secondary_emb_name_runtime)
-                            if secondary_rag_comps_eval_runtime:
-                                eval_pg_secondary_vector_db_runtime = secondary_rag_comps_eval_runtime[0]
+                        if use_two_dense_eval_hybrid_runtime:
+                            if eval_pg_selected_secondary_emb_name_runtime:
+                                eval_pg_secondary_emb_obj_runtime = st.session_state.eval_pg_loaded_embedding_models.get(eval_pg_selected_secondary_emb_name_runtime)
+                                secondary_rag_comps_eval_runtime = st.session_state.eval_pg_rag_components_per_embedding_model.get(eval_pg_selected_secondary_emb_name_runtime)
+                                if secondary_rag_comps_eval_runtime:
+                                    eval_pg_secondary_vector_db_runtime = secondary_rag_comps_eval_runtime[0]
 
-                            if not (eval_pg_secondary_emb_obj_runtime and eval_pg_secondary_vector_db_runtime and eval_pg_secondary_emb_obj_runtime != embedding_model_object_for_eval):
-                                use_two_dense_eval_hybrid_runtime = False 
-                            else:
-                                use_two_dense_eval_hybrid_runtime = True
+                                if not (eval_pg_secondary_emb_obj_runtime and eval_pg_secondary_vector_db_runtime and eval_pg_secondary_emb_obj_runtime != embedding_model_object_for_eval):
+                                    use_two_dense_eval_hybrid_runtime = False 
+                                else:
+                                    use_two_dense_eval_hybrid_runtime = True
                     st.write(eval_pg_secondary_emb_obj_runtime, eval_pg_secondary_emb_obj_runtime)
 
                     search_results_eval_run = retriever_instance_for_eval.search(

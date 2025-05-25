@@ -308,7 +308,6 @@ if st.session_state.app_resources_initialized:
                                     if secondary_embedding_model_object_main != active_embedding_model_object_main or \
                                     (secondary_embedding_model_object_main == active_embedding_model_object_main and selected_secondary_emb_name != st.session_state.selected_embedding_model_name): # Đảm bảo khác biệt thực sự
                                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Hybrid mode (2-Dense) với Embedding Phụ: {selected_secondary_emb_name.split('/')[-1]}.")
-                                        # Để use_two_dense_hybrid_from_session giữ nguyên là True
                                     else:
                                         processing_log.append(f"[{time.time() - start_time:.2f}s]: Embedding Phụ giống Embedding Chính. Chuyển sang Hybrid mode (1-Dense).")
                                         use_two_dense_hybrid_from_session = False # Ghi đè nếu không hợp lệ

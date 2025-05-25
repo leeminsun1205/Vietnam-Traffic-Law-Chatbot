@@ -226,14 +226,14 @@ if st.session_state.app_resources_initialized:
                     history_for_llm1_main = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1] 
                     processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi \"{user_query}\"...")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
-                    st.write('A')
+
                     relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                         original_query=user_query,
                         gemini_model=active_gemini_llm_main,
                         chat_history=history_for_llm1_main,
                         num_variations=config.NUM_QUERY_VARIATIONS 
                     )
-                    st.write('B')
+                    
                     if relevance_status == 'invalid':
                         full_response = direct_answer if direct_answer and direct_answer.strip() else "⚠️ Câu hỏi của bạn có vẻ không liên quan đến Luật Giao thông Đường bộ Việt Nam."
                         processing_log.append(f"[{time.time() - start_time:.2f}s] Hoàn tất (Câu hỏi không liên quan).")
@@ -258,15 +258,17 @@ if st.session_state.app_resources_initialized:
 
                         collected_docs_data_main = {}
                         retrieval_start_time = time.time()
-                        st.write('C')
+                        
                         for q_variant in queries_to_search_main:
                             if not q_variant: continue
+                            st.write('A')
                             search_results = active_retriever_main.search( 
                                 q_variant,
                                 active_embedding_model_object_main,
                                 method=retrieval_method_main,
                                 k=config.VECTOR_K_PER_QUERY 
                             )
+                            st.write('B')
                             for item_res in search_results:
                                 doc_idx = item_res['index']
                                 if doc_idx not in collected_docs_data_main:
@@ -282,7 +284,7 @@ if st.session_state.app_resources_initialized:
 
                         reranked_documents_for_llm_main = []
                         rerank_time = 0.0
-                        st.write('D')
+
                         if use_reranker_flag_main and num_unique_docs_main > 0:
                             rerank_start_time = time.time()
                             query_for_reranking_main = summarizing_q if summarizing_q else user_query

@@ -203,7 +203,6 @@ if st.session_state.app_resources_initialized:
             st.session_state.messages.append({"role": "user", "content": user_query})
             with st.chat_message("user"):
                 st.markdown(user_query)
-            st.write('Write')
             with st.chat_message("assistant"):
                 message_placeholder = st.empty()
                 full_response = ""
@@ -227,14 +226,14 @@ if st.session_state.app_resources_initialized:
                     history_for_llm1_main = st.session_state.messages[-(config.MAX_HISTORY_TURNS * 2):-1] 
                     processing_log.append(f"[{time.time() - start_time:.2f}s] Phân tích câu hỏi \"{user_query}\"...")
                     message_placeholder.markdown(" ".join(processing_log) + "⏳")
-
+                    st.write('A')
                     relevance_status, direct_answer, all_queries, summarizing_q = utils.generate_query_variations(
                         original_query=user_query,
                         gemini_model=active_gemini_llm_main,
                         chat_history=history_for_llm1_main,
                         num_variations=config.NUM_QUERY_VARIATIONS 
                     )
-
+                    st.write('B')
                     if relevance_status == 'invalid':
                         full_response = direct_answer if direct_answer and direct_answer.strip() else "⚠️ Câu hỏi của bạn có vẻ không liên quan đến Luật Giao thông Đường bộ Việt Nam."
                         processing_log.append(f"[{time.time() - start_time:.2f}s] Hoàn tất (Câu hỏi không liên quan).")

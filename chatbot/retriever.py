@@ -148,6 +148,7 @@ class Retriever:
                     rank_lists_with_weights.append((vec2_indices_list, config.DENSE2_WEIGHT_HYBRID_3COMP))
                 if bm25_indices_list:
                     rank_lists_with_weights.append((bm25_indices_list, config.SPARSE_WEIGHT_HYBRID_3COMP))
+                st.write(config.DENSE1_WEIGHT_HYBRID_3COMP)
             else: # Chế độ 1 dense + 1 sparse
                 if vec1_indices_list:
                     rank_lists_with_weights.append((vec1_indices_list, config.DENSE_WEIGHT_HYBRID_2COMP))

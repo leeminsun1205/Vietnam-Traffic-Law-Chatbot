@@ -261,14 +261,12 @@ if st.session_state.app_resources_initialized:
                         
                         for q_variant in queries_to_search_main:
                             if not q_variant: continue
-                            st.write('A')
                             search_results = active_retriever_main.search( 
                                 q_variant,
                                 active_embedding_model_object_main,
                                 method=retrieval_method_main,
                                 k=config.VECTOR_K_PER_QUERY 
                             )
-                            st.write('B')
                             for item_res in search_results:
                                 doc_idx = item_res['index']
                                 if doc_idx not in collected_docs_data_main:

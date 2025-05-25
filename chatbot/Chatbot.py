@@ -292,8 +292,9 @@ if st.session_state.app_resources_initialized:
 
                     if st.session_state.retrieval_method == 'Kết hợp':
                         selected_secondary_emb_name = st.session_state.get("selected_secondary_emb_name")
+                        st.write(selected_secondary_emb_name)
                         if use_two_dense_hybrid_from_session: 
-                            if selected_secondary_emb_name: # selected_secondary_emb_name đã được lấy ở trên
+                            if selected_secondary_emb_name: 
                                 secondary_embedding_model_object_main = st.session_state.app_loaded_embedding_models.get(selected_secondary_emb_name)
                                 secondary_rag_components = st.session_state.app_rag_components_per_embedding_model.get(selected_secondary_emb_name)
                                 if secondary_rag_components:

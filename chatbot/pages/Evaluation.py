@@ -195,11 +195,12 @@ def run_retrieval_evaluation(
             
                 for q_var_eval_run in queries_to_search_eval_run:
                     if not q_var_eval_run: continue
-                    use_two_dense_eval_hybrid_runtime = (st.session_state.hybrid_component_mode_eval == "2 Dense + 1 Sparse") 
+                    use_two_dense_eval_hybrid_runtime = (hybrid_component_mode_eval == "2 Dense + 1 Sparse") 
                     eval_secondary_emb_obj_runtime = None
                     eval_secondary_vector_db_runtime = None
-                    if retrieval_method_eval == 'Kết hợp': # Điều kiện mới
+                    if retrieval_method_eval == 'Kết hợp': 
                         eval_selected_secondary_emb_name_runtime = eval_config_params.get("secondary_embedding_model_name")
+                        st.write(eval_selected_secondary_emb_name_runtime)
                         if use_two_dense_eval_hybrid_runtime:
                             if eval_selected_secondary_emb_name_runtime:
                                 eval_secondary_emb_obj_runtime = st.session_state.eval_loaded_embedding_models.get(eval_selected_secondary_emb_name_runtime)

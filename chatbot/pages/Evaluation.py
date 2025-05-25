@@ -200,7 +200,7 @@ def run_retrieval_evaluation(
                     eval_secondary_vector_db_runtime = None
                     if retrieval_method_eval == 'Kết hợp': 
                         eval_selected_secondary_emb_name_runtime = eval_config_params.get("secondary_embedding_model_name")
-                        # st.write(eval_selected_secondary_emb_name_runtime)
+                        
                         if use_two_dense_eval_hybrid_runtime:
                             if eval_selected_secondary_emb_name_runtime:
                                 eval_secondary_emb_obj_runtime = st.session_state.eval_loaded_embedding_models.get(eval_selected_secondary_emb_name_runtime)
@@ -212,7 +212,6 @@ def run_retrieval_evaluation(
                                     use_two_dense_eval_hybrid_runtime = False 
                                 else:
                                     use_two_dense_eval_hybrid_runtime = True
-                    # st.write(eval_secondary_emb_obj_runtime, eval_secondary_emb_obj_runtime)
 
                     search_results_eval_run = retriever_instance_for_eval.search(
                         q_var_eval_run,

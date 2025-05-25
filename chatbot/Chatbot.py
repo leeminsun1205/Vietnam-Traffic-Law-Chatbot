@@ -76,7 +76,7 @@ with st.sidebar:
         help="Chọn mô hình để vector hóa tài liệu và câu hỏi."
     )
     
-    if current_retrieval_method == 'Kết hợp' and config.HYBRID_MODE == "2_dense_1_sparse":
+    if current_retrieval_method == 'Kết hợp' and st.session_state.hybrid_component_mode == "2 Dense + 1 Sparse":
         options_for_secondary = [name for name in available_loaded_embedding_names] 
 
         idx_secondary = 0

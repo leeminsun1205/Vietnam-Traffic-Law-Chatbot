@@ -91,7 +91,7 @@ def run_retrieval_evaluation(
 
     retrieval_query_mode_eval = eval_config_params.get('retrieval_query_mode', 'Mở rộng')
     retrieval_method_eval = eval_config_params.get('retrieval_method', 'Kết hợp')
-    hybrid_component_mode_eval = eval_config_params.get('hybrid_component_mode', '2 Dense + 1 Sparse')
+    hybrid_component_mode_eval = eval_config_params.get('eval_pg_hybrid_component_mode', '2 Dense + 1 Sparse')
     selected_reranker_name_eval_run = eval_config_params.get('selected_reranker_model_name', 'Không sử dụng')
     use_reranker_eval_run = reranking_model_object_for_eval is not None and selected_reranker_name_eval_run != 'Không sử dụng'
     variation_mode_run = eval_config_params.get('variation_mode_used', "Luôn sinh mới (qua LLM)")
@@ -195,7 +195,7 @@ def run_retrieval_evaluation(
             
                 for q_var_eval_run in queries_to_search_eval_run:
                     if not q_var_eval_run: continue
-                    use_two_dense_eval_hybrid_runtime = (st.session_state.hybrid_component_mode_eval == "2 Dense + 1 Sparse") 
+                    use_two_dense_eval_hybrid_runtime = (st.session_state.eval_pg_hybrid_component_mode == "2 Dense + 1 Sparse") 
                     eval_pg_secondary_emb_obj_runtime = None
                     eval_pg_secondary_vector_db_runtime = None
                     if retrieval_method_eval == 'Kết hợp': # Điều kiện mới

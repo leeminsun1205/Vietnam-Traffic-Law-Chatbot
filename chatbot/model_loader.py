@@ -195,10 +195,10 @@ def initialize_evaluation_page_resources():
                             rag_s.update(label=f"RAG cho '{model_n.split('/')[-1]}' (Đánh giá) sẵn sàng.", state="complete")
                         else:
                             rag_s.update(label=f"Lỗi RAG cho '{model_n.split('/')[-1]}' (Đánh giá).", state="error")
-                            eval_init_successful = False; break # Dừng nếu có lỗi RAG
+                            eval_init_successful = False; break 
                     except Exception as e_rag_init:
                         rag_s.update(label=f"Exception RAG cho '{model_n.split('/')[-1]}' (Đánh giá): {e_rag_init}", state="error")
-                        eval_init_successful = False; break # Dừng nếu có lỗi RAG
-    elif not st.session_state.eval_pg_loaded_embedding_models: # Nếu không tải được embedding model nào
+                        eval_init_successful = False; break 
+    elif not st.session_state.eval_pg_loaded_embedding_models: 
         eval_init_successful = False
     return eval_init_successful

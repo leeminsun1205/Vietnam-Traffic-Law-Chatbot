@@ -99,9 +99,11 @@
   },
   {
     "query_id": "eval_013",
-    "query": "Dừng xe nơi có biển cấm dừng phạt bao nhiêu?",
+    "query": "Dừng xe nơi có biển cấm dừng xe phạt bao nhiêu?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_78"
+      "168_2024_NĐ-CP_chunk_72",
+      "168_2024_NĐ-CP_chunk_218",
+      "168_2024_NĐ-CP_chunk_218"
     ]
   },
   {
@@ -116,10 +118,12 @@
     "query": "Chở quá số người quy định trên xe máy phạt thế nào?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_160",
-      "168_2024_NĐ-CP_chunk_205",
-      "168_2024_NĐ-CP_chunk_215",
       "168_2024_NĐ-CP_chunk_165",
-      "168_2024_NĐ-CP_chunk_212"
+      "168_2024_NĐ-CP_chunk_212_3b",
+      "168_2024_NĐ-CP_chunk_205_2g",
+      "168_2024_NĐ-CP_chunk_205_3b",
+      "168_2024_NĐ-CP_chunk_215_10b_2g",
+      "168_2024_NĐ-CP_chunk_215_10b_3b"
     ]
   },
   {
@@ -135,7 +139,13 @@
     "query": "Xe hết hạn đăng kiểm phạt bao nhiêu?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_352",
-      "168_2024_NĐ-CP_chunk_357"
+      "168_2024_NĐ-CP_chunk_357",
+      "168_2024_NĐ-CP_chunk_371_5a",
+      "168_2024_NĐ-CP_chunk_371_6b",
+      "168_2024_NĐ-CP_chunk_650",
+      "168_2024_NĐ-CP_chunk_656",
+      "168_2024_NĐ-CP_chunk_707_9b",
+      "168_2024_NĐ-CP_chunk_707_11a"
     ]
   },
   {
@@ -206,10 +216,8 @@
   },
   {
     "query_id": "eval_027",
-    "query": "Xe nào được ưu tiên đi trước tại vòng xuyến?",
+    "query": "Xe nào được ưu tiên đi trước tại vòng xuyến, không tính xe ưu tiên?",
     "relevant_chunk_ids": [
-      "36_2024_QH15_chunk_195",
-      "36_2024_QH15_chunk_196",
       "36_2024_QH15_chunk_197"
     ]
   },
@@ -305,9 +313,11 @@
   },
   {
     "query_id": "eval_038",
-    "query": "Lắp thêm đèn trợ sáng cho xe máy có bị phạt không?",
+    "query": "Lắp thêm đèn trợ sáng (không đảm bảo tiêu chuẩn kĩ thuật) cho xe máy có bị phạt không?",
     "relevant_chunk_ids": [
+      "36_2024_QH15_chunk_75",
       "168_2024_NĐ-CP_chunk_376",
+      "168_2024_NĐ-CP_chunk_378",
       "168_2024_NĐ-CP_chunk_642"
     ]
   },
@@ -322,9 +332,7 @@
     "query_id": "eval_040",
     "query": "Xe bán tải có niên hạn sử dụng không?",
     "relevant_chunk_ids": [
-      "166_2024_NĐ-CP_chunk_131",
-      "166_2024_NĐ-CP_chunk_132",
-      "166_2024_NĐ-CP_chunk_133"
+      "36_2024_QH15_chunk_363"
     ]
   },
   {
@@ -332,7 +340,10 @@
     "query": "Xe máy có phải kiểm tra khí thải định kỳ không?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_377",
-      "36_2024_QH15_chunk_378"
+      "36_2024_QH15_chunk_378",
+      "47_2024_TT-BGTVT_chunk_200",
+      "47_2024_TT-BGTVT_chunk_201",
+      "47_2024_TT-BGTVT_chunk_202"
     ]
   },
   {
@@ -466,20 +477,24 @@
     "query_id": "eval_056",
     "query": "Xe ưu tiên gồm những loại xe nào? Quyền của xe ưu tiên?",
     "relevant_chunk_ids": [
-      "41_2024_BGTVT_chunk_77",
-      "41_2024_BGTVT_chunk_78",
-      "41_2024_BGTVT_chunk_79",
-      "41_2024_BGTVT_chunk_80",
-      "41_2024_BGTVT_chunk_81",
-      "41_2024_BGTVT_chunk_85",
-      "41_2024_BGTVT_chunk_86"
+      "36_2024_QH15_chunk_220",
+      "36_2024_QH15_chunk_221",
+      "36_2024_QH15_chunk_222",
+      "36_2024_QH15_chunk_223",
+      "36_2024_QH15_chunk_224",
+      "36_2024_QH15_chunk_225",
+      "36_2024_QH15_chunk_229",
+      "36_2024_QH15_chunk_230"
+
     ]
   },
   {
     "query_id": "eval_057",
     "query": "Khi gặp xe cứu thương đang làm nhiệm vụ phải nhường đường thế nào?",
     "relevant_chunk_ids": [
-      "41_2024_BGTVT_chunk_86"
+      "36_2024_QH15_chunk_230",
+      "36_2024_QH15_chunk_130",
+      "36_2024_QH15_chunk_149"
     ]
   },
   {
@@ -507,18 +522,12 @@
   },
   {
     "query_id": "eval_061",
-    "query": "Phải làm gì ngay sau khi xảy ra va chạm giao thông?",
+    "query": "Trách nhiệm của tài xế ngay sau khi gây ra va chạm giao thông?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_688",
       "36_2024_QH15_chunk_689",
       "36_2024_QH15_chunk_690",
-      "36_2024_QH15_chunk_691",
-      "36_2024_QH15_chunk_692",
-      "36_2024_QH15_chunk_693",
-      "36_2024_QH15_chunk_694",
-      "36_2024_QH15_chunk_695",
-      "36_2024_QH15_chunk_696",
-      "36_2024_QH15_chunk_697"
+      "36_2024_QH15_chunk_696"
     ]
   },
   {
@@ -526,15 +535,17 @@
     "query": "Trách nhiệm bồi thường thiệt hại khi gây tai nạn?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_710",
-      "72_2024_TT-BCA_chunk_145"
+      "72_2024_TT-BCA_chunk_145",
+      "72_2024_TT-BCA_chunk_118",
+      "35_2024_TT-BGTVT_chunk_148",
+      "36_2024_QH15_chunk_710"
     ]
   },
   {
     "query_id": "eval_063",
-    "query": "Thế nào được coi là lỗi \"vượt đèn đỏ\"?",
+    "query": "Dắt xe trên lề đường có bị phạt không?",
     "relevant_chunk_ids": [
-      "36_2024_QH15_chunk_103",
-      "41_2024_BGTVT_chunk_61"
+      "36_2024_QH15_chunk_11"
     ]
   },
   {
@@ -644,10 +655,9 @@
   },
   {
     "query_id": "eval_076",
-    "query": "Học lý thuyết để thi bằng lái xe máy hạng A1 có bắt buộc phải học tập trung tại cơ sở đào tạo không?",
+    "query": "Đề thi giấy phép lái xe hạng A1 có bao nhiêu câu? Cần bao nhiêu câu để đạt lí thuyết?",
     "relevant_chunk_ids": [
-      "160_2024_NĐ-CP_chunk_16",
-      "160_2024_NĐ-CP_chunk_17"
+      "65_2024_TT-BCA_chunk_18"
     ]
   },
   {
@@ -775,26 +785,34 @@
     "query_id": "eval_091",
     "query": "Tôi bị trừ hết điểm bằng lái xe thì cần làm gì để được phục hồi điểm?",
     "relevant_chunk_ids": [
-      "65_2024_TT-BCA_chunk_2",
-      "65_2024_TT-BCA_chunk_7"
+      "168_2024_NĐ-CP_chunk_1012",
+      "168_2024_NĐ-CP_chunk_1013",
+      "168_2024_NĐ-CP_chunk_1014",
+      "65_2024_TT-BCA_chunk_25",
+      "65_2024_TT-BCA_chunk_26"
     ]
   },
   {
     "query_id": "eval_092",
-    "query": "Bài kiểm tra lý thuyết và mô phỏng để phục hồi điểm bằng lái xe bao gồm những gì và thi như thế nào?",
+    "query": "Bài kiểm tra lý thuyết và mô phỏng để phục hồi điểm bằng lái xe ô tô bao gồm những gì và thi như thế nào?",
     "relevant_chunk_ids": [
-      "65_2024_TT-BCA_chunk_14",
+      "65_2024_TT-BCA_chunk_26",
+      "65_2024_TT-BCA_chunk_10",
+      "65_2024_TT-BCA_chunk_20",
+      "65_2024_TT-BCA_chunk_21",
+      "65_2024_TT-BCA_chunk_22",
+      "65_2024_TT-BCA_chunk_23",
+      "65_2024_TT-BCA_chunk_24",
       "65_2024_TT-BCA_chunk_15",
-      "65_2024_TT-BCA_chunk_16",
-      "65_2024_TT-BCA_chunk_17"
+      "65_2024_TT-BCA_chunk_24"
     ]
   },
   {
     "query_id": "eval_093",
-    "query": "Thi phục hồi điểm bằng lái cần đạt bao nhiêu điểm là đậu? Nếu thi rớt lý thuyết hoặc mô phỏng thì có được thi lại không?",
+    "query": "Học sinh lớp 9 chạy xe tay ga được không?",
     "relevant_chunk_ids": [
-      "65_2024_TT-BCA_chunk_18",
-      "65_2024_TT-BCA_chunk_24"
+      "36_2024_QH15_chunk_536",
+      "168_2024_NĐ-CP_chunk_419"
     ]
   },
   {
@@ -917,8 +935,7 @@
     "query_id": "eval_108",
     "query": "Khi người đi bộ đang qua đường mà đèn chuyển màu thì phương tiện giao thông có nhường đường hay không ?",
     "relevant_chunk_ids": [
-      "41_2024_BGTVT_chunk_59",
-      "41_2024_BGTVT_chunk_60"
+      "36_2024_QH15_chunk_101"
     ]
   },
   {
@@ -1354,7 +1371,8 @@
     "query": "điều khiển xe máy chạy ở làn dừng xe khẩn cấp hoặc phần lề đường của đường cao tốc có bị phạt không",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_188",
-      "68_2024_NĐ-CP_chunk_214_7b"
+      "168_2024_NĐ-CP_chunk_214_7b",
+      "36_2024_QH15_chunk_213"
     ]
   },
   {
@@ -1477,10 +1495,11 @@
   },
   {
     "query_id": "eval_172",
-    "query": "giao xe máy cho người chưa đủ tuổi có bị phạt không",
+    "query": "Chủ xe giao xe máy cho người chưa đủ tuổi có bị phạt không",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_655",
-      "168_2024_NĐ-CP_chunk_655"
+      "36_2024_QH15_chunk_66",
+      "168_2024_NĐ-CP_chunk_678"
     ]
   },
   {
@@ -2436,14 +2455,15 @@
     "query_id": "eval_276",
     "query": "Xe container chở hàng vượt quá tải trọng cho phép khi lưu thông trên đường bộ sẽ bị xử phạt như thế nào?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_722",
-      "168_2024_NĐ-CP_chunk_727",
-      "168_2024_NĐ-CP_chunk_730",
-      "168_2024_NĐ-CP_chunk_732_2",
-      "168_2024_NĐ-CP_chunk_732_4a",
-      "168_2024_NĐ-CP_chunk_732_5a",
-      "168_2024_NĐ-CP_chunk_733_4a",
-      "168_2024_NĐ-CP_chunk_735_5a"
+      "168_2024_NĐ-CP_chunk_488",
+      "168_2024_NĐ-CP_chunk_496",
+      "168_2024_NĐ-CP_chunk_500",
+      "168_2024_NĐ-CP_chunk_505",
+      "168_2024_NĐ-CP_chunk_507",
+      "168_2024_NĐ-CP_chunk_517_3a",
+      "168_2024_NĐ-CP_chunk_518_6a",
+      "168_2024_NĐ-CP_chunk_520_7a",
+      "168_2024_NĐ-CP_chunk_521_8a"
     ]
   },
   {
@@ -2475,7 +2495,7 @@
   },
   {
     "query_id": "eval_280",
-    "query": "Tài xế xe khách chạy quá tốc độ gây tai nạn giao thông thì sẽ bị xử lý như thế nào theo quy định pháp luật?",
+    "query": "Tài xế xe khách chạy quá tốc độ quy định gây tai nạn giao thông thì sẽ bị xử lý như thế nào theo quy định pháp luật?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_127",
       "168_2024_NĐ-CP_chunk_143_10a",
@@ -2527,7 +2547,7 @@
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_359",
       "168_2024_NĐ-CP_chunk_360",
-      "168_2024_NĐ-CP_chunk_36",
+      "168_2024_NĐ-CP_chunk_361",
       "168_2024_NĐ-CP_chunk_364_8a",
       "168_2024_NĐ-CP_chunk_372_8b",
       "168_2024_NĐ-CP_chunk_373_8a",
@@ -2538,10 +2558,10 @@
     "query_id": "eval_287",
     "query": "Tài xế xe buýt bật còi liên tục trong khu dân cư có vi phạm luật không? Nếu có thì sẽ bị xử phạt ra sao?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_67",
+      "36_2024_QH15_chunk_194",
       "168_2024_NĐ-CP_chunk_74",
-      "168_2024_NĐ-CP_chunk_128_1dd",
-      "168_2024_NĐ-CP_chunk_128_3b"
+      "168_2024_NĐ-CP_chunk_128_3b",
+      "168_2024_NĐ-CP_chunk_143_10b_3b"
     ]
   },
   {
@@ -2549,7 +2569,9 @@
     "query": "Xe tải và xe container đi vào đường cấm theo biển báo sẽ bị xử lý như thế nào?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_107",
-      "168_2024_NĐ-CP_chunk_140_5i"
+      "168_2024_NĐ-CP_chunk_140_5i",
+      "168_2024_NĐ-CP_chunk_127",
+      "168_2024_NĐ-CP_chunk_143_10a"
     ]
   },
   {
@@ -2569,11 +2591,12 @@
   },
   {
     "query_id": "eval_290",
-    "query": "Nếu xe khách đi vào làn đường có biển “Chỉ dành cho xe con”, tài xế có vi phạm không? Nếu có thì sẽ bị phạt như nào?",
+    "query": "Nếu xe khách đi vào làn đường của xe máy, tài xế có vi phạm không? Nếu có thì sẽ bị phạt như nào?",
     "relevant_chunk_ids": [
-      "41_2024_BGTVT_chunk_73",
-      "168_2024_NĐ-CP_chunk_107",
-      "168_2024_NĐ-CP_chunk_140_5i"
+      "168_2024_NĐ-CP_chunk_100",
+      "168_2024_NĐ-CP_chunk_140_5b",
+      "168_2024_NĐ-CP_chunk_127",
+      "168_2024_NĐ-CP_chunk_143_10a"
     ]
   },
   {
@@ -2588,7 +2611,7 @@
   },
   {
     "query_id": "eval_292",
-    "query": "Xe ô tô có được phép vượt các xe khác khi lưu thông trong hầm đường bộ không? Nếu không được phép nhưng xe tải vẫn vi phạm sẽ bị xử lý như thế nào?",
+    "query": "Xe ô tô có được phép vượt các xe khác khi lưu thông trong hầm đường bộ không? Nếu không được phép nhưng ô tô vẫn vi phạm sẽ bị xử lý như thế nào?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_152",
       "168_2024_NĐ-CP_chunk_99",

@@ -266,7 +266,7 @@
   },
   {
     "query_id": "eval_033",
-    "query": "Quy tắc vượt xe bên phải như thế nào?",
+    "query": "Khi nào được phép vượt xe bên phải?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_138",
       "36_2024_QH15_chunk_139"
@@ -1108,9 +1108,9 @@
   },
   {
     "query_id": "eval_130",
-    "query": "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt",
+    "query": "Nếu như giấy phép lái xe về 0 điểm, điều gì sẽ xảy ra?",
     "relevant_chunk_ids": [
-      "11_VBHN-VPQH_chunk_105"
+      "36_2024_QH15_chunk_532"
     ]
   },
   {

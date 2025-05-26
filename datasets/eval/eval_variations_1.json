@@ -416,13 +416,16 @@
     "llm_model_used_for_generation": "models/gemini-2.0-flash"
   },
   "eval_033": {
-    "original_query": "Quy tắc vượt xe bên phải như thế nào?",
-    "relevance_status": "invalid",
-    "direct_answer_if_invalid": "Luật giao thông đường bộ Việt Nam không cho phép vượt xe bên phải, bạn có thể tham khảo quy định về vượt xe bên trái để đảm bảo an toàn giao thông.",
+    "original_query": "Khi nào được phép vượt xe bên phải?",
+    "relevance_status": "valid",
+    "direct_answer_if_invalid": "",
     "all_queries": [
-      "Quy tắc vượt xe bên phải như thế nào?"
+      "Trường hợp nào không tuân thủ quy định về vượt xe bên phải bị xử phạt?",
+      "Khi nào được phép vượt xe bên phải theo quy định của pháp luật giao thông?",
+      "Quy định của Luật Giao thông Đường bộ về vượt xe bên phải?",
+      "Khi nào được phép vượt xe bên phải?"
     ],
-    "summarizing_query": "Quy tắc vượt xe bên phải như thế nào?",
+    "summarizing_query": "Khi nào được phép vượt xe bên phải theo Luật Giao thông Đường bộ Việt Nam?",
     "llm_model_used_for_generation": "models/gemini-2.0-flash"
   },
   "eval_034": {
@@ -1674,13 +1677,16 @@
     "llm_model_used_for_generation": "models/gemini-2.0-flash"
   },
   "eval_130": {
-    "original_query": "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt",
-    "relevance_status": "invalid",
-    "direct_answer_if_invalid": "Bạn có thể cung cấp thêm thông tin chi tiết về loại phương tiện giao thông đường sắt mà bạn quan tâm được không?",
+    "original_query": "Nếu như giấy phép lái xe về 0 điểm, điều gì sẽ xảy ra?",
+    "relevance_status": "valid",
+    "direct_answer_if_invalid": "",
     "all_queries": [
-      "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt"
+      "Hậu quả pháp lý khi giấy phép lái xe bị trừ về 0 điểm là gì?",
+      "Nếu như giấy phép lái xe về 0 điểm, điều gì sẽ xảy ra?",
+      "Quy định về việc xử lý giấy phép lái xe khi không tuân thủ luật giao thông và bị trừ hết điểm như thế nào?",
+      "Giấy phép lái xe bị trừ hết điểm thì điều gì xảy ra theo quy định của Luật Giao thông Đường bộ?"
     ],
-    "summarizing_query": "Không có giấy phép chứng chỉ phù hợp khi điều khiển phương tiện giao thông đường sắt",
+    "summarizing_query": "Nếu giấy phép lái xe bị trừ hết điểm, điều gì sẽ xảy ra theo Luật Giao thông Đường bộ?",
     "llm_model_used_for_generation": "models/gemini-2.0-flash"
   },
   "eval_131": {

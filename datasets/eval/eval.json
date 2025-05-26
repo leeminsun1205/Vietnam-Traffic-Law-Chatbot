@@ -5,23 +5,23 @@
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_161",
       "168_2024_NĐ-CP_chunk_162",
-      "168_2024_NĐ-CP_chunk_290",
-      "168_2024_NĐ-CP_chunk_291",
       "168_2024_NĐ-CP_chunk_321"
     ]
   },
   {
     "query_id": "eval_002",
-    "query": "Chạy quá tốc độ 10 km/h ô tô bị phạt bao nhiêu?",
+    "query": "Chạy quá tốc độ 10 km/h ô tô bị phạt bao nhiêu tiền?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_103"
+      "168_2024_NĐ-CP_chunk_103",
+      "168_2024_NĐ-CP_chunk_127"
     ]
   },
   {
     "query_id": "eval_003",
     "query": "Vượt đèn đỏ xe máy phạt bao nhiêu tiền?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_189"
+      "168_2024_NĐ-CP_chunk_189",
+      "168_2024_NĐ-CP_chunk_205_7c"
     ]
   },
   {
@@ -42,17 +42,14 @@
     "query_id": "eval_006",
     "query": "Không có bằng lái xe A1 phạt bao nhiêu?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_423",
-      "168_2024_NĐ-CP_chunk_430",
-      "168_2024_NĐ-CP_chunk_435"
+      "168_2024_NĐ-CP_chunk_430"
     ]
   },
   {
     "query_id": "eval_007",
     "query": "Không mang giấy phép lái xe ô tô bị phạt thế nào?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_424",
-      "168_2024_NĐ-CP_chunk_442"
+      "168_2024_NĐ-CP_chunk_424"
     ]
   },
   {
@@ -2591,7 +2588,7 @@
   },
   {
     "query_id": "eval_292",
-    "query": "Xe tải có được phép vượt các xe khác khi lưu thông trong hầm đường bộ không? Nếu không được phép nhưng xe tải vẫn vi phạm sẽ bị xử lý như thế nào?",
+    "query": "Xe ô tô có được phép vượt các xe khác khi lưu thông trong hầm đường bộ không? Nếu không được phép nhưng xe tải vẫn vi phạm sẽ bị xử lý như thế nào?",
     "relevant_chunk_ids": [
       "36_2024_QH15_chunk_152",
       "168_2024_NĐ-CP_chunk_99",
@@ -2600,10 +2597,10 @@
   },
   {
     "query_id": "eval_293",
-    "query": "Xe container hoặc xe tải không nhường đường cho xe ưu tiên thì bị xử lý như thế nào?",
+    "query": "Hành vi lùi xe ô tô trên cao tốc bị xử lý như thế nào?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_116",
-      "168_2024_NĐ-CP_chunk_141_6b"
+      "168_2024_NĐ-CP_chunk_133",
+      "168_2024_NĐ-CP_chunk_143_11dd"
     ]
   },
   {
@@ -2634,11 +2631,9 @@
   },
   {
     "query_id": "eval_297",
-    "query": "Xe khách xếp hành lý không đảm bảo an toàn có bị xử phạt không?",
+    "query": "Xe ô tô vận chuyển hành khách để hàng hóa trong khoang chở hành khách bị phạt như thế nào?",
     "relevant_chunk_ids": [
-      "168_2024_NĐ-CP_chunk_454",
-      "168_2024_NĐ-CP_chunk_462",
-      "168_2024_NĐ-CP_chunk_482_5b"
+      "168_2024_NĐ-CP_chunk_454"
     ]
   },
   {
@@ -2646,8 +2641,8 @@
     "query": "Tài xế xe tải vận chuyển chất gây ô nhiễm môi trường nhưng không có giấy phép sẽ bị xử phạt như thế nào?",
     "relevant_chunk_ids": [
       "168_2024_NĐ-CP_chunk_537",
-      "168_2024_NĐ-CP_chunk_538_4",
-      "168_2024_NĐ-CP_chunk_540_5"
+      "168_2024_NĐ-CP_chunk_538_5",
+      "168_2024_NĐ-CP_chunk_540b_5"
     ]
   },
   {

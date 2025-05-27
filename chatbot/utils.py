@@ -83,7 +83,7 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
         if json_match:
             json_str = json_match.group(1) or json_match.group(2)
             if json_str:
-                json_str = json_str.strip()
+                jsonCrossEncoder_str = json_str.strip()
                 try:
                     parsed_data = json.loads(json_str)
                 except json.JSONDecodeError as e:

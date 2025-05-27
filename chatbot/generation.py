@@ -104,7 +104,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
     7.  **Phân biệt loại xe:** Cần phân biệt rõ "xe máy" (xe mô tô, xe gắn máy, ...) và "xe máy chuyên dùng" (xe máy thi công, nông nghiệp, lâm nghiệp, v.v.). Nếu câu hỏi về "xe máy" thì **CHỈ** trả lời "xe mô tô, xe gắn máy". 
     8.  **Logic và suy luận:** Phải thể hiện được tính logic từ câu hỏi đến câu trả lời, đặc biệt với các câu hỏi yêu cầu so sánh, tính toán đơn giản (nếu có thể từ ngữ cảnh), hoặc phân tích tình huống.
     9.  **Trả lời trọng tâm**: Đảm bảo câu trả lời **đủ để giải đáp cho câu hỏi**, không cần trả lời lan man, thông tin không liên quan, trừ khi thật sự cần thiết, nhất là các câu hỏi về phương tiện, biển báo. Với các phương tiện, thực thể nằm sau từ "trừ" thì tức là không có tác dụng vi phạm cho điều luật đó.
-    10. Cung cấp lời khuyên hữu ích dựa trên câu hỏi của người dùng và câu trả lời của bạn. Kiểm tra lại cú pháp Markdown của câu trả lời trước khi hoàn thành.
+    10. Kiểm tra lại cú pháp Markdown của câu trả lời trước khi hoàn thành.
     {placeholder_instruction}
     """
     full_prompt_template = f"""Bạn là một trợ lý chuyên sâu về Luật Giao thông Đường bộ Việt Nam.

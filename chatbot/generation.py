@@ -85,7 +85,7 @@ def generate_answer_with_gemini(query_text, relevant_documents, gemini_model, mo
         "    * **TUYỆT ĐỐI KHÔNG** đặt placeholder ảnh trước trích dẫn nguồn của nó. Placeholder ảnh phải là yếu tố cuối cùng liên quan đến khối thông tin của nguồn đó."
     )
     common_requirements = f"""
-    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn kiến thức ngoài luồng.
+    1.  **Chỉ dùng ngữ cảnh:** Tuyệt đối không suy diễn kiến thức ngoài luồng. Chú ý các câu hỏi mang tính tình huống thường lắt léo nên phải phân tích kĩ đoạn liên quan.
     2.  **Gom nhóm nguồn và trích dẫn:**
         * Khi trích dẫn, hãy tham chiếu đến cấu trúc văn bản (Điều, Khoản, Điểm, tên Văn bản) một cách rõ ràng nhất đã. Ví dụ: `(Theo Điều X, Khoản Y, Điểm z, Văn bản ABC)`.
         * Những đoạn cùng cấu trúc nguồn (Văn bản, Điều, Khoản) **BẮT BUỘC** nhóm nguồn lại với nhau để gọn gàng và dễ nhìn cho người dùng.

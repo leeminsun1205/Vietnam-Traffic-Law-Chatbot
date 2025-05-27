@@ -3,18 +3,18 @@ import os
 
 # --- Cấu hình Mô hình ---
 AVAILABLE_EMBEDDING_MODELS = [
-    'truro7/vn-law-embedding',
     'BAAI/bge-m3',
     'intfloat/multilingual-e5-large',
+    'truro7/vn-law-embedding',
 ]
 DEFAULT_EMBEDDING_MODEL = 'intfloat/multilingual-e5-large'
 DEFAULT_SECONDARY_EMBEDDING_MODEL = 'BAAI/bge-m3'
 
 AVAILABLE_RERANKER_MODELS = [
-    'Không sử dụng',  # Lựa chọn không dùng reranker
+    'thanhtantran/Vietnamese_Reranker'
     'namdp-ptit/ViRanker',
     'BAAI/bge-reranker-v2-m3',
-    'thanhtantran/Vietnamese_Reranker'
+    'Không sử dụng', 
 ]
 DEFAULT_RERANKER_MODEL = 'thanhtantran/Vietnamese_Reranker'
 

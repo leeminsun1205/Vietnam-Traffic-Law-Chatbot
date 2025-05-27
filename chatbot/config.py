@@ -20,7 +20,7 @@ DEFAULT_RERANKER_MODEL = 'thanhtantran/Vietnamese_Reranker'
 
 # --- Danh sách các mô hình Gemini có sẵn ---
 AVAILABLE_GEMINI_MODELS = [
-    'gemini-2.5-flash-preview-04-17',
+    'gemini-2.5-flash-preview-05-20',
     'gemini-2.0-flash',
     'gemini-2.0-flash-lite',
     'gemini-1.5-flash', 

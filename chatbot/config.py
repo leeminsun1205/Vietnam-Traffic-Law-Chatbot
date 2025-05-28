@@ -16,7 +16,7 @@ AVAILABLE_RERANKER_MODELS = [
     'namdp-ptit/ViRanker',
     'Không sử dụng', 
 ]
-DEFAULT_RERANKER_MODEL = ''BAAI/bge-reranker-v2-m3','
+DEFAULT_RERANKER_MODEL = 'BAAI/bge-reranker-v2-m3'
 
 # --- Danh sách các mô hình Gemini có sẵn ---
 AVAILABLE_GEMINI_MODELS = [

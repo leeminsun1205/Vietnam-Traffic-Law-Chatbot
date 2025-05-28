@@ -49,7 +49,7 @@ def generate_query_variations(original_query, gemini_model, chat_history=None, n
         3.  Ưu tiên biến thể chứa "không tuân thủ, không chấp hành" nếu hỏi về lỗi, vi phạm.
         4.  Nếu câu hỏi có **liên quan đến phương tiện** mà hỏi 1 cách tổng quát (không chỉ rõ loại xe nào) phải ưu tiên 1 câu có "xe mô tô, xe gắn máy, các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy" và 1 câu có "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
         5.  Nếu câu hỏi chứa từ "xe máy" thì phải thay thế bằng "xe mô tô, xe gắn máy", ngoại trừ cụm từ "xe máy chuyên dùng".
-        6.  Nếu câu hỏi về có từ "lề", "lề đường" phải chuyển thành "vỉa hè". 
+        6.  Nếu câu hỏi về có từ "lề", "lề đường" phải chuyển thành "vỉa hè", "bằng lái" thì thành "giấy phép lái xe"
         7.  Các loại xe như "xe tải, xe ben, xe container, xe khách, xe buýt, xe đầu kéo sơ-mi rơ-moóc hoặc rơ-moóc, ..." cũng là xe ô tô, nên khi tạo biến thể phải cộng thêm cụm "xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô".
         8.  Đối với summarizing_query cũng phải áp dụng đầy đủ các quy tắc 2, 3, 4, 5, 6, 7.
         ```json

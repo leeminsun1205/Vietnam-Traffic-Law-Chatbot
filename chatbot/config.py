@@ -11,12 +11,12 @@ DEFAULT_EMBEDDING_MODEL = 'BAAI/bge-m3'
 DEFAULT_SECONDARY_EMBEDDING_MODEL = 'truro7/vn-law-embedding'
 
 AVAILABLE_RERANKER_MODELS = [
+    'BAAI/bge-reranker-v2-m3',
     'thanhtantran/Vietnamese_Reranker'
     'namdp-ptit/ViRanker',
-    'BAAI/bge-reranker-v2-m3',
     'Không sử dụng', 
 ]
-DEFAULT_RERANKER_MODEL = 'thanhtantran/Vietnamese_Reranker'
+DEFAULT_RERANKER_MODEL = ''BAAI/bge-reranker-v2-m3','
 
 # --- Danh sách các mô hình Gemini có sẵn ---
 AVAILABLE_GEMINI_MODELS = [

@@ -75,9 +75,9 @@ with st.sidebar:
 
     retrieval_query_mode_choice = st.radio(
         "Nguồn câu hỏi cho truy vấn:", 
-        options=['Đơn giản', 'Mở rộng', 'Đa dạng'],
+        options=['Đơn giản', 'Đa dạng', 'Mở rộng'],
         key="retrieval_query_mode",
-        index = ['Đơn giản', 'Mở rộng', 'Đa dạng'].index(current_retrieval_query_mode), 
+        index = ['Đơn giản', 'Đa dạng', 'Mở rộng'].index(current_retrieval_query_mode), 
         horizontal=True, 
         help=(
             "**Đơn giản:** Chỉ dùng câu hỏi gốc.\n"

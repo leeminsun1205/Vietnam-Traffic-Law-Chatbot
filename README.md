@@ -11,11 +11,10 @@
   - [Cài đặt](#cài-đặt)
   - [Sử dụng](#sử-dụng)
 - [Nguồn dữ liệu](#nguồn-dữ-liệu)
-- [Đóng góp](#đóng-góp)
 - [Giấy phép](#giấy-phép)
 
 ---
-
+![Tổng quan về chatbot luật giao thông đường bộ Việt Nam](images/chat.png)
 ## 🌟 Tính năng nổi bật
 
 - **Hệ thống RAG mạnh mẽ**: Kết hợp LLM (Google Gemini) với hệ thống truy xuất thông tin để trả lời câu hỏi dựa trên văn bản luật.
@@ -35,7 +34,7 @@
 ---
 
 ## 🧠 Kiến trúc hệ thống (RAG Pipeline)
-
+![Tổng quan về chatbot luật giao thông đường bộ Việt Nam](images/pipeline.png)
 1. **Query Expansion**: Sử dụng Gemini để tạo các biến thể câu hỏi nếu hợp lệ.
 2. **Information Retrieval**: Truy xuất tài liệu từ FAISS (Dense) và BM25 (Sparse).
 3. **Reranking**: Dùng Cross-Encoder để đánh giá độ liên quan và sắp xếp lại tài liệu.
@@ -87,82 +86,97 @@ Vietnam-Traffic-Law-Chatbot/
 
 ### Yêu cầu
 
-- Python 3.9+
-- Pip
-- Git
-
-### Cài đặt
-
-```bash
-# Clone repository
-git clone https://github.com/leeminsun1205/Vietnam-Traffic-Law-Chatbot.git
-cd Vietnam-Traffic-Law-Chatbot
-
-# Tạo môi trường ảo (khuyến nghị)
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
-
-# Cài đặt thư viện
-pip install -r requirements.txt
-```
-
-### Cấu hình API Key
-
-Dự án sử dụng mô hình Gemini của Google. Cung cấp API key bằng một trong hai cách:
-
-- **Biến môi trường**:
-
-```bash
-# macOS/Linux
-export GOOGLE_API_KEY="your_api_key_here"
-
-# Windows (Command Prompt)
-set GOOGLE_API_KEY="your_api_key_here"
-```
-
-- **Kaggle Secrets**: Đặt key với tên `GOOGLE_API_KEY`. File `model_loader.py` sẽ tự động tìm.
+- **Kaggle Notebook** hoặc môi trường tương đương hỗ trợ `streamlit`, `ngrok`, và cài thư viện bằng pip.
+- **GOOGLE_API_KEY**: API key của mô hình Google Gemini.
+- **NGROK_AUTH_TOKEN**: Token từ tài khoản [ngrok.com](https://dashboard.ngrok.com/get-started/your-authtoken) để khởi tạo đường hầm.
+- Đảm bảo cả hai đều được lưu trong `Kaggle Secrets` với tên lần lượt là:
+  - `GOOGLE_API_KEY`
+  - `NGROK_AUTH_TOKEN`
 
 ---
 
+### Cài đặt (trên Kaggle)
+
+```python
+# Tải project từ GitHub
+!git clone https://github.com/leeminsun1205/CS431.P22
+%cd CS431.P22/chatbot
+```
+```python
+# Cài đặt thư viện cần thiết
+!pip install -r requirements.txt
+```
+## Cài đặt và chạy ứng dụng Streamlit trong nền
+### Streamlit
+```python 
+import subprocess
+import shlex
+import os
+import time
+
+app_path = "Chatbot.py"
+command = f"streamlit run {app_path} --server.port 8501 --server.headless true --server.enableCORS=false --server.enableXsrfProtection=false"
+
+print(f"Đang chuẩn bị chạy lệnh: {command}")
+
+if not os.path.exists(app_path):
+    print(f"LỖI: Không tìm thấy file {app_path}. Hãy chắc chắn bạn đã clone đúng repository.")
+else:
+    try:
+        print("Đang khởi chạy Streamlit trong nền...")
+        streamlit_process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print(f"Đã khởi chạy Streamlit với PID: {streamlit_process.pid}. Đợi một chút để server khởi động...")
+        time.sleep(10)
+        print("Streamlit server có thể đã sẵn sàng.")
+    except Exception as e:
+        print(f"LỖI khi khởi chạy Streamlit bằng subprocess: {e}")
+```
+### Ngrok
+```python
+# Kết nối Streamlit với internet bằng ngrok
+import os
+from pyngrok import ngrok, conf
+from kaggle_secrets import UserSecretsClient
+
+# Lấy Ngrok token từ Kaggle Secrets
+user_secrets = UserSecretsClient()
+NGROK_AUTH_TOKEN = user_secrets.get_secret("NGROK_AUTH_TOKEN")
+
+conf.get_default().auth_token = NGROK_AUTH_TOKEN
+conf.get_default().region = 'ap'  # Có thể đổi: 'ap', 'us', 'eu', ...
+
+try:
+    # Đóng các tunnel cũ nếu có
+    for tunnel in ngrok.get_tunnels():
+        ngrok.disconnect(tunnel.public_url)
+        print(f"Đã đóng tunnel cũ: {tunnel.public_url}")
+
+    # Mở tunnel mới đến cổng 8501
+    public_url = ngrok.connect(8501, "http")
+    print("="*30)
+    print(f"Ứng dụng Streamlit có thể truy cập tại:")
+    print(public_url)
+    print("="*30)
+    print("(Giữ cell này chạy để duy trì tunnel)")
+except Exception as e:
+    print(f"Lỗi khi mở ngrok tunnel: {e}")
+```
 ### Sử dụng
+Sau khi chạy xong các cell trên, bạn sẽ thấy một đường link được in ra từ ngrok.connect.
 
-#### Chạy ứng dụng Chatbot
-
-```bash
-streamlit run chatbot/Chatbot.py
-```
-
-> Trình duyệt sẽ mở giao diện trò chuyện. Có thể tùy chỉnh mô hình trong sidebar.
-
-#### Chạy trang đánh giá hệ thống
-
-```bash
-streamlit run chatbot/pages/Evaluation.py
-```
-
-> Cho phép đánh giá hệ thống retrieval với bộ câu hỏi và tài liệu thực tế.
-
----
-
+Nhấn vào đường link đó để truy cập vào ứng dụng chatbot trực tiếp từ Kaggle.
 ## 📚 Nguồn dữ liệu
 
-Hệ thống sử dụng các văn bản pháp luật giao thông đường bộ Việt Nam đã được số hóa và xử lý trước.
+- Hệ thống sử dụng các văn bản pháp luật giao thông đường bộ Việt Nam mới nhất.
+Nguồn trực tiếp từ: [Thư viện pháp luật](https://thuvienphapluat.vn/phap-luat/ho-tro-phap-luat/luat-giao-thong-2025-va-cac-nghi-dinh-thong-tu-huong-dan-moi-nhat-luat-giao-thong-2025-gom-cac-luat-939767-198964.html)
+- Các biển báo được thu thập từ [Quy chuẩn kỹ thuật quốc gia QCVN 41:2024/BGTVT](https://luatvietnam.vn/giao-thong/quy-chuan-qcvn-412024-bgtvt-bao-hieu-duong-bo-376856-d3.html) và [Traffic sign in Vietnam wikipedia](https://en.wikipedia.org/wiki/Road_signs_in_Vietnam)
 
-- Các thư mục liên quan: `text/`, `make_datasets/`, `loader/`
+
 
 > ⚠️ **Lưu ý**: Thông tin từ chatbot chỉ mang tính tham khảo, không thay thế cho văn bản pháp luật chính thức hoặc tư vấn pháp lý chuyên sâu.
 
 ---
 
-## 🤝 Đóng góp
-
-Mọi đóng góp được hoan nghênh! Hãy tạo Pull Request hoặc Issue nếu bạn muốn cải tiến dự án.
-
----
-
 ## 📄 Giấy phép
 
-[MIT License](LICENSE)
+[MIT License](.LICENSE)

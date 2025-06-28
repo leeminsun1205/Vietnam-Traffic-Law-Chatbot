@@ -179,4 +179,4 @@ Nguồn trực tiếp từ: [Thư viện pháp luật](https://thuvienphapluat.v
 
 ## 📄 Giấy phép
 
-[MIT License](.LICENSE)
+[MIT License](LICENSE)

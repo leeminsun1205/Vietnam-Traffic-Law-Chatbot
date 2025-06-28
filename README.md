@@ -95,7 +95,7 @@ Vietnam-Traffic-Law-Chatbot/
 
 ```bash
 # Clone repository
-git clone https://github.com/[Tên tài khoản của bạn]/Vietnam-Traffic-Law-Chatbot.git
+git clone https://github.com/leeminsun1205/Vietnam-Traffic-Law-Chatbot.git
 cd Vietnam-Traffic-Law-Chatbot
 
 # Tạo môi trường ảo (khuyến nghị)

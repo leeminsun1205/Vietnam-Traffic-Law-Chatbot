@@ -57,28 +57,29 @@
 
 ## 📁 Cấu trúc thư mục
 
+```
 Vietnam-Traffic-Law-Chatbot/
-├── chatbot/ # Mã nguồn chính
-│ ├── pages/ # Trang con (vd: Evaluation.py)
-│ ├── Chatbot.py # File chạy chính
-│ ├── config.py # Cấu hình mô hình, tham số
-│ ├── data_loader.py # Tải dữ liệu
-│ ├── generation.py # Sinh câu trả lời
-│ ├── model_loader.py # Tải các mô hình
-│ ├── reranker.py # Xếp hạng lại
-│ ├── retriever.py # Truy xuất Dense/Sparse/Hybrid
-│ ├── utils.py # Tiện ích, metrics
-│ └── vector_db.py # Quản lý FAISS DB
-├── datasets/ # Bộ dữ liệu đã xử lý
-├── loader/ # Tải dữ liệu thô
-├── make_datasets/ # Xử lý dữ liệu gốc
-├── notebook/ # Thử nghiệm Jupyter
-├── text/ # Văn bản luật gốc
-├── traffic_sign/ # Ảnh biển báo
+├── chatbot/              # Mã nguồn chính
+│   ├── pages/            # Trang con (vd: Evaluation.py)
+│   ├── Chatbot.py        # File chạy chính
+│   ├── config.py         # Cấu hình mô hình, tham số
+│   ├── data_loader.py    # Tải dữ liệu
+│   ├── generation.py     # Sinh câu trả lời
+│   ├── model_loader.py   # Tải các mô hình
+│   ├── reranker.py       # Xếp hạng lại
+│   ├── retriever.py      # Truy xuất Dense/Sparse/Hybrid
+│   ├── utils.py          # Tiện ích, metrics
+│   └── vector_db.py      # Quản lý FAISS DB
+├── datasets/             # Bộ dữ liệu đã xử lý
+├── loader/               # Tải dữ liệu thô
+├── make_datasets/        # Xử lý dữ liệu gốc
+├── notebook/             # Thử nghiệm Jupyter
+├── text/                 # Văn bản luật gốc
+├── traffic_sign/         # Ảnh biển báo
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
+```
 
 ---
 
@@ -106,37 +107,62 @@ source venv/bin/activate
 
 # Cài đặt thư viện
 pip install -r requirements.txt
-Cấu hình API Key
+```
+
+### Cấu hình API Key
 
 Dự án sử dụng mô hình Gemini của Google. Cung cấp API key bằng một trong hai cách:
 
-    Biến môi trường:
+- **Biến môi trường**:
 
+```bash
 # macOS/Linux
 export GOOGLE_API_KEY="your_api_key_here"
 
 # Windows (Command Prompt)
 set GOOGLE_API_KEY="your_api_key_here"
+```
 
-    Kaggle Secrets: Đặt key với tên GOOGLE_API_KEY. File model_loader.py sẽ tự động tìm.
+- **Kaggle Secrets**: Đặt key với tên `GOOGLE_API_KEY`. File `model_loader.py` sẽ tự động tìm.
 
-Sử dụng
-Chạy ứng dụng Chatbot
+---
 
+### Sử dụng
+
+#### Chạy ứng dụng Chatbot
+
+```bash
 streamlit run chatbot/Chatbot.py
+```
 
-    Trình duyệt sẽ mở giao diện trò chuyện. Có thể tùy chỉnh mô hình trong sidebar.
+> Trình duyệt sẽ mở giao diện trò chuyện. Có thể tùy chỉnh mô hình trong sidebar.
 
-Chạy trang đánh giá hệ thống
+#### Chạy trang đánh giá hệ thống
 
+```bash
 streamlit run chatbot/pages/Evaluation.py
+```
 
-    Cho phép đánh giá hệ thống retrieval với bộ câu hỏi và tài liệu thực tế.
+> Cho phép đánh giá hệ thống retrieval với bộ câu hỏi và tài liệu thực tế.
 
-📚 Nguồn dữ liệu
+---
+
+## 📚 Nguồn dữ liệu
 
 Hệ thống sử dụng các văn bản pháp luật giao thông đường bộ Việt Nam đã được số hóa và xử lý trước.
 
-    Các thư mục liên quan: text/, make_datasets/, loader/
+- Các thư mục liên quan: `text/`, `make_datasets/`, `loader/`
 
-    ⚠️ Lưu ý: Thông tin từ chatbot chỉ mang tính tham khảo, không thay thế cho văn bản pháp luật chính thức hoặc tư vấn pháp lý chuyên sâu.
+> ⚠️ **Lưu ý**: Thông tin từ chatbot chỉ mang tính tham khảo, không thay thế cho văn bản pháp luật chính thức hoặc tư vấn pháp lý chuyên sâu.
+
+---
+
+## 🤝 Đóng góp
+
+Mọi đóng góp được hoan nghênh! Hãy tạo Pull Request hoặc Issue nếu bạn muốn cải tiến dự án.
+
+---
+
+## 📄 Giấy phép
+
+[MIT License](LICENSE)

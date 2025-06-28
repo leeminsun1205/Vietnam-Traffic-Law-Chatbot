@@ -46,7 +46,7 @@
 
 - **Framework**: Streamlit
 - **LLM**: Google Gemini (`google-generativeai`)
-- **Embedding / Reranking**: `Sentence Transformers`, `BAAI/bge-m3`, `bge-reranker-v2-m3`
+- **Embedding / Reranking**: `Sentence Transformers` (`BAAI/bge-m3`, `bge-reranker-v2-m3`, `truro7/vn-law-embedding`)
 - **Vector DB**: FAISS
 - **Sparse Retrieval**: `rank_bm25`
 - **NLP Tools**: `pyvi`, `py-vncorenlp`
@@ -176,6 +176,9 @@ Nguồn trực tiếp từ: [Thư viện pháp luật](https://thuvienphapluat.v
 > ⚠️ **Lưu ý**: Thông tin từ chatbot chỉ mang tính tham khảo, không thay thế cho văn bản pháp luật chính thức hoặc tư vấn pháp lý chuyên sâu.
 
 ---
+## Giới hạn: 
+Hiện tại vì vấn đề tài nguyên nên dự án này được thiết kế để chạy trên Kaggle.
+
 
 ## 📄 Giấy phép
 

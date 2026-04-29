@@ -1,4 +1,8 @@
 # app.py (Chatbot.py)
+import traceback
+import log
+
+log.traceback = traceback
 import streamlit as st
 import time
 import config 
